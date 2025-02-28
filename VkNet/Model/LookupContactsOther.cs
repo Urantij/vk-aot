@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class LookupContactsOther
 	/// <summary>
 	/// Контакт.
 	/// </summary>
-	[JsonProperty("contact")]
+	[JsonPropertyName("contact")]
 	public string Contact { get; set; }
 
 	/// <summary>
 	/// Количество.
 	/// </summary>
-	[JsonProperty("common_count")]
+	[JsonPropertyName("common_count")]
 	public long CommonCount { get; set; }
 }

@@ -1,7 +1,7 @@
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -18,66 +18,66 @@ public class Document : MediaAttachment
 	/// <summary>
 	/// Название документа.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Размер документа в байтах.
 	/// </summary>
-	[JsonProperty("size")]
+	[JsonPropertyName("size")]
 	public long? Size { get; set; }
 
 	/// <summary>
 	/// Расширение документа.
 	/// </summary>
-	[JsonProperty("ext")]
+	[JsonPropertyName("ext")]
 	public string Ext { get; set; }
 
 	/// <summary>
 	/// Адрес документа, по которому его можно загрузить.
 	/// </summary>
-	[JsonProperty("url")]
+	[JsonPropertyName("url")]
 	public string Uri { get; set; }
 
 	/// <summary>
 	/// Дата добавления в формате unixtime.
 	/// </summary>
-	[JsonProperty("date")]
+	[JsonPropertyName("date")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? Date { get; set; }
 
 	/// <summary>
 	/// Тип документа
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public DocumentTypeEnum Type { get; set; }
 
 	/// <summary>
 	/// Информация для предварительного просмотра документа
 	/// </summary>
-	[JsonProperty("preview")]
+	[JsonPropertyName("preview")]
 	public DocumentPreview Preview { get; set; }
 
 	/// <summary>
 	/// Адрес изображения с размером 100x75px (если файл графический).
 	/// </summary>
-	[JsonProperty("photo_100")]
+	[JsonPropertyName("photo_100")]
 	public string Photo100 { get; set; }
 
 	/// <summary>
 	/// Адрес изображения с размером 130x100px (если файл графический).
 	/// </summary>
-	[JsonProperty("photo_130")]
+	[JsonPropertyName("photo_130")]
 	public string Photo130 { get; set; }
 
-	[JsonProperty("did")]
+	[JsonPropertyName("did")]
 	private long? Did
 	{
 		get => Id;
 		set => Id = value;
 	}
 
-	[JsonProperty("doc_id")]
+	[JsonPropertyName("doc_id")]
 	private long? DocId
 	{
 		get => Id;

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -14,66 +14,66 @@ public class AudioCatalog
 	/// <summary>
 	/// Название каталога.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Подзаголовок каталога.
 	/// </summary>
-	[JsonProperty("subtitle")]
+	[JsonPropertyName("subtitle")]
 	public string Subtitle { get; set; }
 
 	/// <summary>
 	/// Тип каталога.
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public AudioCatalogType? Type { get; set; }
 
 	/// <summary>
 	/// Количество каталогов.
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public long Count { get; set; }
 
 	/// <summary>
 	/// Источник каталога.
 	/// </summary>
-	[JsonProperty("source")]
+	[JsonPropertyName("source")]
 	public AudioCatalogSourceType? Source { get; set; }
 
 	/// <summary>
 	/// Идентификатор каталога.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public string Id { get; set; }
 
 	/// <summary>
 	/// Идентификатор на следующуюю пачку.
 	/// </summary>
-	[JsonProperty("next_from")]
+	[JsonPropertyName("next_from")]
 	public string NextFrom { get; set; }
 
 	/// <summary>
 	/// Аудиозаписи.
 	/// </summary>
-	[JsonProperty("audios")]
+	[JsonPropertyName("audios")]
 	public ReadOnlyCollection<AudioCatalogAudio> Audios { get; set; }
 
 	/// <summary>
 	/// Обложки.
 	/// </summary>
-	[JsonProperty("thumbs")]
+	[JsonPropertyName("thumbs")]
 	public ReadOnlyCollection<AudioCover> Thumbs { get; set; }
 
 	/// <summary>
 	/// Плейлисты.
 	/// </summary>
-	[JsonProperty("playlists")]
+	[JsonPropertyName("playlists")]
 	public ReadOnlyCollection<AudioPlaylist> Playlists { get; set; }
 
 	/// <summary>
 	/// Ссылка на аудиозаписи друзей/сообщества.
 	/// </summary>
-	[JsonProperty("items")]
+	[JsonPropertyName("items")]
 	public ReadOnlyCollection<AudioCatalogItem> Items { get; set; }
 }

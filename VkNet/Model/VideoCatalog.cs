@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -14,20 +14,20 @@ public class VideoCatalog
 	/// <summary>
 	/// Список элементов блока видеокаталога
 	/// </summary>
-	[JsonProperty("items")]
+	[JsonPropertyName("items")]
 	public ReadOnlyCollection<VideoCatalogItem> Items { get; set; }
 
 	/// <summary>
 	/// Идентификатор блока. Возвращается строка для предопределенных блоков. Для
 	/// других возвращается число.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public string Id { get; set; }
 
 	/// <summary>
 	/// Заголовок блока.
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
@@ -35,24 +35,24 @@ public class VideoCatalog
 	/// значение в from в следующем вызове,
 	/// чтобы получить содержимое каталога, следующее за полученным в текущем вызове.
 	/// </summary>
-	[JsonProperty("next")]
+	[JsonPropertyName("next")]
 	public string Next { get; set; }
 
 	/// <summary>
 	/// предпочтительный способ отображения контента
 	/// </summary>
-	[JsonProperty(propertyName: "view")]
+	[JsonPropertyName("view")]
 	public VideoView? View { get; set; }
 
 	/// <summary>
 	/// Наличие возможности скрыть блок.
 	/// </summary>
-	[JsonProperty("can_hide")]
+	[JsonPropertyName("can_hide")]
 	public bool? CanHide { get; set; }
 
 	/// <summary>
 	/// Тип блока.
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public VideoCatalogType? Type { get; set; }
 }

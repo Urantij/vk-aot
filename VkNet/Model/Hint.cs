@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,18 +13,18 @@ public class Hint
 	/// <summary>
 	/// Коллекция строк, содержащих слова и (или) Emoji соответствующие стикерам из поля UserStickers
 	/// </summary>
-	[JsonProperty("words")]
+	[JsonPropertyName("words")]
 	public List<string> Words { get; set; }
 
 	/// <summary>
 	/// Стикеры, которые установлены у пользователя
 	/// </summary>
-	[JsonProperty("user_stickers")]
+	[JsonPropertyName("user_stickers")]
 	public List<Sticker> UserStickers { get; set; }
 
 	/// <summary>
 	/// Cтикеры, которым соответствуют ключевые слова words, но наборы с ними у пользователя не установлены
 	/// </summary>
-	[JsonProperty("promoted_stickers")]
+	[JsonPropertyName("promoted_stickers")]
 	public List<Sticker> PromotedStickers { get; set; }
 }

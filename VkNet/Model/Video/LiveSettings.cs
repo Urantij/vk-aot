@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class LiveSettings
 	/// <summary>
 	/// Можно ли перематывать прямую трансляцию
 	/// </summary>
-	[JsonProperty("can_rewind")]
+	[JsonPropertyName("can_rewind")]
 	public int? CanRewind { get; set; }
 
 	/// <summary>
 	/// Является ли прямая трансляция бесконечной
 	/// </summary>
-	[JsonProperty("is_endless")]
+	[JsonPropertyName("is_endless")]
 	public int? IsEndless { get; set; }
 
 	/// <summary>
 	/// Максимальная длительность прямой трансляции в секундах
 	/// </summary>
-	[JsonProperty("max_duration")]
+	[JsonPropertyName("max_duration")]
 	public int? MaxDuration { get; set; }
 }

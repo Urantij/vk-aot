@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class DonutNew : IGroupUpdate
 	/// <summary>
 	/// Идентификатор пользователя
 	/// </summary>
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	public long? UserId { get; set; }
 
 	/// <summary>
 	/// Цена в рублях
 	/// </summary>
-	[JsonProperty("amount")]
+	[JsonPropertyName("amount")]
 	public decimal? Amount { get; set; }
 
 	/// <summary>
 	/// Цена без комиссии (в рублях)
 	/// </summary>
-	[JsonProperty("amount_without_fee")]
+	[JsonPropertyName("amount_without_fee")]
 	public decimal? AmountWithoutFee { get; set; }
 }

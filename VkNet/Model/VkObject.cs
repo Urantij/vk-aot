@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 
 namespace VkNet.Model;
@@ -16,13 +15,13 @@ public class VkObject
 	/// <summary>
 	/// Идентификатор объекта
 	/// </summary>
-	[JsonProperty("object_id")]
+	[JsonPropertyName("object_id")]
 	public long? Id { get; set; }
 
 	/// <summary>
 	/// Тип объекта
 	/// </summary>
-	[JsonProperty("type")]
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonPropertyName("type")]
+	[JsonConverter(typeof(JsonStringEnumConverter<VkObjectType>))]
 	public VkObjectType Type { get; set; }
 }

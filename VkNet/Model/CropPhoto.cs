@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,14 +13,14 @@ public class CropPhoto
 	/// <summary>
 	/// Объект photo фотографии пользователя из которой вырезается профильная аватарка.
 	/// </summary>
-	[JsonProperty("photo")]
+	[JsonPropertyName("photo")]
 	public Photo Photo { get; set; }
 
 	/// <summary>
 	/// Вырезанная фотография пользователя, поля: x, y, x2, y2, координаты указаны в
 	/// процентах.
 	/// </summary>
-	[JsonProperty("crop")]
+	[JsonPropertyName("crop")]
 	public Rect Crop { get; set; }
 
 	/// <summary>
@@ -28,6 +28,6 @@ public class CropPhoto
 	/// координаты также указаны в
 	/// процентах;
 	/// </summary>
-	[JsonProperty("rect")]
+	[JsonPropertyName("rect")]
 	public Rect Rect { get; set; }
 }

@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,14 +12,14 @@ public class GetLookalikeRequestsParams
 	/// <summary>
 	/// Идентификатор рекламного кабинета. обязательный параметр, целое число
 	/// </summary>
-	[JsonProperty("account_id")]
+	[JsonPropertyName("account_id")]
 	public long AccountId { get; set; }
 
 	/// <summary>
 	/// Список идентификаторов запрашиваемых запросов через запятую. Максимальное количество идентификаторов в списке – 200.
 	/// Если этот параметр пуст, возвращаться будут все запросы. строка
 	/// </summary>
-	[JsonProperty("requests_ids")]
+	[JsonPropertyName("requests_ids")]
 	public string RequestsIds { get; set; }
 
 	/// <summary>
@@ -28,20 +28,20 @@ public class GetLookalikeRequestsParams
 	/// update_time – сортировать по убыванию времени последнего обновления статуса
 	/// строка, по умолчанию id
 	/// </summary>
-	[JsonProperty("sort_by")]
+	[JsonPropertyName("sort_by")]
 	public string SortBy { get; set; }
 
 	/// <summary>
 	/// Только для рекламных агентств.
 	/// идентификатор клиента, для которого возвращаются запросы. целое число
 	/// </summary>
-	[JsonProperty("client_id")]
+	[JsonPropertyName("client_id")]
 	public long? ClientId { get; set; }
 
 	/// <summary>
 	/// Смещение. Используется в связке с параметром limit. целое число, минимальное значение 0, по умолчанию 0
 	/// </summary>
-	[JsonProperty("offset")]
+	[JsonPropertyName("offset")]
 	public long? Offset { get; set; }
 
 	/// <summary>
@@ -49,6 +49,6 @@ public class GetLookalikeRequestsParams
 	/// 0 — вернуть только количество запросов в кабинете (у клиента в случае агентства).
 	/// целое число, по умолчанию 10, минимальное значение 0, максимальное значение 200
 	/// </summary>
-	[JsonProperty("limit")]
+	[JsonPropertyName("limit")]
 	public long? Limit { get; set; }
 }

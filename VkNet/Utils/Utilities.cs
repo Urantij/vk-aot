@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
-using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 using VkNet.Exception;
 using VkNet.Infrastructure;
@@ -116,7 +117,10 @@ public static class Utilities
 				jObject[key] = hidden;
 			}
 
-			return jObject.ToString(Formatting.Indented);
+			return jObject.ToJsonString(new()
+			{
+				WriteIndented = true
+			});
 		}
 		catch (VkApiException)
 		{
@@ -133,7 +137,11 @@ public static class Utilities
 	/// </returns>
 	public static string SerializeToJson<T>(T @object)
 	{
-		var result = JsonConvert.SerializeObject(@object, Formatting.Indented);
+		var result = JsonSerializer.Serialize(@object, @object.GetType(), new JsonSerializerOptions()
+		{
+			TypeInfoResolver = GlobalJsonSerializerContext.Default,
+			WriteIndented = true
+		});
 
 		return result == "null"
 			? null
@@ -153,7 +161,7 @@ public static class Utilities
 	{
 		try
 		{
-			result = JsonConvert.DeserializeObject<T>(json, JsonConfigure.JsonSerializerSettings);
+			result = JsonSerializer.Deserialize<T>(json, JsonConfigure.JsonSerializerSettings);
 
 			return true;
 		}

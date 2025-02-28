@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -15,26 +15,26 @@ public class FaveGetPagesObject
 	/// <summary>
 	/// Описание страницы.
 	/// </summary>
-	[JsonProperty("description")]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 
 	/// <summary>
 	/// Тип страницы.
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public UserOrGroupType? Type { get; set; }
 
 	/// <summary>
 	/// Метки страницы.
 	/// </summary>
-	[JsonProperty("tags")]
+	[JsonPropertyName("tags")]
 	public IEnumerable<FaveTag> Tags { get; set; }
 
 	/// <summary>
 	/// Дата обновления.
 	/// </summary>
 	[JsonConverter(typeof(UnixDateTimeConverter))]
-	[JsonProperty("updated_date")]
+	[JsonPropertyName("updated_date")]
 	public DateTime UpdatedDate { get; set; }
 
 	/// <summary>
@@ -43,7 +43,7 @@ public class FaveGetPagesObject
 	/// <remarks>
 	/// См. описание https://vk.com/dev/objects/user
 	/// </remarks>
-	[JsonProperty("user")]
+	[JsonPropertyName("user")]
 	public User User { get; set; }
 
 	/// <summary>
@@ -52,6 +52,6 @@ public class FaveGetPagesObject
 	/// <remarks>
 	/// См. описание http://vk.com/dev/fields_groups
 	/// </remarks>
-	[JsonProperty("group")]
+	[JsonPropertyName("group")]
 	public Group Group { get; set; }
 }

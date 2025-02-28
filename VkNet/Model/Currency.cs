@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Utils;
 
 namespace VkNet.Model;
@@ -13,19 +13,19 @@ public class Currency
 	/// <summary>
 	/// Идентификатор валюты
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long? Id { get; set; }
 
 	/// <summary>
 	/// Буквенное обозначение валюты
 	/// </summary>
 	[Obsolete(ObsoleteText.ObsoleteCyrillicProperty)]
-	[JsonProperty("currency")]
+	[JsonPropertyName("currency")]
 	public string Сurrency { get; set; }
 
 	/// <summary>
 	/// Буквенное обозначение валюты
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 }

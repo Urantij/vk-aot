@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,18 +13,18 @@ public class GetRequestsResult
 	/// <summary>
 	/// Total requests number
 	/// </summary>
-	[JsonProperty(propertyName: "count")]
+	[JsonPropertyName("count")]
 	public uint Count { get; set; }
 
 	/// <summary>
 	/// User ID's
 	/// </summary>
-	[JsonProperty(propertyName: "items")]
+	[JsonPropertyName("items")]
 	public ReadOnlyCollection<long> Items { get; set; }
 
 	/// <summary>
 	/// Total unread requests number
 	/// </summary>
-	[JsonProperty(propertyName: "count_unread")]
+	[JsonPropertyName("count_unread")]
 	public uint CountUnread { get; set; }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class PodcastsGetPopularResult
 	/// <summary>
 	/// Владелец подкаста.
 	/// </summary>
-	[JsonProperty(propertyName: "owner_id")]
+	[JsonPropertyName("owner_id")]
 	public long OwnerId { get; set; }
 
 	/// <summary>
 	/// Название подкаста.
 	/// </summary>
-	[JsonProperty(propertyName: "owner_title")]
+	[JsonPropertyName("owner_title")]
 	public string OwnerTitle { get; set; }
 
 	/// <summary>
 	/// Короткое имя группы подкаста.
 	/// </summary>
-	[JsonProperty(propertyName: "url")]
+	[JsonPropertyName("url")]
 	public string Url { get; set; }
 }

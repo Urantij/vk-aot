@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -14,19 +14,19 @@ public class BoardAddTopicParams
 	/// идентификатор сообщества, в котором находится обсуждение.положительное число,
 	/// обязательный параметр
 	/// </summary>
-	[JsonProperty(propertyName: "group_id")]
+	[JsonPropertyName("group_id")]
 	public long GroupId { get; set; }
 
 	/// <summary>
 	/// название обсуждения. Обязательный параметр.
 	/// </summary>
-	[JsonProperty(propertyName: "title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// текст первого сообщения в обсуждении.
 	/// </summary>
-	[JsonProperty(propertyName: "text")]
+	[JsonPropertyName("text")]
 	public string Text { get; set; }
 
 	/// <summary>
@@ -34,7 +34,7 @@ public class BoardAddTopicParams
 	/// опубликовано от имени пользователя (по
 	/// умолчанию).
 	/// </summary>
-	[JsonProperty(propertyName: "from_group")]
+	[JsonPropertyName("from_group")]
 	public bool? FromGroup { get; set; }
 
 	/// <summary>
@@ -54,6 +54,6 @@ public class BoardAddTopicParams
 	/// Параметр является обязательным, если не задан параметр text. список строк,
 	/// разделенных через запятую.
 	/// </summary>
-	[JsonProperty(propertyName: "attachments")]
+	[JsonPropertyName("attachments")]
 	public IEnumerable<MediaAttachment> Attachments { get; set; }
 }

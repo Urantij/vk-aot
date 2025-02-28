@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,60 +13,60 @@ public class PrettyCard
 	/// <summary>
 	/// Идентификатор карточки
 	/// </summary>
-	[JsonProperty("card_id")]
+	[JsonPropertyName("card_id")]
 	public string CardId { get; set; }
 
 	/// <summary>
 	/// Ссылка на цель
 	/// </summary>
-	[JsonProperty("link_url_target")]
+	[JsonPropertyName("link_url_target")]
 	public string LinkUrlTarget { get; set; }
 
 	/// <summary>
 	/// Ссылка
 	/// </summary>
-	[JsonProperty("link_url")]
+	[JsonPropertyName("link_url")]
 	public string LinkUrl { get; set; }
 
 	/// <summary>
 	/// Заголовок
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Кнопка
 	/// </summary>
-	[JsonProperty("button")]
+	[JsonPropertyName("button")]
 	public Button Button { get; set; }
 
 	/// <summary>
 	/// Фотографии
 	/// </summary>
-	[JsonProperty("images")]
+	[JsonPropertyName("images")]
 	public ReadOnlyCollection<Photo> Images { get; set; }
 
 	/// <summary>
 	/// Текст кнопки.
 	/// </summary>
-	[JsonProperty("button_text")]
+	[JsonPropertyName("button_text")]
 	public string ButtonText { get; set; }
 
 	/// <summary>
 	/// Идентификатор фотографии.
 	/// </summary>
-	[JsonProperty("photo")]
+	[JsonPropertyName("photo")]
 	public string Photo { get; set; }
 
 	/// <summary>
 	/// Цена.
 	/// </summary>
-	[JsonProperty("price")]
+	[JsonPropertyName("price")]
 	public string Price { get; set; }
 
 	/// <summary>
 	/// Старая цена.
 	/// </summary>
-	[JsonProperty("price_old")]
+	[JsonPropertyName("price_old")]
 	public string PriceOld { get; set; }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -14,18 +14,18 @@ public class GetDemographicsResult
 	/// <summary>
 	/// Идентификатор рекламного кабинета. обязательный параметр, целое число
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// обязательный параметр, строка
 	/// </summary>
-	[JsonProperty("stats")]
+	[JsonPropertyName("stats")]
 	public ReadOnlyCollection<DemographicsStats> Stats { get; set; }
 
 	/// <summary>
 	/// обязательный параметр, строка
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public IdsType? Type { get; set; }
 }

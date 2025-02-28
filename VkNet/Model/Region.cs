@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,13 +12,13 @@ public class Region
 	/// <summary>
 	/// Идентификатор региона
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public int Id { get; set; }
 
 	/// <summary>
 	/// Идентификатор региона
 	/// </summary>
-	[JsonProperty("region_id")]
+	[JsonPropertyName("region_id")]
 	public int RegionId
 	{
 		get => Id;
@@ -29,6 +29,6 @@ public class Region
 	/// <summary>
 	/// Название региона
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 }

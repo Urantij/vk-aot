@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -19,18 +19,18 @@ public class ApplicationContent : MediaAttachment
 	/// <summary>
 	/// Название приложения.
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// URL изображения для предпросмотра.
 	/// </summary>
-	[JsonProperty("photo_130")]
+	[JsonPropertyName("photo_130")]
 	public string Photo130 { get; set; }
 
 	/// <summary>
 	/// URL полноразмерного изображения.
 	/// </summary>
-	[JsonProperty("photo_604")]
+	[JsonPropertyName("photo_604")]
 	public string Photo604 { get; set; }
 }

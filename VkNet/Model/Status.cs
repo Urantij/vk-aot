@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,12 +13,12 @@ public class Status
 	/// <summary>
 	/// Текст статуса.
 	/// </summary>
-	[JsonProperty("text")]
+	[JsonPropertyName("text")]
 	public string Text { get; set; }
 
 	/// <summary>
 	/// Информация об играющей в текущей момент у пользователя аудиокомпозиции.
 	/// </summary>
-	[JsonProperty("audio")]
+	[JsonPropertyName("audio")]
 	public Audio Audio { get; set; }
 }

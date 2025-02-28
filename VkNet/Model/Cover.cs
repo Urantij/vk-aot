@@ -1,6 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,6 +13,6 @@ public class Cover
 	/// <summary>
 	/// Размеры
 	/// </summary>
-	[JsonProperty("sizes")]
+	[JsonPropertyName("sizes")]
 	public ReadOnlyCollection<CoverSize> Sizes { get; set; }
 }

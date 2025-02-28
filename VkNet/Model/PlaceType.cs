@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class PlaceType
 	/// <summary>
 	/// Идентификатор
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Наименование
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// URL адрес к иконке
 	/// </summary>
-	[JsonProperty("icon")]
+	[JsonPropertyName("icon")]
 	public Uri Icon { get; set; }
 }

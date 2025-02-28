@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,18 +13,18 @@ public class StickersKeywords
 	/// <summary>
 	/// базовый URL для стикеров
 	/// </summary>
-	[JsonProperty("base_url")]
+	[JsonPropertyName("base_url")]
 	public string BaseUrl { get; set; }
 
 	/// <summary>
 	/// Количество объектов
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public int Count { get; set; }
 
 	/// <summary>
 	/// Коллекция объектов, описывающих подсказки
 	/// </summary>
-	[JsonProperty("dictionary")]
+	[JsonPropertyName("dictionary")]
 	public List<Hint> Dictionary { get; set; }
 }

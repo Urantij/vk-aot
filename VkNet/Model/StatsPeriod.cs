@@ -1,6 +1,6 @@
 ﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -13,32 +13,32 @@ public class StatsPeriod
 	/// <summary>
 	/// Период начала отсчёта.
 	/// </summary>
-	[JsonProperty("period_from")]
+	[JsonPropertyName("period_from")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime PeriodFrom { get; set; }
 
 	/// <summary>
 	/// Период окончания отсчёта.
 	/// </summary>
-	[JsonProperty("period_to")]
+	[JsonPropertyName("period_to")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime PeriodTo { get; set; }
 
 	/// <summary>
 	/// Данные о посетителях и просмотрах.
 	/// </summary>
-	[JsonProperty("visitors")]
+	[JsonPropertyName("visitors")]
 	public VisitorStats Visitors { get; set; }
 
 	/// <summary>
 	/// Данные об охвате.
 	/// </summary>
-	[JsonProperty("reach")]
+	[JsonPropertyName("reach")]
 	public ReachStats Reach { get; set; }
 
 	/// <summary>
 	/// Activity
 	/// </summary>
-	[JsonProperty("activity")]
+	[JsonPropertyName("activity")]
 	public Activity Activity { get; set; }
 }

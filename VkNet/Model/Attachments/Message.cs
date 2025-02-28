@@ -1,8 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 using VkNet.Utils;
 using VkNet.Utils.JsonConverter;
@@ -26,120 +25,120 @@ public class Message : MediaAttachment, IGroupUpdate
 	/// Идентификатор автора сообщения (для исходящего сообщения — идентификатор
 	/// получателя).
 	/// </summary>
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	public long? UserId { get; set; }
 
 	/// <summary>
 	/// Идентификатор автора сообщения.
 	/// </summary>
-	[JsonProperty("from_id")]
+	[JsonPropertyName("from_id")]
 	public long? FromId { get; set; }
 
 	/// <summary>
 	/// Идентификатор назначения.
 	/// </summary>
-	[JsonProperty("peer_id")]
+	[JsonPropertyName("peer_id")]
 	public long? PeerId { get; set; }
 
 	/// <summary>
 	/// Текст сообщения.
 	/// </summary>
-	[JsonProperty("text")]
+	[JsonPropertyName("text")]
 	public string Text { get; set; }
 
 	/// <summary>
 	/// Дата отправки сообщения.
 	/// </summary>
-	[JsonProperty("date")]
+	[JsonPropertyName("date")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? Date { get; set; }
 
 	/// <summary>
 	/// Сервисное поле для сообщений ботам (полезная нагрузка).
 	/// </summary>
-	[JsonProperty("payload")]
+	[JsonPropertyName("payload")]
 	public string Payload { get; set; }
 
 	/// <summary>
 	/// Статус сообщения (не возвращается для пересланных сообщений).
 	/// Не возвращается, начиная с версии апи 5.81
 	/// </summary>
-	[JsonProperty("read_state")]
+	[JsonPropertyName("read_state")]
 	[Obsolete(ObsoleteText.Obsolete)]
 	public MessageReadState? ReadState { get; set; }
 
 	/// <summary>
 	/// Заголовок сообщения или беседы.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Текст сообщения.
 	/// </summary>
-	[JsonProperty("body")]
+	[JsonPropertyName("body")]
 	public string Body { get; set; }
 
 	/// <summary>
 	/// Гео данные.
 	/// </summary>
-	[JsonProperty("geo")]
+	[JsonPropertyName("geo")]
 	public Geo Geo { get; set; }
 
 	/// <summary>
 	/// Массив медиа-вложений (прикреплений).
 	/// </summary>
-	[JsonProperty("attachments")]
-	[JsonConverter(typeof(AttachmentJsonConverter))]
+	[JsonPropertyName("attachments")]
+	// [JsonConverter(typeof(AttachmentJsonConverter))]
 	public ReadOnlyCollection<Attachment> Attachments { get; set; }
 
 	/// <summary>
 	/// Массив пересланных сообщений (если есть).
 	/// </summary>
-	[JsonProperty("fwd_messages")]
+	[JsonPropertyName("fwd_messages")]
 	public ReadOnlyCollection<Message> ForwardedMessages { get; set; }
 
 	/// <summary>
 	/// Содержатся ли в сообщении emoji-смайлы.
 	/// </summary>
-	[JsonProperty("emoji")]
+	[JsonPropertyName("emoji")]
 	public bool? Emoji { get; set; }
 
 	/// <summary>
 	/// Является ли сообщение важным.
 	/// </summary>
-	[JsonProperty("important")]
+	[JsonPropertyName("important")]
 	public bool? Important { get; set; }
 
 	/// <summary>
 	/// Удалено ли сообщение.
 	/// </summary>
-	[JsonProperty("deleted")]
+	[JsonPropertyName("deleted")]
 	public bool? Deleted { get; set; }
 
 	/// <summary>
 	/// Идентификатор, используемый при отправке сообщения. Возвращается только для
 	/// исходящих сообщений.
 	/// </summary>
-	[JsonProperty("random_id")]
+	[JsonPropertyName("random_id")]
 	public long? RandomId { get; set; }
 
 	/// <summary>
 	/// Произвольный параметр для работы с источниками переходов.
 	/// </summary>
-	[JsonProperty("ref")]
+	[JsonPropertyName("ref")]
 	public string Ref { get; set; }
 
 	/// <summary>
 	/// Произвольный параметр для работы с источниками переходов.
 	/// </summary>
-	[JsonProperty("ref_source")]
+	[JsonPropertyName("ref_source")]
 	public string RefSource { get; set; }
 
 	/// <summary>
 	/// Сообщение, в ответ на которое отправлено текущее.
 	/// </summary>
-	[JsonProperty("reply_message")]
+	[JsonPropertyName("reply_message")]
 	public Message ReplyMessage { get; set; }
 
 	#endregion
@@ -149,31 +148,31 @@ public class Message : MediaAttachment, IGroupUpdate
 	/// <summary>
 	/// Идентификатор беседы.
 	/// </summary>
-	[JsonProperty("chat_id")]
+	[JsonPropertyName("chat_id")]
 	public long? ChatId { get; set; }
 
 	/// <summary>
 	/// Идентификаторы участников беседы.
 	/// </summary>
-	[JsonProperty("chat_active")]
+	[JsonPropertyName("chat_active")]
 	public ReadOnlyCollection<long> ChatActive { get; set; }
 
 	/// <summary>
 	/// Настройки уведомлений для беседы, если они есть. sound и disabled_until
 	/// </summary>
-	[JsonProperty("push_settings")]
+	[JsonPropertyName("push_settings")]
 	public ChatPushSettings PushSettings { get; set; }
 
 	/// <summary>
 	/// Количество участников беседы.
 	/// </summary>
-	[JsonProperty("users_count")]
+	[JsonPropertyName("users_count")]
 	public int? UsersCount { get; set; }
 
 	/// <summary>
 	/// Идентификатор создателя беседы.
 	/// </summary>
-	[JsonProperty("admin_id")]
+	[JsonPropertyName("admin_id")]
 	public long? AdminId { get; set; }
 
 	/// <summary>
@@ -184,50 +183,50 @@ public class Message : MediaAttachment, IGroupUpdate
 	/// и <c>chat_create</c>, <c>chat_title_update</c>,
 	/// <c>chat_invite_user</c>, <c>chat_kick_user</c>
 	/// </remarks>
-	[JsonProperty("action")]
+	[JsonPropertyName("action")]
 	public MessageActionObject Action { get; set; }
 
 	/// <summary>
 	/// Идентификатор пользователя (если больше 0) или email (если меньше 0), которого
 	/// пригласили или исключили.
 	/// </summary>
-	[JsonProperty("action_mid")]
+	[JsonPropertyName("action_mid")]
 	public long? ActionMid { get; set; }
 
 	/// <summary>
 	/// Email, который пригласили или исключили.
 	/// </summary>
-	[JsonProperty("action_email")]
+	[JsonPropertyName("action_email")]
 	public string ActionEmail { get; set; }
 
 	/// <summary>
 	/// Название беседы.
 	/// </summary>
-	[JsonProperty("action_text")]
+	[JsonPropertyName("action_text")]
 	public string ActionText { get; set; }
 
 	/// <summary>
 	/// <c> Uri </c> копии фотографии беседы шириной 50px.
 	/// </summary>
-	[JsonProperty("photo_50")]
+	[JsonPropertyName("photo_50")]
 	public string Photo50 { get; set; }
 
 	/// <summary>
 	/// <c> Uri </c> копии фотографии беседы шириной 100px.
 	/// </summary>
-	[JsonProperty("photo_100")]
+	[JsonPropertyName("photo_100")]
 	public string Photo100 { get; set; }
 
 	/// <summary>
 	/// <c> Uri </c> копии фотографии беседы шириной 200px.
 	/// </summary>
-	[JsonProperty("photo_200")]
+	[JsonPropertyName("photo_200")]
 	public string Photo200 { get; set; }
 
 	/// <summary>
 	/// Шаблон сообщения
 	/// </summary>
-	[JsonProperty("template")]
+	[JsonPropertyName("template")]
 	public MessageTemplate Template { get; set; }
 
 	#endregion
@@ -237,13 +236,13 @@ public class Message : MediaAttachment, IGroupUpdate
 	/// <summary>
 	/// Клавиатура, присланная ботом
 	/// </summary>
-	[JsonProperty("keyboard")]
+	[JsonPropertyName("keyboard")]
 	public MessageKeyboard Keyboard { get; set; }
 
 	/// <summary>
 	/// Является ли сообщение обрезаным.
 	/// </summary>
-	[JsonProperty("is_cropped")]
+	[JsonPropertyName("is_cropped")]
 	public bool? IsCropped { get; set; }
 
 	#endregion
@@ -253,45 +252,45 @@ public class Message : MediaAttachment, IGroupUpdate
 	/// <summary>
 	/// Идентификатор сообщения в беседе
 	/// </summary>
-	[JsonProperty("conversation_message_id")]
+	[JsonPropertyName("conversation_message_id")]
 	public long? ConversationMessageId { get; set; }
 
 	/// <summary>
 	/// Идентификатор администратора в беседе
 	/// </summary>
-	[JsonProperty("admin_author_id")]
+	[JsonPropertyName("admin_author_id")]
 	public long? AdminAuthorId { get; set; }
 
 	/// <summary>
 	/// Тип сообщения (не возвращается для пересланных сообщений).
 	/// </summary>
-	[JsonProperty("out")]
+	[JsonPropertyName("out")]
 	public MessageType? Type { get; set; }
 
 	/// <summary>
 	/// Содержит количество непрочитанных сообщений в текущем диалоге (если это
 	/// значение было возвращено, иначе 0)
 	/// </summary>
-	[JsonProperty("unread")]
+	[JsonPropertyName("unread")]
 	public int? Unread { get; set; }
 
 	/// <summary>
 	/// Информация о ссылках на предпросмотр фотографий беседы.
 	/// </summary>
 	[JsonConverter(typeof(PhotoJsonConverter))]
-	[JsonProperty("photo_previews")]
+	[JsonPropertyName("photo_previews")]
 	public Previews PhotoPreviews { get; set; }
 
 	/// <summary>
 	/// Идентификатор последнего прочитанного сообщения текущим пользователем
 	/// </summary>
-	[JsonProperty("in_read")]
+	[JsonPropertyName("in_read")]
 	public ulong? InRead { get; set; }
 
 	/// <summary>
 	/// Идентификатор последнего прочитанного сообщения собеседником
 	/// </summary>
-	[JsonProperty("out_read")]
+	[JsonPropertyName("out_read")]
 	public ulong? OutRead { get; set; }
 
 	/// <summary>
@@ -300,7 +299,7 @@ public class Message : MediaAttachment, IGroupUpdate
 	/// Присутствует только для отредактированных сообщений. Во всех остальных случаях - <c>null</c>
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("update_time")]
+	[JsonPropertyName("update_time")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? UpdateTime { get; set; }
 
@@ -311,7 +310,7 @@ public class Message : MediaAttachment, IGroupUpdate
 	/// TODO @sampletext32
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("is_hidden")]
+	[JsonPropertyName("is_hidden")]
 	public bool IsHidden { get; set; }
 
 	/// <summary>
@@ -320,7 +319,7 @@ public class Message : MediaAttachment, IGroupUpdate
 	/// Присутствует только в закреплённых сообщениях. Во всех остальных случаях - <c>null</c>.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("pinned_at")]
+	[JsonPropertyName("pinned_at")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? PinnedAt { get; set; }
 
@@ -330,13 +329,13 @@ public class Message : MediaAttachment, IGroupUpdate
 	/// Присутствует только в сообщениях с <b>прослушанным</b> <see cref="AudioMessage">голосовым Attachment</see>. Во всех остальных случаях - <c>null</c>.
 	/// </remarks>>
 	/// </summary>
-	[JsonProperty("was_listened")]
+	[JsonPropertyName("was_listened")]
 	public bool? WasListened { get; set; }
 
 	/// <summary>
 	/// Было ли сообщение отправлено с пометкой "Без звука"
 	/// </summary>
-	[JsonProperty("is_silent")]
+	[JsonPropertyName("is_silent")]
 	public bool? IsSilent { get; set; }
 
 	/// <summary>
@@ -345,7 +344,7 @@ public class Message : MediaAttachment, IGroupUpdate
 	/// Присутствует только в саморазрушаемых сообщениях. Во всех остальных случаях - <c>null</c>.
 	/// </remarks>>
 	/// </summary>
-	[JsonProperty("expire_ttl")]
+	[JsonPropertyName("expire_ttl")]
 	public uint? ExpireTtl { get; set; }
 
 	/// <summary>
@@ -354,7 +353,7 @@ public class Message : MediaAttachment, IGroupUpdate
 	/// Присутствует только в <b>истёкших</b> саморазрушаемых сообщениях. Во всех остальных случаях - <c>null</c>.
 	/// </remarks>>
 	/// </summary>
-	[JsonProperty("is_expired")]
+	[JsonPropertyName("is_expired")]
 	public bool? IsExpired { get; set; }
 
 	#endregion

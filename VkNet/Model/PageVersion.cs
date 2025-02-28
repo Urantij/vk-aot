@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,30 +12,30 @@ public class PageVersion
 	/// <summary>
 	/// идентификатор версии страницы;
 	/// </summary>
-	[JsonProperty(propertyName: "id")]
+	[JsonPropertyName("id")]
 	public string Id { get; set; }
 
 	/// <summary>
 	/// длина версии страницы в байтах;
 	/// </summary>
-	[JsonProperty(propertyName: "length")]
+	[JsonPropertyName("length")]
 	public string Length { get; set; }
 
 	/// <summary>
 	/// дата редактирования страницы;
 	/// </summary>
-	[JsonProperty(propertyName: "edited")]
+	[JsonPropertyName("edited")]
 	public string Edited { get; set; }
 
 	/// <summary>
 	/// идентификатор редактора;
 	/// </summary>
-	[JsonProperty(propertyName: "editor_id")]
+	[JsonPropertyName("editor_id")]
 	public string EditorId { get; set; }
 
 	/// <summary>
 	/// имя редактора.
 	/// </summary>
-	[JsonProperty(propertyName: "editor_name")]
+	[JsonPropertyName("editor_name")]
 	public string EditorName { get; set; }
 }

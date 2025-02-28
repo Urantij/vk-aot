@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class RequestParam
 	/// <summary>
 	/// Ключ
 	/// </summary>
-	[JsonProperty("key")]
+	[JsonPropertyName("key")]
 	public string Key { get; set; }
 
 	/// <summary>
 	/// Значение
 	/// </summary>
-	[JsonProperty("value")]
+	[JsonPropertyName("value")]
 	public string Value { get; set; }
 }

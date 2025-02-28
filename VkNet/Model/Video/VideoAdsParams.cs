@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 
 namespace VkNet.Model;
@@ -16,7 +16,7 @@ public class VideoAdsParams
 	/// In my tests it contained my UserId
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("vk_id")]
+	[JsonPropertyName("vk_id")]
 	public long? VkId { get; set; }
 
 	/// <summary>
@@ -25,7 +25,7 @@ public class VideoAdsParams
 	/// Must be duration in seconds
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("duration")]
+	[JsonPropertyName("duration")]
 	public int? Duration { get; set; }
 
 	/// <summary>
@@ -34,7 +34,7 @@ public class VideoAdsParams
 	/// In my tests it contained normal Vk VideoId in this format <c> OwnerId_Id </c>
 	/// </summary>
 	/// </summary>
-	[JsonProperty("video_id")]
+	[JsonPropertyName("video_id")]
 	public string VideoId { get; set; }
 
 	/// <summary>
@@ -43,7 +43,7 @@ public class VideoAdsParams
 	/// No idea what it can be, in my tests it contained basically random number
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("pl")]
+	[JsonPropertyName("pl")]
 	public int? Pl { get; set; }
 
 	/// <summary>
@@ -52,7 +52,7 @@ public class VideoAdsParams
 	/// No idea what it can be, in my tests it contained <c> -[18 digits] </c>
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("content_id")]
+	[JsonPropertyName("content_id")]
 	public string ContentId { get; set; }
 
 	/// <summary>
@@ -61,7 +61,7 @@ public class VideoAdsParams
 	/// This must be a normal Vk <see cref="Language"> Language </see>
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("lang")]
+	[JsonPropertyName("lang")]
 	public int? Lang { get; set; }
 
 	/// <summary>
@@ -70,7 +70,7 @@ public class VideoAdsParams
 	/// All of the puid`s seems random.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("puid1")]
+	[JsonPropertyName("puid1")]
 	public string PuId1 { get; set; }
 
 	/// <summary>
@@ -79,7 +79,7 @@ public class VideoAdsParams
 	/// All of the puid`s seems random.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("puid2")]
+	[JsonPropertyName("puid2")]
 	public int? PuId2 { get; set; }
 
 	/// <summary>
@@ -88,7 +88,7 @@ public class VideoAdsParams
 	/// All of the puid`s seems random.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("puid3")]
+	[JsonPropertyName("puid3")]
 	public int? PuId3 { get; set; }
 
 	/// <summary>
@@ -97,7 +97,7 @@ public class VideoAdsParams
 	/// All of the puid`s seems random.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("puid4")]
+	[JsonPropertyName("puid4")]
 	public int? PuId4 { get; set; }
 
 	/// <summary>
@@ -106,7 +106,7 @@ public class VideoAdsParams
 	/// All of the puid`s seems random.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("puid5")]
+	[JsonPropertyName("puid5")]
 	public int? PuId5 { get; set; }
 
 	/// <summary>
@@ -115,7 +115,7 @@ public class VideoAdsParams
 	/// All of the puid`s seems random.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("puid6")]
+	[JsonPropertyName("puid6")]
 	public int? PuId6 { get; set; }
 
 	/// <summary>
@@ -124,7 +124,7 @@ public class VideoAdsParams
 	/// All of the puid`s seems random.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("puid7")]
+	[JsonPropertyName("puid7")]
 	public int? PuId7 { get; set; }
 
 	/// <summary>
@@ -133,7 +133,7 @@ public class VideoAdsParams
 	/// All of the puid`s seems random.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("puid8")]
+	[JsonPropertyName("puid8")]
 	public int? PuId8 { get; set; }
 
 	/// <summary>
@@ -142,7 +142,7 @@ public class VideoAdsParams
 	/// All of the puid`s seems random.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("puid9")]
+	[JsonPropertyName("puid9")]
 	public int? PuId9 { get; set; }
 
 	/// <summary>
@@ -151,7 +151,7 @@ public class VideoAdsParams
 	/// All of the puid`s seems random.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("puid10")]
+	[JsonPropertyName("puid10")]
 	public int? PuId10 { get; set; }
 
 	/// <summary>
@@ -160,7 +160,7 @@ public class VideoAdsParams
 	/// All of the puid`s seems random.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("puid12")]
+	[JsonPropertyName("puid12")]
 	public int? PuId12 { get; set; }
 
 	/// <summary>
@@ -169,7 +169,7 @@ public class VideoAdsParams
 	/// All of the puid`s seems random.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("puid13")]
+	[JsonPropertyName("puid13")]
 	public int? PuId13 { get; set; }
 
 	/// <summary>
@@ -178,7 +178,7 @@ public class VideoAdsParams
 	/// All of the puid`s seems random.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("puid14")]
+	[JsonPropertyName("puid14")]
 	public int? PuId14 { get; set; }
 
 	/// <summary>
@@ -187,7 +187,7 @@ public class VideoAdsParams
 	/// All of the puid`s seems random.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("puid15")]
+	[JsonPropertyName("puid15")]
 	public int? PuId15 { get; set; }
 
 	/// <summary>
@@ -196,7 +196,7 @@ public class VideoAdsParams
 	/// All of the puid`s seems random.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("puid18")]
+	[JsonPropertyName("puid18")]
 	public int? PuId18 { get; set; }
 
 	/// <summary>
@@ -205,7 +205,7 @@ public class VideoAdsParams
 	/// All of the puid`s seems random.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("puid21")]
+	[JsonPropertyName("puid21")]
 	public int? PuId21 { get; set; }
 
 	/// <summary>
@@ -214,7 +214,7 @@ public class VideoAdsParams
 	/// In my tests it contained 40 random chars, so it must be some hash
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("sign")]
+	[JsonPropertyName("sign")]
 	public string Sign { get; set; }
 
 	/// <summary>
@@ -223,7 +223,7 @@ public class VideoAdsParams
 	/// In my tests it contained GroupId, from which I loaded the videos
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("groupId")]
+	[JsonPropertyName("groupId")]
 	public long? GroupId { get; set; }
 
 	/// <summary>
@@ -232,6 +232,6 @@ public class VideoAdsParams
 	/// Must be some Category Id, in my tests it was 4, 29
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("vk_catid")]
+	[JsonPropertyName("vk_catid")]
 	public int? VkCatId { get; set; }
 }

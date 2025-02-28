@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class GroupChangePhoto : IGroupUpdate
 	/// <summary>
 	/// Идентификатор пользователя, который внес изменения
 	/// </summary>
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	public long? UserId { get; set; }
 
 	/// <summary>
 	/// Фотография
 	/// </summary>
-	[JsonProperty("photo")]
+	[JsonPropertyName("photo")]
 	public Photo Photo { get; set; }
 }

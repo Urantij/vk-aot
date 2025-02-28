@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class Faculty
 	/// <summary>
 	/// Идентификатор факультета
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Название факультета
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 }

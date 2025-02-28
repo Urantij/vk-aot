@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class ChatPhoto
 	/// <summary>
 	/// URL копии фотографии с шириной 50 px
 	/// </summary>
-	[JsonProperty(propertyName: "photo_50")]
+	[JsonPropertyName("photo_50")]
 	public string Photo50 { get; set; }
 
 	/// <summary>
 	/// URL копии фотографии с шириной 100 px
 	/// </summary>
-	[JsonProperty(propertyName: "photo_100")]
+	[JsonPropertyName("photo_100")]
 	public string Photo100 { get; set; }
 
 	/// <summary>
 	/// URL копии фотографии с шириной 200 px
 	/// </summary>
-	[JsonProperty(propertyName: "photo_200")]
+	[JsonPropertyName("photo_200")]
 	public string Photo200 { get; set; }
 }

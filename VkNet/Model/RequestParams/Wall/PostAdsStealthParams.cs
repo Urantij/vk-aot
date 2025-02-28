@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -14,19 +14,19 @@ public class PostAdsStealthParams
 	/// идентификатор владельца стены (идентификатор сообщества нужно указывать со
 	/// знаком «минус»).
 	/// </summary>
-	[JsonProperty(propertyName: "owner_id")]
+	[JsonPropertyName("owner_id")]
 	public long OwnerId { get; set; }
 
 	/// <summary>
 	/// текст записи
 	/// </summary>
-	[JsonProperty(propertyName: "message")]
+	[JsonPropertyName("message")]
 	public string Message { get; set; }
 
 	/// <summary>
 	/// список объектов, приложенных к записи и разделённых символом ",".
 	/// </summary>
-	[JsonProperty(propertyName: "attachments")]
+	[JsonPropertyName("attachments")]
 	public IEnumerable<MediaAttachment> Attachments { get; set; }
 
 	/// <summary>
@@ -34,38 +34,38 @@ public class PostAdsStealthParams
 	/// пользователя, разместившего запись),
 	/// 0 — без подписи.
 	/// </summary>
-	[JsonProperty(propertyName: "signed")]
+	[JsonPropertyName("signed")]
 	public bool? Signed { get; set; }
 
 	/// <summary>
 	/// географическая широта отметки, заданная в градусах (от -90 до 90)
 	/// </summary>
-	[JsonProperty(propertyName: "lat")]
+	[JsonPropertyName("lat")]
 	public double Lat { get; set; }
 
 	/// <summary>
 	/// географическая долгота отметки, заданная в градусах (от -180 до 180).
 	/// </summary>
-	[JsonProperty(propertyName: "long")]
+	[JsonPropertyName("long")]
 	public double Long { get; set; }
 
 	/// <summary>
 	/// идентификатор места.
 	/// </summary>
-	[JsonProperty(propertyName: "place_id")]
+	[JsonPropertyName("place_id")]
 	public ulong PlaceId { get; set; }
 
 	/// <summary>
 	/// уникальный идентификатор, предназначенный для предотвращения повторной отправки
 	/// одинаковой записи.
 	/// </summary>
-	[JsonProperty(propertyName: "guid")]
+	[JsonPropertyName("guid")]
 	public string Guid { get; set; }
 
 	/// <summary>
 	/// идентификатор кнопки, которую необходимо добавить к сниппету для ссылки.
 	/// </summary>
-	[JsonProperty(propertyName: "link_button")]
+	[JsonPropertyName("link_button")]
 	public LinkButton LinkButton { get; set; }
 
 	/// <summary>
@@ -73,7 +73,7 @@ public class PostAdsStealthParams
 	/// Если не указан, будет автоматически получен с целевой ссылки.
 	/// Обязательно указывать в случае, если ссылка является номером телефона.
 	/// </summary>
-	[JsonProperty(propertyName: "link_title")]
+	[JsonPropertyName("link_title")]
 	public string LinkTitle { get; set; }
 
 	/// <summary>
@@ -83,7 +83,7 @@ public class PostAdsStealthParams
 	/// является номером телефона. Одновременно может быть указан либо
 	/// параметр link_image, либо параметр link_video.
 	/// </summary>
-	[JsonProperty(propertyName: "link_image")]
+	[JsonPropertyName("link_image")]
 	public string LinkImage { get; set; }
 
 	/// <summary>
@@ -92,6 +92,6 @@ public class PostAdsStealthParams
 	/// параметр link_video. Кроме того, параметр link_video может быть
 	/// указан только вместе с параметрами link_button, link_title.
 	/// </summary>
-	[JsonProperty(propertyName: "link_video")]
+	[JsonPropertyName("link_video")]
 	public string LinkVideo { get; set; }
 }

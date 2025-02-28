@@ -310,9 +310,9 @@ public partial class MessagesCategory
 			GetLongPollServer(needPts, lpVersion, groupId), token);
 
 	/// <inheritdoc />
-	public Task<LongPollHistoryResponse> GetLongPollHistoryAsync(MessagesGetLongPollHistoryParams @params,
+	public Task<LongPollHistoryMessageResponse> GetLongPollHistoryAsync(MessagesGetLongPollHistoryParams @params,
 																CancellationToken token = default) =>
-		GetLongPollHistoryAsync<LongPollHistoryResponse>(@params, token);
+		GetLongPollHistoryAsync<LongPollHistoryMessageResponse>(@params, token);
 
 	/// <inheritdoc />
 	public Task<T> GetLongPollHistoryAsync<T>(MessagesGetLongPollHistoryParams @params,

@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,23 +12,23 @@ public class FriendList
 	/// <summary>
 	/// Идентификатор метки
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Название метки
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
-	[JsonProperty("list_id")]
+	[JsonPropertyName("list_id")]
 	private long ListId
 	{
 		get => Id;
 		set => Id = value;
 	}
 
-	[JsonProperty("lid")]
+	[JsonPropertyName("lid")]
 	private long Lid
 	{
 		get => Id;

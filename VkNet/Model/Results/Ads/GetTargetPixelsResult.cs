@@ -1,6 +1,6 @@
 ﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -13,37 +13,37 @@ public class GetTargetPixelsResult
 	/// <summary>
 	/// Количество оставшихся методов;
 	/// </summary>
-	[JsonProperty("target_pixel_id")]
+	[JsonPropertyName("target_pixel_id")]
 	public long TargetPixelId { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("last_updated")]
+	[JsonPropertyName("last_updated")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime LastUpdated { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("domain")]
+	[JsonPropertyName("domain")]
 	public string Domain { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("category_id")]
+	[JsonPropertyName("category_id")]
 	public long CategoryId { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("pixel")]
+	[JsonPropertyName("pixel")]
 	public string Pixel { get; set; }
 }

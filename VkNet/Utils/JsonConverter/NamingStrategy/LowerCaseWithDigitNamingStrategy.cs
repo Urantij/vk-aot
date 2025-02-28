@@ -1,15 +1,16 @@
-﻿using System.Linq;
-using Newtonsoft.Json.Serialization;
+﻿using System;
+using System.Linq;
+using System.Text.Json;
 
 namespace VkNet.Utils.JsonConverter;
 
 /// <summary>
 /// Стратегия наменования сущностей в camelCase
 /// </summary>
-public class LowerCaseWithDigitNamingStrategy : NamingStrategy
+public class LowerCaseWithDigitNamingStrategy : JsonNamingPolicy
 {
 	/// <inheritdoc />
-	protected override string ResolvePropertyName(string name)
+	public override string ConvertName(string name)
 	{
 		return string.Concat(name.Select((x, i) => i > 0 && char.IsDigit(x) ? "_" + x : x.ToString())).ToLower();
 	}

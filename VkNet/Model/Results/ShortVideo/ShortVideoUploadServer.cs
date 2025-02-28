@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class ShortVideoUploadServer
 	/// <summary>
 	/// Адрес для загрузки Клипа
 	/// </summary>
-	[JsonProperty("upload_url")]
+	[JsonPropertyName("upload_url")]
 	public Uri UploadUrl { get; set; }
 
 	/// <summary>
 	/// Идентификатор владельца Клипа
 	/// </summary>
-	[JsonProperty("owner_id")]
+	[JsonPropertyName("owner_id")]
 	public long? OwnerId { get; set; }
 
 	/// <summary>
 	/// Идентификатор Клипа
 	/// </summary>
-	[JsonProperty("video_id")]
+	[JsonPropertyName("video_id")]
 	public long? VideoId { get; set; }
 }

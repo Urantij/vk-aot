@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,30 +12,30 @@ public class MarketServices
 	/// <summary>
 	/// Id
 	/// </summary>
-	[JsonProperty("contact_id")]
+	[JsonPropertyName("contact_id")]
 	public long ContactId { get; set; }
 
 	/// <summary>
 	/// Цена
 	/// </summary>
-	[JsonProperty("currency")]
+	[JsonPropertyName("currency")]
 	public Currency Price { get; set; }
 
 	/// <summary>
 	/// Признак активности
 	/// </summary>
-	[JsonProperty("enabled")]
+	[JsonPropertyName("enabled")]
 	public bool? Enabled { get; set; }
 
 	/// <summary>
 	/// Признак возможности отправки сообщений
 	/// </summary>
-	[JsonProperty("can_message")]
+	[JsonPropertyName("can_message")]
 	public bool? CanMessage { get; set; }
 
 	/// <summary>
 	/// Признак возможности комментировать
 	/// </summary>
-	[JsonProperty("comments_enabled")]
+	[JsonPropertyName("comments_enabled")]
 	public bool? CommentsEnabled { get; set; }
 }

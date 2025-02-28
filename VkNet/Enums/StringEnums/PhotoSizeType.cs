@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Enums.StringEnums;
@@ -152,7 +152,7 @@ public enum PhotoSizeType
 	/// <see href="https://dev.vk.com/ru/reference/objects/photo-sizes">Документация</see>
 	/// </remarks>
 	L,
-	
+
 	/// <summary>
 	/// В документации отсутствует описание
 	/// </summary>

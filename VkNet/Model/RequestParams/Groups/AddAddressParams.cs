@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Abstractions;
 using VkNet.Enums.StringEnums;
 
@@ -17,19 +17,19 @@ public class AddAddressParams
 	/// <remarks>
 	/// Положительное число, обязательный параметр
 	/// </remarks>
-	[JsonProperty("group_id")]
+	[JsonPropertyName("group_id")]
 	public ulong GroupId { get; set; }
 
 	/// <summary>
 	/// Заголовок адреса строка, обязательный параметр, максимальная длина 255
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Строка адреса Невский проспект, дом 28 строка, обязательный параметр, максимальная длина 255
 	/// </summary>
-	[JsonProperty("address")]
+	[JsonPropertyName("address")]
 	public string Address { get; set; }
 
 	/// <summary>
@@ -38,7 +38,7 @@ public class AddAddressParams
 	/// <example>
 	/// Второй этаж, налево строка, максимальная длина 400
 	/// </example>
-	[JsonProperty("additional_address")]
+	[JsonPropertyName("additional_address")]
 	public string AdditionalAddress { get; set; }
 
 	/// <summary>
@@ -48,7 +48,7 @@ public class AddAddressParams
 	/// Для получения можно использовать <see cref="IDatabaseCategory"/>.<see cref="IDatabaseCategoryAsync.GetCountriesAsync"/> положительное число,
 	/// обязательный параметр, минимальное значение 1
 	/// </remarks>
-	[JsonProperty("country_id")]
+	[JsonPropertyName("country_id")]
 	public ulong CountryId { get; set; }
 
 	/// <summary>
@@ -58,7 +58,7 @@ public class AddAddressParams
 	/// Для получения можно использовать <see cref="IDatabaseCategory"/>.<see cref="IDatabaseCategoryAsync.GetCitiesAsync"/> положительное число,
 	/// обязательный параметр, минимальное значение 1
 	/// </remarks>
-	[JsonProperty("city_id")]
+	[JsonPropertyName("city_id")]
 	public ulong CityId { get; set; }
 
 	/// <summary>
@@ -67,7 +67,7 @@ public class AddAddressParams
 	/// <remarks>
 	/// Дробное число, обязательный параметр, минимальное значение -90, максимальное значение 90
 	/// </remarks>
-	[JsonProperty("latitude")]
+	[JsonPropertyName("latitude")]
 	public double Latitude { get; set; }
 
 	/// <summary>
@@ -76,19 +76,19 @@ public class AddAddressParams
 	/// <remarks>
 	/// Дробное число, обязательный параметр, минимальное значение -180, максимальное значение 180
 	/// </remarks>
-	[JsonProperty("longitude")]
+	[JsonPropertyName("longitude")]
 	public double Longitude { get; set; }
 
 	/// <summary>
 	/// Номер телефона строка
 	/// </summary>
-	[JsonProperty("phone")]
+	[JsonPropertyName("phone")]
 	public string Phone { get; set; }
 
 	/// <summary>
 	/// Тип расписания.
 	/// </summary>
-	[JsonProperty("work_info_status")]
+	[JsonPropertyName("work_info_status")]
 	public ScheduleWorkInfoStatus? WorkInfoStatus { get; set; }
 
 	/// <summary>
@@ -98,7 +98,7 @@ public class AddAddressParams
 	/// Для получения можно использовать <see cref="IDatabaseCategory"/>.<see cref="IDatabaseCategoryAsync.GetMetroStationsAsync"/>
 	/// положительное число, минимальное значение 0
 	/// </remarks>
-	[JsonProperty("metro_id")]
+	[JsonPropertyName("metro_id")]
 	public ulong? MetroId { get; set; }
 
 	/// <summary>
@@ -106,13 +106,13 @@ public class AddAddressParams
 	/// Время передается в минутах от 0 часов.
 	/// Ключ по дню означает, что день рабочий. open_time, close_time - начало и конец рабочего дня. break_open_time, break_close_time —  время перерыва.
 	/// </summary>
-	[JsonProperty("timetable")]
+	[JsonPropertyName("timetable")]
 	public Timetable Timetable { get; set; }
 
 	/// <summary>
 	/// Установить адрес основным. Информация об основном адресе сразу показывается в сообществе.
 	/// Для получения информации об остальных адресах нужно перейти к списку адресов.
 	/// </summary>
-	[JsonProperty("is_main_address")]
+	[JsonPropertyName("is_main_address")]
 	public bool? IsMainAddress { get; set; }
 }

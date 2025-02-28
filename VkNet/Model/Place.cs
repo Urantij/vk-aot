@@ -1,6 +1,6 @@
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -15,116 +15,116 @@ public class Place
 	/// <summary>
 	/// Идентификатор места.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long? Id { get; set; }
 
 	/// <summary>
 	/// Название места.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Географическая широта, заданная в градусах (от -90 до 90).
 	/// </summary>
-	[JsonProperty("latitude")]
+	[JsonPropertyName("latitude")]
 	public double? Latitude { get; set; }
 
 	/// <summary>
 	/// Географическая долгота, заданная в градусах (от -90 до 90).
 	/// </summary>
-	[JsonProperty("longitude")]
+	[JsonPropertyName("longitude")]
 	public double? Longitude { get; set; }
 
 	/// <summary>
 	/// Идентификатор страны, название которой можно получить с помощью метода
 	/// DatabaseCategory.GetCountriesById
 	/// </summary>
-	[JsonProperty("country_id")]
+	[JsonPropertyName("country_id")]
 	public long? CountryId { get; set; }
 
 	/// <summary>
 	/// Идентификатор города, название которого можно получить с помощью метода
 	/// DatabaseCategory.GetCitiesById
 	/// </summary>
-	[JsonProperty("city_id")]
+	[JsonPropertyName("city_id")]
 	public long? CityId { get; set; }
 
 	/// <summary>
 	/// Строка с указанием адреса места в городе.
 	/// </summary>
-	[JsonProperty("address")]
+	[JsonPropertyName("address")]
 	public string Address { get; set; }
 
 	/// <summary>
 	/// Данный параметр указывается, если местоположение является прикреплённой картой.
 	/// </summary>
-	[JsonProperty("shop_map")]
+	[JsonPropertyName("shop_map")]
 	public bool? ShowMap { get; set; }
 
 	/// <summary>
 	/// Регистрации
 	/// </summary>
-	[JsonProperty("checkins")]
+	[JsonPropertyName("checkins")]
 	public long? Checkins { get; set; }
 
 	/// <summary>
 	/// Дата создания
 	/// </summary>
-	[JsonProperty("created")]
+	[JsonPropertyName("created")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? Created { get; set; }
 
 	/// <summary>
 	/// Дата и время последнего обновления
 	/// </summary>
-	[JsonProperty("updated")]
+	[JsonPropertyName("updated")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? Updated { get; set; }
 
 	/// <summary>
 	/// Тип
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public long? Type { get; set; }
 
 	/// <summary>
 	/// Иконка
 	/// </summary>
-	[JsonProperty("icon")]
+	[JsonPropertyName("icon")]
 	public Uri Icon { get; set; }
 
 	/// <summary>
 	/// Страна, в которой находится место.
 	/// </summary>
-	[JsonProperty("country")]
+	[JsonPropertyName("country")]
 	public string Country { get; set; }
 
 	/// <summary>
 	/// Город, в котором находится место.
 	/// </summary>
-	[JsonProperty("city")]
+	[JsonPropertyName("city")]
 	public string City { get; set; }
 
 	/// <summary>
 	/// Расстояние от исходной точки
 	/// </summary>
-	[JsonProperty("distance")]
+	[JsonPropertyName("distance")]
 	public long? Distance { get; set; }
 
 	/// <summary>
 	/// Идентификатор группы
 	/// </summary>
-	[JsonProperty("group_id")]
+	[JsonPropertyName("group_id")]
 	public long? GroupId { get; set; }
 
 	/// <summary>
 	/// Ссылка на фото группы
 	/// </summary>
-	[JsonProperty("group_photo")]
+	[JsonPropertyName("group_photo")]
 	public Uri GroupPhoto { get; set; }
 
-	[JsonProperty("place_id")]
+	[JsonPropertyName("place_id")]
 	private long? PlaceId
 	{
 		get => Id;

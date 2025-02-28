@@ -1,6 +1,6 @@
 ﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -13,19 +13,19 @@ public class ConversationPushSettings
 	/// <summary>
 	/// timestamp, до которого оповещения отключены;
 	/// </summary>
-	[JsonProperty("disable_until")]
+	[JsonPropertyName("disable_until")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime DisableUntil { get; set; }
 
 	/// <summary>
 	/// Передается в случае, если оповещения отключены навсегда, содержит true;
 	/// </summary>
-	[JsonProperty("disabled_forever")]
+	[JsonPropertyName("disabled_forever")]
 	public bool? DisabledForever { get; set; }
 
 	/// <summary>
 	/// Передается в случае, если отключен звук оповещений, содержит true.
 	/// </summary>
-	[JsonProperty("no_sound")]
+	[JsonPropertyName("no_sound")]
 	public bool? NoSound { get; set; }
 }

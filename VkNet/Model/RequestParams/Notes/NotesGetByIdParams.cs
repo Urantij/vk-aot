@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,19 +12,19 @@ public class NotesGetByIdParams
 	/// <summary>
 	/// идентификатор заметки (обязательный параметр).
 	/// </summary>
-	[JsonProperty("note_id")]
+	[JsonPropertyName("note_id")]
 	public long? NoteId { get; set; }
 
 	/// <summary>
 	/// идентификатор владельца заметки (по умолчанию идентификатор текущего пользователя).
 	/// </summary>
-	[JsonProperty("owner_id")]
+	[JsonPropertyName("owner_id")]
 	public long? OwnerId { get; set; }
 
 	/// <summary>
 	/// определяет, требуется ли в ответе wiki-представление заметки
-	///(работает, только если запрашиваются заметки текущего пользователя). 
+	///(работает, только если запрашиваются заметки текущего пользователя).
 	/// </summary>
-	[JsonProperty("need_wiki")]
+	[JsonPropertyName("need_wiki")]
 	public bool? IsNeedWiki { get; set; }
 }

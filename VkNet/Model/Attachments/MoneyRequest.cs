@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -15,30 +15,30 @@ public class MoneyRequest : MediaAttachment
 	/// <summary>
 	/// Идентификатор инициатора
 	/// </summary>
-	[JsonProperty("from_id")]
+	[JsonPropertyName("from_id")]
 	public long FromId { get; set; }
 
 	/// <summary>
 	/// Идентификатор получателя
 	/// </summary>
-	[JsonProperty("to_id")]
+	[JsonPropertyName("to_id")]
 	public long ToId { get; set; }
 
 	/// <summary>
 	/// Статус обработанности
 	/// </summary>
-	[JsonProperty("processed")]
+	[JsonPropertyName("processed")]
 	public bool Processed { get; set; }
 
 	/// <summary>
 	/// Количество
 	/// </summary>
-	[JsonProperty("amount")]
+	[JsonPropertyName("amount")]
 	public AmountObject Amount { get; set; }
 
 	/// <summary>
 	/// Ссылка на выставленный счет
 	/// </summary>
-	[JsonProperty("init_url")]
+	[JsonPropertyName("init_url")]
 	public Uri InitUrl { get; set; }
 }

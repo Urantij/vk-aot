@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -14,12 +14,12 @@ public class WallReplyGroupUpdate : Comment, IGroupUpdate
 	/// <summary>
 	/// Идентификатор записи
 	/// </summary>
-	[JsonProperty("post_id")]
+	[JsonPropertyName("post_id")]
 	public new long? PostId { get; set; }
 
 	/// <summary>
 	/// Идентификатор владельца записи
 	/// </summary>
-	[JsonProperty("post_owner_id")]
+	[JsonPropertyName("post_owner_id")]
 	public long? PostOwnerId { get; set; }
 }

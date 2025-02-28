@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class Start
 	/// <summary>
 	/// Сессия рекламной акции.
 	/// </summary>
-	[JsonProperty(propertyName: "vk_sid")]
+	[JsonPropertyName("vk_sid")]
 	public string VkSid { get; set; }
 
 	/// <summary>
 	/// Режим транзакции (1 — тестовый, 0 — реальный);
 	/// </summary>
-	[JsonProperty(propertyName: "test_mode")]
+	[JsonPropertyName("test_mode")]
 	public int? TestMode { get; set; }
 }

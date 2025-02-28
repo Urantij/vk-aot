@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,27 +12,27 @@ public class GetAdsLayoutParams
 	/// <summary>
 	/// Идентификатор рекламного кабинета. обязательный параметр, целое число
 	/// </summary>
-	[JsonProperty("account_id")]
+	[JsonPropertyName("account_id")]
 	public long AccountId { get; set; }
 
 	/// <summary>
 	/// Фильтр по рекламным кампаниям.
 	/// Сериализованный JSON-массив, содержащий id кампаний. Если параметр равен null, то будут выводиться рекламные объявления всех кампаний. строка
 	/// </summary>
-	[JsonProperty("campaign_ids")]
+	[JsonPropertyName("campaign_ids")]
 	public string CampaignIds { get; set; }
 
 	/// <summary>
 	/// Фильтр по рекламным объявлениям.
 	/// Сериализованный JSON-массив, содержащий id объявлений. Если параметр равен null, то будут выводиться все рекламные объявления. строка
 	/// </summary>
-	[JsonProperty("ad_ids")]
+	[JsonPropertyName("ad_ids")]
 	public string AdIds { get; set; }
 
 	/// <summary>
 	/// Для рекламных агентств. Идентификатор клиента, у которого запрашиваются рекламные объявления. целое число
 	/// </summary>
-	[JsonProperty("client_id")]
+	[JsonPropertyName("client_id")]
 	public long? ClientId { get; set; }
 
 	/// <summary>
@@ -41,24 +41,24 @@ public class GetAdsLayoutParams
 	/// 1 — выводить все объявления.
 	/// флаг, может принимать значения 1 или 0
 	/// </summary>
-	[JsonProperty("include_deleted")]
+	[JsonPropertyName("include_deleted")]
 	public bool? IncludeDeleted { get; set; }
 
 	/// <summary>
 	/// Флаг, задающий вывод только архивных объявлений. 0 — выводить все объявления; 1 — выводить только архивные объявления.
 	/// </summary>
-	[JsonProperty("only_deleted")]
+	[JsonPropertyName("only_deleted")]
 	public bool? OnlyDeleted { get; set; }
 
 	/// <summary>
 	/// Ограничение на количество возвращаемых объявлений. Используется, только если параметр ad_ids равен null, а параметр campaign_ids содержит id только одной кампании. целое число
 	/// </summary>
-	[JsonProperty("limit")]
+	[JsonPropertyName("limit")]
 	public long? Limit { get; set; }
 
 	/// <summary>
 	/// Смещение. Используется в тех же случаях, что и параметр limit. целое число
 	/// </summary>
-	[JsonProperty("offset")]
+	[JsonPropertyName("offset")]
 	public long? Offset { get; set; }
 }

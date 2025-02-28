@@ -1,4 +1,5 @@
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using VkNet.Model;
 
 namespace VkNet.Utils;
@@ -21,7 +22,7 @@ public class AttachmentConverterService
 	/// <returns>
 	/// Вложение
 	/// </returns>
-	public virtual Attachment FromJson(JToken item)
+	public virtual Attachment FromJson(JsonNode item)
 	{
 		var type = item["type"]
 			.ToString();
@@ -31,59 +32,59 @@ public class AttachmentConverterService
 		var attachment = type switch
 		{
 			"link" => CreateTyped(typeToken
-				.ToObject<Link>()),
+				.Deserialize<Link>(GlobalJsonSerializerOptions.Options)),
 			"photo" or "posted_photo" => CreateTyped(typeToken
-				.ToObject<Photo>()),
+				.Deserialize<Photo>(GlobalJsonSerializerOptions.Options)),
 			"audio" => CreateTyped(typeToken
-				.ToObject<Audio>()),
+				.Deserialize<Audio>(GlobalJsonSerializerOptions.Options)),
 			"video" => CreateTyped(typeToken
-				.ToObject<Video>()),
+				.Deserialize<Video>(GlobalJsonSerializerOptions.Options)),
 			"doc" => CreateTyped(typeToken
-				.ToObject<Document>()),
+				.Deserialize<Document>(GlobalJsonSerializerOptions.Options)),
 			"podcast" => CreateTyped(typeToken
-				.ToObject<Podcast>()),
+				.Deserialize<Podcast>(GlobalJsonSerializerOptions.Options)),
 			"article" => CreateTyped(typeToken
-				.ToObject<Article>()),
+				.Deserialize<Article>(GlobalJsonSerializerOptions.Options)),
 			"event" => CreateTyped(typeToken
-				.ToObject<Event>()),
+				.Deserialize<Event>(GlobalJsonSerializerOptions.Options)),
 			"graffiti" => CreateTyped(typeToken
-				.ToObject<Graffiti>()),
+				.Deserialize<Graffiti>(GlobalJsonSerializerOptions.Options)),
 			"money_transfer" => CreateTyped(typeToken
-				.ToObject<MoneyTransfer>()),
+				.Deserialize<MoneyTransfer>(GlobalJsonSerializerOptions.Options)),
 			"money_request" => CreateTyped(typeToken
-				.ToObject<MoneyRequest>()),
+				.Deserialize<MoneyRequest>(GlobalJsonSerializerOptions.Options)),
 			"note" => CreateTyped(typeToken
-				.ToObject<Note>()),
+				.Deserialize<Note>(GlobalJsonSerializerOptions.Options)),
 			"poll" => CreateTyped(typeToken
-				.ToObject<Poll>()),
+				.Deserialize<Poll>(GlobalJsonSerializerOptions.Options)),
 			"page" => CreateTyped(typeToken
-				.ToObject<Page>()),
+				.Deserialize<Page>(GlobalJsonSerializerOptions.Options)),
 			"album" => CreateTyped(typeToken
-				.ToObject<Album>()),
+				.Deserialize<Album>(GlobalJsonSerializerOptions.Options)),
 			"photos_list" => CreateTyped(typeToken
-				.ToObject<PhotosList>()),
+				.Deserialize<PhotosList>(GlobalJsonSerializerOptions.Options)),
 			"wall" => CreateTyped(typeToken
-				.ToObject<Wall>()),
+				.Deserialize<Wall>(GlobalJsonSerializerOptions.Options)),
 			"sticker" => CreateTyped(typeToken
-				.ToObject<Sticker>()),
+				.Deserialize<Sticker>(GlobalJsonSerializerOptions.Options)),
 			"wall_reply" => CreateTyped(typeToken
-				.ToObject<WallReply>()),
+				.Deserialize<WallReply>(GlobalJsonSerializerOptions.Options)),
 			"market_album" => CreateTyped(typeToken
-				.ToObject<MarketAlbum>()),
+				.Deserialize<MarketAlbum>(GlobalJsonSerializerOptions.Options)),
 			"market" => CreateTyped(typeToken
-				.ToObject<Market>()),
+				.Deserialize<Market>(GlobalJsonSerializerOptions.Options)),
 			"pretty_cards" => CreateTyped(typeToken
-				.ToObject<PrettyCards>()),
+				.Deserialize<PrettyCards>(GlobalJsonSerializerOptions.Options)),
 			"audio_message" => CreateTyped(typeToken
-				.ToObject<AudioMessage>()),
+				.Deserialize<AudioMessage>(GlobalJsonSerializerOptions.Options)),
 			"call" => CreateTyped(typeToken
-				.ToObject<Call>()),
+				.Deserialize<Call>(GlobalJsonSerializerOptions.Options)),
 			"story" => CreateTyped(typeToken
-				.ToObject<Story>()),
+				.Deserialize<Story>(GlobalJsonSerializerOptions.Options)),
 			"audio_playlist" => CreateTyped(typeToken
-				.ToObject<AudioPlaylist>()),
+				.Deserialize<AudioPlaylist>(GlobalJsonSerializerOptions.Options)),
 			var _ => CreateTyped(typeToken
-				.ToObject<UnknownAttachment>())
+				.Deserialize<UnknownAttachment>(GlobalJsonSerializerOptions.Options))
 		};
 
 		return attachment;

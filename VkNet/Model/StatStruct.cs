@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,25 +12,25 @@ public class StatsStruct
 	/// <summary>
 	/// Аудитория для показателя value;.
 	/// </summary>
-	[JsonProperty("visitors")]
+	[JsonPropertyName("visitors")]
 	public long Visitors { get; set; }
 
 	/// <summary>
 	/// Значение демографического показателя, имеет разные возможные значения для
 	/// разных показателей.
 	/// </summary>
-	[JsonProperty("value")]
+	[JsonPropertyName("value")]
 	public string Value { get; set; }
 
 	/// <summary>
 	/// Код страны.
 	/// </summary>
-	[JsonProperty("code")]
+	[JsonPropertyName("code")]
 	public string Code { get; set; }
 
 	/// <summary>
 	/// Наглядное название значения указанного в value (только для городов).
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 }

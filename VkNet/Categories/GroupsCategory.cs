@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Newtonsoft.Json;
+using System.Text.Json;
 using VkNet.Abstractions;
 using VkNet.Enums.Filters;
 using VkNet.Enums.StringEnums;
@@ -1097,46 +1097,46 @@ public partial class GroupsCategory : IGroupsCategory
 		return _vk.Call<CallbackSettings>("groups.getCallbackSettings", parameters);
 	}
 
-	/// <inheritdoc />
-	public bool SetCallbackSettings(CallbackServerParams @params)
-	{
-		var res = new VkParameters
-		{
-			{
-				"group_id", @params.GroupId
-			},
-			{
-				"server_id", @params.ServerId
-			}
-		};
-
-		if (@params.CallbackSettings is not null)
-		{
-			var props = @params.CallbackSettings.GetType()
-				.GetProperties();
-
-			foreach (var t in props)
-			{
-				if (!(t.GetCustomAttributes(typeof(JsonPropertyAttribute), true)
-						.FirstOrDefault() is JsonPropertyAttribute jsonAttr))
-				{
-					continue;
-				}
-
-				if (t.GetValue(@params.CallbackSettings, null) is bool propVal)
-				{
-					res.Add(jsonAttr.PropertyName, propVal);
-				}
-			}
-		}
-
-		if (@params.ApiVersion is not null)
-		{
-			res["api_version"] = @params.ApiVersion.Version;
-		}
-
-		return _vk.Call<bool>("groups.setCallbackSettings", res);
-	}
+	// /// <inheritdoc />
+	// public bool SetCallbackSettings(CallbackServerParams @params)
+	// {
+	// 	var res = new VkParameters
+	// 	{
+	// 		{
+	// 			"group_id", @params.GroupId
+	// 		},
+	// 		{
+	// 			"server_id", @params.ServerId
+	// 		}
+	// 	};
+	//
+	// 	if (@params.CallbackSettings is not null)
+	// 	{
+	// 		var props = @params.CallbackSettings.GetType()
+	// 			.GetProperties();
+	//
+	// 		foreach (var t in props)
+	// 		{
+	// 			if (!(t.GetCustomAttributes(typeof(JsonPropertyAttribute), true)
+	// 					.FirstOrDefault() is JsonPropertyAttribute jsonAttr))
+	// 			{
+	// 				continue;
+	// 			}
+	//
+	// 			if (t.GetValue(@params.CallbackSettings, null) is bool propVal)
+	// 			{
+	// 				res.Add(jsonAttr.PropertyName, propVal);
+	// 			}
+	// 		}
+	// 	}
+	//
+	// 	if (@params.ApiVersion is not null)
+	// 	{
+	// 		res["api_version"] = @params.ApiVersion.Version;
+	// 	}
+	//
+	// 	return _vk.Call<bool>("groups.setCallbackSettings", res);
+	// }
 
 	/// <inheritdoc />
 	public LongPollServerResponse GetLongPollServer(ulong groupId) => _vk.Call<LongPollServerResponse>("groups.getLongPollServer",
@@ -1210,7 +1210,7 @@ public partial class GroupsCategory : IGroupsCategory
 			}
 		}
 
-		return JsonConvert.DeserializeObject<T>(response.RawJson);
+		return JsonSerializer.Deserialize<T>(response.RawJson, GlobalJsonSerializerOptions.Options);
 	}
 
 	/// <inheritdoc />

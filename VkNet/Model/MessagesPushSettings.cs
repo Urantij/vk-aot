@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class MessagesPushSettings
 	/// <summary>
 	/// Отключить звук.
 	/// </summary>
-	[JsonProperty("no_sound")]
+	[JsonPropertyName("no_sound")]
 	public bool NoSound { get; set; }
 
 	/// <summary>
 	/// Не передавать текст сообщения.
 	/// </summary>
-	[JsonProperty("no_text")]
+	[JsonPropertyName("no_text")]
 	public bool NoText { get; set; }
 }

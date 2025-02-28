@@ -1,8 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 using VkNet.Enums.StringEnums;
 using VkNet.Utils.JsonConverter;
@@ -23,21 +22,21 @@ public class Group
 	/// </summary>
 	public Group() => Type = new();
 
-	[JsonProperty("finish_date")]
+	[JsonPropertyName("finish_date")]
 	private DateTime? FinishDate
 	{
 		get => EndDate;
 		set => EndDate = value;
 	}
 
-	[JsonProperty("gid")]
+	[JsonPropertyName("gid")]
 	private long Gid
 	{
 		get => Id;
 		set => Id = value;
 	}
 
-	[JsonProperty("group_id")]
+	[JsonPropertyName("group_id")]
 	private long GroupId
 	{
 		get => Id;
@@ -49,73 +48,75 @@ public class Group
 	/// <summary>
 	/// Идентификатор сообщества.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Название сообщества.
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// Короткий адрес страницы сообщества, например, <c>apiclub</c>. Если он не назначен, то
 	/// <c>'club'+gid</c>, например, <c>club35828305</c>.
 	/// </summary>
-	[JsonProperty("screen_name")]
+	[JsonPropertyName("screen_name")]
 	public string ScreenName { get; set; }
 
 	/// <summary>
 	/// Публичность группы.
 	/// </summary>
-	[JsonProperty("is_closed")]
+	[JsonPropertyName("is_closed")]
 	public GroupPublicity? IsClosed { get; set; }
 
 	/// <summary>
 	/// Возвращается в случае, если сообщество удалено или заблокировано
 	/// </summary>
-	[JsonProperty("deactivated", DefaultValueHandling = DefaultValueHandling.Populate)]
+	// TODO Какое тут дефолтное значение то?
+	// [JsonProperty("deactivated", DefaultValueHandling = DefaultValueHandling.Populate)]
+	[JsonPropertyName("deactivated")]
 	public Deactivated? Deactivated { get; set; }
 
 	/// <summary>
 	/// Информация о том, является ли текущий пользователь руководителем сообщества.
 	/// </summary>
-	[JsonProperty("is_admin")]
+	[JsonPropertyName("is_admin")]
 	public bool IsAdmin { get; set; }
 
 	/// <summary>
 	/// Уровень административных полномочий текущего пользователя в сообществе
 	/// (действительно, если <c>IsAdmin = true</c>).
 	/// </summary>
-	[JsonProperty("admin_level")]
+	[JsonPropertyName("admin_level")]
 	public AdminLevel? AdminLevel { get; set; }
 
 	/// <summary>
 	/// Информация о том, является ли текущий пользователь участником сообщества.
 	/// </summary>
-	[JsonProperty("is_member")]
+	[JsonPropertyName("is_member")]
 	public bool? IsMember { get; set; }
 
 	/// <summary>
 	/// Идентификатор пользователя пригласившего в группу
 	/// </summary>
-	[JsonProperty("invited_by")]
+	[JsonPropertyName("invited_by")]
 	public long? InvitedBy { get; set; }
 
 	/// <summary>
 	/// Тип сообщества.
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public GroupType? Type { get; set; }
 
-	[JsonProperty("photo")]
+	[JsonPropertyName("photo")]
 	private Uri Photo
 	{
 		get => Photo50;
 		set => Photo50 = value;
 	}
 
-	[JsonProperty("photo_medium")]
+	[JsonPropertyName("photo_medium")]
 	private Uri PhotoMedium
 	{
 		get => Photo100;
@@ -125,25 +126,25 @@ public class Group
 	/// <summary>
 	/// <c>Uri</c> фотографии сообщества с размером 50x50px
 	/// </summary>
-	[JsonProperty("photo_50")]
+	[JsonPropertyName("photo_50")]
 	public Uri Photo50 { get; set; }
 
 	/// <summary>
 	/// <c>Uri</c> фотографии сообщества с размером 100x100px
 	/// </summary>
-	[JsonProperty("photo_100")]
+	[JsonPropertyName("photo_100")]
 	public Uri Photo100 { get; set; }
 
 	/// <summary>
 	/// <c>Uri</c> фотографии сообщества с размером 200x200px
 	/// </summary>
-	[JsonProperty("photo_200")]
+	[JsonPropertyName("photo_200")]
 	public Uri Photo200 { get; set; }
 
 	/// <summary>
 	/// <c>Uri</c> фотографии сообщества с наибольшим размером
 	/// </summary>
-	[JsonProperty("photo_big")]
+	[JsonPropertyName("photo_big")]
 	public Uri PhotoBig { get; set; }
 
 	#endregion
@@ -155,19 +156,19 @@ public class Group
 	/// открыта ли группа или нет,
 	/// а у событий дата начала.
 	/// </summary>
-	[JsonProperty("activity")]
+	[JsonPropertyName("activity")]
 	public string Activity { get; set; }
 
 	/// <summary>
 	/// Возрастное ограничение
 	/// </summary>
-	[JsonProperty("age_limits")]
+	[JsonPropertyName("age_limits")]
 	public AgeLimit? AgeLimits { get; set; }
 
 	/// <summary>
 	/// Информация о забанненом (добавленном в черный список) пользователе сообщества.
 	/// </summary>
-	[JsonProperty("ban_info")]
+	[JsonPropertyName("ban_info")]
 	public BanInfo BanInfo { get; set; }
 
 	/// <summary>
@@ -176,13 +177,13 @@ public class Group
 	/// (<c> true </c>, если пользователь может создать обсуждение, <c> false </c> –
 	/// если не может).
 	/// </summary>
-	[JsonProperty("can_create_topic")]
+	[JsonPropertyName("can_create_topic")]
 	public bool CanCreateTopic { get; set; }
 
 	/// <summary>
 	/// Информация о том, может ли текущий пользователь написать сообщение сообществу.
 	/// </summary>
-	[JsonProperty("can_message")]
+	[JsonPropertyName("can_message")]
 	public bool CanMessage { get; set; }
 
 	/// <summary>
@@ -190,7 +191,7 @@ public class Group
 	/// сообщества (<c> true </c> - может,
 	/// <c> false </c> - не может).
 	/// </summary>
-	[JsonProperty("can_post")]
+	[JsonPropertyName("can_post")]
 	public bool CanPost { get; set; }
 
 	/// <summary>
@@ -198,7 +199,7 @@ public class Group
 	/// - разрешено, <c> false </c> - не
 	/// разрешено).
 	/// </summary>
-	[JsonProperty("can_see_all_posts")]
+	[JsonPropertyName("can_see_all_posts")]
 	public bool CanSeeAllPosts { get; set; }
 
 	/// <summary>
@@ -206,31 +207,31 @@ public class Group
 	/// <c> true </c>, если пользователь может
 	/// загружать документы, <c> false </c> – если не может).
 	/// </summary>
-	[JsonProperty("can_upload_documents")]
+	[JsonPropertyName("can_upload_documents")]
 	public bool CanUploadDocuments { get; set; }
 
 	/// <summary>
 	/// Информация о том, может ли текущий пользователь загружать видеозаписи в группу.
 	/// </summary>
-	[JsonProperty("can_upload_video")]
+	[JsonPropertyName("can_upload_video")]
 	public bool CanUploadVideo { get; set; }
 
 	/// <summary>
 	/// Город.
 	/// </summary>
-	[JsonProperty("city")]
+	[JsonPropertyName("city")]
 	public City City { get; set; }
 
 	/// <summary>
 	/// Информация из блока контактов публичной страницы.
 	/// </summary>
-	[JsonProperty("contacts")]
+	[JsonPropertyName("contacts")]
 	public ReadOnlyCollection<Contact> Contacts { get; set; }
 
 	/// <summary>
 	/// Счетчики сообщества.
 	/// </summary>
-	[JsonProperty("counters")]
+	[JsonPropertyName("counters")]
 	public Counters Counters { get; set; }
 
 	/// <summary>
@@ -239,19 +240,19 @@ public class Group
 	/// использовать для
 	/// получения ее названия с помощью метода <c>DatabaseCategory.GetCountriesById</c>
 	/// </summary>
-	[JsonProperty("country")]
+	[JsonPropertyName("country")]
 	public Country Country { get; set; }
 
 	/// <summary>
 	/// Обложка сообщества
 	/// </summary>
-	[JsonProperty("cover")]
+	[JsonPropertyName("cover")]
 	public GroupCover Cover { get; set; }
 
 	/// <summary>
 	/// Текст описания сообщества.
 	/// </summary>
-	[JsonProperty("description")]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 
 	/// <summary>
@@ -259,111 +260,111 @@ public class Group
 	/// используя <c>WallCategory.GetById</c>
 	/// передав идентификатор в виде – <c>{group_id}_{post_id}</c>.
 	/// </summary>
-	[JsonProperty("fixed_post")]
+	[JsonPropertyName("fixed_post")]
 	public long? FixedPost { get; set; }
 
 	/// <summary>
 	/// Содержит фото.
 	/// </summary>
-	[JsonProperty("has_photo")]
+	[JsonPropertyName("has_photo")]
 	public bool HasPhoto { get; set; }
 
 	/// <summary>
 	/// Возвращается 1, если пользователь является рекламодателем.
 	/// </summary>
-	[JsonProperty("is_advertiser")]
+	[JsonPropertyName("is_advertiser")]
 	public bool IsAdvertiser { get; set; }
 
 	/// <summary>
 	/// Возвращается 1, если сообщество находится в закладках у текущего пользователя.
 	/// </summary>
-	[JsonProperty("is_favorite")]
+	[JsonPropertyName("is_favorite")]
 	public bool IsFavorite { get; set; }
 
 	/// <summary>
 	/// Возвращается 1, если сообщество скрыто в новостях у текущего пользователя.
 	/// </summary>
-	[JsonProperty("is_hidden_from_feed")]
+	[JsonPropertyName("is_hidden_from_feed")]
 	public bool IsHiddenFromFeed { get; set; }
 
 	/// <summary>
 	/// Информация о том, разрешено ли сообществу отправлять сообщения текущему
 	/// пользователю.
 	/// </summary>
-	[JsonProperty("is_messages_allowed")]
+	[JsonPropertyName("is_messages_allowed")]
 	public bool? IsMessagesAllowed { get; set; }
 
 	/// <summary>
 	/// Информация из блока ссылок сообщества.
 	/// </summary>
-	[JsonProperty("links")]
+	[JsonPropertyName("links")]
 	public ReadOnlyCollection<ExternalLink> Links { get; set; }
 
 	/// <summary>
 	/// Идентификатор основного альбома сообщества.
 	/// </summary>
-	[JsonProperty("main_album_id")]
+	[JsonPropertyName("main_album_id")]
 	public uint? MainAlbumId { get; set; }
 
 	/// <summary>
 	/// Информация о главной секции в сообществе
 	/// </summary>
-	[JsonProperty("main_section")]
+	[JsonPropertyName("main_section")]
 	public MainSection? MainSection { get; set; }
 
 	/// <summary>
 	/// Информация о магазине
 	/// </summary>
-	[JsonProperty("market")]
+	[JsonPropertyName("market")]
 	public GroupMarket Market { get; set; }
 
 	/// <summary>
 	/// Статус участника текущего пользователя.
 	/// </summary>
-	[JsonProperty("member_status")]
+	[JsonPropertyName("member_status")]
 	public MemberStatus? MemberStatus { get; set; }
 
 	/// <summary>
 	/// Количество участников сообщества.
 	/// </summary>
-	[JsonProperty("members_count")]
+	[JsonPropertyName("members_count")]
 	public int? MembersCount { get; set; }
 
 	/// <summary>
 	/// Место, указанное в информации о сообществе.
 	/// </summary>
-	[JsonProperty("place")]
+	[JsonPropertyName("place")]
 	public Place Place { get; set; }
 
 	/// <summary>
 	/// Возвращается для публичных страниц. Текст описания для поля <c>start_date</c>.
 	/// </summary>
-	[JsonProperty("public_date_label")]
+	[JsonPropertyName("public_date_label")]
 	public string PublicDateLabel { get; set; }
 
 	/// <summary>
 	/// Адрес сайта из поля «веб-сайт» в описании сообщества.
 	/// </summary>
-	[JsonProperty("site")]
+	[JsonPropertyName("site")]
 	public string Site { get; set; }
 
 	/// <summary>
 	/// Время начала встречи (возвращаются только для встреч).
 	/// </summary>
-	[JsonProperty("start_date")]
+	[JsonPropertyName("start_date")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? StartDate { get; set; }
 
 	/// <summary>
 	/// Объект аудиозаписи, установленной в статус (если аудиозапись транслируется в текущей момент).
 	/// </summary>
-	[JsonProperty("status_audio")]
+	[JsonPropertyName("status_audio")]
 	public Audio StatusAudio { get; set; }
 
 	/// <summary>
 	/// Время окончания встречи (возвращаются только для встреч).
 	/// </summary>
-	[JsonProperty("end_date")]
+	[JsonPropertyName("end_date")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? EndDate { get; set; }
 
@@ -372,37 +373,37 @@ public class Group
 	/// расположенного на странице сообщества под его
 	/// названием.
 	/// </summary>
-	[JsonProperty("status")]
+	[JsonPropertyName("status")]
 	public string Status { get; set; }
 
 	/// <summary>
 	/// Информация о том, есть ли у сообщества «огонёк».
 	/// </summary>
-	[JsonProperty("trending")]
+	[JsonPropertyName("trending")]
 	public bool Trending { get; set; }
 
 	/// <summary>
 	/// Возвращает информацию о том, является ли сообщество верифицированным.
 	/// </summary>
-	[JsonProperty("verified")]
+	[JsonPropertyName("verified")]
 	public bool Verified { get; set; }
 
 	/// <summary>
 	/// Название главной вики-страницы сообщества.
 	/// </summary>
-	[JsonProperty("wiki_page")]
+	[JsonPropertyName("wiki_page")]
 	public string WikiPage { get; set; }
 
 	/// <summary>
 	/// Информация о ссылках на предпросмотр фотографий сообщества.
 	/// </summary>
-	[JsonProperty("photo_previews")]
+	[JsonPropertyName("photo_previews")]
 	public Previews PhotoPreviews { get; set; }
 
 	/// <summary>
 	/// Стена
 	/// </summary>
-	[JsonProperty("wall")]
+	[JsonPropertyName("wall")]
 	public WallType? Wall { get; set; }
 
 	#endregion

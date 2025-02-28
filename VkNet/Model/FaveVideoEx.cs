@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,24 +13,24 @@ public class FaveVideoEx
 	/// <summary>
 	/// Общее количество записей на стене.
 	/// </summary>
-	[JsonProperty(propertyName: "count")]
+	[JsonPropertyName("count")]
 	public ulong Count { get; set; }
 
 	/// <summary>
 	/// Видеозаписи.
 	/// </summary>
-	[JsonProperty(propertyName: "items")]
+	[JsonPropertyName("items")]
 	public ReadOnlyCollection<Video> Videos { get; set; }
 
 	/// <summary>
 	/// Профили.
 	/// </summary>
-	[JsonProperty(propertyName: "profiles")]
+	[JsonPropertyName("profiles")]
 	public ReadOnlyCollection<User> Profiles { get; set; }
 
 	/// <summary>
 	/// Группы.
 	/// </summary>
-	[JsonProperty(propertyName: "groups")]
+	[JsonPropertyName("groups")]
 	public ReadOnlyCollection<Group> Groups { get; set; }
 }

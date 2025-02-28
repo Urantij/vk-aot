@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -13,24 +13,24 @@ public class CheckLinkParams
 	/// <summary>
 	/// Идентификатор пользователя
 	/// </summary>
-	[JsonProperty(propertyName: "account_id")]
+	[JsonPropertyName("account_id")]
 	public long AccountId { get; set; }
 
 	/// <summary>
 	/// Тип ссылки рекламы
 	/// </summary>
-	[JsonProperty(propertyName: "link_type")]
+	[JsonPropertyName("link_type")]
 	public AdsLinkType? LinkType { get; set; }
 
 	/// <summary>
 	/// Ссылка
 	/// </summary>
-	[JsonProperty(propertyName: "link_url")]
+	[JsonPropertyName("link_url")]
 	public Uri LinkUrl { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty(propertyName: "campaign_id")]
+	[JsonPropertyName("campaign_id")]
 	public long? CampaignId { get; set; }
 }

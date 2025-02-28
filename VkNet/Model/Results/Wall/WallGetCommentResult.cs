@@ -1,6 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,18 +13,18 @@ public class WallGetCommentResult
 	/// <summary>
 	/// Объект комментария
 	/// </summary>
-	[JsonProperty("items")]
+	[JsonPropertyName("items")]
 	public ReadOnlyCollection<WallReplyGroupUpdate> Comment { get; set; }
 
 	/// <summary>
 	/// Массив пользователей
 	/// </summary>
-	[JsonProperty("profiles")]
+	[JsonPropertyName("profiles")]
 	public ReadOnlyCollection<User> Profiles { get; set; }
 
 	/// <summary>
 	/// Массив групп
 	/// </summary>
-	[JsonProperty("groups")]
+	[JsonPropertyName("groups")]
 	public ReadOnlyCollection<Group> Groups { get; set; }
 }

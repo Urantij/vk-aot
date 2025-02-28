@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class NotificationsSendMessageResult
 	/// <summary>
 	/// Идентификатор пользователя
 	/// </summary>
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	public ulong UserId { get; set; }
 
 	/// <summary>
 	/// Статус уведомления
 	/// </summary>
-	[JsonProperty("status")]
+	[JsonPropertyName("status")]
 	public bool Status { get; set; }
 
 	/// <summary>
 	/// Ошибка отправки уведомления
 	/// </summary>
-	[JsonProperty("error")]
+	[JsonPropertyName("error")]
 	public NotificationsSendMessageError Error { get; set; }
 }

@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -17,33 +17,33 @@ public class FaveAddPostParams
 	/// <remarks>
 	/// Обязательный параметр.
 	/// </remarks>
-	[JsonProperty("owner_id")]
+	[JsonPropertyName("owner_id")]
 	public long? OwnerId { get; set; }
 
 	/// <summary>
-	/// Идентификатор записи, которую необходимо добавить в закладки. 
+	/// Идентификатор записи, которую необходимо добавить в закладки.
 	/// </summary>
 	/// <remarks>
 	/// Обязательный параметр.
 	/// </remarks>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long? Id { get; set; }
 
 	/// <summary>
 	/// Специальный код доступа для приватных постов.
 	/// </summary>
-	[JsonProperty("access_key")]
+	[JsonPropertyName("access_key")]
 	public string AccessKey { get; set; }
 
 	/// <summary/>
-	[JsonProperty("ref")]
+	[JsonPropertyName("ref")]
 	public string Ref { get; set; }
 
 	/// <summary/>
-	[JsonProperty("track_code")]
+	[JsonPropertyName("track_code")]
 	public string TrackCode { get; set; }
 
 	/// <summary/>
-	[JsonProperty("source")]
+	[JsonPropertyName("source")]
 	public string Source { get; set; }
 }

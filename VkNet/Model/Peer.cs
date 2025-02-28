@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -13,18 +13,18 @@ public class Peer
 	/// <summary>
 	/// Идентификатор назначения.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Тип.
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public ConversationPeerType? Type { get; set; }
 
 	/// <summary>
 	/// Локальный идентификатор назначения.
 	/// </summary>
-	[JsonProperty("local_id")]
+	[JsonPropertyName("local_id")]
 	public long LocalId { get; set; }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class DocumentType
 	/// <summary>
 	/// Идентификатор полученного подарка.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Текст сообщения, приложенного к подарку.
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// Количество документов данного типа.
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public long Count { get; set; }
 }

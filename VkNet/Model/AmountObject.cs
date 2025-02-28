@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class AmountObject
 	/// <summary>
 	/// Количество
 	/// </summary>
-	[JsonProperty("amount")]
+	[JsonPropertyName("amount")]
 	public long Amount { get; set; }
 
 	/// <summary>
 	/// Валюта
 	/// </summary>
-	[JsonProperty("currency")]
+	[JsonPropertyName("currency")]
 	public Currency Currency { get; set; }
 
 	/// <summary>
 	/// Текст
 	/// </summary>
-	[JsonProperty("text")]
+	[JsonPropertyName("text")]
 	public string Text { get; set; }
 }

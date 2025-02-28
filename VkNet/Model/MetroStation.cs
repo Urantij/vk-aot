@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class MetroStation
 	/// <summary>
 	/// Идентификатор станции метро
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public ulong Id { get; set; }
 
 	/// <summary>
 	/// Название станции метро
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// Цвет ветки станции метро
 	/// </summary>
-	[JsonProperty("color")]
+	[JsonPropertyName("color")]
 	public string Color { get; set; }
 }

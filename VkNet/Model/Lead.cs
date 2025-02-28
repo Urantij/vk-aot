@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,42 +12,42 @@ public class Lead
 	/// <summary>
 	/// Amount of spent votes
 	/// </summary>
-	[JsonProperty(propertyName: "spent")]
+	[JsonPropertyName("spent")]
 	public int? Spent { get; set; }
 
 	/// <summary>
 	/// Started offers number
 	/// </summary>
-	[JsonProperty(propertyName: "started")]
+	[JsonPropertyName("started")]
 	public int? Started { get; set; }
 
 	/// <summary>
 	/// Lead limit
 	/// </summary>
-	[JsonProperty(propertyName: "limit")]
+	[JsonPropertyName("limit")]
 	public int? Limit { get; set; }
 
 	/// <summary>
 	/// Property
 	/// </summary>
-	[JsonProperty(propertyName: "days")]
+	[JsonPropertyName("days")]
 	public LeadDays Days { get; set; }
 
 	/// <summary>
 	/// Impressions number
 	/// </summary>
-	[JsonProperty(propertyName: "impressions")]
+	[JsonPropertyName("impressions")]
 	public int? Impressions { get; set; }
 
 	/// <summary>
 	/// Completed offers number
 	/// </summary>
-	[JsonProperty(propertyName: "completed")]
+	[JsonPropertyName("completed")]
 	public int? Completed { get; set; }
 
 	/// <summary>
 	/// Offer cost
 	/// </summary>
-	[JsonProperty(propertyName: "cost")]
+	[JsonPropertyName("cost")]
 	public int? Cost { get; set; }
 }

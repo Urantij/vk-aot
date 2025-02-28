@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -122,37 +122,37 @@ public class WallEditParams
 	/// В сутки может быть опубликовано не более пяти рекламных записей, из которых не
 	/// более трёх — вне Биржи ВКонтакте.
 	/// </summary>
-	[JsonProperty(propertyName: "mark_as_ads")]
+	[JsonPropertyName("mark_as_ads")]
 	public bool? MarkAsAds { get; set; }
 
 	/// <summary>
 	/// Флаг, может принимать значения 1 или 0
 	/// </summary>
-	[JsonProperty(propertyName: "close_comments")]
+	[JsonPropertyName("close_comments")]
 	public bool? CloseComments { get; set; }
 
 	/// <summary>
 	/// No description.
 	/// Положительное число
 	/// </summary>
-	[JsonProperty(propertyName: "poster_bkg_id")]
+	[JsonPropertyName("poster_bkg_id")]
 	public long? PosterBackgroundId { get; set; }
 
 	/// <summary>
 	/// Целое число
 	/// </summary>
-	[JsonProperty("poster_bkg_owner_id")]
+	[JsonPropertyName("poster_bkg_owner_id")]
 	public long PosterBackgroundOwnerId { get; set; }
 
 	/// <summary>
 	/// Строка
 	/// </summary>
-	[JsonProperty("poster_bkg_access_hash")]
+	[JsonPropertyName("poster_bkg_access_hash")]
 	public string PosterBackgroundAccessHash { get; set; }
 
 	/// <summary>
 	/// Источник материала. Поддерживаются внешние и внутренние ссылки. строка
 	/// </summary>
-	[JsonProperty("copyright")]
+	[JsonPropertyName("copyright")]
 	public string Copyright { get; set; }
 }

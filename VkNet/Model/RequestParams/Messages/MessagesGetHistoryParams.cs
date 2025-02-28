@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -14,13 +14,13 @@ public class MessagesGetHistoryParams
 	/// <summary>
 	/// Идентификатор пользователя, историю переписки с которым необходимо вернуть.
 	/// </summary>
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	public long? UserId { get; set; }
 
 	/// <summary>
 	/// Список дополнительных полей профилей и сообществ, которые необходимо вернуть.
 	/// </summary>
-	[JsonProperty("fields")]
+	[JsonPropertyName("fields")]
 	public IEnumerable<string> Fields { get; set; }
 
 	/// <summary>
@@ -29,19 +29,19 @@ public class MessagesGetHistoryParams
 	/// должен быть 0 или отрицательным, если
 	/// передан.
 	/// </summary>
-	[JsonProperty("offset")]
+	[JsonPropertyName("offset")]
 	public long? Offset { get; set; }
 
 	/// <summary>
 	/// Количество сообщений, которое необходимо получить (но не более 200)
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public long? Count { get; set; }
 
 	/// <summary>
 	/// Идентификатор назначения.
 	/// </summary>
-	[JsonProperty("peer_id")]
+	[JsonPropertyName("peer_id")]
 	public long? PeerId { get; set; }
 
 	/// <summary>
@@ -50,14 +50,14 @@ public class MessagesGetHistoryParams
 	/// если же передано значение -1, то к значению параметра offset прибавляется
 	/// количество входящих непрочитанных сообщений в конце диалога
 	/// </summary>
-	[JsonProperty("start_message_id")]
+	[JsonPropertyName("start_message_id")]
 	public long? StartMessageId { get; set; }
 
 	/// <summary>
 	/// Возвращать сообщения в хронологическом порядке или обратном (по умолчанию в
 	/// обратном). Недоступен при переданном start_message_id.
 	/// </summary>
-	[JsonProperty("rev")]
+	[JsonPropertyName("rev")]
 	public bool? Reversed { get; set; }
 
 	/// <summary>
@@ -65,12 +65,12 @@ public class MessagesGetHistoryParams
 	/// то будет возвращена информация о пользователях и сообществах, являющихся авторами сообщений.
 	/// <remarks>По умолчанию <c>false</c>.</remarks>
 	/// </summary>
-	[JsonProperty("extended")]
+	[JsonPropertyName("extended")]
 	public bool? Extended { get; set; }
 
 	/// <summary>
 	/// Идентификатор сообщества (для сообщений сообщества с ключом доступа пользователя).
 	/// </summary>
-	[JsonProperty("group_id")]
+	[JsonPropertyName("group_id")]
 	public ulong? GroupId { get; set; }
 }

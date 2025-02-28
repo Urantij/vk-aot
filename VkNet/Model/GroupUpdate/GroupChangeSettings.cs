@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,12 +13,12 @@ public class GroupChangeSettings : IGroupUpdate
 	/// <summary>
 	/// Идентификатор пользователя, который внёс изменения;
 	/// </summary>
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	public long? UserId { get; set; }
 
 	/// <summary>
 	/// Описание внесённых изменений
 	/// </summary>
-	[JsonProperty("changes")]
+	[JsonPropertyName("changes")]
 	public Dictionary<string, Change> Changes { get; set; }
 }

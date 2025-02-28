@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,24 +13,24 @@ public class VideoImage
 	/// <summary>
 	/// URL-адрес изображения.
 	/// </summary>
-	[JsonProperty("url")]
+	[JsonPropertyName("url")]
 	public Uri Url { get; set; }
 
 	/// <summary>
 	/// Ширина изображения.
 	/// </summary>
-	[JsonProperty("width")]
+	[JsonPropertyName("width")]
 	public ulong Width { get; set; }
 
 	/// <summary>
 	/// Высота изображения.
 	/// </summary>
-	[JsonProperty("height")]
+	[JsonPropertyName("height")]
 	public ulong Height { get; set; }
 
 	/// <summary>
 	/// <c>true</c>, если изображение имеет черные поля.
 	/// </summary>
-	[JsonProperty("with_padding")]
+	[JsonPropertyName("with_padding")]
 	public bool WithPadding { get; set; }
 }

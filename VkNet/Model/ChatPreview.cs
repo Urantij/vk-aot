@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,24 +13,24 @@ public class ChatPreview
 	/// <summary>
 	/// Информация о чате.
 	/// </summary>
-	[JsonProperty(propertyName: "preview")]
+	[JsonPropertyName("preview")]
 	public ChatPreviewField Preview { get; set; }
 
 	/// <summary>
 	/// Массив объектов пользователей
 	/// </summary>
-	[JsonProperty(propertyName: "profiles")]
+	[JsonPropertyName("profiles")]
 	public IEnumerable<User> Profiles { get; set; }
 
 	/// <summary>
 	/// Массив объектов сообществ
 	/// </summary>
-	[JsonProperty(propertyName: "groups")]
+	[JsonPropertyName("groups")]
 	public IEnumerable<Group> Groups { get; set; }
 
 	/// <summary>
 	/// Массив объектов, описывающих e-mail.
 	/// </summary>
-	[JsonProperty(propertyName: "emails")]
+	[JsonPropertyName("emails")]
 	public IEnumerable<Email> Emails { get; set; }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,12 +13,12 @@ public class AppGetScopesResult
 	/// <summary>
 	/// Количество
 	/// </summary>
-	[JsonProperty(propertyName: "count")]
+	[JsonPropertyName("count")]
 	public long Count { get; set; }
 
 	/// <summary>
 	/// Элементы
 	/// </summary>
-	[JsonProperty(propertyName: "items")]
+	[JsonPropertyName("items")]
 	public ReadOnlyCollection<AppGetScopes> Items { get; set; }
 }

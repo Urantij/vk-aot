@@ -1,6 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,24 +13,24 @@ public class MarketComment
 	/// <summary>
 	/// ������ ������������.
 	/// </summary>
-	[JsonProperty("items")]
+	[JsonPropertyName("items")]
 	public ReadOnlyCollection<Comment> Comments { get; set; }
 
 	/// <summary>
 	/// ���������� ������������.
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public long Count { get; set; }
 
 	/// <summary>
 	/// ������ �������������.
 	/// </summary>
-	[JsonProperty("profiles")]
+	[JsonPropertyName("profiles")]
 	public ReadOnlyCollection<User> Profiles { get; set; }
 
 	/// <summary>
 	/// ������ ���������.
 	/// </summary>
-	[JsonProperty("groups")]
+	[JsonPropertyName("groups")]
 	public ReadOnlyCollection<Group> Groups { get; set; }
 }

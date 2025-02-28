@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,42 +12,42 @@ public class AdsTargetingResult
 	/// <summary>
 	/// Идентификатор кампании.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public string Id { get; set; }
 
 	/// <summary>
 	/// Формат объявления
 	/// </summary>
-	[JsonProperty("campaign_id")]
+	[JsonPropertyName("campaign_id")]
 	public string CampaignId { get; set; }
 
 	/// <summary>
 	/// Автоматическое управление ценой
 	/// </summary>
-	[JsonProperty("country")]
+	[JsonPropertyName("country")]
 	public string Country { get; set; }
 
 	/// <summary>
 	/// Тип оплаты
 	/// </summary>
-	[JsonProperty("cities")]
+	[JsonPropertyName("cities")]
 	public string Cities { get; set; }
 
 	/// <summary>
 	/// Тип оплаты
 	/// </summary>
-	[JsonProperty("cities_not")]
+	[JsonPropertyName("cities_not")]
 	public string CitiesNot { get; set; }
 
 	/// <summary>
 	/// Тип оплаты
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public string Count { get; set; }
 
 	/// <summary>
 	/// Тип оплаты
 	/// </summary>
-	[JsonProperty("statuses")]
+	[JsonPropertyName("statuses")]
 	public string Statuses { get; set; }
 }

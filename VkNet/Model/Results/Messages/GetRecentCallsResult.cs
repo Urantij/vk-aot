@@ -1,6 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,24 +13,24 @@ public class GetRecentCallsResult
 	/// <summary>
 	/// Число результатов.
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public ulong Count { get; set; }
 
 	/// <summary>
 	/// Сообщения
 	/// </summary>
-	[JsonProperty("items")]
+	[JsonPropertyName("items")]
 	public ReadOnlyCollection<Message> Messages { get; set; }
 
 	/// <summary>
 	/// Профили пользователей
 	/// </summary>
-	[JsonProperty("profiles")]
+	[JsonPropertyName("profiles")]
 	public ReadOnlyCollection<User> Profiles { get; set; }
 
 	/// <summary>
 	/// Массив объектов сообществ.
 	/// </summary>
-	[JsonProperty("groups")]
+	[JsonPropertyName("groups")]
 	public ReadOnlyCollection<Group> Groups { get; set; }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -13,14 +13,14 @@ public class WidgetPage
 	/// <summary>
 	/// Идентификатор страницы в системе;
 	/// </summary>
-	[JsonProperty(propertyName: "id")]
+	[JsonPropertyName("id")]
 	public string Id { get; set; }
 
 	/// <summary>
 	/// Заголовок страницы (берется из мета-тегов на странице или задается параметром
 	/// pageTitle при инициализации)
 	/// </summary>
-	[JsonProperty(propertyName: "title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
@@ -28,32 +28,32 @@ public class WidgetPage
 	/// параметром pageDescription при
 	/// инициализации);
 	/// </summary>
-	[JsonProperty(propertyName: "description")]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 
 	/// <summary>
 	/// Абсолютный адрес страницы;
 	/// </summary>
-	[JsonProperty(propertyName: "url")]
+	[JsonPropertyName("url")]
 	public Uri Url { get; set; }
 
 	/// <summary>
 	/// Объект, содержащий поле count — количество отметок «Мне нравится» к странице.
 	/// </summary>
-	[JsonProperty(propertyName: "likes")]
+	[JsonPropertyName("likes")]
 	public ObjectCount Likes { get; set; }
 
 	/// <summary>
 	/// Объект, содержащий поле count — количество комментариев к странице внутри
 	/// виджета.
 	/// </summary>
-	[JsonProperty(propertyName: "comments")]
+	[JsonPropertyName("comments")]
 	public ObjectCount Comments { get; set; }
 
 	/// <summary>
 	/// Дата первого обращения к виджетам на странице
 	/// </summary>
-	[JsonProperty(propertyName: "date")]
+	[JsonPropertyName("date")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime Date { get; set; }
 
@@ -62,7 +62,7 @@ public class WidgetPage
 	/// странице или задается параметром
 	/// pageImage при инициализации)
 	/// </summary>
-	[JsonProperty(propertyName: "photo")]
+	[JsonPropertyName("photo")]
 	public Photo Photo { get; set; }
 
 	/// <summary>
@@ -70,6 +70,6 @@ public class WidgetPage
 	/// инициализации виджетов использовался
 	/// параметр page_id);
 	/// </summary>
-	[JsonProperty(propertyName: "pageId")]
+	[JsonPropertyName("pageId")]
 	public long PageId { get; set; }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -14,97 +14,97 @@ public class AudioCatalogAudio
 	/// <summary>
 	/// Имя исполнителя.
 	/// </summary>
-	[JsonProperty("artist")]
+	[JsonPropertyName("artist")]
 	public string Artist { get; set; }
 
 	/// <summary>
 	/// Идентификатор владельца аудиозаписи.
 	/// </summary>
-	[JsonProperty("owner_id")]
+	[JsonPropertyName("owner_id")]
 	public long OwnerId { get; set; }
 
 	/// <summary>
 	/// Название альбома.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Длительность.
 	/// </summary>
-	[JsonProperty("duration")]
+	[JsonPropertyName("duration")]
 	public int Duration { get; set; }
 
 	/// <summary>
 	/// Идентификатор.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Ключ доступа.
 	/// </summary>
-	[JsonProperty("access_key")]
+	[JsonPropertyName("access_key")]
 	public string AccessKey { get; set; }
 
 	/// <summary>
 	/// Реклама.
 	/// </summary>
-	[JsonProperty("ads")]
+	[JsonPropertyName("ads")]
 	public AudioCatalogAudioAds Ads { get; set; }
 
 	/// <summary>
 	/// Ключ доступа.
 	/// </summary>
-	[JsonProperty("is_explicit")]
+	[JsonPropertyName("is_explicit")]
 	public bool IsExplicit { get; set; }
 
 	/// <summary>
 	/// Реклама.
 	/// </summary>
-	[JsonProperty("is_focus_track")]
+	[JsonPropertyName("is_focus_track")]
 	public bool IsFocusTrack { get; set; }
 
 	/// <summary>
 	/// Ключ доступа.
 	/// </summary>
-	[JsonProperty("track_code")]
+	[JsonPropertyName("track_code")]
 	public string TrackCode { get; set; }
 
 	/// <summary>
 	/// Реклама.
 	/// </summary>
-	[JsonProperty("url")]
+	[JsonPropertyName("url")]
 	public string Url { get; set; }
 
 	/// <summary>
 	/// Ключ доступа.
 	/// </summary>
-	[JsonProperty("date")]
+	[JsonPropertyName("date")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime Date { get; set; }
 
 	/// <summary>
 	/// Альбом.
 	/// </summary>
-	[JsonProperty("album")]
+	[JsonPropertyName("album")]
 	public AudioAlbum Album { get; set; }
 
 	/// <summary>
 	/// Главные исполнители.
 	/// </summary>
-	[JsonProperty("main_artists")]
+	[JsonPropertyName("main_artists")]
 	public ReadOnlyCollection<AudioArtist> MainArtists { get; set; }
 
 	/// <summary>
 	/// Вторичные исполнители.
 	/// </summary>
-	[JsonProperty("featured_artists")]
+	[JsonPropertyName("featured_artists")]
 	public ReadOnlyCollection<AudioArtist> FeaturedArtists { get; set; }
 
 	/// <summary>
 	/// Разрешены ли истории.
 	/// </summary>
-	[JsonProperty("stories_allowed")]
+	[JsonPropertyName("stories_allowed")]
 	public bool StoriesAllowed { get; set; }
 }

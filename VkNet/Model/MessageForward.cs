@@ -1,7 +1,7 @@
 #nullable enable
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -14,13 +14,15 @@ public class MessageForward
 	/// <summary>
 	/// Владелец сообщений. Стоит передавать, если вы хотите переслать сообщения из сообщества в диалог.
 	/// </summary>
-	[JsonProperty("owner_id", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("owner_id")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public long? OwnerId { get; set; }
 
 	/// <summary>
 	/// Идентификатор места, из которого необходимо переслать сообщения.
 	/// </summary>
-	[JsonProperty("peer_id", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("peer_id")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public long? PeerId { get; set; }
 
 	/// <summary>
@@ -30,13 +32,15 @@ public class MessageForward
 	///	являющиеся исходящими сообщениями бота;
 	/// написанными после того, как бот вступил в беседу и появился доступ к сообщениям.
 	/// </summary>
-	[JsonProperty("conversation_message_ids", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("conversation_message_ids")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public IEnumerable<long>? ConversationMessageIds { get; set; }
 
 	/// <summary>
 	/// Массив id сообщений.
 	/// </summary>
-	[JsonProperty("message_ids", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("message_ids")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public IEnumerable<long>? MessageIds { get; set; }
 
 	/// <summary>
@@ -44,6 +48,7 @@ public class MessageForward
 	/// Стоит передавать, если вы хотите ответить на сообщения в том чате, в котором находятся сообщения.
 	/// При этом в conversation_message_ids/message_ids должен находиться только один элемент.
 	/// </summary>
-	[JsonProperty("is_reply", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("is_reply")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public bool? IsReply { get; set; }
 }

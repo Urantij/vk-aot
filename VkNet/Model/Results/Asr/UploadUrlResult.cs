@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,6 +12,6 @@ public class AsrUploadUrlResult
 	/// <summary>
 	/// Ссылка на адрес сервера для загрузки аудиозаписи
 	/// </summary>
-	[JsonProperty("upload_url")]
+	[JsonPropertyName("upload_url")]
 	public Uri UploadUrl { get; set; }
 }

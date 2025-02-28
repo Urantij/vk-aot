@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
@@ -17,19 +17,19 @@ public class Geo
 	/// означает,
 	/// что запись привязана к определенному географическому месту в базе мест.)
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public string Type { get; set; }
 
 	/// <summary>
 	/// Координаты места, в котором была сделана запись.
 	/// </summary>
-	[JsonProperty("coordinates")]
+	[JsonPropertyName("coordinates")]
 	[JsonConverter(typeof(CoordinatesJsonConverter))]
 	public Coordinates Coordinates { get; set; }
 
 	/// <summary>
 	/// Информация о месте, в котором была сделана запись.
 	/// </summary>
-	[JsonProperty("place")]
+	[JsonPropertyName("place")]
 	public Place Place { get; set; }
 }

@@ -1,5 +1,5 @@
 #nullable enable
-using Newtonsoft.Json.Linq;
+using System.Text.Json.Nodes;
 using VkNet.Model;
 
 namespace VkNet.Utils.UsersLongPoll;
@@ -22,5 +22,5 @@ public class UserMessageEvent
 	/// <summary>
 	/// Сообщение в JObject
 	/// </summary>
-	public JObject RawMessage;
+	public JsonObject RawMessage;
 }

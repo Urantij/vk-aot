@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,6 +13,6 @@ public class WallPost : Post, IGroupUpdate
 	/// <summary>
 	/// <c>Id</c> отложенной записи
 	/// </summary>
-	[JsonProperty("postponed_id")]
+	[JsonPropertyName("postponed_id")]
 	public long? PostponedId { get; set; }
 }

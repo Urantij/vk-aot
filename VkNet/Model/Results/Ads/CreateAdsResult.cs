@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class CreateAdsResult
 	/// <summary>
 	/// Идентификатор созданного объявления.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Массив объектов UserSpecification
 	/// </summary>
-	[JsonProperty("error_code")]
+	[JsonPropertyName("error_code")]
 	public long ErrorCode { get; set; }
 
 	/// <summary>
 	/// Массив объектов UserSpecification
 	/// </summary>
-	[JsonProperty("error_desc")]
+	[JsonPropertyName("error_desc")]
 	public string ErrorDesc { get; set; }
 }

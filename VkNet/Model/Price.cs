@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,30 +12,30 @@ public class Price
 	/// <summary>
 	/// Целочисленное значение цены, умноженное на 100.
 	/// </summary>
-	[JsonProperty("amount")]
+	[JsonPropertyName("amount")]
 	public long? Amount { get; set; }
 
 	/// <summary>
 	/// Валюта.
 	/// </summary>
-	[JsonProperty("currency")]
+	[JsonPropertyName("currency")]
 	public Currency Currency { get; set; }
 
 	/// <summary>
 	/// Старая цена товара в сотых долях единицы валюты.
 	/// </summary>
-	[JsonProperty("old_amount")]
+	[JsonPropertyName("old_amount")]
 	public string OldAmount { get; set; }
 
 	/// <summary>
 	/// Текстовое представлением старой цены.
 	/// </summary>
-	[JsonProperty("old_amount_text")]
+	[JsonPropertyName("old_amount_text")]
 	public string OldAmountText { get; set; }
 
 	/// <summary>
 	/// Строка с локализованной ценой и валютой.
 	/// </summary>
-	[JsonProperty("text")]
+	[JsonPropertyName("text")]
 	public string Text { get; set; }
 }

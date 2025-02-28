@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
+using System.Text.Json;
 using JetBrains.Annotations;
-using Newtonsoft.Json;
 using VkNet.Abstractions;
 using VkNet.Enums.Filters;
 using VkNet.Enums.StringEnums;
@@ -296,12 +296,12 @@ public partial class MessagesCategory : IMessagesCategory
 				},
 				{
 					"forward", @params.Forward is not null
-						? JsonConvert.SerializeObject(@params.Forward)
+						? JsonSerializer.Serialize(@params.Forward, @params.Forward.GetType(), GlobalJsonSerializerContext.Default)
 						: ""
 				},
 				{
 					"keyboard", @params.Keyboard is not null
-						? JsonConvert.SerializeObject(@params.Keyboard)
+						? JsonSerializer.Serialize(@params.Keyboard, @params.Keyboard.GetType(), GlobalJsonSerializerContext.Default)
 						: ""
 				},
 				{
@@ -315,7 +315,7 @@ public partial class MessagesCategory : IMessagesCategory
 				},
 				{
 					"content_source", @params.ContentSource is not null
-						? JsonConvert.SerializeObject(@params.ContentSource)
+						? JsonSerializer.Serialize(@params.ContentSource, @params.ContentSource.GetType(), GlobalJsonSerializerContext.Default)
 						: ""
 				},
 				{
@@ -335,7 +335,7 @@ public partial class MessagesCategory : IMessagesCategory
 				},
 				{
 					"template", @params.Template is not null
-						? JsonConvert.SerializeObject(@params.Template)
+						? JsonSerializer.Serialize(@params.Template, @params.Template.GetType(), GlobalJsonSerializerContext.Default)
 						: ""
 				}
 			});
@@ -390,12 +390,12 @@ public partial class MessagesCategory : IMessagesCategory
 				},
 				{
 					"forward", @params.Forward is not null
-						? JsonConvert.SerializeObject(@params.Forward)
+						? JsonSerializer.Serialize(@params.Forward, @params.Forward.GetType(), GlobalJsonSerializerContext.Default)
 						: ""
 				},
 				{
 					"keyboard", @params.Keyboard is not null
-						? JsonConvert.SerializeObject(@params.Keyboard)
+						? JsonSerializer.Serialize(@params.Keyboard, @params.Keyboard.GetType(), GlobalJsonSerializerContext.Default)
 						: ""
 				},
 				{
@@ -409,7 +409,7 @@ public partial class MessagesCategory : IMessagesCategory
 				},
 				{
 					"content_source", @params.ContentSource is not null
-						? JsonConvert.SerializeObject(@params.ContentSource)
+						? JsonSerializer.Serialize(@params.ContentSource, @params.ContentSource.GetType(), GlobalJsonSerializerContext.Default)
 						: ""
 				},
 				{
@@ -429,7 +429,7 @@ public partial class MessagesCategory : IMessagesCategory
 				},
 				{
 					"template", @params.Template is not null
-						? JsonConvert.SerializeObject(@params.Template)
+						? JsonSerializer.Serialize(@params.Template, @params.Template.GetType(), GlobalJsonSerializerContext.Default)
 						: ""
 				}
 			});
@@ -488,12 +488,12 @@ public partial class MessagesCategory : IMessagesCategory
 				},
 				{
 					"forward", @params.Forward is not null
-						? JsonConvert.SerializeObject(@params.Forward)
+						? JsonSerializer.Serialize(@params.Forward, @params.Forward.GetType(), GlobalJsonSerializerContext.Default)
 						: ""
 				},
 				{
 					"keyboard", @params.Keyboard is not null
-						? JsonConvert.SerializeObject(@params.Keyboard)
+						? JsonSerializer.Serialize(@params.Keyboard, @params.Keyboard.GetType(), GlobalJsonSerializerContext.Default)
 						: ""
 				},
 				{
@@ -510,7 +510,7 @@ public partial class MessagesCategory : IMessagesCategory
 				},
 				{
 					"content_source", @params.ContentSource is not null
-						? JsonConvert.SerializeObject(@params.ContentSource)
+						? JsonSerializer.Serialize(@params.ContentSource, @params.ContentSource.GetType(), GlobalJsonSerializerContext.Default)
 						: ""
 				},
 				{
@@ -530,7 +530,7 @@ public partial class MessagesCategory : IMessagesCategory
 				},
 				{
 					"template", @params.Template is not null
-						? JsonConvert.SerializeObject(@params.Template)
+						? JsonSerializer.Serialize(@params.Template, @params.Template.GetType(), GlobalJsonSerializerContext.Default)
 						: ""
 				}
 			});
@@ -1116,9 +1116,9 @@ public partial class MessagesCategory : IMessagesCategory
 		return _vk.Call<LongPollServerResponse>("messages.getLongPollServer", parameters);
 	}
 	/// <inheritdoc />
-	public LongPollHistoryResponse GetLongPollHistory(MessagesGetLongPollHistoryParams @params)
+	public LongPollHistoryMessageResponse GetLongPollHistory(MessagesGetLongPollHistoryParams @params)
 	{
-		return GetLongPollHistory<LongPollHistoryResponse>(@params);
+		return GetLongPollHistory<LongPollHistoryMessageResponse>(@params);
 	}
 
 	/// <inheritdoc />
@@ -1384,12 +1384,12 @@ public partial class MessagesCategory : IMessagesCategory
 			},
 			{
 				"template", @params.Template is not null
-					? JsonConvert.SerializeObject(@params.Template)
+					? JsonSerializer.Serialize(@params.Template, @params.Template.GetType(), GlobalJsonSerializerContext.Default)
 					: ""
 			},
 			{
 				"keyboard", @params.Keyboard is not null
-					? JsonConvert.SerializeObject(@params.Keyboard)
+					? JsonSerializer.Serialize(@params.Keyboard, @params.Keyboard.GetType(), GlobalJsonSerializerContext.Default)
 					: ""
 			}
 		});
@@ -1441,7 +1441,7 @@ public partial class MessagesCategory : IMessagesCategory
 			},
 			{
 				"event_data", eventData is not null
-					? JsonConvert.SerializeObject(eventData)
+					? JsonSerializer.Serialize(eventData, eventData.GetType(), GlobalJsonSerializerContext.Default)
 					: string.Empty
 			}
 		});

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using JetBrains.Annotations;
-using Newtonsoft.Json;
 using VkNet.Abstractions;
 using VkNet.Enums.Filters;
 using VkNet.Enums.StringEnums;
@@ -91,7 +91,7 @@ public partial class AccountCategory : IAccountCategory
 					"system_version", @params.SystemVersion
 				},
 				{
-					"settings", JsonConvert.SerializeObject(@params.Settings)
+					"settings", JsonSerializer.Serialize(@params.Settings, @params.Settings.GetType(), GlobalJsonSerializerContext.Default)
 				},
 				{
 					"sandbox", @params.Sandbox

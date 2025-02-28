@@ -2,8 +2,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
@@ -19,84 +18,84 @@ public class Comment
 	/// <summary>
 	/// Идентификатор комментария.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Идентификатор автора комментария.
 	/// </summary>
-	[JsonProperty("from_id")]
+	[JsonPropertyName("from_id")]
 	public long? FromId { get; set; }
 
 	/// <summary>
 	/// Идентификатор автора комментария.
 	/// </summary>
-	[JsonProperty("post_id")]
+	[JsonPropertyName("post_id")]
 	public long? PostId { get; set; }
 
 	/// <summary>
 	/// Идентификатор фотографии.
 	/// </summary>
-	[JsonProperty("pid")]
+	[JsonPropertyName("pid")]
 	public long? PhotoId { get; set; }
 
 	/// <summary>
 	/// Идентификатор автора комментария.
 	/// </summary>
-	[JsonProperty("owner_id")]
+	[JsonPropertyName("owner_id")]
 	public long? OwnerId { get; set; }
 
 	/// <summary>
 	/// Идентификатор автора комментария.
 	/// </summary>
-	[JsonProperty("parents_stack")]
+	[JsonPropertyName("parents_stack")]
 	public ReadOnlyCollection<long> ParentsStack { get; set; }
 
 	/// <summary>
 	/// Идентификатор автора комментария.
 	/// </summary>
-	[JsonProperty("thread")]
+	[JsonPropertyName("thread")]
 	public CommentThread Thread { get; set; }
 
 	/// <summary>
 	/// Дата и время создания комментария.
 	/// </summary>
 	[JsonConverter(typeof(UnixDateTimeConverter))]
-	[JsonProperty("date")]
+	[JsonPropertyName("date")]
 	public DateTime? Date { get; set; }
 
 	/// <summary>
 	/// Текст комментария.
 	/// </summary>
-	[JsonProperty("text")]
+	[JsonPropertyName("text")]
 	public string Text { get; set; }
 
 	/// <summary>
 	/// Информация о VK Donut.
 	/// </summary>
-	[JsonProperty("donut")]
+	[JsonPropertyName("donut")]
 	public CommentDonut Donut { get; set; }
 
 	/// <summary>
 	/// Идентификатор пользователя или сообщества, в ответ которому оставлен текущий
 	/// комментарий (если применимо).
 	/// </summary>
-	[JsonProperty("reply_to_user")]
+	[JsonPropertyName("reply_to_user")]
 	public long? ReplyToUser { get; set; }
 
 	/// <summary>
 	/// Идентификатор комментария, в ответ на который оставлен текущий комментарий
 	/// (если применимо).
 	/// </summary>
-	[JsonProperty("reply_to_comment")]
+	[JsonPropertyName("reply_to_comment")]
 	public long? ReplyToComment { get; set; }
 
 	/// <summary>
 	/// Объект, содержащий информацию о медиавложениях в комментарии. См. описание
 	/// формата медиавложений.
 	/// </summary>
-	[JsonConverter(typeof(AttachmentJsonConverter))]
-	[JsonProperty("attachments")]
+	// [JsonConverter(typeof(AttachmentJsonConverter))]
+	[JsonPropertyName("attachments")]
 	public ReadOnlyCollection<Attachment> Attachments { get; set; }
 
 	/// <summary>
@@ -109,7 +108,7 @@ public class Comment
 	/// <summary>
 	/// Информация о числе людей, которым понравился данный комментарий.
 	/// </summary>
-	[JsonProperty("likes")]
+	[JsonPropertyName("likes")]
 	public Likes Likes { get; set; }
 
 	#endregion

@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using JetBrains.Annotations;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using VkNet.Abstractions;
 using VkNet.Enums;
 using VkNet.Enums.StringEnums;
@@ -106,70 +106,72 @@ public partial class DocsCategory : IDocsCategory
 	}
 
 
-	/// <inheritdoc />
-	public ReadOnlyCollection<Attachment> Save(string file, string title = null, string tags = null)
-	{
-		VkErrors.ThrowIfNullOrEmpty(() => title);
-
-		if (VkResponseEx.IsValidJson(file))
-		{
-			var responseJson = file.ToJObject();
-
-			file = responseJson["file"]
-				.ToString();
-		}
-
-		var parameters = new VkParameters
-		{
-			{
-				"file", file
-			},
-			{
-				"title", title
-			},
-			{
-				"tags", tags
-			}
-		};
-
-		var response = _vk.Call("docs.save", parameters);
-
-		var responseArray = (VkResponseArray) response;
-
-		if (responseArray is null)
-		{
-
-			if (response.ContainsKey("audio_message"))
-			{
-				return new(new List<Attachment>
-				{
-					CreateTyped(JsonConvert.DeserializeObject<AudioMessage>(response["audio_message"].ToString()))
-				});
-			}
-			return new(new List<Attachment>
-			{
-				CreateTyped(JsonConvert.DeserializeObject<Document>(response["doc"].ToString()))
-			});
-		}
-
-		if (response.ContainsKey("audio_message"))
-		{
-			return new ((from parsedObject in JArray.Parse(response.ToString()).Children<JObject>()
-						from parsedProperty in parsedObject.Properties()
-						let propertyName = parsedProperty.Name
-						where propertyName.Equals("audio_message")
-						select CreateTyped(JsonConvert.DeserializeObject<AudioMessage>(parsedProperty.Value.ToString()))).ToList());
-		}
-
-		var parsedArray = JArray.Parse(response.ToString());
-		var list = (from parsedObject in parsedArray.Children<JObject>()
-					from parsedProperty in parsedObject.Properties()
-					let propertyName = parsedProperty.Name
-					where propertyName.Equals("doc")
-					select CreateTyped(JsonConvert.DeserializeObject<Document>(parsedProperty.Value.ToString()))).ToList();
-
-		return new (list);
-	}
+	// /// <inheritdoc />
+	// public ReadOnlyCollection<Attachment> Save(string file, string title = null, string tags = null)
+	// {
+	// 	VkErrors.ThrowIfNullOrEmpty(() => title);
+	//
+	// 	if (VkResponseEx.IsValidJson(file))
+	// 	{
+	// 		var responseJson = file.ToJObject();
+	//
+	// 		file = responseJson["file"]
+	// 			.ToString();
+	// 	}
+	//
+	// 	var parameters = new VkParameters
+	// 	{
+	// 		{
+	// 			"file", file
+	// 		},
+	// 		{
+	// 			"title", title
+	// 		},
+	// 		{
+	// 			"tags", tags
+	// 		}
+	// 	};
+	//
+	// 	var response = _vk.Call("docs.save", parameters);
+	//
+	// 	var responseArray = (VkResponseArray) response;
+	//
+	// 	if (responseArray is null)
+	// 	{
+	//
+	// 		if (response.ContainsKey("audio_message"))
+	// 		{
+	// 			return new(new List<Attachment>
+	// 			{
+	// 				CreateTyped(JsonSerializer.Deserialize<AudioMessage>(response["audio_message"].ToString(), GlobalJsonSerializerOptions.Options))
+	// 			});
+	// 		}
+	// 		return new(new List<Attachment>
+	// 		{
+	// 			CreateTyped(JsonSerializer.Deserialize<Document>(response["doc"].ToString(), GlobalJsonSerializerOptions.Options))
+	// 		});
+	// 	}
+	//
+	// 	if (response.ContainsKey("audio_message"))
+	// 	{
+	// 		// JsonArray.Parse(response.ToString())
+	//
+	// 		return new ((from parsedObject in JArray.Parse(response.ToString()).Children<JObject>()
+	// 					from parsedProperty in parsedObject.Properties()
+	// 					let propertyName = parsedProperty.Name
+	// 					where propertyName.Equals("audio_message")
+	// 					select CreateTyped(JsonConvert.DeserializeObject<AudioMessage>(parsedProperty.Value.ToString()))).ToList());
+	// 	}
+	//
+	// 	var parsedArray = JArray.Parse(response.ToString());
+	// 	var list = (from parsedObject in parsedArray.Children<JObject>()
+	// 				from parsedProperty in parsedObject.Properties()
+	// 				let propertyName = parsedProperty.Name
+	// 				where propertyName.Equals("doc")
+	// 				select CreateTyped(JsonConvert.DeserializeObject<Document>(parsedProperty.Value.ToString()))).ToList();
+	//
+	// 	return new (list);
+	// }
 
 	private static Attachment CreateTyped<TAttachment>(TAttachment instance)
 		where TAttachment : MediaAttachment

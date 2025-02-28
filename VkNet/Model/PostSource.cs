@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -19,25 +19,27 @@ public class PostSource
 	/// <summary>
 	/// На данный момент поддерживаются следующие типы источников записи на стене.
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public PostSourceType? Type { get; set; }
 
 	/// <summary>
 	/// Название платформы, если оно доступно: android, iphone, wphone.
 	/// </summary>
-	[JsonProperty("platform", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("platform")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public Platform? Platform { get; set; }
 
 	/// <summary>
 	/// Поле data является опциональным и содержит следующие данные в зависимости от
 	/// значения поля type:
 	/// </summary>
-	[JsonProperty("data", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("data")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public PostSourceData? Data { get; set; }
 
 	/// <summary>
 	/// Cодержит внешнюю ссылку на ресурс, с которого была опубликована запись.
 	/// </summary>
-	[JsonProperty("source_url")]
+	[JsonPropertyName("source_url")]
 	public Uri Uri { get; set; }
 }

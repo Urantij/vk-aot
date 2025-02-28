@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,30 +12,30 @@ public class Military
 	/// <summary>
 	/// Номер части.
 	/// </summary>
-	[JsonProperty("unit")]
+	[JsonPropertyName("unit")]
 	public string Unit { get; set; }
 
 	/// <summary>
 	/// Идентификатор части в базе данных.
 	/// </summary>
-	[JsonProperty("unit_id")]
+	[JsonPropertyName("unit_id")]
 	public ulong? UnitId { get; set; }
 
 	/// <summary>
 	/// Идентификатор страны, в которой находится часть.
 	/// </summary>
-	[JsonProperty("country_id")]
+	[JsonPropertyName("country_id")]
 	public long? CountryId { get; set; }
 
 	/// <summary>
 	/// Год начала службы.
 	/// </summary>
-	[JsonProperty("from")]
+	[JsonPropertyName("from")]
 	public int? From { get; set; }
 
 	/// <summary>
 	/// Год окончания службы.
 	/// </summary>
-	[JsonProperty("until")]
+	[JsonPropertyName("until")]
 	public int? Until { get; set; }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.Filters;
 using VkNet.Enums.StringEnums;
 using VkNet.Utils.JsonConverter;
@@ -15,19 +15,19 @@ public class AppGetCatalogParams
 	/// <summary>
 	/// Способ сортировки приложений
 	/// </summary>
-	[JsonProperty(propertyName: "sort")]
+	[JsonPropertyName("sort")]
 	public AppSort? Sort { get; set; }
 
 	/// <summary>
 	/// Смещение, необходимое для выборки определенного подмножества приложений.
 	/// </summary>
-	[JsonProperty(propertyName: "offset")]
+	[JsonPropertyName("offset")]
 	public uint Offset { get; set; }
 
 	/// <summary>
 	/// Количество приложений, информацию о которых необходимо вернуть.
 	/// </summary>
-	[JsonProperty(propertyName: "count")]
+	[JsonPropertyName("count")]
 	public uint Count { get; set; }
 
 	/// <summary>
@@ -35,7 +35,7 @@ public class AppGetCatalogParams
 	/// android, winphone, web. По умолчанию
 	/// используется web.
 	/// </summary>
-	[JsonProperty(propertyName: "platform")]
+	[JsonPropertyName("platform")]
 	public AppPlatforms? Platform { get; set; }
 
 	/// <summary>
@@ -46,7 +46,7 @@ public class AppGetCatalogParams
 	/// По умолчанию возвращает только основные поля приложений. Если указан extended –
 	/// count не должен быть больше 100.
 	/// </summary>
-	[JsonProperty(propertyName: "extended")]
+	[JsonPropertyName("extended")]
 	public bool Extended { get; set; }
 
 	/// <summary>
@@ -55,38 +55,38 @@ public class AppGetCatalogParams
 	/// access_token)
 	/// <c> false </c> – не возвращать список друзей, по умолчанию.
 	/// </summary>
-	[JsonProperty(propertyName: "return_friends")]
+	[JsonPropertyName("return_friends")]
 	public bool ReturnFriends { get; set; }
 
 	/// <summary>
 	/// Список дополнительных полей, которые необходимо вернуть для профилей
 	/// пользователей.
 	/// </summary>
-	[JsonProperty(propertyName: "fields")]
+	[JsonPropertyName("fields")]
 	public UsersFields Fields { get; set; }
 
 	/// <summary>
 	/// Падеж для склонения имени и фамилии пользователей.
 	/// </summary>
-	[JsonProperty(propertyName: "name_case")]
+	[JsonPropertyName("name_case")]
 	public NameCase? NameCase { get; set; }
 
 	/// <summary>
 	/// Поисковая строка для поиска по каталогу приложений.
 	/// </summary>
-	[JsonProperty(propertyName: "q")]
+	[JsonPropertyName("q")]
 	public string Query { get; set; }
 
 	/// <summary>
 	/// Идентификатор жанра.
 	/// </summary>
-	[JsonProperty(propertyName: "genre_id")]
+	[JsonPropertyName("genre_id")]
 	public uint? GenreId { get; set; }
 
 	/// <summary>
 	/// Фильтр.
 	/// </summary>
-	[JsonProperty(propertyName: "filter")]
+	[JsonPropertyName("filter")]
 	[JsonConverter(typeof(SafetyEnumJsonConverter))]
 	public AppFilter Filter { get; set; }
 }

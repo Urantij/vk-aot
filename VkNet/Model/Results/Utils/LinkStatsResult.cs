@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,12 +13,12 @@ public class LinkStatsResult
 	/// <summary>
 	/// Ключ
 	/// </summary>
-	[JsonProperty(propertyName: "key")]
+	[JsonPropertyName("key")]
 	public string Key { get; set; }
 
 	/// <summary>
 	/// Данные о статистике.
 	/// </summary>
-	[JsonProperty(propertyName: "stats")]
+	[JsonPropertyName("stats")]
 	public ReadOnlyCollection<LinkStat> Stats { get; set; }
 }

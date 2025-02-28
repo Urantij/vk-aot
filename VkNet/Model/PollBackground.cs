@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -14,48 +14,48 @@ public class PollBackground
 	/// <summary>
 	/// Идентификатор фона.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long? Id { get; set; }
 
 	/// <summary>
 	/// Тип фона.
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public PollBackgroundType? Type { get; set; }
 
 	/// <summary>
 	/// (для type = gradient) угол градиента по оси X.
 	/// </summary>
-	[JsonProperty("angle")]
+	[JsonPropertyName("angle")]
 	public int? Angle { get; set; }
 
 	/// <summary>
 	/// HEX-код замещающего цвета (без #).
 	/// </summary>
-	[JsonProperty("color")]
+	[JsonPropertyName("color")]
 	public string Color { get; set; }
 
 	/// <summary>
 	/// (для type = tile) ширина плитки паттерна.
 	/// </summary>
-	[JsonProperty("width")]
+	[JsonPropertyName("width")]
 	public int? Width { get; set; }
 
 	/// <summary>
 	/// (для type = tile) высота плитки паттерна.
 	/// </summary>
-	[JsonProperty("height")]
+	[JsonPropertyName("height")]
 	public int? Height { get; set; }
 
 	/// <summary>
 	/// (для type = tile) изображение плитки паттерна. Массив объектов изображений.
 	/// </summary>
-	[JsonProperty("images")]
+	[JsonPropertyName("images")]
 	public ReadOnlyCollection<Photo> Images { get; set; }
 
 	/// <summary>
 	/// (для type = gradient) точки градиента.
 	/// </summary>
-	[JsonProperty("points")]
+	[JsonPropertyName("points")]
 	public ReadOnlyCollection<PollBackgroundPoint> Points { get; set; }
 }

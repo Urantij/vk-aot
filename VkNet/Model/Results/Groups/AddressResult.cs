@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,78 +12,78 @@ public class AddressResult
 	/// <summary>
 	/// Идентификатор
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public ulong Id { get; set; }
 
 	/// <summary>
 	/// Дополнительный адрес
 	/// </summary>
-	[JsonProperty("additional_address")]
+	[JsonPropertyName("additional_address")]
 	public string AdditionalAddress { get; set; }
 
 	/// <summary>
 	/// Основной адрес
 	/// </summary>
-	[JsonProperty("address")]
+	[JsonPropertyName("address")]
 	public string Address { get; set; }
 
 	/// <summary>
 	/// Идентификатор города
 	/// </summary>
-	[JsonProperty("city_id")]
+	[JsonPropertyName("city_id")]
 	public long? CityId { get; set; }
 
 	/// <summary>
 	/// Идентификатор страны
 	/// </summary>
-	[JsonProperty("country_id")]
+	[JsonPropertyName("country_id")]
 	public long? CountryId { get; set; }
 
 	/// <summary>
 	/// Широта
 	/// </summary>
-	[JsonProperty("latitude")]
+	[JsonPropertyName("latitude")]
 	public double? Latitude { get; set; }
 
 	/// <summary>
 	/// Долгота
 	/// </summary>
-	[JsonProperty("longitude")]
+	[JsonPropertyName("longitude")]
 	public double? Longitude { get; set; }
 
 	/// <summary>
 	/// Идентификатор станции метро
 	/// </summary>
-	[JsonProperty("metro_station_id")]
+	[JsonPropertyName("metro_station_id")]
 	public long? MetroStationId { get; set; }
 
 	/// <summary>
 	/// Телефон
 	/// </summary>
-	[JsonProperty("phone")]
+	[JsonPropertyName("phone")]
 	public string Phone { get; set; }
 
 	/// <summary>
 	/// Сдвиг по времени
 	/// </summary>
-	[JsonProperty("time_offset")]
+	[JsonPropertyName("time_offset")]
 	public long? TimeOffset { get; set; }
 
 	/// <summary>
 	/// Расписание
 	/// </summary>
-	[JsonProperty("timetable")]
+	[JsonPropertyName("timetable")]
 	public Timetable Timetable { get; set; }
 
 	/// <summary>
 	/// Заголовок
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Информация о статусе работы
 	/// </summary>
-	[JsonProperty("work_info_status")]
+	[JsonPropertyName("work_info_status")]
 	public string WorkInfoStatus { get; set; }
 }

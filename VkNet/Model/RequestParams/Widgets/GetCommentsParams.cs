@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,27 +13,27 @@ public class GetCommentsParams
 	/// <summary>
 	/// Идентификатор приложения/сайта, с которым инициализируются виджеты.
 	/// </summary>
-	[JsonProperty(propertyName: "widget_api_id")]
+	[JsonPropertyName("widget_api_id")]
 	public long WidgetApiId { get; set; }
 
 	/// <summary>
 	/// URL-адрес страницы.
 	/// </summary>
-	[JsonProperty(propertyName: "url")]
+	[JsonPropertyName("url")]
 	public string Url { get; set; }
 
 	/// <summary>
 	/// Внутренний идентификатор страницы в приложении/сайте
 	/// (в случае, если для инициализации виджетов использовался параметр page_id).
 	/// </summary>
-	[JsonProperty(propertyName: "page_id")]
+	[JsonPropertyName("page_id")]
 	public string PageId { get; set; }
 
 	/// <summary>
 	/// Тип сортировки комментариев. Возможные значения: date, likes, last_comment.
 	/// Значение по умолчанию - date.
 	/// </summary>
-	[JsonProperty(propertyName: "order")]
+	[JsonPropertyName("order")]
 	public string Order { get; set; }
 
 	/// <summary>
@@ -42,19 +42,19 @@ public class GetCommentsParams
 	/// будут возвращены последние комментарии второго уровня для каждого комментария
 	/// первого уровня.
 	/// </summary>
-	[JsonProperty(propertyName: "fields")]
+	[JsonPropertyName("fields")]
 	public IEnumerable<string> Fields { get; set; }
 
 	/// <summary>
 	/// Смещение необходимое для выборки определенного подмножества комментариев. По
 	/// умолчанию 0.
 	/// </summary>
-	[JsonProperty(propertyName: "offset")]
+	[JsonPropertyName("offset")]
 	public ulong Offset { get; set; }
 
 	/// <summary>
 	/// Количество возвращаемых записей.
 	/// </summary>
-	[JsonProperty(propertyName: "count")]
+	[JsonPropertyName("count")]
 	public ulong Count { get; set; }
 }

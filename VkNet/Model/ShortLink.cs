@@ -1,6 +1,6 @@
 ﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -13,37 +13,37 @@ public class ShortLink
 	/// <summary>
 	/// Время создания ссылки в Unixtime
 	/// </summary>
-	[JsonProperty(propertyName: "timestamp")]
+	[JsonPropertyName("timestamp")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime Timestamp { get; set; }
 
 	/// <summary>
 	/// Сокращенный URL.
 	/// </summary>
-	[JsonProperty(propertyName: "short_url")]
+	[JsonPropertyName("short_url")]
 	public Uri ShortUrl { get; set; }
 
 	/// <summary>
 	/// Оригинальный URL.
 	/// </summary>
-	[JsonProperty(propertyName: "url")]
+	[JsonPropertyName("url")]
 	public Uri Url { get; set; }
 
 	/// <summary>
 	/// Содержательная часть ссылки (после "vk.cc");
 	/// </summary>
-	[JsonProperty(propertyName: "Key")]
+	[JsonPropertyName("Key")]
 	public string Key { get; set; }
 
 	/// <summary>
 	/// Ключ для доступа к приватной статистике ссылки;
 	/// </summary>
-	[JsonProperty(propertyName: "access_key")]
+	[JsonPropertyName("access_key")]
 	public string AccessKey { get; set; }
 
 	/// <summary>
 	/// Число переходов
 	/// </summary>
-	[JsonProperty(propertyName: "views")]
+	[JsonPropertyName("views")]
 	public int Views { get; set; }
 }

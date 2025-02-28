@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -14,29 +14,29 @@ public class Relative
 	/// <summary>
 	/// Идентификатор родственника.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Тип родственника (sibling и т.п.)
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public RelativeType? Type { get; set; }
 
 	/// <summary>
 	/// Имя родственника, если он не является пользователем ВКонтакте.
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	private long UserId
 	{
 		get => Id;
 		set => Id = value;
 	}
 
-	[JsonProperty("uid")]
+	[JsonPropertyName("uid")]
 	private long Uid
 	{
 		get => Id;

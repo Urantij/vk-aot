@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -49,6 +49,6 @@ public class AudioGetParams
 	/// <summary>
 	/// Токен доступа
 	/// </summary>
-	[JsonProperty("access_key")]
+	[JsonPropertyName("access_key")]
 	public string AccessKey { get; set; }
 }

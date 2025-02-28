@@ -1,30 +1,23 @@
 ﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using VkNet.Model;
 
 namespace VkNet.Utils.JsonConverter;
 
 /// <inheritdoc />
-public class ChangeJsonConverter : Newtonsoft.Json.JsonConverter
+public class ChangeJsonConverter : System.Text.Json.Serialization.JsonConverter<Change>
 {
 	/// <inheritdoc />
-	public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer) => throw new NotImplementedException();
+	public override void Write(Utf8JsonWriter writer, Change value, JsonSerializerOptions options) => throw new NotImplementedException();
 
 	/// <inheritdoc />
-	public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+	public override Change Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 	{
-		if (objectType.IsGenericType)
+		var obj = JsonNode.Parse(ref reader, new JsonNodeOptions()
 		{
-			throw new TypeAccessException();
-		}
-
-		if (reader.TokenType is JsonToken.Null)
-		{
-			return null;
-		}
-
-		var obj = JObject.Load(reader);
+			PropertyNameCaseInsensitive = options.PropertyNameCaseInsensitive
+		}).AsObject();
 		var responseJToken = obj["response"] ?? obj;
 		var response = new VkResponse(responseJToken);
 
@@ -89,6 +82,6 @@ public class ChangeJsonConverter : Newtonsoft.Json.JsonConverter
 		};
 	}
 
-	/// <inheritdoc />
-	public override bool CanConvert(Type objectType) => throw new NotImplementedException();
+	// /// <inheritdoc />
+	// public override bool CanConvert(Type objectType) => throw new NotImplementedException();
 }

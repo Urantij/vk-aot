@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,48 +12,48 @@ public class PrettyCardsEditParams
 	/// <summary>
 	/// Идентификатор владельца карточки.
 	/// </summary>
-	[JsonProperty("owner_id")]
+	[JsonPropertyName("owner_id")]
 	public long? OwnerId { get; set; }
 
 	/// <summary>
 	/// Идентификатор карточки.
 	/// </summary>
-	[JsonProperty("card_id")]
+	[JsonPropertyName("card_id")]
 	public string CardId { get; set; }
 
 	/// <summary>
 	/// Новая фотография.
 	/// </summary>
-	[JsonProperty("photo")]
+	[JsonPropertyName("photo")]
 	public string Photo { get; set; }
 
 	/// <summary>
 	/// Новый заголовок.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Новая ссылка.
 	/// </summary>
-	[JsonProperty("link")]
+	[JsonPropertyName("link")]
 	public string Link { get; set; }
 
 	/// <summary>
 	/// Новая цена.
 	/// </summary>
-	[JsonProperty("price")]
+	[JsonPropertyName("price")]
 	public string Price { get; set; }
 
 	/// <summary>
 	/// Обновлённая старая цена.
 	/// </summary>
-	[JsonProperty("price_old")]
+	[JsonPropertyName("price_old")]
 	public string PriceOld { get; set; }
 
 	/// <summary>
 	/// Новая кнопка.
 	/// </summary>
-	[JsonProperty("button")]
+	[JsonPropertyName("button")]
 	public string Button { get; set; }
 }

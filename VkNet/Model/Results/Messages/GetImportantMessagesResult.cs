@@ -1,6 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Utils;
 using VkNet.Utils.JsonConverter;
 
@@ -15,19 +15,19 @@ public class GetImportantMessagesResult
 	/// <summary>
 	/// Сообщения
 	/// </summary>
-	[JsonProperty("messages")]
-	[JsonConverter(typeof(VkCollectionJsonConverter))]
+	[JsonPropertyName("messages")]
+	[VkCollectionConverter<Message>]
 	public VkCollection<Message> Messages { get; set; }
 
 	/// <summary>
 	/// Профили пользователей
 	/// </summary>
-	[JsonProperty("profiles")]
+	[JsonPropertyName("profiles")]
 	public ReadOnlyCollection<User> Profiles { get; set; }
 
 	/// <summary>
 	/// Беседы
 	/// </summary>
-	[JsonProperty("conversations")]
+	[JsonPropertyName("conversations")]
 	public ReadOnlyCollection<Conversation> Conversations { get; set; }
 }

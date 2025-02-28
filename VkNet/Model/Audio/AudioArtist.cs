@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class AudioArtist
 	/// <summary>
 	/// Идентификатор артиста/группы.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public string Id { get; set; }
 
 	/// <summary>
 	/// Имя артиста/название группы.
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// Неизвестно (получено экспериментально).
 	/// </summary>
-	[JsonProperty("domain")]
+	[JsonPropertyName("domain")]
 	public string Domain { get; set; }
 }

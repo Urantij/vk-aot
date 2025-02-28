@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json;
 using VkNet.Abstractions;
 using VkNet.Enums;
 using VkNet.Enums.StringEnums;
@@ -32,7 +32,7 @@ public partial class AdsCategory : IAdsCategory
 					"account_id", adsDataSpecification.AccountId
 				},
 				{
-					"data", JsonConvert.SerializeObject(adsDataSpecification.Data)
+					"data", JsonSerializer.Serialize(adsDataSpecification.Data, adsDataSpecification.Data.GetType(), GlobalJsonSerializerContext.Default)
 				}
 			});
 
@@ -63,7 +63,7 @@ public partial class AdsCategory : IAdsCategory
 					"account_id", adsDataSpecification.AccountId
 				},
 				{
-					"data", JsonConvert.SerializeObject(adsDataSpecification.Data)
+					"data", JsonSerializer.Serialize(adsDataSpecification.Data, adsDataSpecification.Data.GetType(), GlobalJsonSerializerContext.Default)
 				}
 			});
 
@@ -84,7 +84,7 @@ public partial class AdsCategory : IAdsCategory
 					"account_id", campaignsDataSpecification.AccountId
 				},
 				{
-					"data", JsonConvert.SerializeObject(campaignsDataSpecification.Data)
+					"data", JsonSerializer.Serialize(campaignsDataSpecification.Data, campaignsDataSpecification.Data.GetType(), GlobalJsonSerializerContext.Default)
 				}
 			});
 	}
@@ -105,7 +105,7 @@ public partial class AdsCategory : IAdsCategory
 					"account_id", clientDataSpecification.AccountId
 				},
 				{
-					"data", JsonConvert.SerializeObject(clientDataSpecification.Data)
+					"data", JsonSerializer.Serialize(clientDataSpecification.Data, clientDataSpecification.Data.GetType(), GlobalJsonSerializerContext.Default)
 				}
 			});
 	}
@@ -183,7 +183,7 @@ public partial class AdsCategory : IAdsCategory
 			"account_id", deleteAdsParams.AccountId
 		},
 		{
-			"ids", JsonConvert.SerializeObject(deleteAdsParams.Ids)
+			"ids", JsonSerializer.Serialize(deleteAdsParams.Ids, deleteAdsParams.Ids.GetType(), GlobalJsonSerializerContext.Default)
 		}
 	});
 
@@ -196,7 +196,7 @@ public partial class AdsCategory : IAdsCategory
 				"account_id", deleteCampaignsParams.AccountId
 			},
 			{
-				"ids", JsonConvert.SerializeObject(deleteCampaignsParams.Ids)
+				"ids", JsonSerializer.Serialize(deleteCampaignsParams.Ids, deleteCampaignsParams.Ids.GetType(), GlobalJsonSerializerContext.Default)
 			}
 		});
 
@@ -209,7 +209,7 @@ public partial class AdsCategory : IAdsCategory
 				"account_id", deleteClientsParams.AccountId
 			},
 			{
-				"ids", JsonConvert.SerializeObject(deleteClientsParams.Ids)
+				"ids", JsonSerializer.Serialize(deleteClientsParams.Ids, deleteClientsParams.Ids.GetType(), GlobalJsonSerializerContext.Default)
 			}
 		});
 
@@ -289,10 +289,10 @@ public partial class AdsCategory : IAdsCategory
 				"account_id", getAdsLayoutParams.AccountId
 			},
 			{
-				"campaign_ids", JsonConvert.SerializeObject(getAdsLayoutParams.CampaignIds)
+				"campaign_ids", JsonSerializer.Serialize(getAdsLayoutParams.CampaignIds, getAdsLayoutParams.CampaignIds.GetType(), GlobalJsonSerializerContext.Default)
 			},
 			{
-				"ad_ids", JsonConvert.SerializeObject(getAdsLayoutParams.AdIds)
+				"ad_ids", JsonSerializer.Serialize(getAdsLayoutParams.AdIds, getAdsLayoutParams.AdIds.GetType(), GlobalJsonSerializerContext.Default)
 			},
 			{
 				"client_id", getAdsLayoutParams.ClientId
@@ -635,7 +635,7 @@ public partial class AdsCategory : IAdsCategory
 					"account_id", removeOfficeUsersParams.AccountId
 				},
 				{
-					"ids", JsonConvert.SerializeObject(removeOfficeUsersParams.Ids)
+					"ids", JsonSerializer.Serialize(removeOfficeUsersParams.Ids, removeOfficeUsersParams.Ids.GetType(), GlobalJsonSerializerContext.Default)
 				}
 			});
 

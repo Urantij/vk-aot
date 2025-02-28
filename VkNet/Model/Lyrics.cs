@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,12 +13,12 @@ public class Lyrics
 	/// <summary>
 	/// Идентификатор текста аудиозаписи.
 	/// </summary>
-	[JsonProperty("lyrics_id")]
+	[JsonPropertyName("lyrics_id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Тест аудиозаписи. В качестве переводов строк в тексте используется '\n'.
 	/// </summary>
-	[JsonProperty("text")]
+	[JsonPropertyName("text")]
 	public string Text { get; set; }
 }

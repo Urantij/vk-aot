@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class Dimensions
 	/// <summary>
 	/// Ширина в миллиметрах
 	/// </summary>
-	[JsonProperty("width")]
+	[JsonPropertyName("width")]
 	public int Width { get; set; }
 
 	/// <summary>
 	/// Высота в миллиметрах
 	/// </summary>
-	[JsonProperty("height")]
+	[JsonPropertyName("height")]
 	public int Height { get; set; }
 
 	/// <summary>
 	/// Длина в миллиметрах
 	/// </summary>
-	[JsonProperty("length")]
+	[JsonPropertyName("length")]
 	public int Length { get; set; }
 }

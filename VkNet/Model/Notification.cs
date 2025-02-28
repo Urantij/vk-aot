@@ -1,6 +1,6 @@
 ﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -13,20 +13,20 @@ public class Notification
 	/// <summary>
 	/// Тип оповещения.
 	/// </summary>
-	[JsonProperty(propertyName: "type")]
+	[JsonPropertyName("type")]
 	public string Type { get; set; }
 
 	/// <summary>
 	/// Время появления ответа в формате Unixtime.
 	/// </summary>
-	[JsonProperty(propertyName: "date")]
+	[JsonPropertyName("date")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime Date { get; set; }
 
 	/// <summary>
 	/// Объект описывающий поступивший ответ.
 	/// </summary>
-	[JsonProperty(propertyName: "feedback")]
+	[JsonPropertyName("feedback")]
 	public Feedback Feedback { get; set; }
 
 	/// <summary>
@@ -34,12 +34,12 @@ public class Notification
 	/// данное оповещение. Отсутствует, если
 	/// пользователь ещё не давал ответа.
 	/// </summary>
-	[JsonProperty(propertyName: "reply")]
+	[JsonPropertyName("reply")]
 	public Reply Reply { get; set; }
 
 	/// <summary>
 	/// Property
 	/// </summary>
-	[JsonProperty(propertyName: "parent")]
+	[JsonPropertyName("parent")]
 	public Feedback Parent { get; set; }
 }

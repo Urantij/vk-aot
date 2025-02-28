@@ -1,7 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using VkNet.Enums;
 using VkNet.Enums.StringEnums;
 using VkNet.Model;
@@ -9,18 +9,18 @@ using VkNet.Model;
 namespace VkNet.Utils.JsonConverter;
 
 /// <inheritdoc />
-public class UserJsonConverter : JsonConverter<User>
+public class UserJsonConverter : System.Text.Json.Serialization.JsonConverter<User>
 {
 	/// <inheritdoc />
-	public override void WriteJson(JsonWriter writer, User value, JsonSerializer serializer)
+	public override void Write(Utf8JsonWriter writer, User value, JsonSerializerOptions options)
 	{
-		var jObj = new JObject
+		var jObj = new JsonObject()
 		{
 			{
-				"first_name", JToken.FromObject(value.FirstName)
+				"first_name", JsonSerializer.SerializeToNode(value.FirstName, options)
 			},
 			{
-				"last_name", JToken.FromObject(value.LastName)
+				"last_name", JsonSerializer.SerializeToNode(value.LastName, options)
 			}
 		};
 
@@ -29,18 +29,13 @@ public class UserJsonConverter : JsonConverter<User>
 
 	/// <inheritdoc />
 	/// <exception cref="T:System.TypeAccessException"> </exception>
-	public override User ReadJson(JsonReader reader, Type objectType, User existingValue, bool hasExistingValue, JsonSerializer serializer)
+	public override User Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 	{
-		if (objectType.IsGenericType)
-		{
-			throw new TypeAccessException();
-		}
-
-		if (reader.TokenType is JsonToken.Integer)
+		if (reader.TokenType is JsonTokenType.Number)
 		{
 			return new()
 			{
-				Id = (long) reader.Value
+				Id = reader.GetInt64()
 			};
 		}
 

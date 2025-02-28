@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -19,120 +19,120 @@ public class Poll : MediaAttachment
 	/// <summary>
 	/// Дата создания опроса
 	/// </summary>
-	[JsonProperty("created")]
+	[JsonPropertyName("created")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? Created { get; set; }
 
 	/// <summary>
 	/// Вопрос, заданный в голосовании.
 	/// </summary>
-	[JsonProperty("question")]
+	[JsonPropertyName("question")]
 	public string Question { get; set; }
 
 	/// <summary>
 	/// Кол-во ответов
 	/// </summary>
-	[JsonProperty("votes")]
+	[JsonPropertyName("votes")]
 	public int? Votes { get; set; }
 
 	/// <summary>
 	/// Идентификатор выбранного ответа
 	/// </summary>
-	[JsonProperty("answer_id")]
+	[JsonPropertyName("answer_id")]
 	public long? AnswerId { get; set; }
 
 	/// <summary>
 	/// Варианты ответов
 	/// </summary>
-	[JsonProperty("answers")]
+	[JsonPropertyName("answers")]
 	public ReadOnlyCollection<PollAnswer> Answers { get; set; }
 
 	/// <summary>
 	/// Возможность анонимых ответов
 	/// </summary>
-	[JsonProperty("anonymous")]
+	[JsonPropertyName("anonymous")]
 	public bool? Anonymous { get; set; }
 
 	/// <summary>
 	/// Допускает ли опрос выбор нескольких вариантов ответа.
 	/// </summary>
-	[JsonProperty("multiple")]
+	[JsonPropertyName("multiple")]
 	public bool? Multiple { get; set; }
 
 	/// <summary>
 	/// Идентификаторы вариантов ответа, выбранных текущим пользователем.
 	/// </summary>
-	[JsonProperty("answer_ids")]
+	[JsonPropertyName("answer_ids")]
 	public ReadOnlyCollection<long> AnswerIds { get; set; }
 
 	/// <summary>
 	/// Дата завершения опроса в Unixtime. 0, если опрос бессрочный.
 	/// </summary>
-	[JsonProperty("end_date")]
+	[JsonPropertyName("end_date")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? EndDate { get; set; }
 
 	/// <summary>
 	/// Является ли опрос завершенным.
 	/// </summary>
-	[JsonProperty("closed")]
+	[JsonPropertyName("closed")]
 	public bool? Closed { get; set; }
 
 	/// <summary>
 	/// Прикреплён ли опрос к обсуждению.
 	/// </summary>
-	[JsonProperty("is_board")]
+	[JsonPropertyName("is_board")]
 	public bool? IsBoard { get; set; }
 
 	/// <summary>
 	/// Можно ли отредактировать опрос.
 	/// </summary>
-	[JsonProperty("can_edit")]
+	[JsonPropertyName("can_edit")]
 	public bool? CanEdit { get; set; }
 
 	/// <summary>
 	/// Можно ли проголосовать в опросе.
 	/// </summary>
-	[JsonProperty("can_vote")]
+	[JsonPropertyName("can_vote")]
 	public bool? CanVote { get; set; }
 
 	/// <summary>
 	/// Можно ли пожаловаться на опрос.
 	/// </summary>
-	[JsonProperty("can_report")]
+	[JsonPropertyName("can_report")]
 	public bool? CanReport { get; set; }
 
 	/// <summary>
 	/// Можно ли поделиться опросом.
 	/// </summary>
-	[JsonProperty("can_share")]
+	[JsonPropertyName("can_share")]
 	public bool? CanShare { get; set; }
 
 	/// <summary>
 	/// Идентификатор автора опроса.
 	/// </summary>
-	[JsonProperty("author_id")]
+	[JsonPropertyName("author_id")]
 	public long? AuthorId { get; set; }
 
 	/// <summary>
 	/// Фотография — фон сниппета опроса. Объект фотографии.
 	/// </summary>
-	[JsonProperty("photo")]
+	[JsonPropertyName("photo")]
 	public Photo Photo { get; set; }
 
 	/// <summary>
 	/// Фон сниппета опроса.
 	/// </summary>
-	[JsonProperty("background")]
+	[JsonPropertyName("background")]
 	public PollBackground Background { get; set; }
 
 	/// <summary>
 	/// Идентификаторы 3 друзей, которые проголосовали в опросе.
 	/// </summary>
-	[JsonProperty("friends")]
+	[JsonPropertyName("friends")]
 	public ReadOnlyCollection<User> Friends { get; set; }
 
-	[JsonProperty("poll_id")]
+	[JsonPropertyName("poll_id")]
 	private long? PollId
 	{
 		get => Id;

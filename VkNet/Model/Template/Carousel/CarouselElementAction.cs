@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -16,12 +16,12 @@ public class CarouselElementAction
 	/// <summary>
 	/// Тип клавиши.
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public CarouselElementActionType? Type { get; set; }
 
 	/// <summary>
 	/// ссылка, которую необходимо открыть по нажатию на кнопку.
 	/// </summary>
-	[JsonProperty("link")]
+	[JsonPropertyName("link")]
 	public Uri Link { get; set; }
 }

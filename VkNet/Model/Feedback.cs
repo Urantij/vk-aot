@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,12 +13,12 @@ public class Feedback
 	/// <summary>
 	/// Количество
 	/// </summary>
-	[JsonProperty(propertyName: "count")]
+	[JsonPropertyName("count")]
 	public long Count { get; set; }
 
 	/// <summary>
 	/// Массив объектов
 	/// </summary>
-	[JsonProperty(propertyName: "items")]
+	[JsonPropertyName("items")]
 	public List<FeedbackItem> Items { get; set; }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class AudioCatalogItemImage
 	/// <summary>
 	/// Ширина.
 	/// </summary>
-	[JsonProperty("width")]
+	[JsonPropertyName("width")]
 	public long Width { get; set; }
 
 	/// <summary>
 	/// Высота.
 	/// </summary>
-	[JsonProperty("height")]
+	[JsonPropertyName("height")]
 	public long Height { get; set; }
 
 	/// <summary>
 	/// Ссылка фото пользователя/сообщества.
 	/// </summary>
-	[JsonProperty("url")]
+	[JsonPropertyName("url")]
 	public Uri Url { get; set; }
 }

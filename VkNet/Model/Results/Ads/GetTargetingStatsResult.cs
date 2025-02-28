@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,54 +12,54 @@ public class GetTargetingStatsResult
 	/// <summary>
 	/// Количество оставшихся методов;
 	/// </summary>
-	[JsonProperty("audience_count")]
+	[JsonPropertyName("audience_count")]
 	public long AudienceCount { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("recommended_cpc")]
+	[JsonPropertyName("recommended_cpc")]
 	public string RecommendedCpc { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("recommended_cpm")]
+	[JsonPropertyName("recommended_cpm")]
 	public string RecommendedCpm { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("recommended_cpc_50")]
+	[JsonPropertyName("recommended_cpc_50")]
 	public string RecommendedCpc50 { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("recommended_cpm_50")]
+	[JsonPropertyName("recommended_cpm_50")]
 	public string RecommendedCpm50 { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("recommended_cpc_70")]
+	[JsonPropertyName("recommended_cpc_70")]
 	public string RecommendedCpc70 { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("recommended_cpm_70")]
+	[JsonPropertyName("recommended_cpm_70")]
 	public string RecommendedCpm70 { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("recommended_cpc_90")]
+	[JsonPropertyName("recommended_cpc_90")]
 	public string RecommendedCpc90 { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("recommended_cpm_90")]
+	[JsonPropertyName("recommended_cpm_90")]
 	public string RecommendedCpm90 { get; set; }
 }

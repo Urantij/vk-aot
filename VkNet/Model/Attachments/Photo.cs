@@ -1,7 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -20,7 +20,7 @@ public class Photo : MediaAttachment, IGroupUpdate
 	/// <summary>
 	/// Идентификатор альбома, в котором находится фотография.
 	/// </summary>
-	[JsonProperty("album_id")]
+	[JsonPropertyName("album_id")]
 	public long? AlbumId { get; set; }
 
 	/// <summary>
@@ -28,157 +28,157 @@ public class Photo : MediaAttachment, IGroupUpdate
 	/// сообществе). Для фотографий, размещенных
 	/// от имени сообщества.
 	/// </summary>
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	public long? UserId { get; set; }
 
 	/// <summary>
 	/// Текст описания фотографии.
 	/// </summary>
-	[JsonProperty("text")]
+	[JsonPropertyName("text")]
 	public string Text { get; set; }
 
 	/// <summary>
 	/// Дата добавления фотографии.
 	/// </summary>
-	[JsonProperty("date")]
+	[JsonPropertyName("date")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? CreateTime { get; set; }
 
 	/// <summary>
 	/// Размеры фотографий.
 	/// </summary>
-	[JsonProperty("sizes")]
+	[JsonPropertyName("sizes")]
 	public ReadOnlyCollection<PhotoSize> Sizes { get; set; }
 
 	/// <summary>
 	/// <c>Uri</c> фотографии с максимальным размером 50x50px.
 	/// </summary>
-	[JsonProperty("photo_50")]
+	[JsonPropertyName("photo_50")]
 	public Uri Photo50 { get; set; }
 
 	/// <summary>
 	/// <c>Uri</c> фотографии с максимальным размером 75x75px.
 	/// </summary>
-	[JsonProperty("photo_75")]
+	[JsonPropertyName("photo_75")]
 	public Uri Photo75 { get; set; }
 
 	/// <summary>
 	/// <c>Uri</c> фотографии с максимальным размером 100x100px.
 	/// </summary>
-	[JsonProperty("photo_100")]
+	[JsonPropertyName("photo_100")]
 	public Uri Photo100 { get; set; }
 
 	/// <summary>
 	/// <c>Uri></c> фотографии с максимальным размером 130x130px.
 	/// </summary>
-	[JsonProperty("photo_130")]
+	[JsonPropertyName("photo_130")]
 	public Uri Photo130 { get; set; }
 
 	/// <summary>
 	/// <c>Uri</c> фотографии с максимальным размером 200x200px.
 	/// </summary>
-	[JsonProperty("photo_200")]
+	[JsonPropertyName("photo_200")]
 	public Uri Photo200 { get; set; }
 
 	/// <summary>
 	/// <c>Uri</c> фотографии с максимальным размером 604x604px.
 	/// </summary>
-	[JsonProperty("photo_604")]
+	[JsonPropertyName("photo_604")]
 	public Uri Photo604 { get; set; }
 
 	/// <summary>
 	/// <c>Uri</c> фотографии с максимальным размером 807x807px.
 	/// </summary>
-	[JsonProperty("photo_807")]
+	[JsonPropertyName("photo_807")]
 	public Uri Photo807 { get; set; }
 
 	/// <summary>
 	/// <c>Uri</c> фотографии с максимальным размером 1280x1024px.
 	/// </summary>
-	[JsonProperty("photo_1280")]
+	[JsonPropertyName("photo_1280")]
 	public Uri Photo1280 { get; set; }
 
 	/// <summary>
 	/// <c>Uri</c> фотографии с максимальным размером  2560x2048px.
 	/// </summary>
-	[JsonProperty("photo_2560")]
+	[JsonPropertyName("photo_2560")]
 	public Uri Photo2560 { get; set; }
 
 	/// <summary>
 	/// Ширина оригинала фотографии в пикселах
 	/// </summary>
-	[JsonProperty("width")]
+	[JsonPropertyName("width")]
 	public int? Width { get; set; }
 
 	/// <summary>
 	/// Высота оригинала фотографии в пикселах.
 	/// </summary>
-	[JsonProperty("height")]
+	[JsonPropertyName("height")]
 	public int? Height { get; set; }
 
 	/// <summary>
 	/// Url фотографии.
 	/// </summary>
-	[JsonProperty("url")]
+	[JsonPropertyName("url")]
 	public Uri Url { get; set; }
 
-	[JsonProperty("pid")]
+	[JsonPropertyName("pid")]
 	private long? Pid
 	{
 		get => Id;
 		set => Id = value;
 	}
 
-	[JsonProperty("photo_id")]
+	[JsonPropertyName("photo_id")]
 	private long? PhotoId
 	{
 		get => Id;
 		set => Id = value;
 	}
 
-	[JsonProperty("aid")]
+	[JsonPropertyName("aid")]
 	private long? Aid
 	{
 		get => AlbumId;
 		set => AlbumId = value;
 	}
 
-	[JsonProperty("src")]
+	[JsonPropertyName("src")]
 	private Uri Src
 	{
 		get => Photo130;
 		set => Photo130 = value;
 	}
 
-	[JsonProperty("src_big")]
+	[JsonPropertyName("src_big")]
 	private Uri SrcBig
 	{
 		get => Photo604;
 		set => Photo604 = value;
 	}
 
-	[JsonProperty("src_xbig")]
+	[JsonPropertyName("src_xbig")]
 	private Uri SrcXbig
 	{
 		get => Photo807;
 		set => Photo807 = value;
 	}
 
-	[JsonProperty("src_xxbig")]
+	[JsonPropertyName("src_xxbig")]
 	private Uri SrcXXbig
 	{
 		get => Photo1280;
 		set => Photo1280 = value;
 	}
 
-	[JsonProperty("src_xxxbig")]
+	[JsonPropertyName("src_xxxbig")]
 	private Uri SrcXXXbig
 	{
 		get => Photo2560;
 		set => Photo2560 = value;
 	}
 
-	[JsonProperty("created")]
+	[JsonPropertyName("created")]
 	private DateTime? Created
 	{
 		get => CreateTime;
@@ -190,98 +190,98 @@ public class Photo : MediaAttachment, IGroupUpdate
 	/// <summary>
 	/// Идентификатор записи, у которой данная фотография является прикреплением???
 	/// </summary>
-	[JsonProperty("post_id")]
+	[JsonPropertyName("post_id")]
 	public long? PostId { get; set; }
 
 	/// <summary>
 	/// Идентификатор пользователя, сделавшего отметку
 	/// </summary>
-	[JsonProperty("placer_id")]
+	[JsonPropertyName("placer_id")]
 	public long? PlacerId { get; set; }
 
 	/// <summary>
 	/// Дата создания отметки
 	/// </summary>
-	[JsonProperty("tag_created")]
+	[JsonPropertyName("tag_created")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? TagCreated { get; set; }
 
 	/// <summary>
 	/// Идентификатор отметки
 	/// </summary>
-	[JsonProperty("tag_id")]
+	[JsonPropertyName("tag_id")]
 	public long? TagId { get; set; }
 
 	/// <summary>
 	/// Лайки
 	/// </summary>
-	[JsonProperty("likes")]
+	[JsonPropertyName("likes")]
 	public Likes Likes { get; set; }
 
 	/// <summary>
 	/// Возможность комментирования фотографии
 	/// </summary>
-	[JsonProperty("can_comment")]
+	[JsonPropertyName("can_comment")]
 	public bool? CanComment { get; set; }
 
 	/// <summary>
 	/// Комментарии
 	/// </summary>
-	[JsonProperty("comments")]
+	[JsonPropertyName("comments")]
 	public Comments Comments { get; set; }
 
 	/// <summary>
 	/// Репосты
 	/// </summary>
-	[JsonProperty("reposts")]
+	[JsonPropertyName("reposts")]
 	public Reposts Reposts { get; set; }
 
 	/// <summary>
 	/// Теги
 	/// </summary>
-	[JsonProperty("tags")]
+	[JsonPropertyName("tags")]
 	public Tags Tags { get; set; }
 
 	/// <summary>
 	/// Существование тегов
 	/// </summary>
-	[JsonProperty("has_tags")]
+	[JsonPropertyName("has_tags")]
 	public bool HasTags { get; set; }
 
 	/// <summary>
 	/// Источник изображения.
 	/// </summary>
-	[JsonProperty("photo_src")]
+	[JsonPropertyName("photo_src")]
 	public Uri PhotoSrc { get; set; }
 
 	/// <summary>
 	/// Хеш изображения.
 	/// </summary>
-	[JsonProperty("photo_hash")]
+	[JsonPropertyName("photo_hash")]
 	public string PhotoHash { get; set; }
 
 	/// <summary>
 	/// Географическая широта отметки, заданная в градусах
 	/// </summary>
-	[JsonProperty("lat")]
+	[JsonPropertyName("lat")]
 	public double? Latitude { get; set; }
 
 	/// <summary>
 	/// Географическая долгота отметки, заданная в градусах
 	/// </summary>
-	[JsonProperty("long")]
+	[JsonPropertyName("long")]
 	public double? Longitude { get; set; }
 
 	/// <summary>
 	/// <c>Uri</c> фотографии с максимальным размером.
 	/// </summary>
-	[JsonProperty("big_photo_src")]
+	[JsonPropertyName("big_photo_src")]
 	public Uri BigPhotoSrc { get; set; }
 
 	/// <summary>
 	/// <c>Uri</c> фотографии с минимальным размером.
 	/// </summary>
-	[JsonProperty("src_small")]
+	[JsonPropertyName("src_small")]
 	public Uri SmallPhotoSrc { get; set; }
 
 	#endregion

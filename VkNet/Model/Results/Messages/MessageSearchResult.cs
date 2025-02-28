@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -14,30 +14,30 @@ public class MessageSearchResult
 	/// <summary>
 	/// Количество найденных сообщений
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public ulong Count { get; set; }
 
 	/// <summary>
 	/// Личные сообщения
 	/// </summary>
-	[JsonProperty("items")]
+	[JsonPropertyName("items")]
 	public ReadOnlyCollection<Message> Items { get; set; }
 
 	/// <summary>
 	/// Профили пользователей
 	/// </summary>
-	[JsonProperty("profiles")]
+	[JsonPropertyName("profiles")]
 	public ReadOnlyCollection<User> Profiles { get; set; }
 
 	/// <summary>
 	/// Сообщества
 	/// </summary>
-	[JsonProperty("groups")]
+	[JsonPropertyName("groups")]
 	public ReadOnlyCollection<Group> Groups { get; set; }
 
 	/// <summary>
 	/// Беседы
 	/// </summary>
-	[JsonProperty("conversations")]
+	[JsonPropertyName("conversations")]
 	public IEnumerable<Conversation> Conversations { get; set; }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 
 namespace VkNet.Model;
@@ -13,12 +13,12 @@ public class NotificationsSendMessageError
 	/// <summary>
 	/// Код ошибки
 	/// </summary>
-	[JsonProperty("code")]
+	[JsonPropertyName("code")]
 	public NotificationsSendMessageCode Code { get; set; }
 
 	/// <summary>
 	/// Описание ошибки
 	/// </summary>
-	[JsonProperty("description")]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 }

@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Linq.Expressions;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using VkNet.Exception;
 using VkNet.Infrastructure;
 using VkNet.Model;
@@ -186,7 +187,7 @@ public static class VkErrors
 	/// <returns>
 	/// Возвращаемый результат.
 	/// </returns>
-	public static JObject IfErrorThrowException(string json)
+	public static JsonObject IfErrorThrowException(string json)
 	{
 		var obj = json.ToJObject();
 
@@ -197,12 +198,17 @@ public static class VkErrors
 			throw exceptions;
 		}
 
-		if (!obj.TryGetValue("error", StringComparison.InvariantCulture, out var error))
+		JsonObject? errorNode = obj
+			.Where(child => child.Key.Equals("error", StringComparison.InvariantCulture))
+			.Select(c => c.Value)
+			.FirstOrDefault()?.AsObject();
+
+		if (errorNode == null)
 		{
 			return obj;
 		}
 
-		var vkError = JsonConvert.DeserializeObject<VkError>(error.ToString(), JsonConfigure.JsonSerializerSettings);
+		var vkError = JsonSerializer.Deserialize<VkError>(errorNode, JsonConfigure.JsonSerializerSettings);
 
 		if (vkError is null || vkError.ErrorCode == 0)
 		{

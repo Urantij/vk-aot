@@ -625,7 +625,7 @@ public interface IMessagesCategoryAsync
 	/// <returns>
 	/// Ответ сервера
 	/// </returns>
-	Task<LongPollHistoryResponse> GetLongPollHistoryAsync(MessagesGetLongPollHistoryParams @params,
+	Task<LongPollHistoryMessageResponse> GetLongPollHistoryAsync(MessagesGetLongPollHistoryParams @params,
 														CancellationToken token = default);
 
 	/// <inheritdoc cref="IMessagesCategoryAsync.GetLongPollHistoryAsync"/>

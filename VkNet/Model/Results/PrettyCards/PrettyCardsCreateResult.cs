@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class PrettyCardsCreateResult
 	/// <summary>
 	/// Идентификатор владельца карточки.
 	/// </summary>
-	[JsonProperty("owner_id")]
+	[JsonPropertyName("owner_id")]
 	public long? OwnerId { get; set; }
 
 	/// <summary>
 	/// Идентификатор карточки.
 	/// </summary>
-	[JsonProperty("card_id")]
+	[JsonPropertyName("card_id")]
 	public string CardId { get; set; }
 }

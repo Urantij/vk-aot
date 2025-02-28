@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -13,7 +13,7 @@ public class GetDemographicsParams
 	/// <summary>
 	/// Идентификатор рекламного кабинета. обязательный параметр, целое число
 	/// </summary>
-	[JsonProperty("account_id")]
+	[JsonPropertyName("account_id")]
 	public long AccountId { get; set; }
 
 	/// <summary>
@@ -22,13 +22,13 @@ public class GetDemographicsParams
 	/// campaign — кампании.
 	/// обязательный параметр, строка
 	/// </summary>
-	[JsonProperty("ids_type")]
+	[JsonPropertyName("ids_type")]
 	public IdsType? IdsType { get; set; }
 
 	/// <summary>
 	/// Перечисленные через запятую id запрашиваемых объявлений или кампаний, в зависимости от того, что указано в параметре ids_type. Максимум 2000 объектов. обязательный параметр, строка
 	/// </summary>
-	[JsonProperty("ids")]
+	[JsonPropertyName("ids")]
 	public string Ids { get; set; }
 
 	/// <summary>
@@ -38,7 +38,7 @@ public class GetDemographicsParams
 	/// overall — статистика за всё время.
 	/// Временные ограничения задаются параметрами date_from и date_to. обязательный параметр, строка
 	/// </summary>
-	[JsonProperty("period")]
+	[JsonPropertyName("period")]
 	public string Period { get; set; }
 
 	/// <summary>
@@ -50,7 +50,7 @@ public class GetDemographicsParams
 	/// overall: 0
 	/// обязательный параметр, строка
 	/// </summary>
-	[JsonProperty("date_from")]
+	[JsonPropertyName("date_from")]
 	public string DateFrom { get; set; }
 
 	/// <summary>
@@ -62,6 +62,6 @@ public class GetDemographicsParams
 	/// overall: 0
 	/// обязательный параметр, строка
 	/// </summary>
-	[JsonProperty("date_to")]
+	[JsonPropertyName("date_to")]
 	public string DateTo { get; set; }
 }

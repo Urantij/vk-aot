@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,30 +13,30 @@ public class GetConversationsResult
 	/// <summary>
 	/// Число результатов.
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public long Count { get; set; }
 
 	/// <summary>
 	/// Беседы
 	/// </summary>
-	[JsonProperty("items")]
+	[JsonPropertyName("items")]
 	public ReadOnlyCollection<ConversationAndLastMessage> Items { get; set; }
 
 	/// <summary>
 	/// Число непрочитанных бесед.
 	/// </summary>
-	[JsonProperty("unread_count")]
+	[JsonPropertyName("unread_count")]
 	public long UnreadCount { get; set; }
 
 	/// <summary>
 	/// Массив объектов пользователей.
 	/// </summary>
-	[JsonProperty("profiles")]
+	[JsonPropertyName("profiles")]
 	public ReadOnlyCollection<User> Profiles { get; set; }
 
 	/// <summary>
 	/// Массив объектов сообществ.
 	/// </summary>
-	[JsonProperty("groups")]
+	[JsonPropertyName("groups")]
 	public ReadOnlyCollection<Group> Groups { get; set; }
 }

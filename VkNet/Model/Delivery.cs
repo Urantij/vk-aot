@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,30 +12,30 @@ public class Delivery
 	/// <summary>
 	/// адрес доставки.
 	/// </summary>
-	[JsonProperty("address")]
+	[JsonPropertyName("address")]
 	public string Address { get; set; }
 
 	/// <summary>
 	/// тип доставки.
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public string Type { get; set; }
 
 	/// <summary>
 	/// трек-номер для отслеживания заказа.
 	/// </summary>
-	[JsonProperty("track_number")]
+	[JsonPropertyName("track_number")]
 	public string TrackNumber { get; set; }
 
 	/// <summary>
 	///  ссылка для отслеживания заказа по трек-номеру.
 	/// </summary>
-	[JsonProperty("track_link")]
+	[JsonPropertyName("track_link")]
 	public string TrackLink { get; set; }
 
 	/// <summary>
 	/// информация о пункте выдачи.
 	/// </summary>
-	[JsonProperty("delivery_point ")]
+	[JsonPropertyName("delivery_point ")]
 	public string DeliveryPoint  { get; set; }
 }

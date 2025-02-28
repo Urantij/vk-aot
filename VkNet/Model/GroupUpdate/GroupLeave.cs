@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class GroupLeave : IGroupUpdate
 	/// <summary>
 	/// Идентификатор пользователя
 	/// </summary>
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	public long? UserId { get; set; }
 
 	/// <summary>
 	/// Самостоятельный ли был выход
 	/// </summary>
-	[JsonProperty("self")]
+	[JsonPropertyName("self")]
 	public bool? IsSelf { get; set; }
 }

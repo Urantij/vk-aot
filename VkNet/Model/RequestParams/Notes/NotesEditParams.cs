@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.SafetyEnums;
 
 namespace VkNet.Model;
@@ -14,30 +14,30 @@ public class NotesEditParams
 	/// <summary>
 	/// Идентификатор заметки.
 	/// </summary>
-	[JsonProperty(propertyName: "note_id")]
+	[JsonPropertyName("note_id")]
 	public long? NoteId { get; set; }
 
 	/// <summary>
-	/// Заголовок заметки. 
+	/// Заголовок заметки.
 	/// </summary>
-	[JsonProperty(propertyName: "title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
-	/// Текст заметки. 
+	/// Текст заметки.
 	/// </summary>
-	[JsonProperty(propertyName: "text")]
+	[JsonPropertyName("text")]
 	public string Text { get; set; }
 
 	/// <summary>
 	/// Настройки приватности просмотра заметки в специальном формате.
 	/// </summary>
-	[JsonProperty(propertyName: "privacy_view")]
+	[JsonPropertyName("privacy_view")]
 	public List<Privacy> PrivacyView { get; set; }
 
 	/// <summary>
 	/// Настройки приватности комментирования заметки в специальном формате.
 	/// </summary>
-	[JsonProperty(propertyName: "privacy_comment")]
+	[JsonPropertyName("privacy_comment")]
 	public List<Privacy> PrivacyComment { get; set; }
 }

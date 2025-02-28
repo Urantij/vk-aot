@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,30 +12,30 @@ public class GetSuggestionsResult
 	/// <summary>
 	/// Количество оставшихся методов;
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("desc")]
+	[JsonPropertyName("desc")]
 	public string Desc { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public string Type { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("parent")]
+	[JsonPropertyName("parent")]
 	public string Parent { get; set; }
 }

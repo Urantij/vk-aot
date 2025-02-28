@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -13,31 +13,35 @@ public class EventData
 	/// <summary>
 	/// Тип действия, которые должно произойти после нажатия на кнопку
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public MessageEventType? Type { get; set; }
 
 	/// <summary>
 	/// текст, который нужно вывести (максимум 90 символов).
 	/// </summary>
-	[JsonProperty("text", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("text")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public string Text { get; set; }
 
 	/// <summary>
 	/// Ссылка, которую необходимо открыть по нажатию на кнопку.
 	/// </summary>
-	[JsonProperty("link", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("link")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public Uri Link { get; set; }
 
 	/// <summary>
 	/// хэш для навигации в приложении, будет передан в строке параметров запуска после символа #
 	/// </summary>
-	[JsonProperty("hash", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("hash")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public string Hash { get; set; }
 
 	/// <summary>
 	/// Идентификатор вызываемого приложения с типом <see cref="MessageEventType.OpenApp"/>.
 	/// </summary>
-	[JsonProperty("app_id", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("app_id")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public ulong? AppId { get; set; }
 
 	/// <summary>
@@ -46,6 +50,7 @@ public class EventData
 	/// <remarks>
 	/// Для <see cref="Type"/> со значением <see cref="MessageEventType.OpenApp"/>.
 	/// </remarks>
-	[JsonProperty("owner_id", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("owner_id")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public long? OwnerId { get; set; }
 }

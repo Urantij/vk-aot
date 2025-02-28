@@ -1,6 +1,5 @@
 using System;
 using FluentAssertions;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using VkNet.Utils;
 using Xunit;

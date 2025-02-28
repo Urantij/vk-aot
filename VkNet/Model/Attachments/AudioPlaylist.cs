@@ -1,8 +1,8 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -18,136 +18,136 @@ public class AudioPlaylist : MediaAttachment
 	/// <summary>
 	/// Тип плейлиста.
 	/// </summary>
-	[JsonProperty("album_type")]
+	[JsonPropertyName("album_type")]
 	public AudioAlbumType? AlbumType { get; set; }
 
 	/// <summary>
 	/// Тип плейлиста.
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public long Type { get; set; }
 
 	/// <summary>
 	/// Название плейлиста.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Описание плейлиста.
 	/// </summary>
-	[JsonProperty("description")]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 
 	/// <summary>
 	/// Список жанров плейлиста.
 	/// </summary>
-	[JsonProperty("genres")]
+	[JsonPropertyName("genres")]
 	public ReadOnlyCollection<AudioPlaylistGenre> Genres { get; set; }
 
 	/// <summary>
 	/// Количество аудиозаписей в плейлисте.
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public long Count { get; set; }
 
 	/// <summary>
 	/// true, если плейлист добавлен в аудиозаписи.
 	/// </summary>
-	[JsonProperty("is_following")]
+	[JsonPropertyName("is_following")]
 	public bool IsFollowing { get; set; }
 
 	/// <summary>
 	/// Количество добавлений плейлиста.
 	/// </summary>
-	[JsonProperty("followers")]
+	[JsonPropertyName("followers")]
 	public long Followers { get; set; }
 
 	/// <summary>
 	/// Общее количество проигрываний плейлиста.
 	/// </summary>
-	[JsonProperty("plays")]
+	[JsonPropertyName("plays")]
 	public long Plays { get; set; }
 
 	/// <summary>
 	/// Дата создания плейлиста.
 	/// </summary>
 	[JsonConverter(typeof(UnixDateTimeConverter))]
-	[JsonProperty("create_time")]
+	[JsonPropertyName("create_time")]
 	public DateTime CreateTime { get; set; }
 
 	/// <summary>
 	/// Дата обновления плейлиста.
 	/// </summary>
 	[JsonConverter(typeof(UnixDateTimeConverter))]
-	[JsonProperty("update_time")]
+	[JsonPropertyName("update_time")]
 	public DateTime UpdateTime { get; set; }
 
 	/// <summary>
 	/// Год выпуска альбома.
 	/// </summary>
-	[JsonProperty("year")]
+	[JsonPropertyName("year")]
 	public long? Year { get; set; }
 
 	/// <summary>
 	/// Неизвестно.
 	/// </summary>
-	[JsonProperty("original")]
+	[JsonPropertyName("original")]
 	public AudioPlaylistOriginal Original { get; set; }
 
 	/// <summary>
 	/// Информация о подписчике плейлиста.
 	/// </summary>
-	[JsonProperty("followed")]
+	[JsonPropertyName("followed")]
 	public AudioPlaylistFollower Follower { get; set; }
 
 	/// <summary>
 	/// Обложка плейлиста.
 	/// </summary>
-	[JsonProperty("photo")]
+	[JsonPropertyName("photo")]
 	public AudioCover Photo { get; set; }
 
 	/// <summary>
 	/// Миниатюры плейлиста.
 	/// </summary>
-	[JsonProperty("thumbs")]
+	[JsonPropertyName("thumbs")]
 	public ReadOnlyCollection<AudioCover> Thumbs { get; set; }
 
 	/// <summary>
 	/// Неизвестно.
 	/// </summary>
-	[JsonProperty("display_owner_ids")]
+	[JsonPropertyName("display_owner_ids")]
 	public ReadOnlyCollection<long> OwnerIds { get; set; }
 
 	/// <summary>
 	/// Главный исполнитель.
 	/// </summary>
 	[Obsolete("Use MainArtists property instead.")]
-	[JsonProperty("main_artist")]
+	[JsonPropertyName("main_artist")]
 	public string MainArtist { get; set; }
 
 	/// <summary>
 	/// Список исполнителей.
 	/// </summary>
 	[Obsolete("Use MainArtists property instead.")]
-	[JsonProperty("artists")]
+	[JsonPropertyName("artists")]
 	public ReadOnlyCollection<AudioArtist> Artists { get; set; }
 
 	/// <summary>
 	/// Список исполнителей.
 	/// </summary>
-	[JsonProperty("main_artists")]
+	[JsonPropertyName("main_artists")]
 	public ReadOnlyCollection<AudioArtist> MainArtists { get; set; }
 
 	/// <summary>
 	/// Список исполнителей.
 	/// </summary>
-	[JsonProperty("featured_artists")]
+	[JsonPropertyName("featured_artists")]
 	public ReadOnlyCollection<AudioArtist> FeaturedArtists { get; set; }
 
 	/// <summary>
 	/// Являетя ли откровенным контентом.
 	/// </summary>
-	[JsonProperty("is_explicit")]
+	[JsonPropertyName("is_explicit")]
 	public bool IsExplicit { get; set; }
 }

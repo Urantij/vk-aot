@@ -1,7 +1,7 @@
 ﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -14,44 +14,44 @@ public class CampaignModSpecification
 	/// <summary>
 	/// Идентификатор кампании.
 	/// </summary>
-	[JsonProperty("campaign_id")]
+	[JsonPropertyName("campaign_id")]
 	public long CampaignId { get; set; }
 
 	/// <summary>
 	/// Название рекламной кампании.
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// Тип оплаты
 	/// </summary>
-	[JsonProperty("status")]
+	[JsonPropertyName("status")]
 	public AdStatus Status { get; set; }
 
 	/// <summary>
 	/// Общий лимит объявления в рублях. 0 — лимит не задан.
 	/// </summary>
-	[JsonProperty("all_limit")]
+	[JsonPropertyName("all_limit")]
 	public long AllLimit { get; set; }
 
 	/// <summary>
 	/// Дневной лимит объявления в рублях. 0 — лимит не задан.
 	/// </summary>
-	[JsonProperty("day_limit")]
+	[JsonPropertyName("day_limit")]
 	public long DayLimit { get; set; }
 
 	/// <summary>
 	/// Время создания объявления
 	/// </summary>
-	[JsonProperty(propertyName: "start_time")]
+	[JsonPropertyName("start_time")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? StartTime { get; set; }
 
 	/// <summary>
 	/// Время последнего изменения объявления
 	/// </summary>
-	[JsonProperty(propertyName: "stop_time")]
+	[JsonPropertyName("stop_time")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? StopTime { get; set; }
 }

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -15,6 +15,6 @@ public class LeadFormsGetLeadResult
 	/// <summary>
 	/// Leads.
 	/// </summary>
-	[JsonProperty("leads")]
+	[JsonPropertyName("leads")]
 	public ReadOnlyCollection<GetLeadResult> Leads { get; set; }
 }

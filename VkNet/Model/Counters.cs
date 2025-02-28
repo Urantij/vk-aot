@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -15,91 +15,91 @@ public class Counters
 	/// <summary>
 	/// Количество фотоальбомов.
 	/// </summary>
-	[JsonProperty("albums")]
+	[JsonPropertyName("albums")]
 	public int? Albums { get; set; }
 
 	/// <summary>
 	/// Количество видеозаписей.
 	/// </summary>
-	[JsonProperty("videos")]
+	[JsonPropertyName("videos")]
 	public int? Videos { get; set; }
 
 	/// <summary>
 	/// Количество аудиозаписей.
 	/// </summary>
-	[JsonProperty("audios")]
+	[JsonPropertyName("audios")]
 	public int? Audios { get; set; }
 
 	/// <summary>
 	/// Количество фотографий.
 	/// </summary>
-	[JsonProperty("photos")]
+	[JsonPropertyName("photos")]
 	public int? Photos { get; set; }
 
 	/// <summary>
 	/// Количество заметок.
 	/// </summary>
-	[JsonProperty("notes")]
+	[JsonPropertyName("notes")]
 	public int? Notes { get; set; }
 
 	/// <summary>
 	/// Количество друзей.
 	/// </summary>
-	[JsonProperty("friends")]
+	[JsonPropertyName("friends")]
 	public int? Friends { get; set; }
 
 	/// <summary>
 	/// Количество сообществ.
 	/// </summary>
-	[JsonProperty("groups")]
+	[JsonPropertyName("groups")]
 	public int? Groups { get; set; }
 
 	/// <summary>
 	/// Количество друзей онлайн.
 	/// </summary>
-	[JsonProperty("online_friends")]
+	[JsonPropertyName("online_friends")]
 	public int? OnlineFriends { get; set; }
 
 	/// <summary>
 	/// Количество общих друзей.
 	/// </summary>
-	[JsonProperty("mutual_friends")]
+	[JsonPropertyName("mutual_friends")]
 	public int? MutualFriends { get; set; }
 
 	/// <summary>
 	/// Количество видеозаписей с пользователем.
 	/// </summary>
-	[JsonProperty("user_videos")]
+	[JsonPropertyName("user_videos")]
 	public int? UserVideos { get; set; }
 
 	/// <summary>
 	/// Количество подписчиков.
 	/// </summary>
-	[JsonProperty("followers")]
+	[JsonPropertyName("followers")]
 	public int? Followers { get; set; }
 
 	/// <summary>
 	/// Количество фотографий с пользователем.
 	/// </summary>
-	[JsonProperty("user_photos")]
+	[JsonPropertyName("user_photos")]
 	public int? UserPhotos { get; set; }
 
 	/// <summary>
 	/// Количество подписок (только пользователи).
 	/// </summary>
-	[JsonProperty("subscriptions")]
+	[JsonPropertyName("subscriptions")]
 	public int? Subscriptions { get; set; }
 
 	/// <summary>
 	/// Количество тем обсуждений сообщества.
 	/// </summary>
-	[JsonProperty("topics")]
+	[JsonPropertyName("topics")]
 	public int? TopicsCount { get; set; }
 
 	/// <summary>
 	/// Количество документов.
 	/// </summary>
-	[JsonProperty("docs")]
+	[JsonPropertyName("docs")]
 	public int? DocumentsCount { get; set; }
 
 	#region Поля, установленные экспериментально
@@ -107,7 +107,7 @@ public class Counters
 	/// <summary>
 	/// Количество публичных страниц, на которые подписан пользователь.
 	/// </summary>
-	[JsonProperty("pages")]
+	[JsonPropertyName("pages")]
 	public int? Pages { get; set; }
 
 	#endregion
@@ -117,37 +117,37 @@ public class Counters
 	/// <summary>
 	/// Количество сообщений
 	/// </summary>
-	[JsonProperty("messages")]
+	[JsonPropertyName("messages")]
 	public int? Messages { get; set; }
 
 	/// <summary>
 	/// Количество подарков
 	/// </summary>
-	[JsonProperty("gifts")]
+	[JsonPropertyName("gifts")]
 	public int? Gifts { get; set; }
 
 	/// <summary>
 	/// Количество событий
 	/// </summary>
-	[JsonProperty("events")]
+	[JsonPropertyName("events")]
 	public int? Events { get; set; }
 
 	/// <summary>
 	/// Количество уведомлений
 	/// </summary>
-	[JsonProperty("notifications")]
+	[JsonPropertyName("notifications")]
 	public int? Notifications { get; set; }
 
 	/// <summary>
 	/// SDK.
 	/// </summary>
-	[JsonProperty("sdk")]
+	[JsonPropertyName("sdk")]
 	public int? Sdk { get; set; }
 
 	/// <summary>
 	/// Запросов к приложению.
 	/// </summary>
-	[JsonProperty("app_requests")]
+	[JsonPropertyName("app_requests")]
 	public int? AppRequests { get; set; }
 
 	#endregion

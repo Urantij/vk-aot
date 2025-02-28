@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 using VkNet.Enums.Filters;
 using VkNet.Enums.StringEnums;
@@ -17,7 +17,7 @@ public class UsersGetNearbyParams
 	/// заданная в градусах (от -90 до 90).
 	/// дробное число, обязательный параметр.
 	/// </summary>
-	[JsonProperty(propertyName: "latitude")]
+	[JsonPropertyName("latitude")]
 	public double Latitude { get; set; }
 
 	/// <summary>
@@ -25,13 +25,13 @@ public class UsersGetNearbyParams
 	/// заданная в градусах (от -180 до
 	/// 180). дробное число, обязательный параметр.
 	/// </summary>
-	[JsonProperty(propertyName: "longitude")]
+	[JsonPropertyName("longitude")]
 	public double Longitude { get; set; }
 
 	/// <summary>
 	/// Точность текущего местоположения пользователя в метрах. положительное число.
 	/// </summary>
-	[JsonProperty(propertyName: "accuracy")]
+	[JsonPropertyName("accuracy")]
 	public long? Accuracy { get; set; }
 
 	/// <summary>
@@ -39,7 +39,7 @@ public class UsersGetNearbyParams
 	/// поиск по местоположению.
 	/// положительное число, по умолчанию 7200.
 	/// </summary>
-	[JsonProperty(propertyName: "timeout")]
+	[JsonPropertyName("timeout")]
 	public long? Timeout { get; set; }
 
 	/// <summary>
@@ -50,7 +50,7 @@ public class UsersGetNearbyParams
 	/// 4 — 150 километров.
 	/// положительное число, по умолчанию 1.
 	/// </summary>
-	[JsonProperty(propertyName: "radius")]
+	[JsonPropertyName("radius")]
 	public Radius? Radius { get; set; }
 
 	/// <summary>
@@ -72,7 +72,7 @@ public class UsersGetNearbyParams
 	/// список строк, разделенных через
 	/// запятую.
 	/// </summary>
-	[JsonProperty(propertyName: "fields")]
+	[JsonPropertyName("fields")]
 	public ProfileFields Fields { get; set; }
 
 	/// <summary>
@@ -81,12 +81,12 @@ public class UsersGetNearbyParams
 	/// дательный – dat, винительный – acc, творительный – ins, предложный – abl. По
 	/// умолчанию nom. строка.
 	/// </summary>
-	[JsonProperty(propertyName: "name_case")]
+	[JsonPropertyName("name_case")]
 	public NameCase? NameCase { get; set; }
 
 	/// <summary>
 	/// флаг, может принимать значения 1 или 0, по умолчанию
 	/// </summary>
-	[JsonProperty(propertyName: "need_description")]
+	[JsonPropertyName("need_description")]
 	public bool? NeedDescription { get; set; }
 }

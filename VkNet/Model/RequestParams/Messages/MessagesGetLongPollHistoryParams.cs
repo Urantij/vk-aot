@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.Filters;
 
 namespace VkNet.Model;
@@ -19,14 +19,14 @@ public class MessagesGetLongPollHistoryParams
 	/// <summary>
 	/// Список дополнительных полей профилей, которые необходимо вернуть.
 	/// </summary>
-	[JsonProperty(propertyName: "fields")]
+	[JsonPropertyName("fields")]
 	public UsersFields Fields { get; set; }
 
 	/// <summary>
 	/// Последнее значение параметра ts, полученное от Long Poll сервера или с помощью
 	/// метода messages.getLongPollServer
 	/// </summary>
-	[JsonProperty(propertyName: "ts")]
+	[JsonPropertyName("ts")]
 	public ulong Ts { get; set; }
 
 	/// <summary>
@@ -34,7 +34,7 @@ public class MessagesGetLongPollHistoryParams
 	/// используется для получения действий, которые
 	/// хранятся всегда.
 	/// </summary>
-	[JsonProperty(propertyName: "pts")]
+	[JsonPropertyName("pts")]
 	public ulong? Pts { get; set; }
 
 	/// <summary>
@@ -42,7 +42,7 @@ public class MessagesGetLongPollHistoryParams
 	/// не хотите обрезать сообщение. (по
 	/// умолчанию сообщения не обрезаются).
 	/// </summary>
-	[JsonProperty(propertyName: "preview_length")]
+	[JsonPropertyName("preview_length")]
 	public long? PreviewLength { get; set; }
 
 	/// <summary>
@@ -50,7 +50,7 @@ public class MessagesGetLongPollHistoryParams
 	/// пользователей, которые сейчас
 	/// online. флаг, может принимать значения 1 или 0.
 	/// </summary>
-	[JsonProperty(propertyName: "onlines")]
+	[JsonPropertyName("onlines")]
 	public bool? Onlines { get; set; }
 
 	[JsonIgnore]
@@ -61,7 +61,7 @@ public class MessagesGetLongPollHistoryParams
 	/// ошибка.
 	/// Положительное число. По умолчанию - 1000. Минимальное значение - 1000
 	/// </summary>
-	[JsonProperty(propertyName: "events_limit")]
+	[JsonPropertyName("events_limit")]
 	public long? EventsLimit
 	{
 		get => _eventsLimit;
@@ -75,7 +75,7 @@ public class MessagesGetLongPollHistoryParams
 	/// <summary>
 	/// Количество сообщений, которое нужно вернуть.
 	/// </summary>
-	[JsonProperty(propertyName: "msgs_limit")]
+	[JsonPropertyName("msgs_limit")]
 	public long? MsgsLimit { get; set; }
 
 	/// <summary>
@@ -85,18 +85,18 @@ public class MessagesGetLongPollHistoryParams
 	/// messages.getHistory), так и данные, полученные из Long
 	/// Poll сервера (события с кодом 4).
 	/// </summary>
-	[JsonProperty(propertyName: "max_msg_id")]
+	[JsonPropertyName("max_msg_id")]
 	public long? MaxMsgId { get; set; }
 
 	/// <summary>
 	/// Идентификатор сообщества (для сообщений сообщества с ключом доступа пользователя).
 	/// </summary>
-	[JsonProperty(propertyName: "group_id")]
+	[JsonPropertyName("group_id")]
 	public ulong? GroupId { get; set; }
 
 	/// <summary>
 	/// Версия Long Poll.
 	/// </summary>
-	[JsonProperty(propertyName: "lp_version")]
+	[JsonPropertyName("lp_version")]
 	public ulong? LpVersion { get; set; }
 }

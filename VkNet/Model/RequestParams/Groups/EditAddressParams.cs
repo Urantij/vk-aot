@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Abstractions;
 using VkNet.Enums.StringEnums;
 
@@ -17,7 +17,7 @@ public class EditAddressParams
 	/// <remarks>
 	/// Положительное число, обязательный параметр
 	/// </remarks>
-	[JsonProperty("group_id")]
+	[JsonPropertyName("group_id")]
 	public ulong GroupId { get; set; }
 
 	/// <summary>
@@ -26,13 +26,13 @@ public class EditAddressParams
 	/// <remarks>
 	/// Положительное число, обязательный параметр
 	/// </remarks>
-	[JsonProperty("address_id")]
+	[JsonPropertyName("address_id")]
 	public ulong AddressId { get; set; }
 
 	/// <summary>
 	/// Заголовок адреса строка, максимальная длина 255
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
@@ -44,7 +44,7 @@ public class EditAddressParams
 	/// <remarks>
 	/// Строка, максимальная длина 255
 	/// </remarks>
-	[JsonProperty("address")]
+	[JsonPropertyName("address")]
 	public string Address { get; set; }
 
 	/// <summary>
@@ -56,19 +56,19 @@ public class EditAddressParams
 	/// <remarks>
 	/// Строка, максимальная длина 400
 	/// </remarks>
-	[JsonProperty("additional_address")]
+	[JsonPropertyName("additional_address")]
 	public string AdditionalAddress { get; set; }
 
 	/// <summary>
 	/// Номер телефона
 	/// </summary>
-	[JsonProperty("phone")]
+	[JsonPropertyName("phone")]
 	public string Phone { get; set; }
 
 	/// <summary>
 	/// Тип расписания.
 	/// </summary>
-	[JsonProperty("work_info_status")]
+	[JsonPropertyName("work_info_status")]
 	public ScheduleWorkInfoStatus? WorkInfoStatus { get; set; }
 
 	/// <summary>
@@ -77,7 +77,7 @@ public class EditAddressParams
 	/// <remarks>
 	/// Для получения можно использовать <see cref="IDatabaseCategory"/>.<see cref="IDatabaseCategoryAsync.GetCountriesAsync"/> положительное число, минимальное значение 0
 	/// </remarks>
-	[JsonProperty("country_id")]
+	[JsonPropertyName("country_id")]
 	public ulong CountryId { get; set; }
 
 	/// <summary>
@@ -86,7 +86,7 @@ public class EditAddressParams
 	/// <remarks>
 	/// Для получения можно использовать <see cref="IDatabaseCategory"/>.<see cref="IDatabaseCategoryAsync.GetCitiesAsync"/> положительное число, минимальное значение 0
 	/// </remarks>
-	[JsonProperty("city_id")]
+	[JsonPropertyName("city_id")]
 	public ulong CityId { get; set; }
 
 	/// <summary>
@@ -95,31 +95,31 @@ public class EditAddressParams
 	/// <remarks>
 	/// Для получения можно использовать <see cref="IDatabaseCategory"/>.<see cref="IDatabaseCategoryAsync.GetMetroStationsAsync"/> положительное число, минимальное значение 0
 	/// </remarks>
-	[JsonProperty("metro_id")]
+	[JsonPropertyName("metro_id")]
 	public ulong MetroId { get; set; }
 
 	/// <summary>
 	/// Географическая широта отметки, заданная в градусах (от -90 до 90). дробное число, минимальное значение -90, максимальное значение 90
 	/// </summary>
-	[JsonProperty("latitude")]
+	[JsonPropertyName("latitude")]
 	public decimal Latitude { get; set; }
 
 	/// <summary>
 	/// Географическая долгота отметки, заданная в градусах (от -180 до 180). дробное число, минимальное значение -180, максимальное значение 180
 	/// </summary>
-	[JsonProperty("longitude")]
+	[JsonPropertyName("longitude")]
 	public decimal Longitude { get; set; }
 
 	/// <summary>
 	/// Для типа timetable можно передать расписание в формате json.
 	/// </summary>
-	[JsonProperty("timetable")]
+	[JsonPropertyName("timetable")]
 	public Timetable Timetable { get; set; }
 
 	/// <summary>
 	/// Установить адрес основным. Информация об основном адресе сразу показывается в сообществе.
 	/// Для получения информации об остальных адресах нужно перейти к списку адресов. флаг, может принимать значения 1 или 0
 	/// </summary>
-	[JsonProperty("is_main_address")]
+	[JsonPropertyName("is_main_address")]
 	public bool IsMainAddress { get; set; }
 }

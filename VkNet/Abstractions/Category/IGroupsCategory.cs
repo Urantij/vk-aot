@@ -137,8 +137,8 @@ public interface IGroupsCategory : IGroupsCategoryAsync
 	/// <inheritdoc cref="IGroupsCategoryAsync.GetCallbackSettingsAsync" />
 	CallbackSettings GetCallbackSettings(ulong groupId, ulong serverId);
 
-	/// <inheritdoc cref="IGroupsCategoryAsync.SetCallbackSettingsAsync" />
-	bool SetCallbackSettings(CallbackServerParams @params);
+	// /// <inheritdoc cref="IGroupsCategoryAsync.SetCallbackSettingsAsync" />
+	// bool SetCallbackSettings(CallbackServerParams @params);
 
 	/// <inheritdoc cref="IGroupsCategoryAsync.GetLongPollServerAsync" />
 	LongPollServerResponse GetLongPollServer(ulong groupId);

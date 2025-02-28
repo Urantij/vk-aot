@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,12 +13,12 @@ public class AppImageResult
 	/// <summary>
 	/// Общее число результатов
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public int Count { get; set; }
 
 	/// <summary>
 	/// Массив объектов, описывающих изображения
 	/// </summary>
-	[JsonProperty("items")]
+	[JsonPropertyName("items")]
 	public IEnumerable<AppImage> Items { get; set; }
 }

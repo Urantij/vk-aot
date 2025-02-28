@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class GroupCoverImage
 	/// <summary>
 	/// URL копии;
 	/// </summary>
-	[JsonProperty("url")]
+	[JsonPropertyName("url")]
 	public Uri Url { get; set; }
 
 	/// <summary>
 	/// Ширина копии;
 	/// </summary>
-	[JsonProperty("width")]
+	[JsonPropertyName("width")]
 	public int Width { get; set; }
 
 	/// <summary>
 	/// Высота копии.
 	/// </summary>
-	[JsonProperty("height")]
+	[JsonPropertyName("height")]
 	public int Height { get; set; }
 }

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Net.Http;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using VkNet.Abstractions.Utils;
 
 namespace VkNet.Utils;
@@ -60,7 +60,7 @@ public sealed class RestClient : IRestClient
 	{
 		if (_logger is not null)
 		{
-			var json = JsonConvert.SerializeObject(parameters);
+			var json = JsonSerializer.Serialize(parameters, parameters.GetType(), GlobalJsonSerializerContext.Default);
 
 			if (_logger.IsEnabled(LogLevel.Debug))
 			{

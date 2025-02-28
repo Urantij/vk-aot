@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -15,48 +15,48 @@ public class City
 	/// <summary>
 	/// Идентификатор города.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long? Id { get; set; }
 
 	/// <summary>
 	/// Название города.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Район.
 	/// </summary>
-	[JsonProperty("area")]
+	[JsonPropertyName("area")]
 	public string Area { get; set; }
 
 	/// <summary>
 	/// Область.
 	/// </summary>
-	[JsonProperty("region")]
+	[JsonPropertyName("region")]
 	public string Region { get; set; }
 
 	/// <summary>
 	/// Является ли город основным.
 	/// </summary>
-	[JsonProperty("important")]
+	[JsonPropertyName("important")]
 	public bool Important { get; set; }
 
-	[JsonProperty("comment_id")]
+	[JsonPropertyName("comment_id")]
 	private long? CommentId
 	{
 		get => Id;
 		set => Id = value;
 	}
 
-	[JsonProperty("cid")]
+	[JsonPropertyName("cid")]
 	private long? Cid
 	{
 		get => Id;
 		set => Id = value;
 	}
 
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	private string Name
 	{
 		get => Title;

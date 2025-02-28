@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class SaveAudienceLevels
 	/// <summary>
 	/// Параметра level в ads.saveLookalikeRequestResult
 	/// </summary>
-	[JsonProperty("level")]
+	[JsonPropertyName("level")]
 	public long? Level { get; set; }
 
 	/// <summary>
 	/// Размер похожей аудитории в данной опции.
 	/// </summary>
-	[JsonProperty("audience_count")]
+	[JsonPropertyName("audience_count")]
 	public long? AudienceCount { get; set; }
 }

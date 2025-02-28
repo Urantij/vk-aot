@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class LeadAnswerInfo
 	/// <summary>
 	/// ключ вопроса.
 	/// </summary>
-	[JsonProperty("key")]
+	[JsonPropertyName("key")]
 	public string Key { get; set; }
 
 	/// <summary>
 	/// ответ на вопрос
 	/// </summary>
-	[JsonProperty("answer")]
+	[JsonPropertyName("answer")]
 	public LeadAnswer Answer { get; set; }
 }

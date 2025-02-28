@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -7,6 +9,7 @@ namespace VkNet.Model;
 /// См. описание http://vk.com/dev/attachments_w
 /// </summary>
 [Serializable]
+[JsonConverter(typeof(AttachmentJsonConverter))]
 public class Attachment
 {
 	/// <summary>

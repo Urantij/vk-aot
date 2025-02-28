@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class Rating
 	/// <summary>
 	/// Количество звезд у продукта;.
 	/// </summary>
-	[JsonProperty("stars")]
+	[JsonPropertyName("stars")]
 	public long? Stars { get; set; }
 
 	/// <summary>
 	/// Количество отзывов о продукте;.
 	/// </summary>
-	[JsonProperty("reviews_count")]
+	[JsonPropertyName("reviews_count")]
 	public long? ReviewsCount { get; set; }
 }

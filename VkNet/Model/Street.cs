@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,24 +12,24 @@ public class Street
 	/// <summary>
 	/// Идентификатор улицы
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Название улицы
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	private string Name
 	{
 		get => Title;
 		set => Title = value;
 	}
 
-	[JsonProperty("sid")]
+	[JsonPropertyName("sid")]
 	private long Sid
 	{
 		get => Id;

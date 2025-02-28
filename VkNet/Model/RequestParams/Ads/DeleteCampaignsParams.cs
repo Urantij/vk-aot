@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class DeleteCampaignsParams
 	/// <summary>
 	/// Идентификатор рекламного кабинета. обязательный параметр, целое число
 	/// </summary>
-	[JsonProperty("account_id")]
+	[JsonPropertyName("account_id")]
 	public long AccountId { get; set; }
 
 	/// <summary>
 	/// Массив, содержащий id удаляемых администраторов
 	/// </summary>
-	[JsonProperty("ids")]
+	[JsonPropertyName("ids")]
 	public string[] Ids { get; set; }
 }

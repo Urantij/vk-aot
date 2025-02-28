@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
@@ -14,18 +14,18 @@ public class Activity
 	/// <summary>
 	/// Количество лайков
 	/// </summary>
-	[JsonProperty("likes")]
+	[JsonPropertyName("likes")]
 	public long Likes { get; set; }
 
 	/// <summary>
 	/// Количество подписчиков
 	/// </summary>
-	[JsonProperty("subscribed")]
+	[JsonPropertyName("subscribed")]
 	public long Subscribed { get; set; }
 
 	/// <summary>
 	/// Количество неподписавшихся.
 	/// </summary>
-	[JsonProperty("unsubscribed")]
+	[JsonPropertyName("unsubscribed")]
 	public long Unsubscribed { get; set; }
 }

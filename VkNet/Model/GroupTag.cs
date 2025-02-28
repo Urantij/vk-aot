@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class GroupTag
 	/// <summary>
 	/// Идентификатор тэга
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public ulong Id { get; set; }
 
 	/// <summary>
 	/// Название тэга
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// Цвет тэга в формате #ffffff
 	/// </summary>
-	[JsonProperty("color")]
+	[JsonPropertyName("color")]
 	public string Color { get; set; }
 }

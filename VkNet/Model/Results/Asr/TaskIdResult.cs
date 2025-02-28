@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,6 +12,6 @@ public class TaskIdResult
 	/// <summary>
 	/// Идентификатор созданной задачи на обработку аудиозаписи в формате UUID
 	/// </summary>
-	[JsonProperty("task_id")]
+	[JsonPropertyName("task_id")]
 	public string TaskId { get; set; }
 }

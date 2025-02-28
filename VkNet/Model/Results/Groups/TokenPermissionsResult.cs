@@ -1,6 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,12 +13,12 @@ public class TokenPermissionsResult
 	/// <summary>
 	/// Битовая масска
 	/// </summary>
-	[JsonProperty("mask")]
+	[JsonPropertyName("mask")]
 	public long Mask { get; set; }
 
 	/// <summary>
 	/// Права доступа
 	/// </summary>
-	[JsonProperty("permissions")]
+	[JsonPropertyName("permissions")]
 	public ReadOnlyCollection<TokenPermission> Permissions { get; set; }
 }

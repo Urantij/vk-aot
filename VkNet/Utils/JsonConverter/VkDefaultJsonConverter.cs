@@ -1,13 +1,11 @@
 ﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace VkNet.Utils.JsonConverter;
 
 /// <summary>
 /// Конвертер значений по умолчанию
 /// </summary>
-public class VkDefaultJsonConverter : Newtonsoft.Json.JsonConverter
+public class VkDefaultJsonConverter : System.Text.Json.Serialization.JsonConverter
 {
 	/// <summary>
 	/// Gets a value indicating whether this

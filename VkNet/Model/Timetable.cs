@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -7,48 +7,54 @@ namespace VkNet.Model;
 /// Расписание
 /// </summary>
 [Serializable]
-[JsonObject(MemberSerialization.OptOut)]
 public class Timetable
 {
 	/// <summary>
 	/// Понедельник
 	/// </summary>
-	[JsonProperty("mon", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("mon")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public TimetableItem Monday { get; set; }
 
 	/// <summary>
 	/// Вторник
 	/// </summary>
-	[JsonProperty("tue", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("tue")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public TimetableItem Tuesday { get; set; }
 
 	/// <summary>
 	/// Среда
 	/// </summary>
-	[JsonProperty("wed", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("wed")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public TimetableItem Wednesday { get; set; }
 
 	/// <summary>
 	/// Четверг
 	/// </summary>
-	[JsonProperty("thu", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("thu")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public TimetableItem Thursday { get; set; }
 
 	/// <summary>
 	/// Пятница
 	/// </summary>
-	[JsonProperty("fri", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("fri")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public TimetableItem Friday { get; set; }
 
 	/// <summary>
 	/// Суббота
 	/// </summary>
-	[JsonProperty("sat", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("sat")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public TimetableItem Saturday { get; set; }
 
 	/// <summary>
 	/// Воскресенье
 	/// </summary>
-	[JsonProperty("sun", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("sun")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public TimetableItem Sunday { get; set; }
 }

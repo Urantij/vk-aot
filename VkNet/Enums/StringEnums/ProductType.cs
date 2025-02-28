@@ -1,6 +1,6 @@
 ﻿
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Enums.StringEnums;

@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class AuthConfirmResult
 	/// <summary>
 	/// Успешно.
 	/// </summary>
-	[JsonProperty("success")]
+	[JsonPropertyName("success")]
 	public bool Success { get; set; }
 
 	/// <summary>
 	/// Идентификатор пользователя.
 	/// </summary>
-	[JsonProperty("uid")]
+	[JsonPropertyName("uid")]
 	public long UserId { get; set; }
 }

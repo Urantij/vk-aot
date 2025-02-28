@@ -1,6 +1,6 @@
 ﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -13,73 +13,73 @@ public class GetTargetGroupsResult
 	/// <summary>
 	/// Количество оставшихся методов;
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("last_updated")]
+	[JsonPropertyName("last_updated")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime LastUpdated { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("domain")]
+	[JsonPropertyName("domain")]
 	public string Domain { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("pixel")]
+	[JsonPropertyName("pixel")]
 	public string Pixel { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("is_audience")]
+	[JsonPropertyName("is_audience")]
 	public bool IsAudience { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("is_shared")]
+	[JsonPropertyName("is_shared")]
 	public bool IsShared { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("audience_count")]
+	[JsonPropertyName("audience_count")]
 	public long AudienceCount { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("lifetime")]
+	[JsonPropertyName("lifetime")]
 	public long Lifetime { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("file_source")]
+	[JsonPropertyName("file_source")]
 	public long FileSource { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("api_source")]
+	[JsonPropertyName("api_source")]
 	public long ApiSource { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("lookalike_source")]
+	[JsonPropertyName("lookalike_source")]
 	public long LookalikeSource { get; set; }
 }

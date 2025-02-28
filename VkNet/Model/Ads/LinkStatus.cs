@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -13,18 +13,18 @@ public class LinkStatus
 	/// <summary>
 	/// URL
 	/// </summary>
-	[JsonProperty("redirect_url")]
+	[JsonPropertyName("redirect_url")]
 	public string RedirectUrl { get; set; }
 
 	/// <summary>
 	/// Link status
 	/// </summary>
-	[JsonProperty("status")]
+	[JsonPropertyName("status")]
 	public LinkStatusType? Status { get; set; }
 
 	/// <summary>
 	/// Reject reason
 	/// </summary>
-	[JsonProperty("description")]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 }

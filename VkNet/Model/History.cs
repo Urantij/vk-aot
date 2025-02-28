@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,7 +12,7 @@ public class History
 	/// <summary>
 	/// Идентификатор.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
@@ -21,24 +21,24 @@ public class History
 	/// <remarks>
 	/// При необходимости сделать nullable
 	/// </remarks>
-	[JsonProperty("length")]
+	[JsonPropertyName("length")]
 	public int Length { get; set; }
 
 	/// <summary>
 	/// Дата изменения.
 	/// </summary>
-	[JsonProperty("date")]
+	[JsonPropertyName("date")]
 	public string Date { get; set; }
 
 	/// <summary>
 	/// Идентификатор пользователя применившего изменения.
 	/// </summary>
-	[JsonProperty("editor_id")]
+	[JsonPropertyName("editor_id")]
 	public long EditorId { get; set; }
 
 	/// <summary>
 	/// Имя пользователя применившего изменения.
 	/// </summary>
-	[JsonProperty("editor_name")]
+	[JsonPropertyName("editor_name")]
 	public string EditorName { get; set; }
 }

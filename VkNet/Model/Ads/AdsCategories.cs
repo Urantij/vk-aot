@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,18 +13,18 @@ public class AdsCategories
 	/// <summary>
 	/// Название категории.
 	/// </summary>
-	[JsonProperty(propertyName: "name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// Gets or sets the subcategories.
 	/// </summary>
-	[JsonProperty(propertyName: "subcategories")]
+	[JsonPropertyName("subcategories")]
 	public IEnumerable<AdsCategories> Subcategories { get; set; }
 
 	/// <summary>
 	/// Идентификатор.
 	/// </summary>
-	[JsonProperty(propertyName: "id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 }

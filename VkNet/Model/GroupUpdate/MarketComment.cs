@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -14,12 +14,12 @@ public class MarketCommentGroupUpdate : Comment, IGroupUpdate
 	/// <summary>
 	/// Идентификатор товара
 	/// </summary>
-	[JsonProperty("item_id")]
+	[JsonPropertyName("item_id")]
 	public ulong? ItemId { get; set; }
 
 	/// <summary>
 	/// Идентификатор владельца товара
 	/// </summary>
-	[JsonProperty("market_owner_id")]
+	[JsonPropertyName("market_owner_id")]
 	public long? MarketOwnerId { get; set; }
 }

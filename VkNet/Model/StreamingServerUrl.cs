@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,13 +12,13 @@ public class StreamingServerUrl
 	/// <summary>
 	/// Хост для подключения к серверу;
 	/// </summary>
-	[JsonProperty(propertyName: "endpoint")]
+	[JsonPropertyName("endpoint")]
 	public string Endpoint { get; set; }
 
 	/// <summary>
 	/// Ключ доступа. Ключ бессрочный и прекращает действовать только после получения
 	/// нового ключа.
 	/// </summary>
-	[JsonProperty(propertyName: "key")]
+	[JsonPropertyName("key")]
 	public string Key { get; set; }
 }

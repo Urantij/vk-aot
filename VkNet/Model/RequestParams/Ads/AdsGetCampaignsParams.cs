@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,7 +13,7 @@ public class AdsGetCampaignsParams
 	/// <summary>
 	/// Идентификатор рекламного кабинета.
 	/// </summary>
-	[JsonProperty(propertyName: "account_id")]
+	[JsonPropertyName("account_id")]
 	public long AccountId { get; set; }
 
 	/// <summary>
@@ -21,7 +21,7 @@ public class AdsGetCampaignsParams
 	/// для рекламных агентств, в остальных
 	/// случаях не используется.
 	/// </summary>
-	[JsonProperty(propertyName: "client_id")]
+	[JsonPropertyName("client_id")]
 	public long? ClientId { get; set; }
 
 	/// <summary>
@@ -29,7 +29,7 @@ public class AdsGetCampaignsParams
 	/// активные кампании; 1 — выводить все
 	/// кампании.
 	/// </summary>
-	[JsonProperty(propertyName: "include_deleted")]
+	[JsonPropertyName("include_deleted")]
 	public bool IncludeDeleted { get; set; }
 
 	/// <summary>
@@ -40,6 +40,6 @@ public class AdsGetCampaignsParams
 	/// строке null, то выводиться будут все
 	/// кампании.
 	/// </summary>
-	[JsonProperty(propertyName: "campaign_ids")]
+	[JsonPropertyName("campaign_ids")]
 	public IEnumerable<long> CampaignIds { get; set; }
 }

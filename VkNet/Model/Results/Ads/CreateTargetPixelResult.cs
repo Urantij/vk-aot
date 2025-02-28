@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class CreateTargetPixelResult
 	/// <summary>
 	/// Идентификатор пикселя
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Код для размещения на сайте рекламодателя
 	/// </summary>
-	[JsonProperty("pixel")]
+	[JsonPropertyName("pixel")]
 	public string Pixel { get; set; }
 }

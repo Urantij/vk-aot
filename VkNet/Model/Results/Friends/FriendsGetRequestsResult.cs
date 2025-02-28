@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Utils;
 using VkNet.Utils.JsonConverter;
 
@@ -16,19 +16,19 @@ public class FriendsGetRequestsResult
 	/// <summary>
 	/// Идентификатор пользователя
 	/// </summary>
-	[JsonProperty(propertyName: "user_id")]
+	[JsonPropertyName("user_id")]
 	public long? UserId { get; set; }
 
 	/// <summary>
 	/// Общие
 	/// </summary>
-	[JsonProperty(propertyName: "mutual")]
-	[JsonConverter(typeof(VkCollectionJsonConverter), "users")]
+	[JsonPropertyName("mutual")]
+	[VkCollectionConverter<long>("users")]
 	public VkCollection<long> Mutual { get; set; }
 
 	/// <summary>
 	/// Текст сообщения
 	/// </summary>
-	[JsonProperty("message")]
+	[JsonPropertyName("message")]
 	public string Message { get; set; }
 }

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -16,22 +16,22 @@ public class Sticker : MediaAttachment
 	/// <summary>
 	/// Идентификатор набора.
 	/// </summary>
-	[JsonProperty("product_id")]
+	[JsonPropertyName("product_id")]
 	public long? ProductId { get; set; }
 
 	/// <summary>
 	/// Изображения для стикера (с прозрачным фоном).
 	/// </summary>
-	[JsonProperty("images")]
+	[JsonPropertyName("images")]
 	public IEnumerable<Image> Images { get; set; }
 
 	/// <summary>
 	/// Изображения для стикера (с непрозрачным фоном).
 	/// </summary>
-	[JsonProperty("images_with_background")]
+	[JsonPropertyName("images_with_background")]
 	public IEnumerable<Image> ImagesWithBackground { get; set; }
 
-	[JsonProperty("sticker_id")]
+	[JsonPropertyName("sticker_id")]
 	private long? StickerId
 	{
 		get => Id;
@@ -41,19 +41,19 @@ public class Sticker : MediaAttachment
 	/// <summary>
 	/// URL анимации стикера (для анимированных стикеров)
 	/// </summary>
-	[JsonProperty("animation_url")]
+	[JsonPropertyName("animation_url")]
 	public string AnimationUrl { get; set; }
 
 	/// <summary>
 	/// Тип, который описывает вариант формата ответа.
 	/// </summary>
 	/// <remarks>По умолчанию: "base_sticker_new"</remarks>
-	[JsonProperty("inner_type")]
+	[JsonPropertyName("inner_type")]
 	public string InnerType { get; set; }
 
 	/// <summary>
 	/// Информация о том, доступен ли стикер
 	/// </summary>
-	[JsonProperty("is_allowed")]
+	[JsonPropertyName("is_allowed")]
 	public bool IsAllowed { get; set; }
 }

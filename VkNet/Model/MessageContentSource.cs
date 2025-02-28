@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -14,30 +14,34 @@ public class MessageContentSource
 	/// <summary>
 	/// Источник.
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public MessageContentSourceType? Type { get; set; }
 
 	/// <summary>
 	/// От чьего имени указан peer_id. т.е. вы можете использовать контент из сообщения другой группы.
 	/// </summary>
-	[JsonProperty("owner_id", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("owner_id")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public long? OwnerId { get; set; }
 
 	/// <summary>
 	/// Id диалога
 	/// </summary>
-	[JsonProperty("peer_id", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("peer_id")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public long? PeerId { get; set; }
 
 	/// <summary>
 	/// Id сообщения в беседе. Не путать с message.id профиля.
 	/// </summary>
-	[JsonProperty("conversation_message_id", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("conversation_message_id")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public long? ConversationMessageId { get; set; }
 
 	/// <summary>
 	/// Если источником является любой другой контент на платформе (комментарий, пост, фотография и тд.).
 	/// </summary>
-	[JsonProperty("url", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("url")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public string Url { get; set; }
 }

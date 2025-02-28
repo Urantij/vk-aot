@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,19 +12,19 @@ public class Recipient
 	/// <summary>
 	/// имя покупателя.
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// номер покупателя..
 	/// </summary>
-	[JsonProperty("phone")]
+	[JsonPropertyName("phone")]
 	public string Phone { get; set; }
 
 	/// <summary>
 	///  строковое представление информации о покупателе.
 	/// </summary>
-	[JsonProperty("display_text")]
+	[JsonPropertyName("display_text")]
 	public string DisplayText  { get; set; }
 
 }

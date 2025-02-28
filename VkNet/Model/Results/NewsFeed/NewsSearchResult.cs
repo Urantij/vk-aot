@@ -1,6 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,36 +13,36 @@ public class NewsSearchResult
 	/// <summary>
 	/// Список новостей
 	/// </summary>
-	[JsonProperty("items")]
+	[JsonPropertyName("items")]
 	public ReadOnlyCollection<NewsSearchItem> Items { get; set; }
 
 	/// <summary>
 	/// Количество новостей
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public long Count { get; set; }
 
 	/// <summary>
 	/// Общее количество новостей
 	/// </summary>
-	[JsonProperty("total_count")]
+	[JsonPropertyName("total_count")]
 	public long TotalCount { get; set; }
 
 	/// <summary>
 	/// Профили пользователей
 	/// </summary>
-	[JsonProperty("profiles")]
+	[JsonPropertyName("profiles")]
 	public ReadOnlyCollection<User> Profiles { get; set; }
 
 	/// <summary>
 	/// Сообщества
 	/// </summary>
-	[JsonProperty("groups")]
+	[JsonPropertyName("groups")]
 	public ReadOnlyCollection<Group> Groups { get; set; }
 
 	/// <summary>
 	/// Ключ для следующего поиска
 	/// </summary>
-	[JsonProperty("next_from")]
+	[JsonPropertyName("next_from")]
 	public string NextFrom { get; set; }
 }

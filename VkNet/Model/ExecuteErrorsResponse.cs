@@ -1,7 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -14,12 +14,12 @@ public class ExecuteErrorsResponse
 	/// <summary>
 	/// Ответ Vk
 	/// </summary>
-	[JsonProperty("response")]
-	public JRaw Response { get; set; }
+	[JsonPropertyName("response")]
+	public JsonNode Response { get; set; }
 
 	/// <summary>
 	/// Массив ошибок при вызове метода execute
 	/// </summary>
-	[JsonProperty("execute_errors")]
+	[JsonPropertyName("execute_errors")]
 	public ReadOnlyCollection<VkError> ExecuteErrors { get; set; }
 }

@@ -1,6 +1,6 @@
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -17,49 +17,49 @@ public class Album : MediaAttachment
 	/// <summary>
 	/// Обложка альбома.
 	/// </summary>
-	[JsonProperty("thumb")]
+	[JsonPropertyName("thumb")]
 	public Photo Thumb { get; set; }
 
 	/// <summary>
 	/// Название альбома.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Описание альбома.
 	/// </summary>
-	[JsonProperty("description")]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 
 	/// <summary>
 	/// Дата и время создания альбома.
 	/// </summary>
-	[JsonProperty("created")]
+	[JsonPropertyName("created")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? CreateTime { get; set; }
 
 	/// <summary>
 	/// Дата и время последнего обновления альбома.
 	/// </summary>
-	[JsonProperty("updated")]
+	[JsonPropertyName("updated")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? UpdateTime { get; set; }
 
 	/// <summary>
 	/// Количество фотографий в альбоме.
 	/// </summary>
-	[JsonProperty("size")]
+	[JsonPropertyName("size")]
 	public int Size { get; set; }
 
-	[JsonProperty("aid")]
+	[JsonPropertyName("aid")]
 	private long? Aid
 	{
 		get => Id;
 		set => Id = value;
 	}
 
-	[JsonProperty("album_id")]
+	[JsonPropertyName("album_id")]
 	private long? AlbumId
 	{
 		get => Id;

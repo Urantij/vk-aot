@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class SupportedCategories
 	/// <summary>
 	/// Заголовок
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Текущее значение
 	/// </summary>
-	[JsonProperty("value")]
+	[JsonPropertyName("value")]
 	public string Value { get; set; }
 }

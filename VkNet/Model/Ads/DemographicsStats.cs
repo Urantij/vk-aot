@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,42 +13,42 @@ public class DemographicsStats
 	/// <summary>
 	/// Идентификатор рекламного кабинета. обязательный параметр, целое число
 	/// </summary>
-	[JsonProperty("day")]
+	[JsonPropertyName("day")]
 	public string Day { get; set; }
 
 	/// <summary>
 	/// обязательный параметр, строка
 	/// </summary>
-	[JsonProperty("month")]
+	[JsonPropertyName("month")]
 	public string Month { get; set; }
 
 	/// <summary>
 	/// обязательный параметр, строка
 	/// </summary>
-	[JsonProperty("overall")]
+	[JsonPropertyName("overall")]
 	public string OverAll { get; set; }
 
 	/// <summary>
 	/// обязательный параметр, строка
 	/// </summary>
-	[JsonProperty("sex")]
+	[JsonPropertyName("sex")]
 	public ReadOnlyCollection<StatsSexAgeCities> Sex { get; set; }
 
 	/// <summary>
 	/// обязательный параметр, строка
 	/// </summary>
-	[JsonProperty("age")]
+	[JsonPropertyName("age")]
 	public ReadOnlyCollection<StatsSexAgeCities> Age { get; set; }
 
 	/// <summary>
 	/// обязательный параметр, строка
 	/// </summary>
-	[JsonProperty("sex_age")]
+	[JsonPropertyName("sex_age")]
 	public ReadOnlyCollection<StatsSexAgeCities> SexAge { get; set; }
 
 	/// <summary>
 	/// обязательный параметр, строка
 	/// </summary>
-	[JsonProperty("cities")]
+	[JsonPropertyName("cities")]
 	public ReadOnlyCollection<StatsSexAgeCities> Cities { get; set; }
 }

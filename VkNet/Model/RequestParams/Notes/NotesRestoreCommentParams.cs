@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class NotesRestoreCommentParams
 	/// <summary>
 	/// идентификатор удаленного комментария
 	/// </summary>
-	[JsonProperty("comment_id")]
+	[JsonPropertyName("comment_id")]
 	public long? CommentId { get; set; }
 
 	/// <summary>
-	/// идентификатор владельца заметки. 
+	/// идентификатор владельца заметки.
 	/// </summary>
-	[JsonProperty("comment_id")]
+	[JsonPropertyName("comment_id")]
 	public long? OwnerId { get; set; }
 }

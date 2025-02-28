@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 using JetBrains.Annotations;
-using Newtonsoft.Json;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -50,7 +50,8 @@ public class AddButtonParams
 	/// <summary>
 	/// Любой из интентов, требующий подписки.
 	/// </summary>
-	[JsonProperty("intent", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("intent")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public Intent? Intent { get; set; }
 
 	/// <summary>

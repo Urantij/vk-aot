@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class SearchProfile
 	/// <summary>
 	/// идентификатор пользователя
 	/// </summary>
-	[JsonProperty(propertyName: "id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// имя пользователя;
 	/// </summary>
-	[JsonProperty(propertyName: "first_name")]
+	[JsonPropertyName("first_name")]
 	public string FirstName { get; set; }
 
 	/// <summary>
 	/// фамилия пользователя
 	/// </summary>
-	[JsonProperty(propertyName: "last_name")]
+	[JsonPropertyName("last_name")]
 	public string LastName { get; set; }
 }

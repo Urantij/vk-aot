@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,30 +12,30 @@ public class AudioAlbum
 	/// <summary>
 	/// Идентификатор альбома.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Идентификатор владельца альбома (пользователь или сообщество).
 	/// </summary>
-	[JsonProperty("owner_id")]
+	[JsonPropertyName("owner_id")]
 	public long OwnerId { get; set; }
 
 	/// <summary>
 	/// Название альбома.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Обложка альбома.
 	/// </summary>
-	[JsonProperty("thumb")]
+	[JsonPropertyName("thumb")]
 	public AudioCover Thumb { get; set; }
 
 	/// <summary>
 	/// Ключ доступа.
 	/// </summary>
-	[JsonProperty("access_key")]
+	[JsonPropertyName("access_key")]
 	public string AccessKey { get; set; }
 }

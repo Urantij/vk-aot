@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class SavePhotoResult
 	/// <summary>
 	/// Цвет фотографии
 	/// </summary>
-	[JsonProperty("color")]
+	[JsonPropertyName("color")]
 	public string Color { get; set; }
 
 	/// <summary>
 	/// Идентификатор загруженной фотографии
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Массив изображений разных размеров
 	/// </summary>
-	[JsonProperty("images")]
+	[JsonPropertyName("images")]
 	public Image[] Images { get; set; }
 }

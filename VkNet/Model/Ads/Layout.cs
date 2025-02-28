@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 
 namespace VkNet.Model;
@@ -13,108 +13,108 @@ public class Layout
 	/// <summary>
 	/// Идентификатор объявления.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty("campaign_id")]
+	[JsonPropertyName("campaign_id")]
 	public long CampaignId { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty("ad_format")]
+	[JsonPropertyName("ad_format")]
 	public AdFormat AdFormat { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty("cost_type")]
+	[JsonPropertyName("cost_type")]
 	public CostType CostType { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty("goal_type")]
+	[JsonPropertyName("goal_type")]
 	public GoalType GoalType { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty("video")]
+	[JsonPropertyName("video")]
 	public long Video { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty("repeat_video")]
+	[JsonPropertyName("repeat_video")]
 	public long RepeatVideo { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty("description")]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty("link_url")]
+	[JsonPropertyName("link_url")]
 	public Uri LinkUrl { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty("link_domain")]
+	[JsonPropertyName("link_domain")]
 	public Uri LinkDomain { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty("link_title")]
+	[JsonPropertyName("link_title")]
 	public Uri LinkTitle { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty("link_button")]
+	[JsonPropertyName("link_button")]
 	public Uri LinkButton { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty("preview_link")]
+	[JsonPropertyName("preview_link")]
 	public Uri PreviewLink { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty("image_src")]
+	[JsonPropertyName("image_src")]
 	public Uri ImageSrc { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty("image_src_2x")]
+	[JsonPropertyName("image_src_2x")]
 	public Uri ImageSrc2X { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty("icon_src")]
+	[JsonPropertyName("icon_src")]
 	public Uri IconSrc { get; set; }
 
 	/// <summary>
 	/// Идентификатор кампании
 	/// </summary>
-	[JsonProperty("icon_src_2x")]
+	[JsonPropertyName("icon_src_2x")]
 	public Uri IconSrc2X { get; set; }
 }

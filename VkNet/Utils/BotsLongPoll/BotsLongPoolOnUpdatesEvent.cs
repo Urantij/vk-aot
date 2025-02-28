@@ -1,7 +1,7 @@
 #nullable enable
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
+using System.Text.Json.Nodes;
 using VkNet.Model;
 
 namespace VkNet.Utils.BotsLongPoll;
@@ -14,7 +14,7 @@ public class BotsLongPollOnUpdatesEvent
 	/// <summary>
 	/// Обновление в событиях группы.
 	/// </summary>
-	public BotsLongPollHistoryResponse<JObject> Response;
+	public BotsLongPollHistoryResponse<JsonObject> Response;
 
 	/// <summary>
 	/// Обработанные обновления из Response

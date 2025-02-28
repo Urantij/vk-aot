@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using VkNet.Utils;
 
 namespace VkNet.Abstractions;
@@ -61,7 +61,7 @@ public interface IVkLongPollInvoke
 	/// <param name="parameters"> Вход. параметры LongPoll. </param>
 	/// <exception cref="ArgumentException"> </exception>
 	/// <returns> Ответ сервера в формате JSON. </returns>
-	JObject InvokeLongPollExtended(string server, Dictionary<string, string> parameters);
+	JsonObject InvokeLongPollExtended(string server, Dictionary<string, string> parameters);
 
 	/// <summary>
 	/// Прямой вызов LongPoll API в асинхронном режиме
@@ -81,5 +81,5 @@ public interface IVkLongPollInvoke
 	/// <param name="token">Токен отмены операции</param>
 	/// <exception cref="ArgumentException"> </exception>
 	/// <returns> Ответ сервера в формате JSON. </returns>
-	Task<JObject> InvokeLongPollExtendedAsync(string server, Dictionary<string, string> parameters, CancellationToken token = default);
+	Task<JsonObject> InvokeLongPollExtendedAsync(string server, Dictionary<string, string> parameters, CancellationToken token = default);
 }

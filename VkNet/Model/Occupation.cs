@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -13,18 +13,18 @@ public class Occupation
 	/// <summary>
 	/// Название школы, вуза или места работы
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// Идентификатор школы, вуза, группы компании (в которой пользователь работает).
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long? Id { get; set; }
 
 	/// <summary>
 	/// Информация о текущем роде занятия пользователя.
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public OccupationType? Type { get; set; }
 }

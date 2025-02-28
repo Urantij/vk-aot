@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -15,90 +15,90 @@ public class GetPostsReachResult
 	/// <summary>
 	/// Количество оставшихся методов;
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("reach_subscribers")]
+	[JsonPropertyName("reach_subscribers")]
 	public long ReachSubscribers { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("reach_total")]
+	[JsonPropertyName("reach_total")]
 	public long ReachTotal { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("links")]
+	[JsonPropertyName("links")]
 	public long Links { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("to_group")]
+	[JsonPropertyName("to_group")]
 	public long ToGroup { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("join_group")]
+	[JsonPropertyName("join_group")]
 	public long JoinGroup { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("report")]
+	[JsonPropertyName("report")]
 	public long Report { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("hide")]
+	[JsonPropertyName("hide")]
 	public long Hide { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("unsubscribe")]
+	[JsonPropertyName("unsubscribe")]
 	public long Unsubscribe { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("video_views_start")]
+	[JsonPropertyName("video_views_start")]
 	public long VideoViewsStart { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("video_views_3s")]
+	[JsonPropertyName("video_views_3s")]
 	public long VideoViews3S { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("video_views_25p")]
+	[JsonPropertyName("video_views_25p")]
 	public long VideoViews25P { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("video_views_50p")]
+	[JsonPropertyName("video_views_50p")]
 	public long VideoViews50P { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("video_views_75p")]
+	[JsonPropertyName("video_views_75p")]
 	public long VideoViews75P { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("video_views_100p")]
+	[JsonPropertyName("video_views_100p")]
 	public long VideoViews100P { get; set; }
 }

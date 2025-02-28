@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Abstractions;
 
 namespace VkNet.Model;
@@ -18,7 +18,7 @@ public class MarketProductParams
 	/// сообщества ВКонтакте API (club1)
 	/// целое число, обязательный параметр (целое число, обязательный параметр).
 	/// </summary>
-	[JsonProperty("photo_ids")]
+	[JsonPropertyName("photo_ids")]
 	public long OwnerId { get; set; }
 
 	/// <summary>
@@ -27,7 +27,7 @@ public class MarketProductParams
 	/// <remarks>
 	/// Только для метода <see cref="IMarketsCategory.Edit"/>
 	/// </remarks>
-	[JsonProperty("item_id")]
+	[JsonPropertyName("item_id")]
 	public long? ItemId { get; set; }
 
 	/// <summary>
@@ -35,7 +35,7 @@ public class MarketProductParams
 	/// обязательный параметр (строка, минимальная
 	/// длина 4, максимальная длина 100, обязательный параметр).
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
@@ -43,7 +43,7 @@ public class MarketProductParams
 	/// минимальная длина 10, обязательный
 	/// параметр).
 	/// </summary>
-	[JsonProperty("description")]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 
 	/// <summary>
@@ -51,7 +51,7 @@ public class MarketProductParams
 	/// (положительное число, обязательный
 	/// параметр).
 	/// </summary>
-	[JsonProperty("category_id")]
+	[JsonPropertyName("category_id")]
 	public long CategoryId { get; set; }
 
 	/// <summary>
@@ -59,7 +59,7 @@ public class MarketProductParams
 	/// (дробное число, обязательный параметр,
 	/// минимальное значение 0.01).
 	/// </summary>
-	[JsonProperty("price")]
+	[JsonPropertyName("price")]
 	public decimal Price { get; set; }
 
 	/// <summary>
@@ -67,7 +67,7 @@ public class MarketProductParams
 	/// (дробное число, обязательный параметр,
 	/// минимальное значение 0.01).
 	/// </summary>
-	[JsonProperty("old_price")]
+	[JsonPropertyName("old_price")]
 	public decimal OldPrice { get; set; }
 
 	/// <summary>
@@ -75,7 +75,7 @@ public class MarketProductParams
 	/// значения 1 или 0 (флаг, может
 	/// принимать значения 1 или 0).
 	/// </summary>
-	[JsonProperty("deleted")]
+	[JsonPropertyName("deleted")]
 	public bool Deleted { get; set; }
 
 	/// <summary>
@@ -83,7 +83,7 @@ public class MarketProductParams
 	/// параметр (положительное число,
 	/// обязательный параметр).
 	/// </summary>
-	[JsonProperty("main_photo_id")]
+	[JsonPropertyName("main_photo_id")]
 	public long MainPhotoId { get; set; }
 
 	/// <summary>
@@ -93,7 +93,7 @@ public class MarketProductParams
 	/// запятыми, количество элементов
 	/// должно составлять не более 4).
 	/// </summary>
-	[JsonProperty("photo_ids")]
+	[JsonPropertyName("photo_ids")]
 	public IEnumerable<long> PhotoIds { get; set; }
 
 	/// <summary>
@@ -101,7 +101,7 @@ public class MarketProductParams
 	///  Видео должно быть загружено в сообщество и быть доступным для просмотра, в UI отображается только один элемент.
 	///  <see xlink="https://dev.vk.com/ru/api/upload/photo-in-market#%D0%9E%D1%82%D0%B2%D0%B5%D1%82"/>
 	/// </summary>
-	[JsonProperty("video_ids")]
+	[JsonPropertyName("video_ids")]
 	public IEnumerable<long> VideoIds { get; set; }
 
 	/// <summary>
@@ -110,7 +110,7 @@ public class MarketProductParams
 	/// <remarks>
 	/// Строка, минимальная длина 0, максимальная длина 320
 	/// </remarks>
-	[JsonProperty("url")]
+	[JsonPropertyName("url")]
 	public Uri Url { get; set; }
 
 	/// <summary>
@@ -119,42 +119,42 @@ public class MarketProductParams
 	/// Если товар уже в группе, порядок свойств всех товаров группы должен совпадать,
 	/// а набор свойств должен быть уникален для каждого товара.
 	/// </summary>
-	[JsonProperty("variant_ids")]
+	[JsonPropertyName("variant_ids")]
 	public IEnumerable<long> VariantIds { get; set; }
 
 	/// <summary>
 	/// Признак, является ли товар главным в своей группе.
 	/// </summary>
-	[JsonProperty("is_main_variant")]
+	[JsonPropertyName("is_main_variant")]
 	public bool IsMainVariant { get; set; }
 
 	/// <summary>
 	/// Ширина в миллиметрах.
 	/// </summary>
-	[JsonProperty("dimension_width")]
+	[JsonPropertyName("dimension_width")]
 	public int DimensionWidth { get; set; }
 
 	/// <summary>
 	/// Высота в миллиметрах.
 	/// </summary>
-	[JsonProperty("dimension_height")]
+	[JsonPropertyName("dimension_height")]
 	public int DimensionHeight { get; set; }
 
 	/// <summary>
 	/// Глубина в миллиметрах.
 	/// </summary>
-	[JsonProperty("dimension_length")]
+	[JsonPropertyName("dimension_length")]
 	public int DimensionLength { get; set; }
 
 	/// <summary>
 	/// Вес в граммах.
 	/// </summary>
-	[JsonProperty("weight")]
+	[JsonPropertyName("weight")]
 	public int Weight { get; set; }
 
 	/// <summary>
 	/// Артикул товара, произвольная строка
 	/// </summary>
-	[JsonProperty("sku")]
+	[JsonPropertyName("sku")]
 	public string Sku { get; set; }
 }

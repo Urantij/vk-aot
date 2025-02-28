@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
@@ -17,7 +17,7 @@ public class Previews
 	/// отсутствия у пользователя фотографии
 	/// возвращается http://vk.com/images/camera_c.gif
 	/// </summary>
-	[JsonProperty("photo_50")]
+	[JsonPropertyName("photo_50")]
 	public Uri Photo50 { get; set; }
 
 	/// <summary>
@@ -25,13 +25,13 @@ public class Previews
 	/// отсутствия у пользователя фотографии
 	/// возвращается http://vk.com/images/camera_b.gif.
 	/// </summary>
-	[JsonProperty("photo_100")]
+	[JsonPropertyName("photo_100")]
 	public Uri Photo100 { get; set; }
 
 	/// <summary>
 	/// Uri ���������� ����������, ������� ������ 130 ��������.
 	/// </summary>
-	[JsonProperty("photo_130")]
+	[JsonPropertyName("photo_130")]
 	public Uri Photo130 { get; set; }
 
 	/// <summary>
@@ -40,7 +40,7 @@ public class Previews
 	/// изображения с такими размерами может не быть, в этом случае ответ не будет
 	/// содержать этого поля.
 	/// </summary>
-	[JsonProperty("photo_200")]
+	[JsonPropertyName("photo_200")]
 	public Uri Photo200 { get; set; }
 
 	/// <summary>
@@ -48,7 +48,7 @@ public class Previews
 	/// Если у пользователя отсутствует фотография такого размера, ответ не будет
 	/// содержать этого поля.
 	/// </summary>
-	[JsonProperty("photo_400_orig")]
+	[JsonPropertyName("photo_400_orig")]
 	public Uri Photo400 { get; set; }
 
 	/// <summary>
@@ -57,24 +57,24 @@ public class Previews
 	/// В случае отсутствия у пользователя фотографии возвращается
 	/// http://vk.com/images/camera_b.gif.
 	/// </summary>
-	[JsonProperty("photo_max")]
+	[JsonPropertyName("photo_max")]
 	public Uri PhotoMax { get; set; }
 
 	/// <summary>
 	/// Gets or sets the photo.
 	/// </summary>
-	[JsonProperty("photo")]
+	[JsonPropertyName("photo")]
 	public Photo Photo { get; set; }
 
 
-	[JsonProperty("photo_medium")]
+	[JsonPropertyName("photo_medium")]
 	private Uri PhotoMedium
 	{
 		get => Photo100;
 		set => Photo100 = value;
 	}
 
-	[JsonProperty("photo_200_orig")]
+	[JsonPropertyName("photo_200_orig")]
 	private Uri Photo200Orig
 	{
 		get => Photo200;

@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 
 namespace VkNet.Model;
@@ -13,12 +13,12 @@ public class ConversationCanWrite
 	/// <summary>
 	/// true, если пользователь может писать в диалог;
 	/// </summary>
-	[JsonProperty("allowed")]
+	[JsonPropertyName("allowed")]
 	public bool Allowed { get; set; }
 
 	/// <summary>
 	/// Код ошибки для allowed = false.
 	/// </summary>
-	[JsonProperty("reason")]
+	[JsonPropertyName("reason")]
 	public CanWriteReason Reason { get; set; }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,30 +13,30 @@ public class CategoryGroup
 	/// <summary>
 	/// Название категории.
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// Gets or sets the subcategories.
 	/// </summary>
-	[JsonProperty("subcategories")]
+	[JsonPropertyName("subcategories")]
 	public IEnumerable<CategoryGroup> Subcategories { get; set; }
 
 	/// <summary>
 	/// Количество сообществ в категории.
 	/// </summary>
-	[JsonProperty("page_count")]
+	[JsonPropertyName("page_count")]
 	public long? PageCount { get; set; }
 
 	/// <summary>
 	/// Массив объектов сообществ для предпросмотра.
 	/// </summary>
-	[JsonProperty("page_previews")]
+	[JsonPropertyName("page_previews")]
 	public IEnumerable<Group> PagePreviews { get; set; }
 
 	/// <summary>
 	/// Идентификатор.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 }

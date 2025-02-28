@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -15,18 +15,18 @@ public class Gift : MediaAttachment
 	/// <summary>
 	/// Изображение 48х48.
 	/// </summary>
-	[JsonProperty("thumb_48")]
+	[JsonPropertyName("thumb_48")]
 	public Uri Thumb48 { get; set; }
 
 	/// <summary>
 	/// Изображение 96х96.
 	/// </summary>
-	[JsonProperty("thumb_96")]
+	[JsonPropertyName("thumb_96")]
 	public Uri Thumb96 { get; set; }
 
 	/// <summary>
 	/// Изображение 256х256.
 	/// </summary>
-	[JsonProperty("thumb_256")]
+	[JsonPropertyName("thumb_256")]
 	public Uri Thumb256 { get; set; }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 using VkNet.Utils.JsonConverter;
 
@@ -16,74 +15,74 @@ public class Product
 	/// <summary>
 	/// Идентификатор продукта
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Тип продукта
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	[JsonConverter(typeof(TolerantStringEnumConverter))]
 	public ProductType Type { get; set; }
 
 	/// <summary>
 	/// Является ли продукт новым
 	/// </summary>
-	[JsonProperty("is_new")]
+	[JsonPropertyName("is_new")]
 	public bool IsNew { get; set; }
 
 	/// <summary>
 	/// Копирайт
 	/// </summary>
-	[JsonProperty("copyright")]
+	[JsonPropertyName("copyright")]
 	public string Copyright { get; set; }
 
 	/// <summary>
 	/// Куплен ли продукт
 	/// </summary>
-	[JsonProperty("purchased")]
+	[JsonPropertyName("purchased")]
 	public bool Purchased { get; set; }
 
 	/// <summary>
 	/// Активен ли продукт
 	/// </summary>
-	[JsonProperty("active")]
+	[JsonPropertyName("active")]
 	public bool Active { get; set; }
 
 	/// <summary>
 	/// Является ли продукт рекламным
 	/// </summary>
-	[JsonProperty("promoted ")]
+	[JsonPropertyName("promoted ")]
 	public bool Promoted { get; set; }
 
 	/// <summary>
 	/// Дата покупки
 	/// </summary>
-	[JsonProperty("purchase_date")]
+	[JsonPropertyName("purchase_date")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? PurchaseDate { get; set; }
 
 	/// <summary>
 	/// Название продукта
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Стикеры
 	/// </summary>
-	[JsonProperty("stickers")]
+	[JsonPropertyName("stickers")]
 	public List<Sticker> Stickers { get; set; }
 
 	/// <summary>
 	/// Иконка продукта
 	/// </summary>
-	[JsonProperty("icon")]
+	[JsonPropertyName("icon")]
 	public Icon Icon { get; set; }
 
 	/// <summary>
 	/// Превью
 	/// </summary>
-	[JsonProperty("previews")]
+	[JsonPropertyName("previews")]
 	public List<Image> Previews { get; set; }
 }

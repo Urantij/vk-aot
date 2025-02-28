@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,30 +12,30 @@ public class VkAuthError
 	/// <summary>
 	/// Error.
 	/// </summary>
-	[JsonProperty("error")]
+	[JsonPropertyName("error")]
 	public string Error { get; set; }
 
 	/// <summary>
 	/// Error type.
 	/// </summary>
-	[JsonProperty("error_type")]
+	[JsonPropertyName("error_type")]
 	public string ErrorType { get; set; }
 
 	/// <summary>
 	/// Error description.
 	/// </summary>
-	[JsonProperty("error_description")]
+	[JsonPropertyName("error_description")]
 	public string ErrorDescription { get; set; }
 
 	/// <summary>
 	/// Captcha id.
 	/// </summary>
-	[JsonProperty("captcha_sid")]
+	[JsonPropertyName("captcha_sid")]
 	public ulong? CaptchaSid { get; set; }
 
 	/// <summary>
 	/// Captcha image Uri.
 	/// </summary>
-	[JsonProperty("captcha_img")]
+	[JsonPropertyName("captcha_img")]
 	public Uri CaptchaImg { get; set; }
 }

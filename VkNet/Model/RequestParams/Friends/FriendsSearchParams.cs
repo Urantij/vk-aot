@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.Filters;
 using VkNet.Enums.StringEnums;
 using VkNet.Utils.JsonConverter;

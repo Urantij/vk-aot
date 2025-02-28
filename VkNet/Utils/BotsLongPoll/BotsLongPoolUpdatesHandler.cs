@@ -5,11 +5,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Sockets;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Threading;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using VkNet.Exception;
 using VkNet.Model;
 
@@ -70,7 +70,7 @@ public class BotsLongPollUpdatesHandler : IBotsLongPollUpdatesHandler
 				VkErrors.ThrowIfNullOrEmpty(() => _currentSessionKey);
 			}
 
-			var response = await _params.Api.Groups.GetBotsLongPollHistoryAsync<BotsLongPollHistoryResponse<JObject>>(new()
+			var response = await _params.Api.Groups.GetBotsLongPollHistoryAsync<BotsLongPollHistoryResponse<JsonObject>>(new()
 			{
 				Key = _currentSessionKey,
 				Server = _currentServer,
@@ -107,7 +107,7 @@ public class BotsLongPollUpdatesHandler : IBotsLongPollUpdatesHandler
 
 				return;
 
-			case JsonReaderException or JsonSerializationException:
+			case JsonException:
 				_params.OnException?.Invoke(exception);
 				IncTs();
 

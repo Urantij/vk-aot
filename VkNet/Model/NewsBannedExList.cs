@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -14,13 +14,13 @@ public class NewsBannedExList
 	/// В поле groups содержится массив идентификаторов сообществ, которые пользователь
 	/// скрыл из ленты новостей.
 	/// </summary>
-	[JsonProperty("groups")]
+	[JsonPropertyName("groups")]
 	public ReadOnlyCollection<Group> Groups { get; set; }
 
 	/// <summary>
 	/// В поле members содержится массив идентификаторов друзей, которые пользователь
 	/// скрыл из ленты новостей.
 	/// </summary>
-	[JsonProperty("profiles")]
+	[JsonPropertyName("profiles")]
 	public ReadOnlyCollection<User> Profiles { get; set; }
 }

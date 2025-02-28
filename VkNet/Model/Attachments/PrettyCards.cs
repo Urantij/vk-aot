@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -14,6 +14,6 @@ public class PrettyCards : MediaAttachment
 	/// <summary>
 	/// Cards
 	/// </summary>
-	[JsonProperty("cards")]
+	[JsonPropertyName("cards")]
 	public ReadOnlyCollection<PrettyCard> Cards { get; set; }
 }

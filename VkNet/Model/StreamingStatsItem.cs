@@ -1,6 +1,6 @@
 ﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -13,13 +13,13 @@ public class StreamingStatsItem
 	/// <summary>
 	/// Время, соответствующее значению;
 	/// </summary>
-	[JsonProperty(propertyName: "timestamp")]
+	[JsonPropertyName("timestamp")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime Timestamp { get; set; }
 
 	/// <summary>
 	/// Значение
 	/// </summary>
-	[JsonProperty(propertyName: "value")]
+	[JsonPropertyName("value")]
 	public int Value { get; set; }
 }

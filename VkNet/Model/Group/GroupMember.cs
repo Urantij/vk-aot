@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -15,13 +15,13 @@ public class GroupMember
 	/// <summary>
 	/// Идентификатор пользователя ВК.
 	/// </summary>
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	public ulong? UserId { get; set; }
 
 	/// <summary>
 	/// Является ли пользователь участником сообщества;
 	/// </summary>
-	[JsonProperty("member")]
+	[JsonPropertyName("member")]
 	public bool Member { get; set; }
 
 	/// <summary>
@@ -29,13 +29,13 @@ public class GroupMember
 	/// можно отозвать методом
 	/// groups.leave).
 	/// </summary>
-	[JsonProperty("request")]
+	[JsonPropertyName("request")]
 	public bool? Request { get; set; }
 
 	/// <summary>
 	/// Приглашён ли пользователь в группу или встречу.
 	/// </summary>
-	[JsonProperty("invitation")]
+	[JsonPropertyName("invitation")]
 	public bool? Invitation { get; set; }
 
 	#endregion

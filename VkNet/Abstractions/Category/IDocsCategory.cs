@@ -24,8 +24,8 @@ public interface IDocsCategory : IDocsCategoryAsync
 	/// <inheritdoc cref="IDocsCategoryAsync.GetWallUploadServerAsync"/>
 	UploadServerInfo GetWallUploadServer(long? groupId = null);
 
-	/// <inheritdoc cref="IDocsCategoryAsync.SaveAsync(string,string,string, System.Threading.CancellationToken)"/>
-	ReadOnlyCollection<Attachment> Save(string file, string title = null, string tags = null);
+	// /// <inheritdoc cref="IDocsCategoryAsync.SaveAsync(string,string,string, System.Threading.CancellationToken)"/>
+	// ReadOnlyCollection<Attachment> Save(string file, string title = null, string tags = null);
 
 	/// <inheritdoc cref="IDocsCategoryAsync.DeleteAsync"/>
 	bool Delete(long ownerId, long docId);

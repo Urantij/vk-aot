@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,6 +13,6 @@ public class VkResponseObject<TModel>
 	/// <summary>
 	/// Response
 	/// </summary>
-	[JsonProperty("response")]
+	[JsonPropertyName("response")]
 	public TModel Response { get; set; }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -14,31 +14,31 @@ public class LinkStat
 	/// <summary>
 	/// Время начала отсчета
 	/// </summary>
-	[JsonProperty(propertyName: "timestamp")]
+	[JsonPropertyName("timestamp")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime Timestamp { get; set; }
 
 	/// <summary>
 	/// Общее число переходов
 	/// </summary>
-	[JsonProperty(propertyName: "views")]
+	[JsonPropertyName("views")]
 	public uint Views { get; set; }
 
 	/// <summary>
 	/// Половозрастная статистика
 	/// </summary>
-	[JsonProperty(propertyName: "sex_age")]
+	[JsonPropertyName("sex_age")]
 	public ReadOnlyCollection<SexAge> SexAge { get; set; }
 
 	/// <summary>
 	/// Статистика по странам
 	/// </summary>
-	[JsonProperty(propertyName: "countries")]
+	[JsonPropertyName("countries")]
 	public ReadOnlyCollection<CountriesStats> Countries { get; set; }
 
 	/// <summary>
 	/// Статистика по городам
 	/// </summary>
-	[JsonProperty(propertyName: "cities")]
+	[JsonPropertyName("cities")]
 	public ReadOnlyCollection<CitiesStats> Cities { get; set; }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -13,18 +13,18 @@ public class UserSpecification
 	/// <summary>
 	/// Идентификатор пользователя, добавляемого как администратор/наблюдатель.
 	/// </summary>
-	[JsonProperty(propertyName: "user_id")]
+	[JsonPropertyName("user_id")]
 	public long UserId { get; set; }
 
 	/// <summary>
 	/// Флаг, описывающий тип полномочий
 	/// </summary>
-	[JsonProperty(propertyName: "role")]
+	[JsonPropertyName("role")]
 	public AccessRole? Role { get; set; }
 
 	/// <summary>
 	/// Идентификатор клиента
 	/// </summary>
-	[JsonProperty(propertyName: "client_id")]
+	[JsonPropertyName("client_id")]
 	public long ClientId { get; set; }
 }

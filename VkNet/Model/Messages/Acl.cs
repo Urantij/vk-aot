@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,48 +12,48 @@ public class Acl
 	/// <summary>
 	/// Признак возможности пригласить
 	/// </summary>
-	[JsonProperty("can_invite")]
+	[JsonPropertyName("can_invite")]
 	public bool CanInvite { get; set; }
 
 	/// <summary>
 	/// Признак возможности изменить информацию
 	/// </summary>
-	[JsonProperty("can_change_info")]
+	[JsonPropertyName("can_change_info")]
 	public bool CanChangeInfo { get; set; }
 
 	/// <summary>
 	/// Признак возможности изменить закрепление
 	/// </summary>
-	[JsonProperty("can_change_pin")]
+	[JsonPropertyName("can_change_pin")]
 	public bool CanChangePin { get; set; }
 
 	/// <summary>
 	/// Признак возможности повысить пользователей
 	/// </summary>
-	[JsonProperty("can_promote_users")]
+	[JsonPropertyName("can_promote_users")]
 	public bool CanPromoteUsers { get; set; }
 
 	/// <summary>
 	/// Признак возможности видеть ссылки на приглашение
 	/// </summary>
-	[JsonProperty("can_see_invite_link")]
+	[JsonPropertyName("can_see_invite_link")]
 	public bool CanSeeInviteLink { get; set; }
 
 	/// <summary>
 	/// Признак возможности изменить ссылку на приглашение
 	/// </summary>
-	[JsonProperty("can_change_invite_link")]
+	[JsonPropertyName("can_change_invite_link")]
 	public bool CanChangeInviteLink { get; set; }
 
 	/// <summary>
 	/// Признак возможности модерировать
 	/// </summary>
-	[JsonProperty("can_moderate")]
+	[JsonPropertyName("can_moderate")]
 	public bool CanModerate { get; set; }
 
 	/// <summary>
 	/// Признак возможности копировать чат
 	/// </summary>
-	[JsonProperty("can_copy_chat")]
+	[JsonPropertyName("can_copy_chat")]
 	public bool CanCopyChat { get; set; }
 }

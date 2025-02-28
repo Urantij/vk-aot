@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,6 +12,6 @@ public class PostView
 	/// <summary>
 	/// Число просмотров записи.
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public int Count { get; set; }
 }

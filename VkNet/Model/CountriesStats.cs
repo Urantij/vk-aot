@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class CountriesStats
 	/// <summary>
 	/// идентификатор страны;
 	/// </summary>
-	[JsonProperty(propertyName: "country_id")]
+	[JsonPropertyName("country_id")]
 	public ulong CountryId { get; set; }
 
 	/// <summary>
 	/// число переходов из этой страны
 	/// </summary>
-	[JsonProperty(propertyName: "views")]
+	[JsonPropertyName("views")]
 	public ulong Views { get; set; }
 }

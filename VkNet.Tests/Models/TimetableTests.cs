@@ -1,5 +1,4 @@
 using FluentAssertions;
-using Newtonsoft.Json;
 using VkNet.Model;
 using Xunit;
 

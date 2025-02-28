@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class MiniAppPolicies
 	/// <summary>
 	/// Идентификатор приложения.
 	/// </summary>
-	[JsonProperty("privacy_policy")]
+	[JsonPropertyName("privacy_policy")]
 	public string PrivacyPolicy { get; set; }
 
 	/// <summary>
 	/// Название приложения.
 	/// </summary>
-	[JsonProperty("terms")]
+	[JsonPropertyName("terms")]
 	public string Terms { get; set; }
 }

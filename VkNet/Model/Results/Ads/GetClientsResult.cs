@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -15,12 +15,12 @@ public class GetClientsResult
 	/// <summary>
 	/// Идентификатор рекламного объявления.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Общий лимит объявления в рублях. 0 — лимит не задан.
 	/// </summary>
-	[JsonProperty("all_limit")]
+	[JsonPropertyName("all_limit")]
 	public long AllLimit { get; set; }
 }

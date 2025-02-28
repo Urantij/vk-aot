@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,30 +13,30 @@ public class ChatPreviewField
 	/// <summary>
 	/// Идентификатор создателя чата
 	/// </summary>
-	[JsonProperty(propertyName: "admin_id")]
+	[JsonPropertyName("admin_id")]
 	public long AdminId { get; set; }
 
 	/// <summary>
 	/// Массив идентификаторов участников чата
 	/// </summary>
-	[JsonProperty(propertyName: "members")]
+	[JsonPropertyName("members")]
 	public IEnumerable<long> Members { get; set; }
 
 	/// <summary>
 	/// Название чата
 	/// </summary>
-	[JsonProperty(propertyName: "title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Обложка чата
 	/// </summary>
-	[JsonProperty(propertyName: "photo")]
+	[JsonPropertyName("photo")]
 	public ChatPhoto Photo { get; set; }
 
 	/// <summary>
 	/// Идентификатор чата для текущего пользователя
 	/// </summary>
-	[JsonProperty(propertyName: "local_id")]
+	[JsonPropertyName("local_id")]
 	public int LocalId { get; set; }
 }

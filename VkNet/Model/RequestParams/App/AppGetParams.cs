@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.Filters;
 using VkNet.Enums.StringEnums;
 
@@ -17,27 +17,27 @@ public class AppGetParams
 	/// Если этот параметр и параметр app_ids не указаны, возвращается идентификатор
 	/// приложения, через которое выдан ключ доступа (access_token).
 	/// </summary>
-	[JsonProperty(propertyName: "app_id")]
+	[JsonPropertyName("app_id")]
 	public long AppId { get; set; }
 
 	/// <summary>
 	/// Список идентификаторов приложений, данные которых необходимо получить.
 	/// </summary>
-	[JsonProperty(propertyName: "app_ids")]
+	[JsonPropertyName("app_ids")]
 	public IEnumerable<ulong> AppIds { get; set; }
 
 	/// <summary>
 	/// Платформа, для которой необходимо вернуть platform_id, принимает значения: ios,
 	/// android, winphone, web.
 	/// </summary>
-	[JsonProperty(propertyName: "platform")]
+	[JsonPropertyName("platform")]
 	public AppPlatforms? Platform { get; set; }
 
 	/// <summary>
 	/// Позволяет получить дополнительные поля: screenshots. По умолчанию возвращает
 	/// только основные поля приложений.
 	/// </summary>
-	[JsonProperty(propertyName: "extended")]
+	[JsonPropertyName("extended")]
 	public bool Extended { get; set; }
 
 	/// <summary>
@@ -46,7 +46,7 @@ public class AppGetParams
 	/// пользователь передал валидный access_token) <c> false </c> – не возвращать
 	/// список друзей, по умолчанию.
 	/// </summary>
-	[JsonProperty(propertyName: "return_friends")]
+	[JsonPropertyName("return_friends")]
 	public bool ReturnFriends { get; set; }
 
 	/// <summary>
@@ -54,7 +54,7 @@ public class AppGetParams
 	/// которые необходимо вернуть для профилей
 	/// пользователей.
 	/// </summary>
-	[JsonProperty(propertyName: "fields")]
+	[JsonPropertyName("fields")]
 	public UsersFields Fields { get; set; }
 
 	/// <summary>
@@ -64,6 +64,6 @@ public class AppGetParams
 	/// творительный – ins, предложный – abl. По
 	/// умолчанию nom.
 	/// </summary>
-	[JsonProperty(propertyName: "name_case")]
+	[JsonPropertyName("name_case")]
 	public NameCase? NameCase { get; set; }
 }

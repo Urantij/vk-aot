@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,20 +13,20 @@ public class BoardEditTopicParams
 	/// Идентификатор сообщества, в котором находится обсуждение.положительное число,
 	/// обязательный параметр
 	/// </summary>
-	[JsonProperty(propertyName: "group_id")]
+	[JsonPropertyName("group_id")]
 	public long GroupId { get; set; }
 
 	/// <summary>
 	/// Идентификатор сообщества, в котором находится обсуждение.положительное число,
 	/// обязательный параметр
 	/// </summary>
-	[JsonProperty(propertyName: "topic_id")]
+	[JsonPropertyName("topic_id")]
 	public long TopicId { get; set; }
 
 	/// <summary>
 	/// Новое название обсуждения. Обязательный параметр.
 	/// </summary>
-	[JsonProperty(propertyName: "title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 }

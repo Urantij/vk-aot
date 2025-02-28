@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,20 +13,20 @@ public class StartParams
 	/// идентификатор рекламной акции, доступный в интерфейсе тестирования рекламных
 	/// акций.
 	/// </summary>
-	[JsonProperty(propertyName: "lead_id")]
+	[JsonPropertyName("lead_id")]
 	public ulong LeadId { get; set; }
 
 	/// <summary>
 	/// секретный ключ, доступный в интерфейсе редактирования рекламных акций.
 	/// </summary>
-	[JsonProperty(propertyName: "secret")]
+	[JsonPropertyName("secret")]
 	public string Secret { get; set; }
 
 	/// <summary>
 	/// идентификатор пользователя, для которого необходимо получить сессию рекламной
 	/// акции.
 	/// </summary>
-	[JsonProperty(propertyName: "uid")]
+	[JsonPropertyName("uid")]
 	public ulong Uid { get; set; }
 
 	/// <summary>
@@ -34,7 +34,7 @@ public class StartParams
 	/// Если 0, при завершении рекламной акции голоса будут зачислены на счет
 	/// пользователя.
 	/// </summary>
-	[JsonProperty(propertyName: "aid")]
+	[JsonPropertyName("aid")]
 	public ulong Aid { get; set; }
 
 	/// <summary>
@@ -42,13 +42,13 @@ public class StartParams
 	/// 0 - запустить рекламную акцию в боевом режиме (рекламная акция должна быть
 	/// одобрена).
 	/// </summary>
-	[JsonProperty(propertyName: "test_mode")]
+	[JsonPropertyName("test_mode")]
 	public bool TestMode { get; set; }
 
 	/// <summary>
 	/// 1 - запустить рекламную акцию без проверок пользователя на фрод.
 	/// Рекомендуется использовать только при выполнении оффлайн-офферов.
 	/// </summary>
-	[JsonProperty(propertyName: "force")]
+	[JsonPropertyName("force")]
 	public bool Force { get; set; }
 }

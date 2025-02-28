@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -15,12 +15,12 @@ public class GetFloodStatsResult
 	/// <summary>
 	/// Количество оставшихся методов;
 	/// </summary>
-	[JsonProperty("left")]
+	[JsonPropertyName("left")]
 	public long Left { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("refresh")]
+	[JsonPropertyName("refresh")]
 	public long Refresh { get; set; }
 }

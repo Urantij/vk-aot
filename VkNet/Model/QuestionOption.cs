@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,13 @@ public class QuestionOption
 	/// <summary>
 	/// Ключ ответа (необязательно)
 	/// </summary>
-	[JsonProperty("key", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("key")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public string Key { get; set; }
 
 	/// <summary>
 	/// Текст ответа
 	/// </summary>
-	[JsonProperty("label")]
+	[JsonPropertyName("label")]
 	public string Label { get; set; }
 }

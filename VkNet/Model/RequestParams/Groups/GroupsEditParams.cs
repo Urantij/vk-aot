@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 
 namespace VkNet.Model;
@@ -15,134 +15,134 @@ public class GroupsEditParams
 	/// <summary>
 	/// Название сообщества. строка.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Place
 	/// </summary>
-	[JsonProperty("place")]
+	[JsonPropertyName("place")]
 	public Place Place { get; set; }
 
 	/// <summary>
 	/// MarketServices
 	/// </summary>
-	[JsonProperty("market_services")]
+	[JsonPropertyName("market_services")]
 	public MarketServices MarketServices { get; set; }
 
 	/// <summary>
 	/// Описание сообщества. строка.
 	/// </summary>
-	[JsonProperty("description")]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 
 	/// <summary>
 	/// Короткий адрес.
 	/// </summary>
-	[JsonProperty("address")]
+	[JsonPropertyName("address")]
 	public string Address { get; set; }
 
 	/// <summary>
 	/// Стена.
 	/// </summary>
-	[JsonProperty("wall")]
+	[JsonPropertyName("wall")]
 	public WallContentAccess? Wall { get; set; }
 
 	/// <summary>
 	/// Фотографии.
 	/// </summary>
-	[JsonProperty("photos")]
+	[JsonPropertyName("photos")]
 	public ContentAccess? Photos { get; set; }
 
 	/// <summary>
 	/// Видеозаписи.
 	/// </summary>
-	[JsonProperty("video")]
+	[JsonPropertyName("video")]
 	public ContentAccess? Video { get; set; }
 
 	/// <summary>
 	/// Аудиозаписи.
 	/// </summary>
-	[JsonProperty("audio")]
+	[JsonPropertyName("audio")]
 	public ContentAccess? Audio { get; set; }
 
 	/// <summary>
 	/// Документы сообщества.
 	/// </summary>
-	[JsonProperty("docs")]
+	[JsonPropertyName("docs")]
 	public ContentAccess? Docs { get; set; }
 
 	/// <summary>
 	/// Обсуждения.
 	/// </summary>
-	[JsonProperty("topics")]
+	[JsonPropertyName("topics")]
 	public ContentAccess? Topics { get; set; }
 
 	/// <summary>
 	/// Wiki-материалы сообщества.
 	/// </summary>
-	[JsonProperty("wiki")]
+	[JsonPropertyName("wiki")]
 	public ContentAccess? Wiki { get; set; }
 
 	/// <summary>
 	/// Сообщения сообщества.
 	/// </summary>
-	[JsonProperty("messages")]
+	[JsonPropertyName("messages")]
 	public bool? Messages { get; set; }
 
 	/// <summary>
 	/// Фильтр нецензурных выражений в комментариях.
 	/// </summary>
-	[JsonProperty("obscene_filter")]
+	[JsonPropertyName("obscene_filter")]
 	public bool? ObsceneFilter { get; set; }
 
 	/// <summary>
 	/// Фильтр по ключевым словам в комментариях.
 	/// </summary>
-	[JsonProperty("obscene_stopwords")]
+	[JsonPropertyName("obscene_stopwords")]
 	public bool? ObsceneStopwords { get; set; }
 
 	/// <summary>
 	/// Ключевые слова для фильтра комментариев. список слов, разделенных через
 	/// запятую.
 	/// </summary>
-	[JsonProperty("obscene_words")]
+	[JsonPropertyName("obscene_words")]
 	public IEnumerable<string> ObsceneWords { get; set; }
 
 	/// <summary>
 	/// Категория публичной страницы. положительное число.
 	/// </summary>
-	[JsonProperty("public_category")]
+	[JsonPropertyName("public_category")]
 	public ulong? PublicCategory { get; set; }
 
 	/// <summary>
 	/// Подкатегория публичной станицы. положительное число.
 	/// </summary>
-	[JsonProperty("public_subcategory")]
+	[JsonPropertyName("public_subcategory")]
 	public ulong? PublicSubcategory { get; set; }
 
 	/// <summary>
 	/// Список возможных категорий для публичных страниц.
 	/// </summary>
-	[JsonProperty("public_category_list")]
+	[JsonPropertyName("public_category_list")]
 	public ReadOnlyCollection<long> PublicCategoryList { get; set; }
 
 	/// <summary>
 	/// Тип группы.
 	/// </summary>
-	[JsonProperty("access")]
+	[JsonPropertyName("access")]
 	public GroupAccess? Access { get; set; }
 
 	/// <summary>
 	/// Тематика сообщества. строка.
 	/// </summary>
-	[JsonProperty("subject")]
+	[JsonPropertyName("subject")]
 	public GroupSubjects? Subject { get; set; }
 
 	/// <summary>
 	/// Список возможных тематик.
 	/// </summary>
-	[JsonProperty("subject_list")]
+	[JsonPropertyName("subject_list")]
 	public IEnumerable<SubjectListItem> SubjectList { get; set; }
 
 	/// <summary>
@@ -150,68 +150,68 @@ public class GroupsEditParams
 	/// соответствующее разрешение, обратитесь в
 	/// http://vk.com/support для получения разрешения). строка.
 	/// </summary>
-	[JsonProperty("rss")]
+	[JsonPropertyName("rss")]
 	public string Rss { get; set; }
 
 	/// <summary>
 	/// Адрес сайта, который будет указан в информации о группе. строка.
 	/// </summary>
-	[JsonProperty("website")]
+	[JsonPropertyName("website")]
 	public string Website { get; set; }
 
 	/// <summary>
 	/// Возрастное ограничение для сообщества. положительное число, по умолчанию 1.
 	/// </summary>
-	[JsonProperty("age_limits")]
+	[JsonPropertyName("age_limits")]
 	public AgeLimit? AgeLimits { get; set; }
 
 	/// <summary>
 	/// настройки блока товаров.
 	/// </summary>
-	[JsonProperty("market")]
+	[JsonPropertyName("market")]
 	public GroupMarketSettings Market { get; set; }
 
 	/// <summary>
 	/// Идентификатор сообщества. положительное число, обязательный параметр.
 	/// </summary>
-	[JsonProperty("group_id")]
+	[JsonPropertyName("group_id")]
 	public ulong GroupId { get; set; }
 
 	/// <summary>
 	/// Короткое имя сообщества. строка.
 	/// </summary>
-	[JsonProperty("screen_name")]
+	[JsonPropertyName("screen_name")]
 	public string ScreenName { get; set; }
 
 	/// <summary>
 	/// Электронный адрес организатора (для мероприятий). строка.
 	/// </summary>
-	[JsonProperty("email")]
+	[JsonPropertyName("email")]
 	public string Email { get; set; }
 
 	/// <summary>
 	/// Номер телефона организатора (для мероприятий). строка.
 	/// </summary>
-	[JsonProperty("phone")]
+	[JsonPropertyName("phone")]
 	public string Phone { get; set; }
 
 	/// <summary>
 	/// Дата начала события. положительное число.
 	/// </summary>
-	[JsonProperty("event_start_date")]
+	[JsonPropertyName("event_start_date")]
 	public ulong? EventStartDate { get; set; }
 
 	/// <summary>
 	/// Дата окончания события. положительное число.
 	/// </summary>
-	[JsonProperty("event_finish_date")]
+	[JsonPropertyName("event_finish_date")]
 	public ulong? EventFinishDate { get; set; }
 
 	/// <summary>
 	/// Идентификатор группы, которая является организатором события (только для
 	/// событий). положительное число.
 	/// </summary>
-	[JsonProperty("event_group_id")]
+	[JsonPropertyName("event_group_id")]
 	public ulong? EventGroupId { get; set; }
 
 	/// <summary>
@@ -219,62 +219,62 @@ public class GroupsEditParams
 	/// виде строки формата "dd.mm.YYYY".
 	/// строка.
 	/// </summary>
-	[JsonProperty("public_date")]
+	[JsonPropertyName("public_date")]
 	public string PublicDate { get; set; }
 
 	/// <summary>
 	/// Ссылки (доступно только для публичных страниц).
 	/// </summary>
-	[JsonProperty("links")]
+	[JsonPropertyName("links")]
 	public bool? Links { get; set; }
 
 	/// <summary>
 	/// События (доступно только для публичных страниц).
 	/// </summary>
-	[JsonProperty("events")]
+	[JsonPropertyName("events")]
 	public bool? Events { get; set; }
 
 	/// <summary>
 	/// Места (доступно только для публичных страниц).
 	/// </summary>
-	[JsonProperty("places")]
+	[JsonPropertyName("places")]
 	public bool? Places { get; set; }
 
 	/// <summary>
 	/// Контакты (доступно только для публичных страниц).
 	/// </summary>
-	[JsonProperty("contacts")]
+	[JsonPropertyName("contacts")]
 	public bool? Contacts { get; set; }
 
 	/// <summary>
 	/// Товары включены.
 	/// </summary>
-	[JsonProperty("market_enabled")]
+	[JsonPropertyName("market_enabled")]
 	public bool? MarketEnabled { get; set; }
 
 	/// <summary>
 	/// Комментарии к товарам включены.
 	/// </summary>
-	[JsonProperty("market_comments_enabled")]
+	[JsonPropertyName("market_comments_enabled")]
 	public bool? MarketCommentsEnabled { get; set; }
 
 	/// <summary>
 	/// Регионы доставки товаров. список положительных чисел, разделенных запятыми.
 	/// </summary>
-	[JsonProperty("market_country")]
+	[JsonPropertyName("market_country")]
 	public IEnumerable<ulong> MarketCountry { get; set; }
 
 	/// <summary>
 	/// Города доставки товаров (в случае если указана одна страна). список
 	/// положительных чисел, разделенных запятыми.
 	/// </summary>
-	[JsonProperty("market_city")]
+	[JsonPropertyName("market_city")]
 	public IEnumerable<ulong> MarketCity { get; set; }
 
 	/// <summary>
 	/// Идентификатор валюты магазина.
 	/// </summary>
-	[JsonProperty("market_currency")]
+	[JsonPropertyName("market_currency")]
 	public MarketCurrencyId? MarketCurrency { get; set; }
 
 	/// <summary>
@@ -282,7 +282,7 @@ public class GroupsEditParams
 	/// Для использования сообщений сообщества следует включить их и передать значение
 	/// 0. положительное число.
 	/// </summary>
-	[JsonProperty("market_contact")]
+	[JsonPropertyName("market_contact")]
 	public ulong? MarketContact { get; set; }
 
 	/// <summary>
@@ -294,36 +294,36 @@ public class GroupsEditParams
 	/// <summary>
 	/// Основной раздел
 	/// </summary>
-	[JsonProperty("main_section")]
+	[JsonPropertyName("main_section")]
 	public uint? MainSection { get; set; }
 
 	/// <summary>
 	/// Второстепенный раздел
 	/// </summary>
-	[JsonProperty("secondary_section")]
+	[JsonPropertyName("secondary_section")]
 	public uint? SecondarySection { get; set; }
 
 	/// <summary>
 	/// Идентификатор страны
 	/// </summary>
-	[JsonProperty("country")]
+	[JsonPropertyName("country")]
 	public uint? Country { get; set; }
 
 	/// <summary>
 	/// Идентификатор города
 	/// </summary>
-	[JsonProperty("city")]
+	[JsonPropertyName("city")]
 	public uint? City { get; set; }
 
 	/// <summary>
 	/// Признак наличия статей
 	/// </summary>
-	[JsonProperty("articles")]
+	[JsonPropertyName("articles")]
 	public bool? Articles { get; set; }
 
 	/// <summary>
 	/// Признак наличия адресов
 	/// </summary>
-	[JsonProperty("addresses")]
+	[JsonPropertyName("addresses")]
 	public bool? Addresses { get; set; }
 }

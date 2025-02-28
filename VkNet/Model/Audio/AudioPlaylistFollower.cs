@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class AudioPlaylistFollower
 	/// <summary>
 	/// Идентификатор владельца.
 	/// </summary>
-	[JsonProperty("owner_id")]
+	[JsonPropertyName("owner_id")]
 	public long OwnerId { get; set; }
 
 	/// <summary>
 	/// Идентификатор плейлиста.
 	/// </summary>
-	[JsonProperty("playlist_id")]
+	[JsonPropertyName("playlist_id")]
 	public long PlaylistId { get; set; }
 }

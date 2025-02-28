@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class DeleteChatPhotoResult
 	/// <summary>
 	/// Общее число результатов
 	/// </summary>
-	[JsonProperty("message_id")]
+	[JsonPropertyName("message_id")]
 	public long MessageId { get; set; }
 
 	/// <summary>
 	/// Массив объектов бесед
 	/// </summary>
-	[JsonProperty("chat")]
+	[JsonPropertyName("chat")]
 	public Chat Chat { get; set; }
 }

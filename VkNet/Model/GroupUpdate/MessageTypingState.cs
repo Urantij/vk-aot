@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class MessageTypingState : IGroupUpdate
 	/// <summary>
 	/// Идентификатор пользователя, который набирает текст.
 	/// </summary>
-	[JsonProperty("from_id")]
+	[JsonPropertyName("from_id")]
 	public long? FromId { get; set; }
 
 	/// <summary>
 	/// Идентификатор сообщества, которому пользователь пишет сообщение.
 	/// </summary>
-	[JsonProperty("to_id")]
+	[JsonPropertyName("to_id")]
 	public long? ToId { get; set; }
 
 	/// <summary>
 	/// Состояние статуса набора текста.
 	/// </summary>
-	[JsonProperty("state")]
+	[JsonPropertyName("state")]
 	public string State { get; set; }
 }

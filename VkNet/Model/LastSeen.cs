@@ -1,6 +1,6 @@
 ﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -13,7 +13,7 @@ public class LastSeen
 	/// <summary>
 	/// Время последнего посещения в формате unixtime. .
 	/// </summary>
-	[JsonProperty("time")]
+	[JsonPropertyName("time")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? Time { get; set; }
 
@@ -22,6 +22,6 @@ public class LastSeen
 	/// на странице Подключение к LongPoll
 	/// серверу. .
 	/// </summary>
-	[JsonProperty("platform")]
+	[JsonPropertyName("platform")]
 	public string Platform { get; set; }
 }

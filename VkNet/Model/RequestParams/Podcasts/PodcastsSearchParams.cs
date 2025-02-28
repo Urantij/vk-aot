@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,7 +12,7 @@ public class PodcastsSearchParams
 	/// <summary>
 	/// Поисковый запрос.
 	/// </summary>
-	[JsonProperty(propertyName: "search_string")]
+	[JsonPropertyName("search_string")]
 	public string SearchString { get; set; }
 
 	/// <summary>
@@ -21,12 +21,12 @@ public class PodcastsSearchParams
 	/// По умолчанию — 0.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty(propertyName: "offset")]
+	[JsonPropertyName("offset")]
 	public int? Offset { get; set; }
 
 	/// <summary>
 	/// Количество результатов поиска, которое необходимо вернуть.
 	/// </summary>
-	[JsonProperty(propertyName: "count")]
+	[JsonPropertyName("count")]
 	public int? Count { get; set; }
 }

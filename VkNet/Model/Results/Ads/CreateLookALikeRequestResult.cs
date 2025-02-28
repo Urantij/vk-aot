@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,6 +12,6 @@ public class CreateLookALikeRequestResult
 	/// <summary>
 	/// Идентификатор созданного запроса на поиск похожей аудитории
 	/// </summary>
-	[JsonProperty("request_id")]
+	[JsonPropertyName("request_id")]
 	public long RequestId { get; set; }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -14,7 +14,7 @@ public class PlacesCheckinParams
 	/// Комментарий к отметке длиной до 255 символов (переводы строк не
 	/// поддерживаются).
 	/// </summary>
-	[JsonProperty(propertyName: "text")]
+	[JsonPropertyName("text")]
 	public string Text { get; set; }
 
 	/// <summary>
@@ -22,31 +22,31 @@ public class PlacesCheckinParams
 	/// случае если пользователь настроил
 	/// соответствующую опцию. Например twitter, facebook.
 	/// </summary>
-	[JsonProperty(propertyName: "services")]
+	[JsonPropertyName("services")]
 	public IEnumerable<string> Services { get; set; }
 
 	/// <summary>
 	/// Идентификатор места.
 	/// </summary>
-	[JsonProperty(propertyName: "place_id")]
+	[JsonPropertyName("place_id")]
 	public ulong PlaceId { get; set; }
 
 	/// <summary>
 	/// Географическая широта отметки, заданная в градусах (от -90 до 90).
 	/// </summary>
-	[JsonProperty(propertyName: "latitude")]
+	[JsonPropertyName("latitude")]
 	public decimal Latitude { get; set; }
 
 	/// <summary>
 	/// Географическая долгота отметки, заданная в градусах (от -180 до 180).
 	/// </summary>
-	[JsonProperty(propertyName: "longitude")]
+	[JsonPropertyName("longitude")]
 	public decimal Longitude { get; set; }
 
 	/// <summary>
 	/// 1 — отметка будет доступна только друзьям, 0 — отметка будет доступна всем
 	/// пользователям. По умолчанию 0.
 	/// </summary>
-	[JsonProperty(propertyName: "friends_only")]
+	[JsonPropertyName("friends_only")]
 	public bool FriendsOnly { get; set; }
 }

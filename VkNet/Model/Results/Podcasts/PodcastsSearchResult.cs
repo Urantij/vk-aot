@@ -1,6 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,11 +13,11 @@ public class PodcastsSearchResult
 	/// <summary>
 	/// Количество найденных подкастов
 	/// </summary>
-	[JsonProperty("results_total")]
+	[JsonPropertyName("results_total")]
 	public ulong ResultsTotal { get; set; }
 	/// <summary>
 	/// Информация о подкасте, выданная поиском
 	/// </summary>
-	[JsonProperty("podcasts")]
+	[JsonPropertyName("podcasts")]
 	public ReadOnlyCollection<PodcastSearchInfo> Podcasts { get; set; }
 }

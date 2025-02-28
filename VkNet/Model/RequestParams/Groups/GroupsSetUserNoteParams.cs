@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,19 +13,19 @@ public class GroupsSetUserNoteParams
 	/// идентификатор сообщества.
 	/// положительное число, обязательный параметр
 	/// </summary>
-	[JsonProperty("group_id")]
+	[JsonPropertyName("group_id")]
 	public ulong GroupId { get; set; }
 
 	/// <summary>
 	/// идентификатор пользователя.
 	/// положительное число, обязательный параметр
 	/// </summary>
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	public ulong UserId { get; set; }
 
 	/// <summary>
 	/// содержимое заметки, максимальная длина - 96 символов
 	/// </summary>
-	[JsonProperty("note")]
+	[JsonPropertyName("note")]
 	public string Note { get; set; }
 }

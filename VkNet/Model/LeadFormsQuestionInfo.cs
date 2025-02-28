@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,24 +12,27 @@ public class LeadFormsQuestionInfo
 	/// <summary>
 	/// Тип вопроса
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public string Type { get; set; }
 
 	/// <summary>
 	/// Заголовок вопроса (только для нестандартных вопросов)
 	/// </summary>
-	[JsonProperty("label", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("label")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public string Label { get; set; }
 
 	/// <summary>
 	/// Уникальный ключ вопроса (необязательно; только для нестандартных вопросов)
 	/// </summary>
-	[JsonProperty("key", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("key")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public string Key { get; set; }
 
 	/// <summary>
 	/// Массив возможных ответов на вопрос (только для нестандартных вопросов типа radio, select, checkbox)
 	/// </summary>
-	[JsonProperty("options", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("options")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public QuestionOption[] Options { get; set; }
 }

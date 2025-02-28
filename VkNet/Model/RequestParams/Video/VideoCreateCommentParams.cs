@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -72,6 +72,6 @@ public class VideoCreateCommentParams
 	/// <summary>
 	/// Идентификатор пользователя или сообщества, которому принадлежит видеозапись.
 	/// </summary>
-	[JsonProperty(propertyName: "guid")]
+	[JsonPropertyName("guid")]
 	public string Guid { get; set; }
 }

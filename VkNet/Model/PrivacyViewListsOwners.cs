@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,12 +13,12 @@ public class PrivacyViewListOwners
 	/// <summary>
 	/// Категория
 	/// </summary>
-	[JsonProperty("allowed")]
+	[JsonPropertyName("allowed")]
 	public List<long> Allowed { get; set; }
 
 	/// <summary>
 	/// Категория
 	/// </summary>
-	[JsonProperty("excluded")]
+	[JsonPropertyName("excluded")]
 	public List<long> Excluded { get; set; }
 }

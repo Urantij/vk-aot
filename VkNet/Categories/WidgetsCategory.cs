@@ -48,7 +48,7 @@ public partial class WidgetsCategory : IWidgetsCategory
 			}
 		}
 		, false
-		, new VkCollectionJsonConverter(collectionField: "posts"));
+		, new VkCollectionJsonConverter<Comment>(collectionField: "posts"));
 
 	/// <inheritdoc />
 	public VkCollection<WidgetPage> GetPages(long? widgetApiId = null
@@ -75,5 +75,5 @@ public partial class WidgetsCategory : IWidgetsCategory
 			}
 		}
 		, false
-		, new VkCollectionJsonConverter(collectionField: "pages"));
+		, new VkCollectionJsonConverter<WidgetPage>(collectionField: "pages"));
 }

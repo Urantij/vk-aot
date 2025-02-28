@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Utils;
@@ -12,7 +12,6 @@ namespace VkNet.Utils;
 /// </summary>
 /// <typeparam name="T"> Тип данных. </typeparam>
 [Serializable]
-[JsonConverter(converterType: typeof(VkCollectionJsonConverter))]
 public class VkCollection<T> : ReadOnlyCollection<T>, IEnumerable<T>
 {
 	/// <inheritdoc />
@@ -26,7 +25,7 @@ public class VkCollection<T> : ReadOnlyCollection<T>, IEnumerable<T>
 	/// <summary>
 	/// Общее количество элементов.
 	/// </summary>
-	[JsonProperty(propertyName: "count")]
+	[JsonPropertyName("count")]
 	public ulong TotalCount { get; private set; }
 
 	/// <summary>

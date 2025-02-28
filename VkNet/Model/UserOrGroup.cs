@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
@@ -15,18 +15,18 @@ public class UserOrGroup
 	/// <summary>
 	/// Общее количество элементов.
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public ulong TotalCount { get; set; }
 
 	/// <summary>
 	/// Список пользователей.
 	/// </summary>
-	[JsonProperty("profile")]
+	[JsonPropertyName("profile")]
 	public List<User> Users { get; set; }
 
 	/// <summary>
 	/// Список групп.
 	/// </summary>
-	[JsonProperty("group")]
+	[JsonPropertyName("group")]
 	public List<Group> Groups { get; set; }
 }

@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class SchoolClass
 	/// <summary>
 	/// ����� �������������, ������� ����������� ������.
 	/// </summary>
-	[JsonProperty("class")]
+	[JsonPropertyName("class")]
 	public long Class { get; set; }
 
 	/// <summary>
 	/// ������� ����������� �� ������ �������� ������������.
 	/// </summary>
-	[JsonProperty("text")]
+	[JsonPropertyName("text")]
 	public string Text { get; set; }
 }

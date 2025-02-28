@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class ChangeNameRequest
 	/// <summary>
 	/// Результат изменений
 	/// </summary>
-	[JsonProperty("changed")]
+	[JsonPropertyName("changed")]
 	public bool Changed { get; set; }
 
 	/// <summary>
 	/// Информация о заявке на смену имени
 	/// </summary>
-	[JsonProperty("name_request")]
+	[JsonPropertyName("name_request")]
 	public NameRequest NameRequest { get; set; }
 }

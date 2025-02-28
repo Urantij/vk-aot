@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class PollBackgroundPoint
 	/// <summary>
 	/// Положение точки
 	/// </summary>
-	[JsonProperty("position")]
+	[JsonPropertyName("position")]
 	public int Position { get; set; }
 
 	/// <summary>
 	/// HEX-код цвета точки
 	/// </summary>
-	[JsonProperty("color")]
+	[JsonPropertyName("color")]
 	public string Color { get; set; }
 }

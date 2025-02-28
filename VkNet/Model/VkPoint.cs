@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class VkPoint
 	/// <summary>
 	/// x координата.
 	/// </summary>
-	[JsonProperty("x")]
+	[JsonPropertyName("x")]
 	public int X { get; set; }
 
 	/// <summary>
 	/// y координата.
 	/// </summary>
-	[JsonProperty("y")]
+	[JsonPropertyName("y")]
 	public int Y { get; set; }
 }

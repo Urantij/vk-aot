@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,18 +13,18 @@ public class AppGetObject
 	/// <summary>
 	/// Общее количество записей на стене.
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public ulong TotalCount { get; set; }
 
 	/// <summary>
 	/// Приложения.
 	/// </summary>
-	[JsonProperty("items")]
+	[JsonPropertyName("items")]
 	public IEnumerable<App> Apps { get; set; }
 
 	/// <summary>
 	/// Друзья.
 	/// </summary>
-	[JsonProperty("profiles")]
+	[JsonPropertyName("profiles")]
 	public IEnumerable<User> Friends { get; set; }
 }

@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class BoardPostDelete : IGroupUpdate
 	/// <summary>
 	/// Идентификатор комментария
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public ulong? Id { get; set; }
 
 	/// <summary>
 	/// Идентификатор обсуждения
 	/// </summary>
-	[JsonProperty("topic_id")]
+	[JsonPropertyName("topic_id")]
 	public ulong? TopicId { get; set; }
 
 	/// <summary>
 	/// Идентификатор владельца обсуждения
 	/// </summary>
-	[JsonProperty("topic_owner_id")]
+	[JsonPropertyName("topic_owner_id")]
 	public long? TopicOwnerId { get; set; }
 }

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,7 +13,7 @@ public class CommentThread
 	/// <summary>
 	/// Количество комментариев в ветке
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public long? Count { get; set; }
 
 	/// <summary>
@@ -22,24 +22,24 @@ public class CommentThread
 	/// <remarks>
 	/// Только для метода wall.getComments
 	/// </remarks>
-	[JsonProperty("items")]
+	[JsonPropertyName("items")]
 	public ReadOnlyCollection<Comment> Items { get; set; }
 
 	/// <summary>
 	/// Может ли текущий пользователь оставлять комментарии в этой ветке
 	/// </summary>
-	[JsonProperty("can_post")]
+	[JsonPropertyName("can_post")]
 	public bool? CanPost { get; set; }
 
 	/// <summary>
 	/// Нужно ли отображать кнопку «ответить» в ветке
 	/// </summary>
-	[JsonProperty("show_reply_button")]
+	[JsonPropertyName("show_reply_button")]
 	public bool? ShowReplyButton { get; set; }
 
 	/// <summary>
 	/// Могут ли сообщества оставлять комментарии в ветке.
 	/// </summary>
-	[JsonProperty("groups_can_post")]
+	[JsonPropertyName("groups_can_post")]
 	public bool? GroupsCanPost { get; set; }
 }

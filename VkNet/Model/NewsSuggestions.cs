@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
@@ -15,12 +15,12 @@ public class NewsSuggestions
 	/// <summary>
 	/// Предложения по пользователям.
 	/// </summary>
-	[JsonProperty("profile")]
+	[JsonPropertyName("profile")]
 	public List<User> Users { get; set; }
 
 	/// <summary>
 	/// Предложения по группам.
 	/// </summary>
-	[JsonProperty("group")]
+	[JsonPropertyName("group")]
 	public List<Group> Groups { get; set; }
 }

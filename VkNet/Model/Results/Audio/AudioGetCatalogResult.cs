@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,24 +13,24 @@ public class AudioGetCatalogResult
 	/// <summary>
 	/// Массив каталогов
 	/// </summary>
-	[JsonProperty("items")]
+	[JsonPropertyName("items")]
 	public ReadOnlyCollection<AudioCatalog> Items { get; set; }
 
 	/// <summary>
 	/// Идентификатор на следующую пачку результатов
 	/// </summary>
-	[JsonProperty("next_from")]
+	[JsonPropertyName("next_from")]
 	public string NextFrom { get; set; }
 
 	/// <summary>
 	/// Массив профилей
 	/// </summary>
-	[JsonProperty("profiles")]
+	[JsonPropertyName("profiles")]
 	public ReadOnlyCollection<User> Profiles { get; set; }
 
 	/// <summary>
 	/// Массив групп/сообществ
 	/// </summary>
-	[JsonProperty("groups")]
+	[JsonPropertyName("groups")]
 	public ReadOnlyCollection<Group> Groups { get; set; }
 }

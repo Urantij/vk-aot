@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 using VkNet.Enums.SafetyEnums;
 using VkNet.Utils.JsonConverter;
@@ -22,7 +21,7 @@ public class Market : MediaAttachment
 	/// <summary>
 	/// Id
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public new long? Id
 	{
 		get => _id;
@@ -33,86 +32,86 @@ public class Market : MediaAttachment
 	/// <summary>
 	/// Название товара
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Текст описания товара
 	/// </summary>
-	[JsonProperty("description")]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 
 	/// <summary>
 	/// Цена
 	/// </summary>
-	[JsonProperty("price")]
+	[JsonPropertyName("price")]
 	public Price Price { get; set; }
 
 	/// <summary>
 	/// Габариты товара.
 	/// </summary>
-	[JsonProperty("dimensions")]
+	[JsonPropertyName("dimensions")]
 	public Dimensions Dimensions { get; set; }
 
 	/// <summary>
 	/// Категория товара
 	/// </summary>
-	[JsonProperty("category")]
+	[JsonPropertyName("category")]
 	public MarketCategory Category { get; set; }
 
 	/// <summary>
 	/// URL изображения-обложки товара
 	/// </summary>
-	[JsonProperty("thumb_photo")]
+	[JsonPropertyName("thumb_photo")]
 	public Uri ThumbPhoto { get; set; }
 
 	/// <summary>
 	/// Дата создания товара в формате Unixtime.
 	/// </summary>
-	[JsonProperty("date")]
+	[JsonPropertyName("date")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? Date { get; set; }
 
 	/// <summary>
 	/// Статус доступности товара
 	/// </summary>
-	[JsonProperty("availability")]
+	[JsonPropertyName("availability")]
 	public ProductAvailability Availability { get; set; }
 
 	/// <summary>
 	/// Изображения товара
 	/// </summary>
-	[JsonProperty("photos")]
+	[JsonPropertyName("photos")]
 	public ReadOnlyCollection<Photo> Photos { get; set; }
 
 	/// <summary>
 	/// Возможность комментировать товар для текущего пользователя
 	/// </summary>
-	[JsonProperty("can_comment")]
+	[JsonPropertyName("can_comment")]
 	public bool? CanComment { get; set; }
 
 	/// <summary>
 	/// Возможность сделать репост товара для текущего пользователя
 	/// </summary>
-	[JsonProperty("can_repost")]
+	[JsonPropertyName("can_repost")]
 	public bool? CanRepost { get; set; }
 
 	/// <summary>
 	/// Информация об отметках «Мне нравится»
 	/// </summary>
-	[JsonProperty("likes")]
+	[JsonPropertyName("likes")]
 	public Likes Likes { get; set; }
 
 	/// <summary>
 	/// Cсылка на товар во внешних ресурсах.
 	/// </summary>
-	[JsonProperty("url")]
+	[JsonPropertyName("url")]
 	public Uri Url { get; set; }
 
 	/// <summary>
 	/// Текст на кнопке товара.
 	/// </summary>
-	[JsonProperty("button_title")]
+	[JsonPropertyName("button_title")]
 	[JsonConverter(typeof(SafetyEnumJsonConverter))]
 	public MarketItemButtonTitle ButtonTitle { get; set; }
 

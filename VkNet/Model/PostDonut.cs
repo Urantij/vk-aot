@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,26 +12,26 @@ public class PostDonut
 	/// <summary>
 	/// Запись доступна только платным подписчикам VK Donut.
 	/// </summary>
-	[JsonProperty("is_donut")]
+	[JsonPropertyName("is_donut")]
 	public bool IsDonut { get; set; }
 
 	/// <summary>
 	/// Время, в течение которого запись будет доступна только платным подписчикам VK Donut.
 	/// </summary>
-	[JsonProperty("paid_duration")]
+	[JsonPropertyName("paid_duration")]
 	public int? PaidDuration { get; set; }
 
 	/// <summary>
 	/// Заглушка для пользователей, которые не оформили подписку VK Donut.
 	/// Отображается вместо содержимого записи.
 	/// </summary>
-	[JsonProperty("placeholder")]
+	[JsonPropertyName("placeholder")]
 	public string Placeholder { get; set; }
 
 	/// <summary>
 	/// Можно ли открыть запись для всех пользователей, а не только подписчиков VK Donut.
 	/// </summary>
-	[JsonProperty("can_publish_free_copy")]
+	[JsonPropertyName("can_publish_free_copy")]
 	public bool? CanPublishFreeCopy { get; set; }
 
 	/// <summary>
@@ -40,6 +40,6 @@ public class PostDonut
 	///		all — всю информацию о VK Donut.
 	///		duration — время, в течение которого запись будет доступна только платным подписчикам VK Donut.
 	/// </summary>
-	[JsonProperty("edit_mode")]
+	[JsonPropertyName("edit_mode")]
 	public string EditMode { get; set; }
 }

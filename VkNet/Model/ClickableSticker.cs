@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 
 namespace VkNet.Model;
@@ -15,32 +14,32 @@ public class ClickableSticker
 	/// <summary>
 	/// Тип стикера.
 	/// </summary>
-	[JsonProperty("type")]
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonPropertyName("type")]
+	[JsonConverter(typeof(JsonStringEnumConverter<ClickableStickerType>))]
 	public ClickableStickerType Type { get; set; }
 
 	/// <summary>
 	/// Массив точек с координатами кликабельной области. Каждый элемент — объект с двумя координатами точки x, y (int).
 	/// Желательно передавать прямоугольную область из четырех точек.
 	/// </summary>
-	[JsonProperty("clickable_area")]
+	[JsonPropertyName("clickable_area")]
 	public IEnumerable<VkPoint> ClickableArea { get; set; }
 
 	/// <summary>
 	/// Содержит строку в формате упоминания ВКонтакте, например: [id1|name] или [club1|name].
 	/// </summary>
-	[JsonProperty("mention")]
+	[JsonPropertyName("mention")]
 	public string Mention { get; set; }
 
 	/// <summary>
 	/// Содержит строку в формате хештега. Должна обязательно начинаться с символа #.
 	/// </summary>
-	[JsonProperty("hashtag")]
+	[JsonPropertyName("hashtag")]
 	public string Hashtag { get; set; }
 
 	/// <summary>
 	/// Визуальный стиль стикера.
 	/// </summary>
-	[JsonProperty("style")]
+	[JsonPropertyName("style")]
 	public string Style { get; set; }
 }

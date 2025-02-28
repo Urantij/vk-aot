@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.Filters;
 using VkNet.Enums.StringEnums;
 
@@ -42,7 +42,7 @@ public class GroupsSearchParams
 	/// <summary>
 	/// при передаче значения 1 будут выведены сообщества с включенными товарами.
 	/// </summary>
-	[JsonProperty(propertyName: "market")]
+	[JsonPropertyName("market")]
 	public bool? Market { get; set; }
 
 	/// <summary>

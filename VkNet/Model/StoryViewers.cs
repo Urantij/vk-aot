@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class StoryViewers
 	/// <summary>
 	/// Поставил ли пользователь лайк
 	/// </summary>
-	[JsonProperty(propertyName: "is_liked")]
+	[JsonPropertyName("is_liked")]
 	public bool IsLiked { get; set; }
 
 	/// <summary>
 	/// Идентификатор пользователя
 	/// </summary>
-	[JsonProperty(propertyName: "user_id")]
+	[JsonPropertyName("user_id")]
 	public ulong UserId { get; set; }
 }

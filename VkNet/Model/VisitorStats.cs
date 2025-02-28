@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,48 +13,48 @@ public class VisitorStats
 	/// <summary>
 	/// Число просмотров.
 	/// </summary>
-	[JsonProperty("views")]
+	[JsonPropertyName("views")]
 	public long Views { get; set; }
 
 	/// <summary>
 	/// Число посетителей;
 	/// </summary>
-	[JsonProperty("visitors")]
+	[JsonPropertyName("visitors")]
 	public long Visitors { get; set; }
 
 	/// <summary>
 	/// Число просмотров с мобильных устройств.
 	/// </summary>
-	[JsonProperty("mobile_views")]
+	[JsonPropertyName("mobile_views")]
 	public long MobileViews { get; set; }
 
 	/// <summary>
 	/// Статистика по полу.
 	/// </summary>
-	[JsonProperty("sex")]
+	[JsonPropertyName("sex")]
 	public IEnumerable<CountValue> Sex { get; set; }
 
 	/// <summary>
 	/// Статистика по возрасту.
 	/// </summary>
-	[JsonProperty("age")]
+	[JsonPropertyName("age")]
 	public IEnumerable<CountValue> Age { get; set; }
 
 	/// <summary>
 	/// Статистика по полу и возрасту.
 	/// </summary>
-	[JsonProperty("sex_age")]
+	[JsonPropertyName("sex_age")]
 	public IEnumerable<CountValue> SexAge { get; set; }
 
 	/// <summary>
 	/// Статистика по странам.
 	/// </summary>
-	[JsonProperty("countries")]
+	[JsonPropertyName("countries")]
 	public IEnumerable<City> Countries { get; set; }
 
 	/// <summary>
 	/// Статистика по городам.
 	/// </summary>
-	[JsonProperty("cities")]
+	[JsonPropertyName("cities")]
 	public IEnumerable<City> Cities { get; set; }
 }

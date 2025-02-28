@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,30 +13,30 @@ public class AudioCatalogItem
 	/// <summary>
 	/// Имя исполнителя.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Идентификатор владельца аудиозаписи.
 	/// </summary>
-	[JsonProperty("subtitle")]
+	[JsonPropertyName("subtitle")]
 	public string Subtitle { get; set; }
 
 	/// <summary>
 	/// Идентификатор владельца аудиозаписи.
 	/// </summary>
-	[JsonProperty("image")]
+	[JsonPropertyName("image")]
 	public ReadOnlyCollection<AudioCatalogItemImage> Image { get; set; }
 
 	/// <summary>
 	/// Идентификатор владельца аудиозаписи.
 	/// </summary>
-	[JsonProperty("url")]
+	[JsonPropertyName("url")]
 	public string Url { get; set; }
 
 	/// <summary>
 	/// Идентификатор владельца аудиозаписи.
 	/// </summary>
-	[JsonProperty("meta")]
+	[JsonPropertyName("meta")]
 	public AudioCatalogItemMeta Meta { get; set; }
 }

@@ -1,6 +1,6 @@
 using System;
+using System.Text.Json.Serialization;
 using JetBrains.Annotations;
-using Newtonsoft.Json;
 
 namespace VkNet.Model;
 
@@ -18,7 +18,7 @@ public class Graffiti : MediaAttachment
 	/// Адрес изображения для предпросмотра.
 	/// </summary>
 	[Obsolete("Это свойство устарело, используйте Uri Url")]
-	[JsonProperty("photo_200")]
+	[JsonPropertyName("photo_200")]
 	[CanBeNull]
 	public string Photo200 { get; set; }
 
@@ -26,26 +26,26 @@ public class Graffiti : MediaAttachment
 	/// Адрес полноразмерного изображения.
 	/// </summary>
 	[Obsolete("Это свойство устарело, используйте Uri Url")]
-	[JsonProperty("photo_586")]
+	[JsonPropertyName("photo_586")]
 	[CanBeNull]
 	public string Photo586 { get; set; }
 
 	/// <summary>
 	/// Адрес граффити, по которому его можно загрузить.
 	/// </summary>
-	[JsonProperty("url")]
+	[JsonPropertyName("url")]
 	[CanBeNull]
 	public Uri Url { get; set; }
 
 	/// <summary>
 	/// Ширина изображения в px.
 	/// </summary>
-	[JsonProperty("width")]
+	[JsonPropertyName("width")]
 	public int? Width { get; set; }
 
 	/// <summary>
 	/// Высота изображения в px.
 	/// </summary>
-	[JsonProperty("height")]
+	[JsonPropertyName("height")]
 	public int? Height { get; set; }
 }

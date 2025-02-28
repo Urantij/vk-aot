@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,24 +12,24 @@ public class LinkButtonAction
 	/// <summary>
 	/// Тип действия. Возможные значения.
 	/// </summary>
-	[JsonProperty(propertyName: "type")]
+	[JsonPropertyName("type")]
 	public string Type { get; set; }
 
 	/// <summary>
 	/// Ссылка на которую ведет кнопка.
 	/// </summary>
-	[JsonProperty(propertyName: "url")]
+	[JsonPropertyName("url")]
 	public Uri Uri { get; set; }
 
 	/// <summary>
 	/// Назначание действия
 	/// </summary>
-	[JsonProperty(propertyName: "target")]
+	[JsonPropertyName("target")]
 	public string Target { get; set; }
 
 	/// <summary>
 	/// Идентификатор группы
 	/// </summary>
-	[JsonProperty(propertyName: "group_id")]
+	[JsonPropertyName("group_id")]
 	public long? GroupId { get; set; }
 }

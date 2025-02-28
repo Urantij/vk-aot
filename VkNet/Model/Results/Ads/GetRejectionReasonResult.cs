@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,12 +13,12 @@ public class GetRejectionReasonResult
 	/// <summary>
 	/// Количество оставшихся методов;
 	/// </summary>
-	[JsonProperty("comment")]
+	[JsonPropertyName("comment")]
 	public string Comment { get; set; }
 
 	/// <summary>
 	/// Время до следующего обновления в секундах.
 	/// </summary>
-	[JsonProperty("rules")]
+	[JsonPropertyName("rules")]
 	public ReadOnlyCollection<RejectionRules> Rules { get; set; }
 }

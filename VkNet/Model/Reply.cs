@@ -1,6 +1,6 @@
 ﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -13,19 +13,19 @@ public class Reply
 	/// <summary>
 	/// Идентификатор комментария
 	/// </summary>
-	[JsonProperty(propertyName: "id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Время публикации комментария в формате unixtime
 	/// </summary>
-	[JsonProperty(propertyName: "date")]
+	[JsonPropertyName("date")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime Date { get; set; }
 
 	/// <summary>
 	/// Текст комментария
 	/// </summary>
-	[JsonProperty(propertyName: "text")]
+	[JsonPropertyName("text")]
 	public string Text { get; set; }
 }

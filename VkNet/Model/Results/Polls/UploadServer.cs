@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,6 +12,6 @@ public class UploadServer
 	/// <summary>
 	/// Идентификатор владельца опроса.
 	/// </summary>
-	[JsonProperty("upload_url")]
+	[JsonPropertyName("upload_url")]
 	public string UploadUrl { get; set; }
 }

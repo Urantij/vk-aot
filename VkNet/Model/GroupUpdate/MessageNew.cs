@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class MessageNew : IGroupUpdate
 	/// <summary>
 	/// Сообщение.
 	/// </summary>
-	[JsonProperty("message")]
+	[JsonPropertyName("message")]
 	public Message Message { get; set; }
 
 	/// <summary>
 	/// Информация о доступных пользователю функциях.
 	/// </summary>
-	[JsonProperty("client_info")]
+	[JsonPropertyName("client_info")]
 	public ClientInfo ClientInfo { get; set; }
 }

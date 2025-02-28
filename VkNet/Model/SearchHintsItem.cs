@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.Filters;
 using VkNet.Enums.StringEnums;
 using VkNet.Utils.JsonConverter;
@@ -15,25 +15,25 @@ public class SearchHintsItem
 	/// <summary>
 	/// тип объекта
 	/// </summary>
-	[JsonProperty(propertyName: "type")]
+	[JsonPropertyName("type")]
 	public SearchResultType? Type { get; set; }
 
 	/// <summary>
 	/// данные о сообществе.
 	/// </summary>
-	[JsonProperty(propertyName: "group")]
+	[JsonPropertyName("group")]
 	public SearchGroup Group { get; set; }
 
 	/// <summary>
 	/// данные о профиле.
 	/// </summary>
-	[JsonProperty(propertyName: "profile")]
+	[JsonPropertyName("profile")]
 	public SearchProfile Profile { get; set; }
 
 	/// <summary>
 	/// тип объекта
 	/// </summary>
-	[JsonProperty(propertyName: "section")]
+	[JsonPropertyName("section")]
 	[JsonConverter(converterType: typeof(SafetyEnumJsonConverter))]
 	public SearchFilter Section { get; set; }
 
@@ -45,13 +45,13 @@ public class SearchHintsItem
 	/// для профиля текущего пользователя — That's you, для профилей возможных друзей —
 	/// N mutual friends).
 	/// </summary>
-	[JsonProperty(propertyName: "description")]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 
 	/// <summary>
 	/// поле возвращается, если объект был найден в глобальном поиске, всегда содержит
 	/// 1.
 	/// </summary>
-	[JsonProperty(propertyName: "global")]
+	[JsonPropertyName("global")]
 	public bool? Global { get; set; }
 }

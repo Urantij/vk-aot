@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,14 +13,14 @@ public class GroupsTagAddParams
 	/// идентификатор сообщества.
 	/// положительное число, обязательный параметр
 	/// </summary>
-	[JsonProperty("group_id")]
+	[JsonPropertyName("group_id")]
 	public ulong GroupId { get; set; }
 
 	/// <summary>
 	/// Название тэга
 	/// максимальная длина 20, обязательный параметр
 	/// </summary>
-	[JsonProperty("tag_name")]
+	[JsonPropertyName("tag_name")]
 	public string TagName { get; set; }
 
 	/// <summary>
@@ -49,6 +49,6 @@ public class GroupsTagAddParams
 	/// bbaa84
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("tag_color")]
+	[JsonPropertyName("tag_color")]
 	public string TagColor { get; set; }
 }

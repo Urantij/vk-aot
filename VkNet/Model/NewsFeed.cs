@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,26 +13,26 @@ public class NewsFeed
 	/// <summary>
 	/// Массив новостей для текущего пользователя.
 	/// </summary>
-	[JsonProperty("items")]
+	[JsonPropertyName("items")]
 	public IEnumerable<NewsItem> Items { get; set; }
 
 	/// <summary>
 	/// Информация о пользователях, которые находятся в списке новостей.
 	/// </summary>
-	[JsonProperty("profiles")]
+	[JsonPropertyName("profiles")]
 	public IEnumerable<User> Profiles { get; set; }
 
 	/// <summary>
 	/// Информация о группах, которые находятся в списке новостей.
 	/// </summary>
-	[JsonProperty("groups")]
+	[JsonPropertyName("groups")]
 	public IEnumerable<Group> Groups { get; set; }
 
 	/// <summary>
 	/// Содержит offset, который необходимо передать, для того, чтобы получить
 	/// следующую часть новостей.
 	/// </summary>
-	[JsonProperty("new_offset")]
+	[JsonPropertyName("new_offset")]
 	public ulong? NewOffset { get; set; }
 
 	/// <summary>
@@ -41,6 +41,6 @@ public class NewsFeed
 	/// избавиться от дубликатов, которые могут возникнуть при появлении новых новостей
 	/// между вызовами этого метода.
 	/// </summary>
-	[JsonProperty("next_from")]
+	[JsonPropertyName("next_from")]
 	public string NextFrom { get; set; }
 }

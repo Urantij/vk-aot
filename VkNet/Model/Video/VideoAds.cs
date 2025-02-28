@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -20,25 +20,25 @@ public class VideoAds
 	///	In my tests it contained basically random number
 	/// </remarks>>
 	/// </summary>
-	[JsonProperty("slot_id")]
+	[JsonPropertyName("slot_id")]
 	public long? SlotId { get; set; }
 
 	/// <summary>
 	/// TODO: Undocumented
 	/// </summary>
-	[JsonProperty("timeout")]
+	[JsonPropertyName("timeout")]
 	public float? Timeout { get; set; }
 
 	/// <summary>
 	/// TODO: Undocumented
 	/// </summary>
-	[JsonProperty("can_play")]
+	[JsonPropertyName("can_play")]
 	public int? CanPlay { get; set; }
 
 	/// <summary>
 	/// TODO: Undocumented
 	/// </summary>
-	[JsonProperty("params")]
+	[JsonPropertyName("params")]
 	public VideoAdsParams Params { get; set; }
 
 	/// <summary>
@@ -47,7 +47,7 @@ public class VideoAds
 	/// Known values are: <c> preroll </c>, <c> midroll </c>, <c> postroll </c>
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("sections")]
+	[JsonPropertyName("sections")]
 	public VideoAdsSection?[] Sections { get; set; }
 
 	/// <summary>
@@ -57,7 +57,7 @@ public class VideoAds
 	/// should be played
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("midroll_percents")]
+	[JsonPropertyName("midroll_percents")]
 	public ReadOnlyCollection<float> MidrollPercents { get; set; }
 
 	/// <summary>
@@ -66,6 +66,6 @@ public class VideoAds
 	/// Должен ли преролл проигрываться автоматически ???
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("autoplay_preroll")]
+	[JsonPropertyName("autoplay_preroll")]
 	public int? AutoPlayPreroll { get; set; }
 }

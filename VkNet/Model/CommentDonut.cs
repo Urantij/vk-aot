@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,13 +12,13 @@ public class CommentDonut
 	/// <summary>
 	/// Является ли комментатор подписчиком VK Donut
 	/// </summary>
-	[JsonProperty("is_don")]
+	[JsonPropertyName("is_don")]
 	public bool IsDon { get; set; }
 
 	/// <summary>
 	/// Заглушка для пользователей, которые не оформили подписку VK Donut.
 	/// Отображается вместо содержимого записи.
 	/// </summary>
-	[JsonProperty("placeholder")]
+	[JsonPropertyName("placeholder")]
 	public string Placeholder { get; set; }
 }

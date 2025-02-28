@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,70 +13,70 @@ public class School
 	/// <summary>
 	/// Идентификатор школы.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long? Id { get; set; }
 
 	/// <summary>
 	/// Идентификатор страны, в которой расположена школа.
 	/// </summary>
-	[JsonProperty("country")]
+	[JsonPropertyName("country")]
 	public long? Country { get; set; }
 
 	/// <summary>
 	/// Идентификатор города, в котором расположена школа.
 	/// </summary>
-	[JsonProperty("city")]
+	[JsonPropertyName("city")]
 	public long? City { get; set; }
 
 	/// <summary>
 	/// Наименование школы.
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// Год начала обучения.
 	/// </summary>
-	[JsonProperty("year_from")]
+	[JsonPropertyName("year_from")]
 	public int? YearFrom { get; set; }
 
 	/// <summary>
 	/// Год окончания обучения.
 	/// </summary>
-	[JsonProperty("year_to")]
+	[JsonPropertyName("year_to")]
 	public int? YearTo { get; set; }
 
 	/// <summary>
 	/// Год выпуска.
 	/// </summary>
-	[JsonProperty("year_graduated")]
+	[JsonPropertyName("year_graduated")]
 	public int? YearGraduated { get; set; }
 
 	/// <summary>
 	/// Буква класса.
 	/// </summary>
-	[JsonProperty("class")]
+	[JsonPropertyName("class")]
 	public string Class { get; set; }
 
 	/// <summary>
 	/// Специализация класса.
 	/// </summary>
-	[JsonProperty("speciality")]
+	[JsonPropertyName("speciality")]
 	public string Speciality { get; set; }
 
 	/// <summary>
 	/// Идентификатор типа школы.
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public long? Type { get; set; }
 
 	/// <summary>
 	/// Название типа школы.
 	/// </summary>
-	[JsonProperty("type_str")]
+	[JsonPropertyName("type_str")]
 	public string TypeStr { get; set; }
 
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	private string Title
 	{
 		get => Name;

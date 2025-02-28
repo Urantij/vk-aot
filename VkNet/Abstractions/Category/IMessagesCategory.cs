@@ -88,7 +88,7 @@ public interface IMessagesCategory : IMessagesCategoryAsync
 	LongPollServerResponse GetLongPollServer(bool needPts = false, uint lpVersion = 2, ulong? groupId = null);
 
 	/// <inheritdoc cref="IMessagesCategoryAsync.GetLongPollHistoryAsync"/>
-	LongPollHistoryResponse GetLongPollHistory(MessagesGetLongPollHistoryParams @params);
+	LongPollHistoryMessageResponse GetLongPollHistory(MessagesGetLongPollHistoryParams @params);
 
 	/// <inheritdoc cref="IMessagesCategoryAsync.GetLongPollHistoryAsync"/>
 	T GetLongPollHistory<T>(MessagesGetLongPollHistoryParams @params);

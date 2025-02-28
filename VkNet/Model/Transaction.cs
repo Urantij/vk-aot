@@ -1,6 +1,6 @@
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -13,31 +13,31 @@ public class Transaction
 	/// <summary>
 	/// From ID
 	/// </summary>
-	[JsonProperty("uid_from")]
+	[JsonPropertyName("uid_from")]
 	public ulong? UidFrom { get; set; }
 
 	/// <summary>
 	/// Transaction date in Unixtime
 	/// </summary>
-	[JsonProperty("date")]
+	[JsonPropertyName("date")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? Date { get; set; }
 
 	/// <summary>
 	/// Votes number
 	/// </summary>
-	[JsonProperty("votes")]
+	[JsonPropertyName("votes")]
 	public int? Votes { get; set; }
 
 	/// <summary>
 	/// Transaction ID
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public ulong? Id { get; set; }
 
 	/// <summary>
 	/// To ID
 	/// </summary>
-	[JsonProperty("uid_to")]
+	[JsonPropertyName("uid_to")]
 	public ulong? UidTo { get; set; }
 }

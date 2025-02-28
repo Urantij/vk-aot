@@ -1,6 +1,6 @@
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -16,79 +16,79 @@ public class Article : MediaAttachment
 	/// <summary>
 	/// Имя владельца
 	/// </summary>
-	[JsonProperty("owner_name")]
+	[JsonPropertyName("owner_name")]
 	public string OwnerName { get; set; }
 
 	/// <summary>
 	/// <c>Uri</c> к фотографии владельца
 	/// </summary>
-	[JsonProperty("owner_photo")]
+	[JsonPropertyName("owner_photo")]
 	public Uri OwnerPhoto { get; set; }
 
 	/// <summary>
 	/// Состояние
 	/// </summary>
-	[JsonProperty("state")]
+	[JsonPropertyName("state")]
 	public string State { get; set; }
 
 	/// <summary>
 	/// Можно ли пожаловаться на статью
 	/// </summary>
-	[JsonProperty("can_report")]
+	[JsonPropertyName("can_report")]
 	public bool? CanReport { get; set; }
 
 	/// <summary>
 	/// Заголовок
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Подзаголовок
 	/// </summary>
-	[JsonProperty("subtitle")]
+	[JsonPropertyName("subtitle")]
 	public string Subtitle { get; set; }
 
 	/// <summary>
 	/// Количество показов
 	/// </summary>
-	[JsonProperty("views")]
+	[JsonPropertyName("views")]
 	public int? Views { get; set; }
 
 	/// <summary>
 	/// Количество поделившихся
 	/// </summary>
-	[JsonProperty("shares")]
+	[JsonPropertyName("shares")]
 	public int? Shares { get; set; }
 
 	/// <summary>
 	/// Информация о том, есть ли статья в закладках у текущего пользователя
 	/// </summary>
-	[JsonProperty("is_favorite")]
+	[JsonPropertyName("is_favorite")]
 	public bool? IsFavorite { get; set; }
 
 	/// <summary>
 	/// Ссылка на статью
 	/// </summary>
-	[JsonProperty("url")]
+	[JsonPropertyName("url")]
 	public Uri Url { get; set; }
 
 	/// <summary>
 	/// Адрес превью статьи
 	/// </summary>
-	[JsonProperty("view_url")]
+	[JsonPropertyName("view_url")]
 	public Uri ViewUrl { get; set; }
 
 	/// <summary>
 	/// Дата публикации статьи
 	/// </summary>
-	[JsonProperty("published_date")]
+	[JsonPropertyName("published_date")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? PublishedDate { get; set; }
 
 	/// <summary>
 	/// Обложка статьи
 	/// </summary>
-	[JsonProperty("photo")]
+	[JsonPropertyName("photo")]
 	public Photo Photo { get; set; }
 }

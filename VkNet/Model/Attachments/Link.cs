@@ -1,6 +1,6 @@
 using System;
 using System.Diagnostics;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -34,34 +34,34 @@ public class Link : MediaAttachment
 	/// <summary>
 	/// Идентификатор ссылки
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public string LinkId { get; set; }
 
 	/// <summary>
 	/// Адрес ссылки.
 	/// </summary>
-	[JsonProperty("url")]
+	[JsonPropertyName("url")]
 	public Uri Uri { get; set; }
 
 	/// <summary>
 	/// Заголовок ссылки.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Подпись ссылки (если имеется).
 	/// </summary>
-	[JsonProperty("caption")]
+	[JsonPropertyName("caption")]
 	public string Caption { get; set; }
 
 	/// <summary>
 	/// Описание ссылки.
 	/// </summary>
-	[JsonProperty("description")]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 
-	[JsonProperty("desc")]
+	[JsonPropertyName("desc")]
 	private string Desc
 	{
 		get => Description;
@@ -71,19 +71,19 @@ public class Link : MediaAttachment
 	/// <summary>
 	/// Фото (если имеется).
 	/// </summary>
-	[JsonProperty("photo")]
+	[JsonPropertyName("photo")]
 	public Photo Photo { get; set; }
 
 	/// <summary>
 	/// Продукт.
 	/// </summary>
-	[JsonProperty("product")]
+	[JsonPropertyName("product")]
 	public Market Product { get; set; }
 
 	/// <summary>
 	/// Кнопка.
 	/// </summary>
-	[JsonProperty("button")]
+	[JsonPropertyName("button")]
 	public LinkButton Button { get; set; }
 
 	/// <summary>
@@ -91,37 +91,37 @@ public class Link : MediaAttachment
 	/// Идентификатор возвращается в формате
 	/// <c>"owner_id_page_id"</c>.
 	/// </summary>
-	[JsonProperty("preview_page")]
+	[JsonPropertyName("preview_page")]
 	public string PreviewPage { get; set; }
 
 	/// <summary>
 	/// Адрес страницы для предпросмотра содержимого страницы.
 	/// </summary>
-	[JsonProperty("preview_url")]
+	[JsonPropertyName("preview_url")]
 	public Uri PreviewUrl { get; set; }
 
 	/// <summary>
 	/// Адрес превью изображения к ссылке (если имеется).
 	/// </summary>
-	[JsonProperty("image_src")]
+	[JsonPropertyName("image_src")]
 	public string Image { get; set; }
 
 	/// <summary>
 	/// Является ли ссылкой на внешний ресурс (если имеется).
 	/// </summary>
-	[JsonProperty("is_external")]
+	[JsonPropertyName("is_external")]
 	public bool? IsExternal { get; set; }
 
 	/// <summary>
 	/// Рейтинг.
 	/// </summary>
-	[JsonProperty("rating")]
+	[JsonPropertyName("rating")]
 	public Rating Rating { get; set; }
 
 	/// <summary>
 	/// Приложение.
 	/// </summary>
-	[JsonProperty("application")]
+	[JsonPropertyName("application")]
 	public Application Application { get; set; }
 
 	/// <summary>

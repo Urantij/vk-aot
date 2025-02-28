@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -18,43 +18,43 @@ public class Event : MediaAttachment
 	/// <summary>
 	/// Время начала встречи в Unixtime
 	/// </summary>
-	[JsonProperty("time")]
+	[JsonPropertyName("time")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime Time { get; set; }
 
 	/// <summary>
 	/// Идёт ли текущий пользователь на встречу.
 	/// </summary>
-	[JsonProperty("member_status")]
+	[JsonPropertyName("member_status")]
 	public EventMemberStatus MemberStatus { get; set; }
 
 	/// <summary>
 	/// Добавлена ли встреча в закладки.
 	/// </summary>
-	[JsonProperty("is_favorite")]
+	[JsonPropertyName("is_favorite")]
 	public bool IsFavorite { get; set; }
 
 	/// <summary>
 	/// Место проведения встречи.
 	/// </summary>
-	[JsonProperty("address")]
+	[JsonPropertyName("address")]
 	public string Address { get; set; }
 
 	/// <summary>
 	/// Текст для отображения сниппета.
 	/// </summary>
-	[JsonProperty("text")]
+	[JsonPropertyName("text")]
 	public string Text { get; set; }
 
 	/// <summary>
 	/// Текст на кнопке сниппета.
 	/// </summary>
-	[JsonProperty("button_text")]
+	[JsonPropertyName("button_text")]
 	public string ButtonText { get; set; }
 
 	/// <summary>
 	/// Список идентификаторов друзей, которые также идут на мероприятие.
 	/// </summary>
-	[JsonProperty("friends")]
+	[JsonPropertyName("friends")]
 	public IEnumerable<ulong> Friends { get; set; }
 }

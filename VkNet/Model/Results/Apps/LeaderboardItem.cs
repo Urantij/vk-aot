@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,24 +12,24 @@ public class LeaderboardItem
 	/// <summary>
 	/// Оценка
 	/// </summary>
-	[JsonProperty(propertyName: "score")]
+	[JsonPropertyName("score")]
 	public long Score { get; set; }
 
 	/// <summary>
 	/// Уровень
 	/// </summary>
-	[JsonProperty(propertyName: "level")]
+	[JsonPropertyName("level")]
 	public long Level { get; set; }
 
 	/// <summary>
 	/// Очки
 	/// </summary>
-	[JsonProperty(propertyName: "points")]
+	[JsonPropertyName("points")]
 	public long Points { get; set; }
 
 	/// <summary>
 	/// Идентификатор пользователя
 	/// </summary>
-	[JsonProperty(propertyName: "user_id")]
+	[JsonPropertyName("user_id")]
 	public long UserId { get; set; }
 }

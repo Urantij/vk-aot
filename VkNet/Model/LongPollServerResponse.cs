@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -15,24 +15,24 @@ public class LongPollServerResponse
 	/// <summary>
 	/// Ключ для подключения.
 	/// </summary>
-	[JsonProperty("key")]
+	[JsonPropertyName("key")]
 	public string Key { get; set; }
 
 	/// <summary>
 	/// Имя сервера быстрых сообщений.
 	/// </summary>
-	[JsonProperty("server")]
+	[JsonPropertyName("server")]
 	public string Server { get; set; }
 
 	/// <summary>
 	/// Номер последнего события, начиная с которого нужно получать данные;
 	/// </summary>
-	[JsonProperty("ts")]
+	[JsonPropertyName("ts")]
 	public ulong Ts { get; set; }
 
 	/// <summary>
 	/// Постоянное событие для работы с методом getLongPollHistory
 	/// </summary>
-	[JsonProperty("pts")]
+	[JsonPropertyName("pts")]
 	public ulong? Pts { get; set; }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Globalization;
-using Newtonsoft.Json;
 
 namespace VkNet.Utils.JsonConverter;
 

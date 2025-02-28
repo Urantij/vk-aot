@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -8,18 +8,18 @@ namespace VkNet.Model;
 /// Кнопка клавиатуры, отправляемая ботом.
 /// </summary>
 [Serializable]
-[JsonObject(MemberSerialization.OptOut)]
 public class MessageKeyboardButton
 {
 	/// <summary>
 	/// Информация содержащаяся в кнопке
 	/// </summary>
-	[JsonProperty("action")]
+	[JsonPropertyName("action")]
 	public MessageKeyboardButtonAction Action { get; set; }
 
 	/// <summary>
 	/// Цвет кнопки
 	/// </summary>
-	[JsonProperty("color", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("color")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public KeyboardButtonColor? Color { get; set; }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,24 +12,24 @@ public class StatsSexAgeCities
 	/// <summary>
 	/// Идентификатор рекламного кабинета. обязательный параметр, целое число
 	/// </summary>
-	[JsonProperty("impressions_rate")]
+	[JsonPropertyName("impressions_rate")]
 	public long ImpressionsRate { get; set; }
 
 	/// <summary>
 	/// обязательный параметр, строка
 	/// </summary>
-	[JsonProperty("clicks_rate")]
+	[JsonPropertyName("clicks_rate")]
 	public long ClicksRate { get; set; }
 
 	/// <summary>
 	/// обязательный параметр, строка
 	/// </summary>
-	[JsonProperty("value")]
+	[JsonPropertyName("value")]
 	public string Value { get; set; }
 
 	/// <summary>
 	/// обязательный параметр, строка
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 }

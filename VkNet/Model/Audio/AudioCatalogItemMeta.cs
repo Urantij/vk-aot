@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -13,12 +13,12 @@ public class AudioCatalogItemMeta
 	/// <summary>
 	/// Иконка.
 	/// </summary>
-	[JsonProperty("icon")]
+	[JsonPropertyName("icon")]
 	public string Icon { get; set; }
 
 	/// <summary>
 	/// Идентификатор владельца аудиозаписи.
 	/// </summary>
-	[JsonProperty("content_type")]
+	[JsonPropertyName("content_type")]
 	public UserOrGroupType? ContentType { get; set; }
 }

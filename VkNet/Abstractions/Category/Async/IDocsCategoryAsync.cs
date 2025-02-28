@@ -95,25 +95,25 @@ public interface IDocsCategoryAsync
 	Task<UploadServerInfo> GetWallUploadServerAsync(long? groupId = null,
 													CancellationToken token = default);
 
-	/// <summary>
-	/// Сохраняет документ после его успешной загрузки на сервер.
-	/// </summary>
-	/// <param name="file">
-	/// JSON-объект с полем file, возвращаемый после успешной загрузки документа
-	/// сервер. Обязательный
-	/// параметр.
-	/// </param>
-	/// <param name="title"> Название документа. </param>
-	/// <param name="tags"> Метки для поиска. </param>
-	/// <param name="token">Токен отмены операции</param>
-	/// <returns> Возвращает массив с загруженными объектами. </returns>
-	/// <remarks>
-	/// Страница документации ВКонтакте http://vk.com/dev/docs.save
-	/// </remarks>
-	Task<ReadOnlyCollection<Attachment>> SaveAsync(string file,
-													string title = null,
-													string tags = null,
-													CancellationToken token = default);
+	// /// <summary>
+	// /// Сохраняет документ после его успешной загрузки на сервер.
+	// /// </summary>
+	// /// <param name="file">
+	// /// JSON-объект с полем file, возвращаемый после успешной загрузки документа
+	// /// сервер. Обязательный
+	// /// параметр.
+	// /// </param>
+	// /// <param name="title"> Название документа. </param>
+	// /// <param name="tags"> Метки для поиска. </param>
+	// /// <param name="token">Токен отмены операции</param>
+	// /// <returns> Возвращает массив с загруженными объектами. </returns>
+	// /// <remarks>
+	// /// Страница документации ВКонтакте http://vk.com/dev/docs.save
+	// /// </remarks>
+	// Task<ReadOnlyCollection<Attachment>> SaveAsync(string file,
+	// 												string title = null,
+	// 												string tags = null,
+	// 												CancellationToken token = default);
 
 
 	/// <summary>

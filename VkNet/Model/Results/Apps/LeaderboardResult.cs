@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,18 +13,18 @@ public class LeaderboardResult
 	/// <summary>
 	/// Количество побед
 	/// </summary>
-	[JsonProperty(propertyName: "count")]
+	[JsonPropertyName("count")]
 	public long Count { get; set; }
 
 	/// <summary>
 	/// Список лидеров
 	/// </summary>
-	[JsonProperty(propertyName: "items")]
+	[JsonPropertyName("items")]
 	public ReadOnlyCollection<LeaderboardItem> Items { get; set; }
 
 	/// <summary>
 	/// Список профилей
 	/// </summary>
-	[JsonProperty(propertyName: "profiles")]
+	[JsonPropertyName("profiles")]
 	public ReadOnlyCollection<User> Profiles { get; set; }
 }

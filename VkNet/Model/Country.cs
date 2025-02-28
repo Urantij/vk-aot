@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,17 +12,17 @@ public class Country
 	/// <summary>
 	/// Идентификатор страны.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long? Id { get; set; }
 
-	[JsonProperty("cid")]
+	[JsonPropertyName("cid")]
 	private long? Cid
 	{
 		get => Id;
 		set => Id = value;
 	}
 
-	[JsonProperty("comment_id")]
+	[JsonPropertyName("comment_id")]
 	private long? CommentId
 	{
 		get => Id;
@@ -32,10 +32,10 @@ public class Country
 	/// <summary>
 	/// Название страны.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	private string Name
 	{
 		get => Title;

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 
 namespace VkNet.Model;
@@ -16,48 +16,48 @@ public class StandInLife
 	/// <summary>
 	/// Политические предпочтения пользователя.
 	/// </summary>
-	[JsonProperty("political")]
+	[JsonPropertyName("political")]
 	public PoliticalPreferences Political { get; set; }
 
 	/// <summary>
 	/// Языки, на которых говорит пользователь.
 	/// </summary>
-	[JsonProperty("langs")]
+	[JsonPropertyName("langs")]
 	public ReadOnlyCollection<string> Languages { get; set; }
 
 	/// <summary>
 	/// Мировоззрение пользователя.
 	/// </summary>
-	[JsonProperty("religion")]
+	[JsonPropertyName("religion")]
 	public string Religion { get; set; }
 
 	/// <summary>
 	/// Источники вдохновения пользователя.
 	/// </summary>
-	[JsonProperty("inspired_by")]
+	[JsonPropertyName("inspired_by")]
 	public string InspiredBy { get; set; }
 
 	/// <summary>
 	/// Главное в людях для пользователя.
 	/// </summary>
-	[JsonProperty("people_main")]
+	[JsonPropertyName("people_main")]
 	public PeopleMain PeopleMain { get; set; }
 
 	/// <summary>
 	/// Главное в жизни для пользователя.
 	/// </summary>
-	[JsonProperty("life_main")]
+	[JsonPropertyName("life_main")]
 	public LifeMain LifeMain { get; set; }
 
 	/// <summary>
 	/// Отношение к курению.
 	/// </summary>
-	[JsonProperty("smoking")]
+	[JsonPropertyName("smoking")]
 	public Attitude Smoking { get; set; }
 
 	/// <summary>
 	/// Отношение к алкоголю.
 	/// </summary>
-	[JsonProperty("alcohol")]
+	[JsonPropertyName("alcohol")]
 	public Attitude Alcohol { get; set; }
 }

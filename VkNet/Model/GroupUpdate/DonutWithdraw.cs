@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -14,25 +14,25 @@ public class DonutWithdraw : IGroupUpdate
 	/// <summary>
 	/// Произошла ли ошибка
 	/// </summary>
-	[JsonProperty("error")]
+	[JsonPropertyName("error")]
 	public bool Error { get; set; }
 
 		/// <summary>
 	/// Cумма  в рублях
 	/// </summary>
-	[JsonProperty("amount")]
+	[JsonPropertyName("amount")]
 	public float? Amount { get; set; }
 
 	/// <summary>
 	/// Cумма  без комиссии (в рублях)
 	/// </summary>
-	[JsonProperty("amount_without_fee")]
+	[JsonPropertyName("amount_without_fee")]
 	public float? AmountWithoutFee { get; set; }
 
 	/// <summary>
 	/// Причина ошибки
 	/// </summary>
-	[JsonProperty("reason")]
+	[JsonPropertyName("reason")]
 	public string Reason
 	{
 		get => _reason;

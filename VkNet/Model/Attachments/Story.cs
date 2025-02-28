@@ -1,6 +1,5 @@
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums.SafetyEnums;
 using VkNet.Utils.JsonConverter;
 
@@ -18,105 +17,105 @@ public class Story : MediaAttachment
 	/// <summary>
 	/// Дата добавления в Unixtime.
 	/// </summary>
-	[JsonProperty("date")]
+	[JsonPropertyName("date")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? Date { get; set; }
 
 	/// <summary>
 	/// <c>true</c>, если срок хранения истории истёк.
 	/// </summary>
-	[JsonProperty("is_expired")]
+	[JsonPropertyName("is_expired")]
 	public bool? IsExpired { get; set; }
 
 	/// <summary>
 	/// <c>true</c>, если история удалена или не существует.
 	/// </summary>
-	[JsonProperty("is_deleted")]
+	[JsonPropertyName("is_deleted")]
 	public bool? IsDeleted { get; set; }
 
 	/// <summary>
 	/// Информация о том, может ли пользователь просмотреть историю.
 	/// </summary>
-	[JsonProperty("can_see")]
+	[JsonPropertyName("can_see")]
 	public bool CanSee { get; set; }
 
 	/// <summary>
 	/// <c>true</c>, если история просмотрена текущим пользователем.
 	/// </summary>
-	[JsonProperty("seen")]
+	[JsonPropertyName("seen")]
 	public bool? Seen { get; set; }
 
 	/// <summary>
 	/// Тип истории.
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	[JsonConverter(typeof(SafetyEnumJsonConverter))]
 	public StoryType Type { get; set; }
 
 	/// <summary>
 	/// Фотография из истории.
 	/// </summary>
-	[JsonProperty("photo")]
+	[JsonPropertyName("photo")]
 	public Photo Photo { get; set; }
 
 	/// <summary>
 	/// Видео из истории.
 	/// </summary>
-	[JsonProperty("video")]
+	[JsonPropertyName("video")]
 	public Video Video { get; set; }
 
 	/// <summary>
 	/// Ссылка для перехода из истории.
 	/// </summary>
-	[JsonProperty("link")]
+	[JsonPropertyName("link")]
 	public StoryLink Link { get; set; }
 
 	/// <summary>
 	/// Идентификатор пользователя, загрузившего историю, ответом на которую является
 	/// текущая.
 	/// </summary>
-	[JsonProperty("parent_story_owner_id")]
+	[JsonPropertyName("parent_story_owner_id")]
 	public long? ParentStoryOwnerId { get; set; }
 
 	/// <summary>
 	/// Идентификатор истории, ответом на которую является текущая.
 	/// </summary>
-	[JsonProperty("parent_story_id")]
+	[JsonPropertyName("parent_story_id")]
 	public long? ParentStoryId { get; set; }
 
 	/// <summary>
 	/// Родительская история.
 	/// </summary>
-	[JsonProperty("parent_story")]
+	[JsonPropertyName("parent_story")]
 	public Story ParentStory { get; set; }
 
 	/// <summary>
 	/// Информация об ответах на текущую историю.
 	/// </summary>
-	[JsonProperty("replies")]
+	[JsonPropertyName("replies")]
 	public StoryReplies Replies { get; set; }
 
 	/// <summary>
 	/// Информация о том, может ли пользователь ответить на историю .
 	/// </summary>
-	[JsonProperty("can_reply")]
+	[JsonPropertyName("can_reply")]
 	public bool? CanReply { get; set; }
 
 	/// <summary>
 	/// Информация о том, может ли пользователь расшарить историю.
 	/// </summary>
-	[JsonProperty("can_share")]
+	[JsonPropertyName("can_share")]
 	public bool? CanShare { get; set; }
 
 	/// <summary>
 	/// Информация о том, может ли пользователь комментировать историю.
 	/// </summary>
-	[JsonProperty("can_comment")]
+	[JsonPropertyName("can_comment")]
 	public bool? CanComment { get; set; }
 
 	/// <summary>
 	/// Число просмотров.
 	/// </summary>
-	[JsonProperty("views")]
+	[JsonPropertyName("views")]
 	public int? Views { get; set; }
 }

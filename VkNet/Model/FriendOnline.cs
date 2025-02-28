@@ -1,6 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
@@ -15,12 +15,12 @@ public class FriendOnline
 	/// <summary>
 	/// Online
 	/// </summary>
-	[JsonProperty("online")]
+	[JsonPropertyName("online")]
 	public ReadOnlyCollection<long> Online { get; set; }
 
 	/// <summary>
 	/// Online с мобильного телефона.
 	/// </summary>
-	[JsonProperty("online_mobile")]
+	[JsonPropertyName("online_mobile")]
 	public ReadOnlyCollection<long> MobileOnline { get; set; }
 }

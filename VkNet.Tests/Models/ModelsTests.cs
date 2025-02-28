@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using FluentAssertions;
-using Newtonsoft.Json;
 using VkNet.Enums.SafetyEnums;
 using VkNet.Model;
 using Xunit;

@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -13,13 +13,13 @@ public class FaveGetParams
 	/// <summary>
 	/// Типы объектов, которые необходимо вернуть.
 	/// </summary>
-	[JsonProperty("item_type")]
+	[JsonPropertyName("item_type")]
 	public FaveType? ItemType { get; set; }
 
 	/// <summary>
 	/// Список дополнительных полей профилей, которые необходимо вернуть.
 	/// </summary>
-	[JsonProperty("fields")]
+	[JsonPropertyName("fields")]
 	public string Fields { get; set; }
 
 	/// <summary>
@@ -28,19 +28,19 @@ public class FaveGetParams
 	/// <remarks>
 	/// По умолчанию: <c>false</c>.
 	/// </remarks>
-	[JsonProperty("extended")]
+	[JsonPropertyName("extended")]
 	public bool? Extended { get; set; }
 
 	/// <summary>
 	/// Идентификатор метки, закладки отмеченные которой требуется вернуть.
 	/// </summary>
-	[JsonProperty("tag_id")]
+	[JsonPropertyName("tag_id")]
 	public long? TagId { get; set; }
 
 	/// <summary>
 	/// Смещение относительно первого объекта в закладках пользователя для выборки определенного подмножества.
 	/// </summary>
-	[JsonProperty("offset")]
+	[JsonPropertyName("offset")]
 	public ulong? Offset { get; set; }
 
 	/// <summary>
@@ -49,12 +49,12 @@ public class FaveGetParams
 	/// <remarks>
 	/// По умолчанию 50, минимальное значение 1, максимальное значение 100.
 	/// </remarks>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public long? Count { get; set; }
 
 	/// <summary>
 	/// Флаг, может принимать значения <c>true</c> или <c>false</c>
 	/// </summary>
-	[JsonProperty("is_from_snackbar")]
+	[JsonPropertyName("is_from_snackbar")]
 	public bool? IsFromSnackbar { get; set; }
 }

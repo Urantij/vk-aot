@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,30 +12,30 @@ public class PodcastInfo
 	/// <summary>
 	/// Обложка.
 	/// </summary>
-	[JsonProperty("cover")]
+	[JsonPropertyName("cover")]
 	public Cover Cover { get; set; }
 
 	/// <summary>
 	/// Количество прослушиваний.
 	/// </summary>
-	[JsonProperty("plays")]
+	[JsonPropertyName("plays")]
 	public long Plays { get; set; }
 
 	/// <summary>
 	/// Важный.
 	/// </summary>
-	[JsonProperty("is_favorite")]
+	[JsonPropertyName("is_favorite")]
 	public bool IsFavorite { get; set; }
 
 	/// <summary>
 	/// Позиция.
 	/// </summary>
-	[JsonProperty("position")]
+	[JsonPropertyName("position")]
 	public long? Position { get; set; }
 
 	/// <summary>
 	/// Описание.
 	/// </summary>
-	[JsonProperty("description")]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 }

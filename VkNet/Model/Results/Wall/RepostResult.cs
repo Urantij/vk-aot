@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,24 +12,24 @@ public class RepostResult
 	/// <summary>
 	/// всегда содержит 1;
 	/// </summary>
-	[JsonProperty("success")]
+	[JsonPropertyName("success")]
 	public bool Success { get; set; }
 
 	/// <summary>
 	/// идентификатор созданной записи;
 	/// </summary>
-	[JsonProperty("post_id")]
+	[JsonPropertyName("post_id")]
 	public long? PostId { get; set; }
 
 	/// <summary>
 	/// количество репостов объекта с учетом осуществленного;
 	/// </summary>
-	[JsonProperty("reposts_count")]
+	[JsonPropertyName("reposts_count")]
 	public int? RepostsCount { get; set; }
 
 	/// <summary>
 	/// число отметок «Мне нравится» у объекта.
 	/// </summary>
-	[JsonProperty("likes_count")]
+	[JsonPropertyName("likes_count")]
 	public int? LikesCount { get; set; }
 }

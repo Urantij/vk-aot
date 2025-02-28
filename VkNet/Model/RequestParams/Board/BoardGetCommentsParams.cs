@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -18,19 +18,19 @@ public class BoardGetCommentsParams
 	/// сообщества ВКонтакте API (club1)  целое число, по умолчанию идентификатор
 	/// текущего пользователя.
 	/// </summary>
-	[JsonProperty(propertyName: "group_id")]
+	[JsonPropertyName("group_id")]
 	public long? GroupId { get; set; }
 
 	/// <summary>
 	/// Идентификатор обсуждения.Положительное число, обязательный параметр.
 	/// </summary>
-	[JsonProperty(propertyName: "topic_id")]
+	[JsonPropertyName("topic_id")]
 	public long TopicId { get; set; }
 
 	/// <summary>
 	/// 1 — возвращать информацию о лайках. флаг, может принимать значения 1 или 0.
 	/// </summary>
-	[JsonProperty(propertyName: "need_likes")]
+	[JsonPropertyName("need_likes")]
 	public bool? NeedLikes { get; set; }
 
 	/// <summary>
@@ -38,13 +38,13 @@ public class BoardGetCommentsParams
 	/// см. ниже). положительное число,
 	/// доступен начиная с версии 5.33.
 	/// </summary>
-	[JsonProperty(propertyName: "start_comment_id")]
+	[JsonPropertyName("start_comment_id")]
 	public long? StartCommentId { get; set; }
 
 	/// <summary>
 	/// Сдвиг, необходимый для получения конкретной выборки результатов. целое число.
 	/// </summary>
-	[JsonProperty(propertyName: "offset")]
+	[JsonPropertyName("offset")]
 	public long? Offset { get; set; }
 
 	/// <summary>
@@ -52,14 +52,14 @@ public class BoardGetCommentsParams
 	/// максимальное значение — 100. положительное
 	/// число.
 	/// </summary>
-	[JsonProperty(propertyName: "count")]
+	[JsonPropertyName("count")]
 	public long? Count { get; set; }
 
 	/// <summary>
 	/// Порядок сортировки комментариев (asc — от старых к новым, desc - от новых к
 	/// старым) строка.
 	/// </summary>
-	[JsonProperty(propertyName: "sort")]
+	[JsonPropertyName("sort")]
 	public CommentsSort? Sort { get; set; }
 
 	/// <summary>
@@ -67,7 +67,7 @@ public class BoardGetCommentsParams
 	/// если Вы не хотите обрезатьтекст.
 	/// положительное число.
 	/// </summary>
-	[JsonProperty(propertyName: "preview_length")]
+	[JsonPropertyName("preview_length")]
 	public long? PreviewLength { get; set; }
 
 	/// <summary>
@@ -76,6 +76,6 @@ public class BoardGetCommentsParams
 	/// объектов profiles, groups. флаг, может принимать значения 1 или 0, доступен
 	/// начиная с версии 5.0.
 	/// </summary>
-	[JsonProperty(propertyName: "extended")]
+	[JsonPropertyName("extended")]
 	public bool? Extended { get; set; }
 }

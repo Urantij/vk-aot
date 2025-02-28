@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,19 +13,19 @@ public class GroupsSetSettingsParams
 	/// идентификатор сообщества.
 	/// положительное число, обязательный параметр
 	/// </summary>
-	[JsonProperty("group_id")]
+	[JsonPropertyName("group_id")]
 	public ulong GroupId { get; set; }
 
 	/// <summary>
 	/// сообщения сообщества
 	/// </summary>
-	[JsonProperty("messages")]
+	[JsonPropertyName("messages")]
 	public bool Messages { get; set; }
 
 	/// <summary>
 	/// возможности ботов (использование клавиатуры, добавление в беседу)
 	/// </summary>
-	[JsonProperty("bots_capabilities")]
+	[JsonPropertyName("bots_capabilities")]
 	public bool BotsCapabilities { get; set; }
 
 	/// <summary>
@@ -36,13 +36,13 @@ public class GroupsSetSettingsParams
 	/// команду start. Payload этого сообщения будет выглядеть так:
 	/// {"command":"start"}
 	/// </summary>
-	[JsonProperty("bots_start_button")]
+	[JsonPropertyName("bots_start_button")]
 	public bool BotsStartButton { get; set; }
 
 	/// <summary>
 	/// добавление бота в беседы.
 	/// Работает, в случае если bots_capabilities=1
 	/// </summary>
-	[JsonProperty("bots_add_to_chat")]
+	[JsonPropertyName("bots_add_to_chat")]
 	public bool BotsAddToChats { get; set; }
 }

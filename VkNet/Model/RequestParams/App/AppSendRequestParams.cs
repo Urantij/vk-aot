@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -13,25 +13,25 @@ public class AppSendRequestParams
 	/// <summary>
 	/// Идентификатор пользователя, которому следует отправить запрос.
 	/// </summary>
-	[JsonProperty(propertyName: "user_id")]
+	[JsonPropertyName("user_id")]
 	public ulong UserId { get; set; }
 
 	/// <summary>
 	/// Текст запроса.
 	/// </summary>
-	[JsonProperty(propertyName: "text")]
+	[JsonPropertyName("text")]
 	public string Text { get; set; }
 
 	/// <summary>
 	/// Тип запроса, может принимать значения:.
 	/// </summary>
-	[JsonProperty(propertyName: "type")]
+	[JsonPropertyName("type")]
 	public AppRequestType? Type { get; set; }
 
 	/// <summary>
 	/// Уникальное в рамках приложения имя для каждого вида отправляемого запроса.
 	/// </summary>
-	[JsonProperty(propertyName: "name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
@@ -39,13 +39,13 @@ public class AppSendRequestParams
 	/// приложение. Может использоваться для
 	/// подсчета конверсии.
 	/// </summary>
-	[JsonProperty(propertyName: "key")]
+	[JsonPropertyName("key")]
 	public string Key { get; set; }
 
 	/// <summary>
 	/// Запрет на группировку запроса с другими, имеющими тот же name. По умолчанию
 	/// отключен.
 	/// </summary>
-	[JsonProperty(propertyName: "separate")]
+	[JsonPropertyName("separate")]
 	public bool Separate { get; set; }
 }

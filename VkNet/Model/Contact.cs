@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,24 +12,24 @@ public class Contact
 	/// <summary>
 	/// Идентификатор пользователя.
 	/// </summary>
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	public long? UserId { get; set; }
 
 	/// <summary>
 	/// Должность.
 	/// </summary>
-	[JsonProperty("desc")]
+	[JsonPropertyName("desc")]
 	public string Description { get; set; }
 
 	/// <summary>
 	/// Электронная почта.
 	/// </summary>
-	[JsonProperty("email")]
+	[JsonPropertyName("email")]
 	public string Email { get; set; }
 
 	/// <summary>
 	/// Телефон.
 	/// </summary>
-	[JsonProperty("phone")]
+	[JsonPropertyName("phone")]
 	public string Phone { get; set; }
 }

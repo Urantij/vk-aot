@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -42,25 +42,25 @@ public class GetSuggestionsParams
 	/// user_browsers — интернет-браузеры.
 	/// обязательный параметр, строка
 	/// </summary>
-	[JsonProperty("section")]
+	[JsonPropertyName("section")]
 	public string Section { get; set; }
 
 	/// <summary>
 	/// ID объектов, разделённые запятыми. Служит для расшифровки ID, возвращаемых в методе ads.getAdsTargeting. Если задан этот параметр, то параметры q, country, cities не должны передаваться, таким образом отменяется их обязательность для конкретного раздела. Объекты возвращаются в том же порядке, в каком они были заданы в этом параметре. строка
 	/// </summary>
-	[JsonProperty("ids")]
+	[JsonPropertyName("ids")]
 	public string Ids { get; set; }
 
 	/// <summary>
 	/// Строка-фильтр запроса строка
 	/// </summary>
-	[JsonProperty("q")]
+	[JsonPropertyName("q")]
 	public string Q { get; set; }
 
 	/// <summary>
 	/// ID городов, в которых ищутся объекты, разделенные запятыми. строка
 	/// </summary>
-	[JsonProperty("cities")]
+	[JsonPropertyName("cities")]
 	public string Cities { get; set; }
 
 	/// <summary>
@@ -70,12 +70,12 @@ public class GetSuggestionsParams
 	/// en — английский.
 	/// строка
 	/// </summary>
-	[JsonProperty("lang")]
+	[JsonPropertyName("lang")]
 	public string Lang { get; set; }
 
 	/// <summary>
 	/// ID страны, в которой ищутся объекты. целое число
 	/// </summary>
-	[JsonProperty("country")]
+	[JsonPropertyName("country")]
 	public long Country { get; set; }
 }

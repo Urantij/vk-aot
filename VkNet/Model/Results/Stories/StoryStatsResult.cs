@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,42 +12,42 @@ public class StoryStatsResult
 	/// <summary>
 	/// Просмотры.
 	/// </summary>
-	[JsonProperty("views")]
+	[JsonPropertyName("views")]
 	public StoryStatsObject Views { get; set; }
 
 	/// <summary>
 	/// Ответы на историю.
 	/// </summary>
-	[JsonProperty("replies")]
+	[JsonPropertyName("replies")]
 	public StoryStatsObject Replies { get; set; }
 
 	/// <summary>
 	/// Число. (?)
 	/// </summary>
-	[JsonProperty("answer")]
+	[JsonPropertyName("answer")]
 	public StoryStatsObject Answer { get; set; }
 
 	/// <summary>
 	/// Расшаривания истории.
 	/// </summary>
-	[JsonProperty("shares")]
+	[JsonPropertyName("shares")]
 	public StoryStatsObject Shares { get; set; }
 
 	/// <summary>
 	/// Новые подписчики.
 	/// </summary>
-	[JsonProperty("subscribers")]
+	[JsonPropertyName("subscribers")]
 	public StoryStatsObject Subscribers { get; set; }
 
 	/// <summary>
 	/// Скрытия истории.
 	/// </summary>
-	[JsonProperty("bans")]
+	[JsonPropertyName("bans")]
 	public StoryStatsObject Bans { get; set; }
 
 	/// <summary>
 	/// Переходы по ссылке.
 	/// </summary>
-	[JsonProperty("open_link")]
+	[JsonPropertyName("open_link")]
 	public StoryStatsObject OpenLink { get; set; }
 }

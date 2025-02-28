@@ -1,6 +1,5 @@
 #nullable enable
 using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
 using VkNet.Model;
 
 namespace VkNet.Utils.UsersLongPoll;
@@ -13,7 +12,7 @@ public class UsersLongPollOnUpdatesEvent
 	/// <summary>
 	/// Обновление в событиях пользователя.
 	/// </summary>
-	public LongPollHistoryResponse<JObject> Response;
+	public LongPollHistoryJsonResponse Response;
 
 	/// <summary>
 	/// Обработанные сообщения из Response

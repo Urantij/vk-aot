@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -20,7 +20,7 @@ public class MessagesGetHistoryAttachmentsParams
 	/// -id сообщества.
 	/// целое число, обязательный параметр.
 	/// </summary>
-	[JsonProperty("peer_id")]
+	[JsonPropertyName("peer_id")]
 	public long PeerId { get; set; }
 
 	/// <summary>
@@ -40,19 +40,19 @@ public class MessagesGetHistoryAttachmentsParams
 	/// 20.05.13, market,wall — 01.02.2016.
 	/// строка, по умолчанию photo.
 	/// </summary>
-	[JsonProperty("media_type")]
+	[JsonPropertyName("media_type")]
 	public MediaType? MediaType { get; set; }
 
 	/// <summary>
 	/// Смещение, необходимое для выборки определенного подмножества объектов. строка.
 	/// </summary>
-	[JsonProperty("start_from")]
+	[JsonPropertyName("start_from")]
 	public string StartFrom { get; set; }
 
 	/// <summary>
 	/// Список слов, разделенных через запятую.
 	/// </summary>
-	[JsonProperty("fields")]
+	[JsonPropertyName("fields")]
 	public IEnumerable<string> Fields { get; set; }
 
 	/// <summary>
@@ -60,7 +60,7 @@ public class MessagesGetHistoryAttachmentsParams
 	/// положительное число, максимальное значение 200,
 	/// по умолчанию 30.
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public long? Count { get; set; }
 
 	/// <summary>
@@ -68,12 +68,12 @@ public class MessagesGetHistoryAttachmentsParams
 	/// специальном формате. флаг, может
 	/// принимать значения 1 или 0.
 	/// </summary>
-	[JsonProperty("photo_sizes")]
+	[JsonPropertyName("photo_sizes")]
 	public bool? PhotoSizes { get; set; }
 
 	/// <summary>
 	/// Идентификатор сообщества (для сообщений сообщества с ключом доступа пользователя). положительное число
 	/// </summary>
-	[JsonProperty("group_id")]
+	[JsonPropertyName("group_id")]
 	public ulong GroupId { get; set; }
 }

@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+﻿using System.Text.Json.Serialization;
 using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Enums.StringEnums;
@@ -8,7 +7,7 @@ namespace VkNet.Enums.StringEnums;
 /// Месячные ограничения
 /// </summary>
 [StringEnum]
-[JsonConverter(typeof(StringEnumConverter), typeof(LowerCaseWithDigitNamingStrategy))]
+[LowerCaseWithDigitJsonStringEnumConverter<MonthlyLimit>]
 public enum MonthlyLimit
 {
 	/// <summary>

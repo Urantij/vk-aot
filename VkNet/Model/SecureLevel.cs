@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class SecureLevel
 	/// <summary>
 	/// Level
 	/// </summary>
-	[JsonProperty("level")]
+	[JsonPropertyName("level")]
 	public int? LevelCode { get; set; }
 
 	/// <summary>
 	/// User ID
 	/// </summary>
-	[JsonProperty("uid")]
+	[JsonPropertyName("uid")]
 	public ulong? Uid { get; set; }
 }

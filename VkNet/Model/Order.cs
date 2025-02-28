@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,60 +12,60 @@ public class Order
 	/// <summary>
 	/// Amount
 	/// </summary>
-	[JsonProperty("amount")]
+	[JsonPropertyName("amount")]
 	public int? Amount { get; set; }
 
 	/// <summary>
 	/// Receiver ID
 	/// </summary>
-	[JsonProperty("receiver_id")]
+	[JsonPropertyName("receiver_id")]
 	public int? ReceiverId { get; set; }
 
 	/// <summary>
 	/// Order ID
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public int? Id { get; set; }
 
 	/// <summary>
 	/// Order item
 	/// </summary>
-	[JsonProperty("item")]
+	[JsonPropertyName("item")]
 	public string Item { get; set; }
 
 	/// <summary>
 	/// App order ID
 	/// </summary>
-	[JsonProperty("app_order_id")]
+	[JsonPropertyName("app_order_id")]
 	public int? AppOrderId { get; set; }
 
 	/// <summary>
 	/// Cancel transaction ID
 	/// </summary>
-	[JsonProperty("cancel_transaction_id")]
+	[JsonPropertyName("cancel_transaction_id")]
 	public int? CancelTransactionId { get; set; }
 
 	/// <summary>
 	/// Order status
 	/// </summary>
-	[JsonProperty("status")]
+	[JsonPropertyName("status")]
 	public string Status { get; set; }
 
 	/// <summary>
 	/// User ID
 	/// </summary>
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	public int? UserId { get; set; }
 
 	/// <summary>
 	/// Transaction ID
 	/// </summary>
-	[JsonProperty("transaction_id")]
+	[JsonPropertyName("transaction_id")]
 	public int? TransactionId { get; set; }
 
 	/// <summary>
 	/// Date of creation in Unixtime
 	/// </summary>
-	[JsonProperty("date")]
+	[JsonPropertyName("date")]
 	public int? Date { get; set; }
 }

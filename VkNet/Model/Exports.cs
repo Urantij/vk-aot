@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,24 +12,24 @@ public class Exports
 	/// <summary>
 	/// Twitter
 	/// </summary>
-	[JsonProperty("twitter")]
+	[JsonPropertyName("twitter")]
 	public bool Twitter { get; set; }
 
 	/// <summary>
 	/// Facebook
 	/// </summary>
-	[JsonProperty("facebook")]
+	[JsonPropertyName("facebook")]
 	public bool Facebook { get; set; }
 
 	/// <summary>
 	/// LiveJournal
 	/// </summary>
-	[JsonProperty("livejournal")]
+	[JsonPropertyName("livejournal")]
 	public bool Livejournal { get; set; }
 
 	/// <summary>
 	/// Instagram
 	/// </summary>
-	[JsonProperty("instagram")]
+	[JsonPropertyName("instagram")]
 	public bool Instagram { get; set; }
 }

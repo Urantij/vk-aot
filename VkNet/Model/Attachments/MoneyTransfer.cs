@@ -1,6 +1,6 @@
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -16,37 +16,37 @@ public class MoneyTransfer : MediaAttachment
 	/// <summary>
 	/// Идентификатор отправителя
 	/// </summary>
-	[JsonProperty("from_id")]
+	[JsonPropertyName("from_id")]
 	public long FromId { get; set; }
 
 	/// <summary>
 	/// Идентификатор получателя
 	/// </summary>
-	[JsonProperty("to_id")]
+	[JsonPropertyName("to_id")]
 	public long ToId { get; set; }
 
 	/// <summary>
 	/// Состояние
 	/// </summary>
-	[JsonProperty("status")]
+	[JsonPropertyName("status")]
 	public long Status { get; set; }
 
 	/// <summary>
 	/// Дата
 	/// </summary>
-	[JsonProperty("date")]
+	[JsonPropertyName("date")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime Date { get; set; }
 
 	/// <summary>
 	/// Количество
 	/// </summary>
-	[JsonProperty("amount")]
+	[JsonPropertyName("amount")]
 	public AmountObject Amount { get; set; }
 
 	/// <summary>
 	/// Комментарий
 	/// </summary>
-	[JsonProperty("comment")]
+	[JsonPropertyName("comment")]
 	public string Comment { get; set; }
 }

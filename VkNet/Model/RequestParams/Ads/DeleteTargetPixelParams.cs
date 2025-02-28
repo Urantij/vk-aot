@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class DeleteTargetPixelParams
 	/// <summary>
 	/// Идентификатор рекламного кабинета.
 	/// </summary>
-	[JsonProperty("account_id")]
+	[JsonPropertyName("account_id")]
 	public long AccountId { get; set; }
 
 	/// <summary>
 	/// Id клиента, в рекламном кабинете которого будет создаваться пиксель.
 	/// </summary>
-	[JsonProperty("client_id")]
+	[JsonPropertyName("client_id")]
 	public long? ClientId { get; set; }
 
 	/// <summary>
 	/// Id пикселя.
 	/// </summary>
-	[JsonProperty("target_pixel_id")]
+	[JsonPropertyName("target_pixel_id")]
 	public long TargetPixelId { get; set; }
 }

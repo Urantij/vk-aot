@@ -1,7 +1,8 @@
 #nullable enable
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using VkNet.Model;
 
 namespace VkNet.Utils.BotsLongPoll;
@@ -18,7 +19,7 @@ public static class BotsLongPollHelpers
 	/// <returns>
 	/// Возвращает список обновлений группы
 	/// </returns>
-	public static List<GroupUpdateEvent> GetGroupUpdateEvents(IEnumerable<JObject> jObjectUpdates)
+	public static List<GroupUpdateEvent> GetGroupUpdateEvents(IEnumerable<JsonObject> jObjectUpdates)
 	{
 		var updates = new List<GroupUpdateEvent>();
 
@@ -26,7 +27,7 @@ public static class BotsLongPollHelpers
 		{
 			try
 			{
-				var update = jObjectUpdate.ToObject<GroupUpdate>();
+				var update = jObjectUpdate.Deserialize<GroupUpdate>(GlobalJsonSerializerOptions.Options);
 
 				updates.Add(new()
 				{

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -16,13 +16,13 @@ public class TimelineThumbs
 	/// <summary>
 	/// Количество картинок предпросмотра на одном изображении
 	/// </summary>
-	[JsonProperty("count_per_image")]
+	[JsonPropertyName("count_per_image")]
 	public int? CountPerImage { get; set; }
 
 	/// <summary>
 	/// Количество картинок в одной строке изображения
 	/// </summary>
-	[JsonProperty("count_per_row")]
+	[JsonPropertyName("count_per_row")]
 	public int? CountPerRow { get; set; }
 
 	/// <summary>
@@ -33,19 +33,19 @@ public class TimelineThumbs
 	/// округлённое в большую сторону до целого
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("count_total")]
+	[JsonPropertyName("count_total")]
 	public int? CountTotal { get; set; }
 
 	/// <summary>
 	/// Высота одного предпросмотра на изображении в пикселях
 	/// </summary>
-	[JsonProperty("frame_height")]
+	[JsonPropertyName("frame_height")]
 	public int? FrameHeight { get; set; }
 
 	/// <summary>
 	/// Ширина одного предпросмотра на изображении в пикселях
 	/// </summary>
-	[JsonProperty("frame_width")]
+	[JsonPropertyName("frame_width")]
 	public float? FrameWidth { get; set; }
 
 	/// <summary>
@@ -59,7 +59,7 @@ public class TimelineThumbs
 	/// Однако <c> Content-Type </c> был <c> image/jpeg </c>
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("links")]
+	[JsonPropertyName("links")]
 	public ReadOnlyCollection<Uri> Links { get; set; }
 
 	/// <summary>
@@ -68,12 +68,12 @@ public class TimelineThumbs
 	/// In my tests it was always true
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("is_uv")]
+	[JsonPropertyName("is_uv")]
 	public bool? IsUv { get; set; }
 
 	/// <summary>
 	/// Частота смены картинок предпросмотра
 	/// </summary>
-	[JsonProperty("frequency")]
+	[JsonPropertyName("frequency")]
 	public int? Frequency { get; set; }
 }

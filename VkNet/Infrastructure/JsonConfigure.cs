@@ -1,6 +1,8 @@
+using System;
 using System.IO;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 using VkNet.Exception;
 
 namespace VkNet.Infrastructure;
@@ -11,30 +13,41 @@ namespace VkNet.Infrastructure;
 internal static class JsonConfigure
 {
 	/// <returns></returns>
-	internal static readonly JsonSerializerSettings JsonSerializerSettings = new()
+	internal static readonly JsonSerializerOptions JsonSerializerSettings = new()
 	{
-		MaxDepth = null,
-		ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+		MaxDepth = int.MaxValue,
+		ReferenceHandler =ReferenceHandler.IgnoreCycles,
+		TypeInfoResolver = GlobalJsonSerializerContext.Default
+		// ReferenceLoopHandling = ReferenceLoopHandling.Ignore
 	};
 
 	/// <returns>
 	/// Преобразование в JSON
 	/// </returns>
-	internal static JObject ToJObject(this string answer)
+	internal static JsonObject ToJObject(this string answer)
 	{
 		try
 		{
-			using var stringReader = new StringReader(answer);
-
-			using JsonReader jsonReader = new JsonTextReader(stringReader);
-
-			jsonReader.MaxDepth = null;
-
-			return JObject.Load(jsonReader);
+			return JsonNode.Parse(answer).AsObject();
 		}
-		catch (JsonReaderException ex)
+		catch (System.Exception ex)
 		{
 			throw new VkApiException("Wrong json data.", ex);
 		}
+
+		// try
+		// {
+		// 	using var stringReader = new StringReader(answer);
+		//
+		// 	using JsonReader jsonReader = new JsonTextReader(stringReader);
+		//
+		// 	jsonReader.MaxDepth = null;
+		//
+		// 	return JObject.Load(jsonReader);
+		// }
+		// catch (JsonReaderException ex)
+		// {
+		// 	throw new VkApiException("Wrong json data.", ex);
+		// }
 	}
 }

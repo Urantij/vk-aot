@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,24 +13,24 @@ public class StoryResult<T>
 	/// <summary>
 	/// Число подборок
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public long Count { get; set; }
 
 	/// <summary>
 	/// Массив данных
 	/// </summary>
-	[JsonProperty("items")]
+	[JsonPropertyName("items")]
 	public IEnumerable<T> Items { get; set; }
 
 	/// <summary>
 	/// Профили пользователей
 	/// </summary>
-	[JsonProperty("profiles")]
+	[JsonPropertyName("profiles")]
 	public IEnumerable<User> Profiles { get; set; }
 
 	/// <summary>
 	/// Сообщества
 	/// </summary>
-	[JsonProperty("groups")]
+	[JsonPropertyName("groups")]
 	public IEnumerable<Group> Groups { get; set; }
 }

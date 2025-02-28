@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -129,7 +129,7 @@ public class WallPostParams
 	/// уникальный идентификатор, предназначенный для предотвращения повторной отправки
 	/// одинаковой записи.
 	/// </summary>
-	[JsonProperty(propertyName: "guid")]
+	[JsonPropertyName("guid")]
 	public string Guid { get; set; }
 
 	/// <summary>
@@ -139,13 +139,13 @@ public class WallPostParams
 	/// В сутки может быть опубликовано не более пяти рекламных записей, из которых не
 	/// более трёх — вне Биржи ВКонтакте.
 	/// </summary>
-	[JsonProperty(propertyName: "mark_as_ads")]
+	[JsonPropertyName("mark_as_ads")]
 	public bool? MarkAsAds { get; set; }
 
 	/// <summary>
 	/// Включать закртыте комментарии
 	/// </summary>
-	[JsonProperty("close_comments")]
+	[JsonPropertyName("close_comments")]
 	public bool? CloseComments { get; set; }
 
 	/// <summary>
@@ -162,7 +162,7 @@ public class WallPostParams
 	/// 518400 — на 6 дней.
 	/// 604800 — на 7 дней.
 	/// </remarks>
-	[JsonProperty("donut_paid_duration")]
+	[JsonPropertyName("donut_paid_duration")]
 	public int? DonutPaidDuration { get; set; }
 
 	/// <summary>
@@ -170,12 +170,12 @@ public class WallPostParams
 	/// 0 — уведомления к записи включены.
 	/// флаг, может принимать значения 1 или 0
 	/// </summary>
-	[JsonProperty("mute_notifications")]
+	[JsonPropertyName("mute_notifications")]
 	public bool MuteNotifications { get; set; }
 
 	/// <summary>
 	/// Источник материала. Поддерживаются внешние и внутренние ссылки. строка
 	/// </summary>
-	[JsonProperty("copyright")]
+	[JsonPropertyName("copyright")]
 	public string Copyright { get; set; }
 }

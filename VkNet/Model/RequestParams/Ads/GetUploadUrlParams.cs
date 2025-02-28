@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 
 namespace VkNet.Model;
@@ -13,12 +13,12 @@ public class GetUploadUrlParams
 	/// <summary>
 	/// Идентификатор рекламного кабинета. обязательный параметр, целое число
 	/// </summary>
-	[JsonProperty("ad_format")]
+	[JsonPropertyName("ad_format")]
 	public AdFormat AdFormat { get; set; }
 
 	/// <summary>
 	/// Массив объектов UserSpecification
 	/// </summary>
-	[JsonProperty("icon")]
+	[JsonPropertyName("icon")]
 	public AdIcon Icon { get; set; }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,30 +12,30 @@ public class CreateTargetPixelParams
 	/// <summary>
 	/// Идентификатор рекламного кабинета.
 	/// </summary>
-	[JsonProperty("account_id")]
+	[JsonPropertyName("account_id")]
 	public long AccountId { get; set; }
 
 	/// <summary>
 	/// Id клиента, в рекламном кабинете которого будет создаваться пиксель.
 	/// </summary>
-	[JsonProperty("client_id")]
+	[JsonPropertyName("client_id")]
 	public long? ClientId { get; set; }
 
 	/// <summary>
 	/// Название пикселя — строка до 64 символов.
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// Домен сайта, на котором будет размещен пиксель.
 	/// </summary>
-	[JsonProperty("domain")]
+	[JsonPropertyName("domain")]
 	public string Domain { get; set; }
 
 	/// <summary>
 	/// Идентификатор категории сайта, на котором будет размещен пиксель.
 	/// </summary>
-	[JsonProperty("category_id")]
+	[JsonPropertyName("category_id")]
 	public long CategoryId { get; set; }
 }

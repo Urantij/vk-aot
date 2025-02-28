@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 using VkNet.Enums.StringEnums;
 
@@ -14,30 +14,30 @@ public class ClientInfo
 	/// <summary>
 	/// Массив кнопок, которые поддерживает клиент.
 	/// </summary>
-	[JsonProperty("button_actions")]
+	[JsonPropertyName("button_actions")]
 	public KeyboardButtonActionType?[] ButtonActions { get; set; }
 
 	/// <summary>
 	/// Поддерживается ли клавиатура ботов клиентом.
 	/// </summary>
-	[JsonProperty("keyboard")]
+	[JsonPropertyName("keyboard")]
 	public bool Keyboard { get; set; }
 
 	/// <summary>
 	/// Поддерживается ли carousel клиентом.
 	/// </summary>
-	[JsonProperty("carousel")]
+	[JsonPropertyName("carousel")]
 	public bool Carousel { get; set; }
 
 	/// <summary>
 	/// Поддерживается ли inline-клавиатура ботов клиентом.
 	/// </summary>
-	[JsonProperty("inline_keyboard")]
+	[JsonPropertyName("inline_keyboard")]
 	public bool InlineKeyboard { get; set; }
 
 	/// <summary>
 	/// Id используемого языка.
 	/// </summary>
-	[JsonProperty("lang_id")]
+	[JsonPropertyName("lang_id")]
 	public Language LangId { get; set; }
 }

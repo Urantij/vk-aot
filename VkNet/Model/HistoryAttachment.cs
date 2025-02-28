@@ -1,6 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
@@ -14,39 +13,39 @@ public class HistoryAttachment
 	/// <summary>
 	/// Идентификатор сообщения, в котором было отправлено вложение.
 	/// </summary>
-	[JsonProperty("message_id")]
+	[JsonPropertyName("message_id")]
 	public int MessageId { get; set; }
 
 	/// <summary>
 	/// Информация о вложении.
 	/// </summary>
-	[JsonProperty("attachment")]
+	[JsonPropertyName("attachment")]
 	[JsonConverter(typeof(HistoryAttachmentJsonConverter))]
 	public Attachment Attachment { get; set; }
 
 	/// <summary>
 	/// Тип плейлиста.
 	/// </summary>
-	[JsonProperty("forward_level")]
+	[JsonPropertyName("forward_level")]
 	public int ForwardLevel { get; set; }
 
 	/// <summary>
 	/// Идентификатор вложения
 	/// </summary>
-	[JsonProperty("cmid")]
+	[JsonPropertyName("cmid")]
 	public long Cmid { get; set; }
 
 	/// <summary>
 	/// Идентификатор владельца
 	/// </summary>
-	[JsonProperty("from_id")]
+	[JsonPropertyName("from_id")]
 	public long FromId { get; set; }
 
 	/// <summary>
 	/// Дата
 	/// </summary>
 	[JsonConverter(typeof(UnixDateTimeConverter))]
-	[JsonProperty("date")]
+	[JsonPropertyName("date")]
 	public DateTime Date { get; set; }
 
 }

@@ -282,11 +282,11 @@ public partial class GroupsCategory
 		TypeHelper.TryInvokeMethodAsync(() =>
 			GetCallbackSettings(groupId, serverId), token);
 
-	/// <inheritdoc />
-	public Task<bool> SetCallbackSettingsAsync(CallbackServerParams @params,
-												CancellationToken token = default) =>
-		TypeHelper.TryInvokeMethodAsync(() =>
-			SetCallbackSettings(@params), token);
+	// /// <inheritdoc />
+	// public Task<bool> SetCallbackSettingsAsync(CallbackServerParams @params,
+	// 											CancellationToken token = default) =>
+	// 	TypeHelper.TryInvokeMethodAsync(() =>
+	// 		SetCallbackSettings(@params), token);
 
 	/// <inheritdoc />
 	public Task<LongPollServerResponse> GetLongPollServerAsync(ulong groupId,

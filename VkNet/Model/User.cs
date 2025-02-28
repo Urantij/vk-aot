@@ -1,7 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 using VkNet.Enums.StringEnums;
 using VkNet.Utils.JsonConverter;
@@ -26,16 +26,16 @@ public class User
 	/// <summary>
 	/// Идентификатор пользователя.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Имя пользователя.
 	/// </summary>
-	[JsonProperty("first_name")]
+	[JsonPropertyName("first_name")]
 	public string FirstName { get; set; }
 
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	private string Name
 	{
 		get => FirstName;
@@ -45,7 +45,7 @@ public class User
 	/// <summary>
 	/// Фамилия пользователя.
 	/// </summary>
-	[JsonProperty("last_name")]
+	[JsonPropertyName("last_name")]
 	public string LastName { get; set; }
 
 	/// <summary>
@@ -54,7 +54,7 @@ public class User
 	/// страница» — «Только пользователям ВКонтакте».
 	/// Обратите внимание, в этом случае дополнительные поля fields не возвращаются.
 	/// </summary>
-	[JsonProperty("hidden")]
+	[JsonPropertyName("hidden")]
 	public bool Hidden { get; set; }
 
 	/// <summary>
@@ -63,7 +63,7 @@ public class User
 	/// <remarks>
 	/// Начиная с версии 5.89 обязательное поле
 	/// </remarks>
-	[JsonProperty("is_closed")]
+	[JsonPropertyName("is_closed")]
 	public bool? IsClosed { get; set; }
 
 	/// <summary>
@@ -72,7 +72,7 @@ public class User
 	/// <remarks>
 	/// Начиная с версии 5.89 обязательное поле
 	/// </remarks>
-	[JsonProperty("can_access_closed")]
+	[JsonPropertyName("can_access_closed")]
 	public bool? CanAccessClosed { get; set; }
 
 	#endregion
@@ -82,25 +82,27 @@ public class User
 	/// <summary>
 	/// Причина блокирования аккаунта
 	/// </summary>
-	[JsonProperty("deactivated", DefaultValueHandling = DefaultValueHandling.Populate)]
+	// TODO Какое тут дефолтное значение то?
+	// [JsonProperty("deactivated", DefaultValueHandling = DefaultValueHandling.Populate)]
+	[JsonPropertyName("deactivated")]
 	public Deactivated? Deactivated { get; set; }
 
 	/// <summary>
 	/// Информация пользователя о себе.
 	/// </summary>
-	[JsonProperty("about")]
+	[JsonPropertyName("about")]
 	public string About { get; set; }
 
 	/// <summary>
 	/// Информация пользователя о себе.
 	/// </summary>
-	[JsonProperty("twitter")]
+	[JsonPropertyName("twitter")]
 	public string Twitter { get; set; }
 
 	/// <summary>
 	/// Чем занимается пользователь.
 	/// </summary>
-	[JsonProperty("activities")]
+	[JsonPropertyName("activities")]
 	public string Activities { get; set; }
 
 	/// <summary>
@@ -108,64 +110,64 @@ public class User
 	/// год рождения скрыт).
 	/// Если дата рождения скрыта целиком, поле отсутствует в ответе.
 	/// </summary>
-	[JsonProperty("bdate")]
+	[JsonPropertyName("bdate")]
 	public string BirthDate { get; set; }
 
 	/// <summary>
 	/// Возвращается 1, если текущий пользователь находится в черном списке у
 	/// запрашиваемого пользователя.
 	/// </summary>
-	[JsonProperty("blacklisted")]
+	[JsonPropertyName("blacklisted")]
 	public bool Blacklisted { get; set; }
 
 	/// <summary>
 	/// Возвращается 1, если запрашиваемый пользователь находится в черном списке у
 	/// текущего пользователя.
 	/// </summary>
-	[JsonProperty("blacklisted_by_me")]
+	[JsonPropertyName("blacklisted_by_me")]
 	public bool BlacklistedByMe { get; set; }
 
 	/// <summary>
 	/// Любимые книги пользователя.
 	/// </summary>
-	[JsonProperty("books")]
+	[JsonPropertyName("books")]
 	public string Books { get; set; }
 
 	/// <summary>
 	/// Признак разрешено ли оставлять записи на стене у пользователя.
 	/// </summary>
-	[JsonProperty("can_post")]
+	[JsonPropertyName("can_post")]
 	public bool CanPost { get; set; }
 
 	/// <summary>
 	/// Признак разрешено ли видеть чужие записи на стене пользователя.
 	/// </summary>
-	[JsonProperty("can_see_all_posts")]
+	[JsonPropertyName("can_see_all_posts")]
 	public bool CanSeeAllPosts { get; set; }
 
 	/// <summary>
 	/// Признак разрешено ли видеть чужие аудиозаписи на стене пользователя.
 	/// </summary>
-	[JsonProperty("can_see_audio")]
+	[JsonPropertyName("can_see_audio")]
 	public bool CanSeeAudio { get; set; }
 
 	/// <summary>
 	/// Информация о том, будет ли отправлено уведомление пользователю о заявке в
 	/// друзья.
 	/// </summary>
-	[JsonProperty("can_send_friend_request")]
+	[JsonPropertyName("can_send_friend_request")]
 	public bool CanSendFriendRequest { get; set; }
 
 	/// <summary>
 	/// Признак разрешено ли написание личных сообщений данному пользователю.
 	/// </summary>
-	[JsonProperty("can_write_private_message")]
+	[JsonPropertyName("can_write_private_message")]
 	public bool CanWritePrivateMessage { get; set; }
 
 	/// <summary>
 	/// Информация о карьере пользователя.
 	/// </summary>
-	[JsonProperty("career")]
+	[JsonPropertyName("career")]
 	public ReadOnlyCollection<Career> Career { get; set; }
 
 	/// <summary>
@@ -173,32 +175,32 @@ public class User
 	/// Если город не указан, или основная информация страницы скрыта настройками
 	/// приватности, то 0.
 	/// </summary>
-	[JsonProperty("city")]
+	[JsonPropertyName("city")]
 	public City City { get; set; }
 
 	/// <summary>
 	/// Общее количество друзей с текущим пользователем.
 	/// </summary>
-	[JsonProperty("common_count")]
+	[JsonPropertyName("common_count")]
 	public int? CommonCount { get; set; }
 
 	/// <summary>
 	/// Данные о подключенных сервисах пользователя, таких как: skype, facebook,
 	/// twitter, instagram.
 	/// </summary>
-	[JsonProperty("connections")]
+	[JsonPropertyName("connections")]
 	public Connections Connections { get; set; }
 
 	/// <summary>
 	/// Информация о телефонных номерах пользователя.
 	/// </summary>
-	[JsonProperty("contacts")]
+	[JsonPropertyName("contacts")]
 	public Contacts Contacts { get; set; }
 
 	/// <summary>
 	/// Различные счетчики пользователя.
 	/// </summary>
-	[JsonProperty("counters")]
+	[JsonPropertyName("counters")]
 	public Counters Counters { get; set; }
 
 	/// <summary>
@@ -206,14 +208,14 @@ public class User
 	/// Если страна не указана или основная информация страницы скрыта настройками
 	/// приватности, то 0.
 	/// </summary>
-	[JsonProperty("country")]
+	[JsonPropertyName("country")]
 	public Country Country { get; set; }
 
 	/// <summary>
 	/// Возвращает данные о точках, по которым вырезаны профильная и миниатюрная
 	/// фотографии пользователя.
 	/// </summary>
-	[JsonProperty("crop_photo")]
+	[JsonPropertyName("crop_photo")]
 	public CropPhoto CropPhoto { get; set; }
 
 	/// <summary>
@@ -222,159 +224,159 @@ public class User
 	/// сам поддомен, например, andrew). Если он не назначен, то "id"+uid, например,
 	/// id35828305.
 	/// </summary>
-	[JsonProperty("domain")]
+	[JsonPropertyName("domain")]
 	public string Domain { get; set; }
 
 	/// <summary>
 	/// Сведения об образовании пользователя.
 	/// </summary>
-	[JsonProperty("education")]
+	[JsonPropertyName("education")]
 	public Education Education { get; set; }
 
 	/// <summary>
 	/// Внешние сервисы, в которые настроен экспорт из ВК.
 	/// </summary>
-	[JsonProperty("exports")]
+	[JsonPropertyName("exports")]
 	public Exports Exports { get; set; }
 
 	/// <summary>
 	/// Имя в именительном падеже
 	/// </summary>
-	[JsonProperty("first_name_nom")]
+	[JsonPropertyName("first_name_nom")]
 	public string FirstNameNom { get; set; }
 
 	/// <summary>
 	/// Имя в родительном падеже
 	/// </summary>
-	[JsonProperty("first_name_gen")]
+	[JsonPropertyName("first_name_gen")]
 	public string FirstNameGen { get; set; }
 
 	/// <summary>
 	/// Имя в дательном падеже
 	/// </summary>
-	[JsonProperty("first_name_dat")]
+	[JsonPropertyName("first_name_dat")]
 	public string FirstNameDat { get; set; }
 
 	/// <summary>
 	/// Имя в винительном падеже
 	/// </summary>
-	[JsonProperty("first_name_acc")]
+	[JsonPropertyName("first_name_acc")]
 	public string FirstNameAcc { get; set; }
 
 	/// <summary>
 	/// Имя в творительном падеже
 	/// </summary>
-	[JsonProperty("first_name_ins")]
+	[JsonPropertyName("first_name_ins")]
 	public string FirstNameIns { get; set; }
 
 	/// <summary>
 	/// Имя в предложном падеже
 	/// </summary>
-	[JsonProperty("first_name_abl")]
+	[JsonPropertyName("first_name_abl")]
 	public string FirstNameAbl { get; set; }
 
 	/// <summary>
 	/// Количество подписчиков пользователя.
 	/// </summary>
-	[JsonProperty("followers_count")]
+	[JsonPropertyName("followers_count")]
 	public long? FollowersCount { get; set; }
 
 	/// <summary>
 	/// Состояние дружбы с пользователями.
 	/// </summary>
-	[JsonProperty("friend_status")]
+	[JsonPropertyName("friend_status")]
 	public FriendStatus? FriendStatus { get; set; }
 
 	/// <summary>
 	/// Любимые игры пользователя.
 	/// </summary>
-	[JsonProperty("games")]
+	[JsonPropertyName("games")]
 	public string Games { get; set; }
 
 	/// <summary>
 	/// Информация о том, известен ли номер мобильного телефона пользователя (true -
 	/// известен, false - не известен).
 	/// </summary>
-	[JsonProperty("has_mobile")]
+	[JsonPropertyName("has_mobile")]
 	public bool? HasMobile { get; set; }
 
 	/// <summary>
 	/// Возвращается 1, если текущий пользователь установил фотографию для профиля.
 	/// </summary>
-	[JsonProperty("has_photo")]
+	[JsonPropertyName("has_photo")]
 	public bool? HasPhoto { get; set; }
 
 	/// <summary>
 	/// Родной город пользователя.
 	/// </summary>
-	[JsonProperty("home_town")]
+	[JsonPropertyName("home_town")]
 	public string HomeTown { get; set; }
 
 	/// <summary>
 	/// Интересы пользователя.
 	/// </summary>
-	[JsonProperty("interests")]
+	[JsonPropertyName("interests")]
 	public string Interests { get; set; }
 
 	/// <summary>
 	/// Возвращается 1, если пользователь находится в закладках у текущего
 	/// пользователя.
 	/// </summary>
-	[JsonProperty("is_favorite")]
+	[JsonPropertyName("is_favorite")]
 	public bool IsFavorite { get; set; }
 
 	/// <summary>
 	/// 1 – пользователь друг, 2 – пользователь не в друзьях.
 	/// </summary>
-	[JsonProperty("is_friend")]
+	[JsonPropertyName("is_friend")]
 	public bool? IsFriend { get; set; }
 
 	/// <summary>
 	/// Возвращается 1, если пользователь скрыт в новостях у текущего пользователя.
 	/// </summary>
-	[JsonProperty("is_hidden_from_feed")]
+	[JsonPropertyName("is_hidden_from_feed")]
 	public bool IsHiddenFromFeed { get; set; }
 
 	/// <summary>
 	/// Фамилия в именительном падеже
 	/// </summary>
-	[JsonProperty("last_name_nom")]
+	[JsonPropertyName("last_name_nom")]
 	public string LastNameNom { get; set; }
 
 	/// <summary>
 	/// Фамилия в родительном падеже
 	/// </summary>
-	[JsonProperty("last_name_gen")]
+	[JsonPropertyName("last_name_gen")]
 	public string LastNameGen { get; set; }
 
 	/// <summary>
 	/// Фамилия в дательном падеже
 	/// </summary>
-	[JsonProperty("last_name_dat")]
+	[JsonPropertyName("last_name_dat")]
 	public string LastNameDat { get; set; }
 
 	/// <summary>
 	/// Фамилия в винительном падеже
 	/// </summary>
-	[JsonProperty("last_name_acc")]
+	[JsonPropertyName("last_name_acc")]
 	public string LastNameAcc { get; set; }
 
 	/// <summary>
 	/// Фамилия в творительном падеже
 	/// </summary>
-	[JsonProperty("last_name_ins")]
+	[JsonPropertyName("last_name_ins")]
 	public string LastNameIns { get; set; }
 
 	/// <summary>
 	/// Фамилия в предложном падеже
 	/// </summary>
-	[JsonProperty("last_name_abl")]
+	[JsonPropertyName("last_name_abl")]
 	public string LastNameAbl { get; set; }
 
 	/// <summary>
 	/// Время последнего посещения сайта.
 	/// </summary>
-	[JsonProperty("last_seen")]
+	[JsonPropertyName("last_seen")]
 	public LastSeen LastSeen { get; set; }
 
 	/// <summary>
@@ -389,49 +391,49 @@ public class User
 	/// <remarks>
 	/// поле lists
 	/// </remarks>
-	[JsonProperty("lists")]
+	[JsonPropertyName("lists")]
 	public ReadOnlyCollection<long> FriendLists { get; set; }
 
 	/// <summary>
 	/// Девичья фамилия (только для женского пола)
 	/// </summary>
-	[JsonProperty("maiden_name")]
+	[JsonPropertyName("maiden_name")]
 	public string MaidenName { get; set; }
 
 	/// <summary>
 	/// Информация о военной службе пользователя.
 	/// </summary>
-	[JsonProperty("military")]
+	[JsonPropertyName("military")]
 	public Military[] Military { get; set; }
 
 	/// <summary>
 	/// Любимые фильмы пользователя.
 	/// </summary>
-	[JsonProperty("movies")]
+	[JsonPropertyName("movies")]
 	public string Movies { get; set; }
 
 	/// <summary>
 	/// Любимая музыка пользователя.
 	/// </summary>
-	[JsonProperty("music")]
+	[JsonPropertyName("music")]
 	public string Music { get; set; }
 
 	/// <summary>
 	/// Прозвище (ник) пользователя.
 	/// </summary>
-	[JsonProperty("nickname")]
+	[JsonPropertyName("nickname")]
 	public string Nickname { get; set; }
 
 	/// <summary>
 	/// Информация о текущем роде занятия пользователя.
 	/// </summary>
-	[JsonProperty("occupation")]
+	[JsonPropertyName("occupation")]
 	public Occupation Occupation { get; set; }
 
 	/// <summary>
 	/// Признак находится ли пользователь сейчас на сайте.
 	/// </summary>
-	[JsonProperty("online")]
+	[JsonPropertyName("online")]
 	public bool? Online { get; set; }
 
 	/// <summary>
@@ -440,7 +442,7 @@ public class User
 	/// <remarks>
 	/// поле <c> personal </c>
 	/// </remarks>
-	[JsonProperty("personal")]
+	[JsonPropertyName("personal")]
 	public StandInLife StandInLife { get; set; }
 
 	/// <summary>
@@ -448,7 +450,7 @@ public class User
 	/// отсутствия у пользователя фотографии
 	/// возвращается http://vk.com/images/camera_c.gif
 	/// </summary>
-	[JsonProperty("photo_50")]
+	[JsonPropertyName("photo_50")]
 	public Uri Photo50 { get; set; }
 
 	/// <summary>
@@ -456,7 +458,7 @@ public class User
 	/// отсутствия у пользователя фотографии
 	/// возвращается http://vk.com/images/camera_b.gif.
 	/// </summary>
-	[JsonProperty("photo_100")]
+	[JsonPropertyName("photo_100")]
 	public Uri Photo100 { get; set; }
 
 	/// <summary>
@@ -464,7 +466,7 @@ public class User
 	/// пользователя фотографии
 	/// возвращается http://vk.com/images/camera_a.gif.
 	/// </summary>
-	[JsonProperty("photo_200_orig")]
+	[JsonPropertyName("photo_200_orig")]
 	public Uri Photo200Orig { get; set; }
 
 	/// <summary>
@@ -473,7 +475,7 @@ public class User
 	/// изображения с такими размерами может не быть, в этом случае ответ не будет
 	/// содержать этого поля.
 	/// </summary>
-	[JsonProperty("photo_200")]
+	[JsonPropertyName("photo_200")]
 	public Uri Photo200 { get; set; }
 
 	/// <summary>
@@ -481,7 +483,7 @@ public class User
 	/// Если у пользователя отсутствует фотография такого размера, ответ не будет
 	/// содержать этого поля.
 	/// </summary>
-	[JsonProperty("photo_400_orig")]
+	[JsonPropertyName("photo_400_orig")]
 	public Uri Photo400Orig { get; set; }
 
 	/// <summary>
@@ -490,7 +492,7 @@ public class User
 	/// В некоторых случаях (если фотография была установлена очень давно) это поле не
 	/// возвращается.
 	/// </summary>
-	[JsonProperty("photo_id")]
+	[JsonPropertyName("photo_id")]
 	public string PhotoId { get; set; }
 
 	/// <summary>
@@ -499,7 +501,7 @@ public class User
 	/// В случае отсутствия у пользователя фотографии возвращается
 	/// http://vk.com/images/camera_b.gif.
 	/// </summary>
-	[JsonProperty("photo_max")]
+	[JsonPropertyName("photo_max")]
 	public Uri PhotoMax { get; set; }
 
 	/// <summary>
@@ -508,99 +510,99 @@ public class User
 	/// В случае отсутствия у пользователя фотографии возвращается
 	/// http://vk.com/images/camera_a.gif.
 	/// </summary>
-	[JsonProperty("photo_max_orig")]
+	[JsonPropertyName("photo_max_orig")]
 	public Uri PhotoMaxOrig { get; set; }
 
 	/// <summary>
 	/// Избранные пользователем цитаты.
 	/// </summary>
-	[JsonProperty("quotes")]
+	[JsonPropertyName("quotes")]
 	public string Quotes { get; set; }
 
 	/// <summary>
 	/// Родственники пользователя.
 	/// </summary>
-	[JsonProperty("relatives")]
+	[JsonPropertyName("relatives")]
 	public ReadOnlyCollection<Relative> Relatives { get; set; }
 
 	/// <summary>
 	/// Семейное положение.
 	/// </summary>
-	[JsonProperty("relation")]
+	[JsonPropertyName("relation")]
 	public RelationType? Relation { get; set; }
 
 	/// <summary>
 	/// Школы, в которых учился пользователь.
 	/// </summary>
-	[JsonProperty("schools")]
+	[JsonPropertyName("schools")]
 	public ReadOnlyCollection<School> Schools { get; set; }
 
 	/// <summary>
 	/// Короткое имя (поддомен) страницы пользователя.
 	/// </summary>
-	[JsonProperty("screen_name")]
+	[JsonPropertyName("screen_name")]
 	public string ScreenName { get; set; }
 
 	/// <summary>
 	/// Пол пользователя.
 	/// </summary>
-	[JsonProperty("sex")]
+	[JsonPropertyName("sex")]
 	public Sex? Sex { get; set; }
 
 	/// <summary>
 	/// Возвращает указанный в профиле сайт пользователя.
 	/// </summary>
-	[JsonProperty("site")]
+	[JsonPropertyName("site")]
 	public string Site { get; set; }
 
 	/// <summary>
 	/// Строка со статусом пользователя.
 	/// </summary>
-	[JsonProperty("status")]
+	[JsonPropertyName("status")]
 	public string Status { get; set; }
 
 	/// <summary>
 	/// Объект аудиозаписи, установленной в статус (если аудиозапись транслируется в текущей момент).
 	/// </summary>
-	[JsonProperty("status_audio")]
+	[JsonPropertyName("status_audio")]
 	public Audio StatusAudio { get; set; }
 
 	/// <summary>
 	/// Часовой пояс пользователя.
 	/// </summary>
-	[JsonProperty("timezone")]
+	[JsonPropertyName("timezone")]
 	public int? Timezone { get; set; }
 
 	/// <summary>
 	/// Возвращается 1, если запрашиваемый пользователь находится в черном списке у
 	/// текущего пользователя.
 	/// </summary>
-	[JsonProperty("trending")]
+	[JsonPropertyName("trending")]
 	public bool Trending { get; set; }
 
 	/// <summary>
 	/// Любимые телешоу пользователя.
 	/// </summary>
-	[JsonProperty("tv")]
+	[JsonPropertyName("tv")]
 	public string Tv { get; set; }
 
 	/// <summary>
 	/// Список высших учебных заведений, в которых учился пользователь.
 	/// </summary>
-	[JsonProperty("universities")]
+	[JsonPropertyName("universities")]
 	public ReadOnlyCollection<University> Universities { get; set; }
 
 	/// <summary>
 	/// Возвращается 1, если страница пользователя верифицирована, 0 — если не
 	/// верифицирована.
 	/// </summary>
-	[JsonProperty("verified")]
+	[JsonPropertyName("verified")]
 	public bool? Verified { get; set; }
 
 	/// <summary>
 	/// Доступно ли комментирование стены (1 — доступно, 0 — недоступно).
 	/// </summary>
-	[JsonProperty("wall_default")]
+	[JsonPropertyName("wall_default")]
 	public bool WallComments { get; set; }
 
 	#endregion
@@ -610,75 +612,75 @@ public class User
 	/// <summary>
 	/// Информация о ссылках на предпросмотр фотографий пользователя.
 	/// </summary>
-	[JsonProperty("photo_previews")]
+	[JsonPropertyName("photo_previews")]
 	public Previews PhotoPreviews { get; set; }
 
 	/// <summary>
 	/// Номер мобильного телефона (если нет записи или скрыт, то null).
 	/// </summary>
-	[JsonProperty("mobile_phone")]
+	[JsonPropertyName("mobile_phone")]
 	public string MobilePhone { get; set; }
 
 	/// <summary>
 	/// Номер домашнего телефона (если нет записи или скрыт, то null).
 	/// </summary>
-	[JsonProperty("home_phone")]
+	[JsonPropertyName("home_phone")]
 	public string HomePhone { get; set; }
 
 	/// <summary>
 	/// Информация о блокировке пользователя
 	/// </summary>
-	[JsonProperty("ban_info")]
+	[JsonPropertyName("ban_info")]
 	public BanInfo BanInfo { get; set; }
 
 	/// <summary>
 	/// Является ли пользователь заблокированным
 	/// </summary>
-	[JsonProperty("is_deactivated")]
+	[JsonPropertyName("is_deactivated")]
 	public bool IsDeactivated { get; set; }
 
 	/// <summary>
 	/// Идентификатор языка, установленный в настройках.
 	/// </summary>
-	[JsonProperty("language")]
+	[JsonPropertyName("language")]
 	public long? Language { get; set; }
 
 	/// <summary>
 	/// Признак использует ли пользователь мобильное приложение либо мобильную версию
 	/// сайта.
 	/// </summary>
-	[JsonProperty("online_mobile")]
+	[JsonPropertyName("online_mobile")]
 	public bool? OnlineMobile { get; set; }
 
 	/// <summary>
 	/// Если пользователь зашёл через приложение, то Id приложения иначе null.
 	/// </summary>
-	[JsonProperty("online_app")]
+	[JsonPropertyName("online_app")]
 	public long? OnlineApp { get; set; }
 
 	/// <summary>
 	/// Партнер в семейных отношениях.
 	/// </summary>
-	[JsonProperty("relation_partner")]
+	[JsonPropertyName("relation_partner")]
 	public User RelationPartner { get; set; }
 
 	/// <summary>
 	/// Идентификатор пользователя, пригласившего пользователя в беседу (для
 	/// GetChatUsers).
 	/// </summary>
-	[JsonProperty("invited_by")]
+	[JsonPropertyName("invited_by")]
 	public long? InvitedBy { get; set; }
 
 	/// <summary>
 	/// Видимость даты рождения.
 	/// </summary>
-	[JsonProperty("bdate_visibility")]
+	[JsonPropertyName("bdate_visibility")]
 	public BirthdayVisibility? BirthdayVisibility { get; set; }
 
 	/// <summary>
 	/// Информация о заявке на смену имени.
 	/// </summary>
-	[JsonProperty("change_name_request")]
+	[JsonPropertyName("change_name_request")]
 	public ChangeNameRequest ChangeNameRequest { get; set; }
 
 	/// <summary>
@@ -693,7 +695,7 @@ public class User
 	/// <summary>
 	/// Полномочия руководителя (для Groups.GetMembers)
 	/// </summary>
-	[JsonProperty("role")]
+	[JsonPropertyName("role")]
 	public ManagerRole? Role { get; set; }
 
 	#endregion
@@ -703,28 +705,28 @@ public class User
 	/// <summary>
 	/// Количество друзей (для Groups.GetMembers)
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public long? Count { get; set; }
 
 	#endregion
 
 	#region private
 
-	[JsonProperty("uid")]
+	[JsonPropertyName("uid")]
 	private long Uid
 	{
 		get => Id;
 		set => Id = value;
 	}
 
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	private long UserId
 	{
 		get => Id;
 		set => Id = value;
 	}
 
-	[JsonProperty("phone")]
+	[JsonPropertyName("phone")]
 	private string Phone
 	{
 		get => MobilePhone;
@@ -736,31 +738,31 @@ public class User
 	/// <summary>
 	/// Идентификатор университета.
 	/// </summary>
-	[JsonProperty("university")]
+	[JsonPropertyName("university")]
 	public long? UniversityId { get; set; }
 
 	/// <summary>
 	/// Название ВУЗа.
 	/// </summary>
-	[JsonProperty("university_name")]
+	[JsonPropertyName("university_name")]
 	public string UniversityName { get; set; }
 
 	/// <summary>
 	/// Идентификатор факультета.
 	/// </summary>
-	[JsonProperty("faculty")]
+	[JsonPropertyName("faculty")]
 	public long? FacultyId { get; set; }
 
 	/// <summary>
 	/// Название факультета.
 	/// </summary>
-	[JsonProperty("faculty_name")]
+	[JsonPropertyName("faculty_name")]
 	public string FacultyName { get; set; }
 
 	/// <summary>
 	/// Год окончания.
 	/// </summary>
-	[JsonProperty("graduation")]
+	[JsonPropertyName("graduation")]
 	public int? Graduation { get; set; }
 
 	#region Поля, установленные экспериментально
@@ -768,13 +770,13 @@ public class User
 	/// <summary>
 	/// Форма обучения.
 	/// </summary>
-	[JsonProperty("education_form")]
+	[JsonPropertyName("education_form")]
 	public string EducationForm { get; set; }
 
 	/// <summary>
 	/// Текущий статус пользователя в высшем учебном заведении.
 	/// </summary>
-	[JsonProperty("education_status")]
+	[JsonPropertyName("education_status")]
 	public string EducationStatus { get; set; }
 
 	#endregion
@@ -782,24 +784,24 @@ public class User
 	/// <summary>
 	/// Логин в Skype.
 	/// </summary>
-	[JsonProperty("skype")]
+	[JsonPropertyName("skype")]
 	public string Skype { get; set; }
 
 	/// <summary>
 	/// Идентификатор акаунта в Facebook.
 	/// </summary>
-	[JsonProperty("facebook")]
+	[JsonPropertyName("facebook")]
 	public string Facebook { get; set; }
 
 	/// <summary>
 	/// Имя и фамилия в facebook.
 	/// </summary>
-	[JsonProperty("facebook_name")]
+	[JsonPropertyName("facebook_name")]
 	public string FacebookName { get; set; }
 
 	/// <summary>
 	/// Акаунт в Instagram.
 	/// </summary>
-	[JsonProperty("instagram")]
+	[JsonPropertyName("instagram")]
 	public string Instagram { get; set; }
 }

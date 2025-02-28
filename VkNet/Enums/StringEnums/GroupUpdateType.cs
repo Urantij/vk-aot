@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Enums.StringEnums;
@@ -279,7 +279,7 @@ public enum GroupUpdateType
 	/// Редактирование заказа
 	/// </summary>
 	AppPayload,
-    
+
     /// <summary>
     /// Реакция на сообщение
     /// </summary>

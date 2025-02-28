@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class Button
 	/// <summary>
 	/// Название кнопки.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Ссылка на которую ведет кнопка.
 	/// </summary>
-	[JsonProperty("url")]
+	[JsonPropertyName("url")]
 	public Uri Uri { get; set; }
 
 	/// <summary>
 	/// Действие
 	/// </summary>
-	[JsonProperty("action")]
+	[JsonPropertyName("action")]
 	public LinkButtonAction Action { get; set; }
 }

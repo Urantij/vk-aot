@@ -1,6 +1,7 @@
 #nullable enable
 using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using VkNet.Model;
 
 namespace VkNet.Utils.UsersLongPoll;
@@ -17,7 +18,7 @@ public static class UsersLongPollHelpers
 	/// <returns>
 	/// Возвращает список сообщений пользователя
 	/// </returns>
-	public static List<UserMessageEvent> GetUserMessageEvents(IEnumerable<JObject> jObjectMessages)
+	public static List<UserMessageEvent> GetUserMessageEvents(IEnumerable<JsonObject> jObjectMessages)
 	{
 		var userMessageEvents = new List<UserMessageEvent>();
 
@@ -25,7 +26,7 @@ public static class UsersLongPollHelpers
 		{
 			try
 			{
-				var message = jObjectMessage.ToObject<Message>();
+				var message = jObjectMessage.Deserialize<Message>(GlobalJsonSerializerOptions.Options);
 
 				userMessageEvents.Add(new()
 				{

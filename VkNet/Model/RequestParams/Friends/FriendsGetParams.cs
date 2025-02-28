@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.Filters;
 using VkNet.Enums.StringEnums;
 
@@ -18,7 +18,7 @@ public class FriendsGetParams
 	/// (справедливо для вызова с передачей access_token).
 	/// целое число.
 	/// </summary>
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	public long? UserId { get; set; }
 
 	/// <summary>
@@ -35,7 +35,7 @@ public class FriendsGetParams
 	/// fields)
 	/// строка.
 	/// </summary>
-	[JsonProperty("order")]
+	[JsonPropertyName("order")]
 	public FriendsOrder? Order { get; set; }
 
 	/// <summary>
@@ -45,21 +45,21 @@ public class FriendsGetParams
 	/// текущего пользователя.
 	/// Данный параметр доступен только для Desktop-приложений. положительное число.
 	/// </summary>
-	[JsonProperty("list_id")]
+	[JsonPropertyName("list_id")]
 	public long? ListId { get; set; }
 
 	/// <summary>
 	/// Количество друзей, которое нужно вернуть. (по умолчанию – все друзья)
 	/// положительное число.
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public long? Count { get; set; }
 
 	/// <summary>
 	/// Смещение, необходимое для выборки определенного подмножества друзей.
 	/// положительное число.
 	/// </summary>
-	[JsonProperty("offset")]
+	[JsonPropertyName("offset")]
 	public long? Offset { get; set; }
 
 	/// <summary>
@@ -70,7 +70,7 @@ public class FriendsGetParams
 	/// can_write_private_message, can_see_all_posts,
 	/// can_post, universities список строк, разделенных через запятую.
 	/// </summary>
-	[JsonProperty("fields")]
+	[JsonPropertyName("fields")]
 	public ProfileFields Fields { get; set; }
 
 	/// <summary>
@@ -79,12 +79,12 @@ public class FriendsGetParams
 	/// дательный – dat, винительный – acc, творительный – ins, предложный – abl. По
 	/// умолчанию nom. строка.
 	/// </summary>
-	[JsonProperty("name_case")]
+	[JsonPropertyName("name_case")]
 	public NameCase? NameCase { get; set; }
 
 	/// <summary>
 	/// Ссылка?
 	/// </summary>
-	[JsonProperty("ref")]
+	[JsonPropertyName("ref")]
 	public string Reference { get; set; }
 }

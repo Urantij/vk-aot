@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Abstractions;
 using VkNet.Enums.Filters;
 
@@ -17,13 +17,13 @@ public class GetAddressesParams
 	/// <remarks>
 	/// Положительное число, обязательный параметр
 	/// </remarks>
-	[JsonProperty("group_id")]
+	[JsonPropertyName("group_id")]
 	public ulong GroupId { get; set; }
 
 	/// <summary>
 	/// Список дополнительных полей сообществ, которые необходимо вернуть.
 	/// </summary>
-	[JsonProperty("fields")]
+	[JsonPropertyName("fields")]
 	public GroupsFields Fields { get; set; }
 
 	/// <summary>
@@ -32,7 +32,7 @@ public class GetAddressesParams
 	/// <remarks>
 	/// Список положительных чисел, разделенных запятыми
 	/// </remarks>
-	[JsonProperty("address_ids")]
+	[JsonPropertyName("address_ids")]
 	public ulong[] AddressIds { get; set; }
 
 	/// <summary>
@@ -41,7 +41,7 @@ public class GetAddressesParams
 	/// <remarks>
 	/// Дробное число, минимальное значение -90, максимальное значение 90
 	/// </remarks>
-	[JsonProperty("latitude")]
+	[JsonPropertyName("latitude")]
 	public decimal? Latitude { get; set; }
 
 	/// <summary>
@@ -50,7 +50,7 @@ public class GetAddressesParams
 	/// <remarks>
 	/// Дробное число, минимальное значение -180, максимальное значение 180
 	/// </remarks>
-	[JsonProperty("longitude")]
+	[JsonPropertyName("longitude")]
 	public decimal? Longitude { get; set; }
 
 	/// <summary>
@@ -59,7 +59,7 @@ public class GetAddressesParams
 	/// <remarks>
 	/// Положительное число
 	/// </remarks>
-	[JsonProperty("offset")]
+	[JsonPropertyName("offset")]
 	public ulong? Offset { get; set; }
 
 	/// <summary>
@@ -68,6 +68,6 @@ public class GetAddressesParams
 	/// <remarks>
 	/// Положительное число, по умолчанию 10
 	/// </remarks>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public ulong? Count { get; set; }
 }

@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -17,19 +17,19 @@ public abstract class MediaAttachment
 	/// <summary>
 	/// Идентификатор вложенеия.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long? Id { get; set; }
 
 	/// <summary>
 	/// Идентификатор владельца вложения.
 	/// </summary>
-	[JsonProperty("owner_id")]
+	[JsonPropertyName("owner_id")]
 	public long? OwnerId { get; set; }
 
 	/// <summary>
 	/// Ключ доступа
 	/// </summary>
-	[JsonProperty("access_key")]
+	[JsonPropertyName("access_key")]
 	public string AccessKey { get; set; }
 
 	/// <summary>

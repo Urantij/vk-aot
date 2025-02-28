@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -17,17 +17,17 @@ public class FaveSetTagsParams
 	/// <remarks>
 	/// Для работы с объектами пользователя или сообщества используйте метод fave.setPageTags
 	/// </remarks>
-	[JsonProperty("item_type")]
+	[JsonPropertyName("item_type")]
 	public FaveType? ItemType { get; set; }
 
 	/// <summary>
 	/// Идентификатор ссылки, которой требуется присвоить метку.
 	/// </summary>
-	[JsonProperty("link_id")]
+	[JsonPropertyName("link_id")]
 	public string LinkId { get; set; }
 
 	/// <summary/>
-	[JsonProperty("link_url")]
+	[JsonPropertyName("link_url")]
 	public string LinkUrl { get; set; }
 
 	/// <summary>
@@ -35,18 +35,18 @@ public class FaveSetTagsParams
 	/// Обратите внимание, идентификатор сообщества в параметре owner_id необходимо указывать со знаком "-" — например,
 	/// owner_id=-1 соответствует идентификатору сообщества ВКонтакте API (club1).
 	/// </summary>
-	[JsonProperty("item_owner_id")]
+	[JsonPropertyName("item_owner_id")]
 	public long? ItemOwnerId { get; set; }
 
 	/// <summary>
 	/// Идентификатор объекта.
 	/// </summary>
-	[JsonProperty("item_id")]
+	[JsonPropertyName("item_id")]
 	public long? ItemId { get; set; }
 
 	/// <summary>
 	/// Идентификатор метки, которую требуется присвоить объекту.
 	/// </summary>
-	[JsonProperty("tag_ids")]
+	[JsonPropertyName("tag_ids")]
 	public IEnumerable<long> TagIds { get; set; }
 }

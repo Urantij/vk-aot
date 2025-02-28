@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -18,25 +18,25 @@ public class BoardGetTopicsParams
 	/// сообщества ВКонтакте API (club1)  целое число, по умолчанию идентификатор
 	/// текущего пользователя.
 	/// </summary>
-	[JsonProperty(propertyName: "group_id")]
+	[JsonPropertyName("group_id")]
 	public long? GroupId { get; set; }
 
 	/// <summary>
 	/// Cписок идентификаторов тем, которые необходимо получить (не более 100).
 	/// </summary>
-	[JsonProperty(propertyName: "topic_ids")]
+	[JsonPropertyName("topic_ids")]
 	public IEnumerable<long> TopicIds { get; set; }
 
 	/// <summary>
 	/// Порядок, в котором необходимо вернуть список тем.
 	/// </summary>
-	[JsonProperty(propertyName: "order")]
+	[JsonPropertyName("order")]
 	public int? Order { get; set; }
 
 	/// <summary>
 	/// Сдвиг, необходимый для получения конкретной выборки результатов. целое число.
 	/// </summary>
-	[JsonProperty(propertyName: "offset")]
+	[JsonPropertyName("offset")]
 	public long? Offset { get; set; }
 
 	/// <summary>
@@ -44,7 +44,7 @@ public class BoardGetTopicsParams
 	/// максимальное значение — 100. положительное
 	/// число.
 	/// </summary>
-	[JsonProperty(propertyName: "count")]
+	[JsonPropertyName("count")]
 	public long? Count { get; set; }
 
 	/// <summary>
@@ -52,7 +52,7 @@ public class BoardGetTopicsParams
 	/// пользователях, являющихся создателями
 	/// тем или оставившими в них последнее сообщение. По умолчанию 0.
 	/// </summary>
-	[JsonProperty(propertyName: "extended")]
+	[JsonPropertyName("extended")]
 	public bool? Extended { get; set; }
 
 	/// <summary>
@@ -60,7 +60,7 @@ public class BoardGetTopicsParams
 	/// текст первых и последних сообщений в
 	/// них..
 	/// </summary>
-	[JsonProperty(propertyName: "preview")]
+	[JsonPropertyName("preview")]
 	public int? Preview { get; set; }
 
 	/// <summary>
@@ -68,6 +68,6 @@ public class BoardGetTopicsParams
 	/// Укажите 0, если Вы не хотите обрезать
 	/// сообщение. (по умолчанию — 90).
 	/// </summary>
-	[JsonProperty(propertyName: "preview_length")]
+	[JsonPropertyName("preview_length")]
 	public int? PreviewLength { get; set; }
 }

@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -18,7 +18,7 @@ public class Call : MediaAttachment
 	/// <summary>
 	/// Идентификатор инициатора звонка.
 	/// </summary>
-	[JsonProperty("initiator_id")]
+	[JsonPropertyName("initiator_id")]
 	public long InitiatorId { get; set; }
 
 	/// <summary>
@@ -29,7 +29,7 @@ public class Call : MediaAttachment
 	/// Это означает, что получатель звонка может отличаться от Id чата, в который было отправлено сообщение, содержащее звонок.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("receiver_id")]
+	[JsonPropertyName("receiver_id")]
 	public long ReceiverId { get; set; }
 
 	/// <summary>
@@ -38,13 +38,13 @@ public class Call : MediaAttachment
 	/// Известно только про состояние <b>reached</b>
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("state")]
+	[JsonPropertyName("state")]
 	public string State { get; set; }
 
 	/// <summary>
 	/// Длительность вызова в секундах
 	/// </summary>
-	[JsonProperty("duration")]
+	[JsonPropertyName("duration")]
 	public long? Duration { get; set; }
 
 	/// <summary>
@@ -53,13 +53,13 @@ public class Call : MediaAttachment
 	/// Обычно совпадает с временем создания соответствующего сообщения.
 	/// </remarks>
 	/// </summary>
-	[JsonProperty("time")]
+	[JsonPropertyName("time")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime Time { get; set; }
 
 	/// <summary>
 	/// Было ли использовано видео в звонке
 	/// </summary>
-	[JsonProperty("video")]
+	[JsonPropertyName("video")]
 	public bool? Video { get; set; }
 }

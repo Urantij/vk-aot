@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 using VkNet.Model;
 
 namespace VkNet.Utils.JsonConverter;
@@ -11,75 +12,41 @@ namespace VkNet.Utils.JsonConverter;
 /// <summary>
 /// Attachment JsonConverter
 /// </summary>
-/// <seealso cref="Newtonsoft.Json.JsonConverter" />
-public class AttachmentJsonConverter : Newtonsoft.Json.JsonConverter
+/// <seealso cref="JsonConverter" />
+public class AttachmentJsonConverter : System.Text.Json.Serialization.JsonConverter<Attachment>
 {
 	/// <inheritdoc />
 	/// <exception cref="T:System.NotImplementedException"> </exception>
-	public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+	public override void Write(Utf8JsonWriter writer, Attachment value, JsonSerializerOptions options)
 	{
-		var attachments = (IEnumerable<Attachment>) value;
+		var type = value.Type.Name.ToLower();
 
-		var jArray = new JArray();
-
-		foreach (var attachment in attachments)
+		var jObj = new JsonObject()
 		{
-			var type = attachment.Type.Name.ToLower();
-
-			var jObj = new JObject
 			{
-				{
-					"type", type
-				},
-				{
-					type, JToken.FromObject(attachment.Instance, serializer)
-				}
-			};
+				"type", type
+			},
+			{
+				type, JsonSerializer.SerializeToNode(value.Instance, options)
+			}
+		};
 
-			jArray.Add(jObj);
-		}
-
-		jArray.WriteTo(writer);
+		jObj.WriteTo(writer, options);
 	}
 
 	/// <inheritdoc />
 	/// <exception cref="T:System.TypeAccessException"> </exception>
-	public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+	public override Attachment Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 	{
-		if (!objectType.IsGenericType)
+		JsonNode item = JsonNode.Parse(ref reader, new JsonNodeOptions()
 		{
-			throw new TypeAccessException();
-		}
+			PropertyNameCaseInsensitive = options.PropertyNameCaseInsensitive
+		});
 
-		if (reader.TokenType is JsonToken.Null)
-		{
-			return null;
-		}
-
-		if (reader.TokenType is not JsonToken.StartArray)
-		{
-			return null;
-		}
-
-		var keyType = objectType.GetGenericArguments()[0];
-
-		var constructedListType = typeof(List<>).MakeGenericType(keyType);
-
-		var list = (IList) Activator.CreateInstance(type: constructedListType);
-
-		var vkCollection = typeof(ReadOnlyCollection<>).MakeGenericType(keyType);
-
-		var obj = JArray.Load(reader: reader);
-
-		foreach (var item in obj)
-		{
-			list.Add(AttachmentConverterService.Instance.FromJson(item));
-		}
-
-		return Activator.CreateInstance(vkCollection, list);
+		return AttachmentConverterService.Instance.FromJson(item);
 	}
 
 
-	/// <inheritdoc />
-	public override bool CanConvert(Type objectType) => typeof(ReadOnlyCollection<>).IsAssignableFrom(c: objectType);
+	// /// <inheritdoc />
+	// public override bool CanConvert(Type objectType) => typeof(ReadOnlyCollection<>).IsAssignableFrom(c: objectType);
 }

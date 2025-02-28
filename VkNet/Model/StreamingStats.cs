@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -14,12 +14,12 @@ public class StreamingStats
 	/// <summary>
 	/// Тип событий
 	/// </summary>
-	[JsonProperty(propertyName: "event_type")]
+	[JsonPropertyName("event_type")]
 	public StreamingEventType? EventType { get; set; }
 
 	/// <summary>
 	/// Значения статистики
 	/// </summary>
-	[JsonProperty(propertyName: "stats")]
+	[JsonPropertyName("stats")]
 	public ReadOnlyCollection<StreamingStatsItem> Stats { get; set; }
 }

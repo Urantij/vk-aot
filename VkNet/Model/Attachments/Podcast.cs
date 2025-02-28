@@ -1,6 +1,6 @@
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -16,73 +16,73 @@ public class Podcast : MediaAttachment
 	/// <summary>
 	/// Заголовок подкаста
 	/// </summary>
-	[JsonProperty("podcast_title")]
+	[JsonPropertyName("podcast_title")]
 	public string PodcastTitle { get; set; }
 
 	/// <summary>
 	/// Исполнитель
 	/// </summary>
-	[JsonProperty("artist")]
+	[JsonPropertyName("artist")]
 	public string Artist { get; set; }
 
 	/// <summary>
 	/// Заголовок
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Длительность
 	/// </summary>
-	[JsonProperty("duration")]
+	[JsonPropertyName("duration")]
 	public long? Duration { get; set; }
 
 	/// <summary>
 	/// Дата
 	/// </summary>
-	[JsonProperty("date")]
+	[JsonPropertyName("date")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? Date { get; set; }
 
 	/// <summary>
 	/// <c>Uri</c> на подкаст
 	/// </summary>
-	[JsonProperty("url")]
+	[JsonPropertyName("url")]
 	public Uri Url { get; set; }
 
 	/// <summary>
 	/// Идентификатор текста песни
 	/// </summary>
-	[JsonProperty("lyrics_id")]
+	[JsonPropertyName("lyrics_id")]
 	public long? LyricsId { get; set; }
 
 	/// <summary>
 	/// Не искать
 	/// </summary>
-	[JsonProperty("no_search")]
+	[JsonPropertyName("no_search")]
 	public bool? NoSearch { get; set; }
 
 	/// <summary>
 	/// Высокое качество
 	/// </summary>
-	[JsonProperty("is_hq")]
+	[JsonPropertyName("is_hq")]
 	public bool? IsHq { get; set; }
 
 	/// <summary>
 	/// Явный
 	/// </summary>
-	[JsonProperty("is_explicit")]
+	[JsonPropertyName("is_explicit")]
 	public bool? IsExplicit { get; set; }
 
 	/// <summary>
 	/// Информация о подкасте
 	/// </summary>
-	[JsonProperty("podcast_info")]
+	[JsonPropertyName("podcast_info")]
 	public PodcastInfo PodcastInfo { get; set; }
 
 	/// <summary>
 	/// Код трека.
 	/// </summary>
-	[JsonProperty("track_code")]
+	[JsonPropertyName("track_code")]
 	public string TrackCode { get; set; }
 }

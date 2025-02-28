@@ -1,7 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 using VkNet.Utils;
 using VkNet.Utils.JsonConverter;
@@ -17,13 +16,13 @@ public class StatsGetParams
 	/// <summary>
 	/// Идентификатор сообщества.
 	/// </summary>
-	[JsonProperty("group_id")]
+	[JsonPropertyName("group_id")]
 	public ulong GroupId { get; set; }
 
 	/// <summary>
 	/// Идентификатор приложения.
 	/// </summary>
-	[JsonProperty("app_id")]
+	[JsonPropertyName("app_id")]
 	public ulong AppId { get; set; }
 
 	/// <summary>
@@ -32,7 +31,7 @@ public class StatsGetParams
 	/// <remarks>
 	/// Положительное число, доступен начиная с версии 5.86
 	/// </remarks>
-	[JsonProperty("timestamp_from")]
+	[JsonPropertyName("timestamp_from")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? TimestampFrom { get; set; }
 
@@ -42,53 +41,53 @@ public class StatsGetParams
 	/// <remarks>
 	/// Положительное число, доступен начиная с версии 5.86
 	/// </remarks>
-	[JsonProperty("timestamp_to")]
+	[JsonPropertyName("timestamp_to")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? TimestampTo { get; set; }
 
 	/// <summary>
 	/// Временные интервалы.
 	/// </summary>
-	[JsonProperty("interval")]
+	[JsonPropertyName("interval")]
 	public StateInterval? Interval { get; set; }
 
 	/// <summary>
 	/// Количество интервалов времени.
 	/// </summary>
-	[JsonProperty("intervals_count")]
+	[JsonPropertyName("intervals_count")]
 	public ulong IntervalsCount { get; set; }
 
 	/// <summary>
 	/// Список фильтров
 	/// </summary>
-	[JsonProperty("filters")]
+	[JsonPropertyName("filters")]
 	public ReadOnlyCollection<string> Filters { get; set; }
 
 	/// <summary>
 	/// Фильтр для получения данных по конкретному блоку статистики сообщества.
 	/// </summary>
-	[JsonProperty("stats_groups")]
+	[JsonPropertyName("stats_groups")]
 	public StatsGroups? StatsGroups { get; set; }
 
 	/// <summary>
 	/// 1 — возвращать дополнительно агрегированные данные в результатах.
 	/// </summary>
-	[JsonProperty("extended")]
+	[JsonPropertyName("extended")]
 	public bool? Extended { get; set; }
 
 	/// <summary>
 	/// Начальная дата выводимой статистики в формате YYYY-MM-DD.
 	/// </summary>
-	[JsonProperty("date_from")]
-	[JsonConverter(typeof(DateTimeToStringFormatConverter), "yyyy-MM-dd")]
+	[JsonPropertyName("date_from")]
+	[DateTimeToStringFormat("yyyy-MM-dd")]
 	[Obsolete(ObsoleteText.StatsGet)]
 	public DateTime DateFrom { get; set; }
 
 	/// <summary>
 	/// Конечная дата выводимой статистики в формате YYYY-MM-DD.
 	/// </summary>
-	[JsonProperty("date_to")]
-	[JsonConverter(typeof(DateTimeToStringFormatConverter), "yyyy-MM-dd")]
+	[JsonPropertyName("date_to")]
+	[DateTimeToStringFormat("yyyy-MM-dd")]
 	[Obsolete(ObsoleteText.StatsGet)]
 	public DateTime DateTo { get; set; }
 }

@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using Newtonsoft.Json;
+using System.Text.Json;
 using VkNet.Exception;
 using VkNet.Infrastructure;
 using VkNet.Model;
@@ -27,7 +27,7 @@ public static class ExecuteErrorsHandler
 			throw new ArgumentException($"{nameof(response)} should have value", nameof(response));
 		}
 
-		var executeErrorsResponse = JsonConvert.DeserializeObject<ExecuteErrorsResponse>(response, JsonConfigure.JsonSerializerSettings);
+		var executeErrorsResponse = JsonSerializer.Deserialize<ExecuteErrorsResponse>(response, JsonConfigure.JsonSerializerSettings);
 
 		if (executeErrorsResponse?.ExecuteErrors is null)
 		{

@@ -11,10 +11,6 @@ using JetBrains.Annotations;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Serialization;
 using VkNet.Abstractions;
 using VkNet.Abstractions.Authorization;
 using VkNet.Abstractions.Category;
@@ -409,7 +405,7 @@ public class VkApi : IVkApi
 			}
 		}
 
-		settings.Converters.Add(new VkCollectionJsonConverter());
+		// settings.Converters.Add(new VkCollectionJsonConverter());
 		settings.Converters.Add(new VkDefaultJsonConverter());
 		settings.Converters.Add(new UnixDateTimeConverter());
 		settings.Converters.Add(new AttachmentJsonConverter());

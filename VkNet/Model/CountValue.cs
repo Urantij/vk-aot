@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class CountValue
 	/// <summary>
 	/// Количество
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public long Count { get; set; }
 
 	/// <summary>
 	/// Значение
 	/// </summary>
-	[JsonProperty("value")]
+	[JsonPropertyName("value")]
 	public string Value { get; set; }
 }

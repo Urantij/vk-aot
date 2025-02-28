@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class LeadFormCreateResult
 	/// <summary>
 	/// Идентификатор формы
 	/// </summary>
-	[JsonProperty("form_id")]
+	[JsonPropertyName("form_id")]
 	public long? FormId { get; set; }
 
 	/// <summary>
 	/// Ссылка на форму
 	/// </summary>
-	[JsonProperty("url")]
+	[JsonPropertyName("url")]
 	public Uri Url { get; set; }
 }

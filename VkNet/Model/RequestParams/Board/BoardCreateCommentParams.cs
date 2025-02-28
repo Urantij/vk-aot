@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -14,21 +14,21 @@ public class BoardCreateCommentParams
 	/// Идентификатор сообщества, в котором находится обсуждение.положительное число,
 	/// обязательный параметр
 	/// </summary>
-	[JsonProperty(propertyName: "group_id")]
+	[JsonPropertyName("group_id")]
 	public long? GroupId { get; set; }
 
 	/// <summary>
 	/// Идентификатор темы, в которой необходимо оставить комментарий.положительное
 	/// число, обязательный параметр
 	/// </summary>
-	[JsonProperty(propertyName: "topic_id")]
+	[JsonPropertyName("topic_id")]
 	public long TopicId { get; set; }
 
 	/// <summary>
 	/// Текст комментария. Обязательный параметр, если не передано значение
 	/// attachments.
 	/// </summary>
-	[JsonProperty(propertyName: "message")]
+	[JsonPropertyName("message")]
 	public string Message { get; set; }
 
 	/// <summary>
@@ -48,7 +48,7 @@ public class BoardCreateCommentParams
 	/// Параметр является обязательным, если не задан параметр text. список строк,
 	/// разделенных через запятую.
 	/// </summary>
-	[JsonProperty(propertyName: "attachments")]
+	[JsonPropertyName("attachments")]
 	public IEnumerable<MediaAttachment> Attachments { get; set; }
 
 	/// <summary>
@@ -56,19 +56,19 @@ public class BoardCreateCommentParams
 	/// опубликовано от имени пользователя (по
 	/// умолчанию).
 	/// </summary>
-	[JsonProperty(propertyName: "from_group")]
+	[JsonPropertyName("from_group")]
 	public bool? FromGroup { get; set; }
 
 	/// <summary>
 	/// Идентификатор стикера. положительное число.
 	/// </summary>
-	[JsonProperty(propertyName: "sticker_id")]
+	[JsonPropertyName("sticker_id")]
 	public long? StickerId { get; set; }
 
 	/// <summary>
 	/// уникальный идентификатор, предназначенный для предотвращения повторной отправки
 	/// одинакового комментария.
 	/// </summary>
-	[JsonProperty(propertyName: "guid")]
+	[JsonPropertyName("guid")]
 	public string Guid { get; set; }
 }

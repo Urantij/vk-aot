@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class UploadUrlResult
 	/// <summary>
 	/// В случае удачной загрузки
 	/// </summary>
-	[JsonProperty("photo")]
+	[JsonPropertyName("photo")]
 	public string Photo { get; set; }
 
 	/// <summary>
 	/// В случае ошибки
 	/// </summary>
-	[JsonProperty("errcode")]
+	[JsonPropertyName("errcode")]
 	public int ErrCode { get; set; }
 }

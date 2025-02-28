@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -15,12 +15,12 @@ public class Coordinates
 	/// <summary>
 	/// Географическая широта.
 	/// </summary>
-	[JsonProperty("latitude")]
+	[JsonPropertyName("latitude")]
 	public double Latitude { get; set; }
 
 	/// <summary>
 	/// Географическая долгота.
 	/// </summary>
-	[JsonProperty("longitude")]
+	[JsonPropertyName("longitude")]
 	public double Longitude { get; set; }
 }

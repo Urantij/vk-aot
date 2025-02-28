@@ -1,6 +1,6 @@
 using System;
+using System.Text.Json.Serialization;
 using JetBrains.Annotations;
-using Newtonsoft.Json;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -9,13 +9,12 @@ namespace VkNet.Model;
 /// Информация о кнопке клавиатуры.
 /// </summary>
 [Serializable]
-[JsonObject(MemberSerialization.OptOut)]
 public class MessageKeyboardButtonAction
 {
 	/// <summary>
 	/// Содержит <c>'text'</c>
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public KeyboardButtonActionType? Type { get; set; }
 
 	/// <summary>
@@ -23,19 +22,22 @@ public class MessageKeyboardButtonAction
 	/// </summary>
 	/// <remarks>JSON строка с <c>payload</c>, до 255 символов</remarks>
 	[CanBeNull]
-	[JsonProperty("payload", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("payload")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public string Payload { get; set; }
 
 	/// <summary>
 	/// Текст на кнопке, до 40 символов
 	/// </summary>
-	[JsonProperty("label", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("label")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public string Label { get; set; }
 
 	/// <summary>
 	/// Ссылка, которую необходимо открыть по нажатию на кнопку.
 	/// </summary>
-	[JsonProperty("link", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("link")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public Uri Link { get; set; }
 
 	/// <summary>
@@ -66,7 +68,8 @@ public class MessageKeyboardButtonAction
 	/// <remarks>
 	/// Пример: <c>action=transfer-to-group&amp;group_id=1&amp;aid=10.</c>
 	/// </remarks>
-	[JsonProperty("hash", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("hash")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public string Hash { get; set; }
 
 	/// <summary>
@@ -76,7 +79,8 @@ public class MessageKeyboardButtonAction
 	/// Пока может использоваться только приложение, которому мы выдали под это доступ.
 	/// Получить доступ для Вашего приложения Вы можете <a href="https://vk.com/support?act=home_api">здесь </a>;
 	/// </remarks>
-	[JsonProperty("app_id", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("app_id")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public ulong? AppId { get; set; }
 
 	/// <summary>
@@ -85,24 +89,28 @@ public class MessageKeyboardButtonAction
 	/// <remarks>
 	/// Для <see cref="Type"/> со значением <see cref="KeyboardButtonActionType.OpenApp"/>
 	/// </remarks>
-	[JsonProperty("owner_id", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("owner_id")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public long? OwnerId { get; set; }
 
 	/// <summary>
 	/// user_id: 1-2e9
 	/// </summary>
-	[JsonProperty("peer_id", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("peer_id")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public long? PeerId { get; set; }
 
 	/// <summary>
 	/// Любой из интентов, требующий подписки.
 	/// </summary>
-	[JsonProperty("intent", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("intent")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public Intent? Intent { get; set; }
 
 	/// <summary>
 	/// Дополнительное поле для confirmed_notification.
 	/// </summary>
-	[JsonProperty("subscribe_id", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("subscribe_id")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public byte? SubscribeId { get; set; }
 }

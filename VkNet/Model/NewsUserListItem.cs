@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,24 +13,24 @@ public class NewsUserListItem
 	/// <summary>
 	/// Идентификатор списка.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public int Id { get; set; }
 
 	/// <summary>
 	/// Название списка, заданное пользователем.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Отключены ли копии постов;
 	/// </summary>
-	[JsonProperty("no_reposts")]
+	[JsonPropertyName("no_reposts")]
 	public bool? NoReposts { get; set; }
 
 	/// <summary>
 	/// Идентификаторы пользователей и сообществ, включенных в список.
 	/// </summary>
-	[JsonProperty("source_ids")]
+	[JsonPropertyName("source_ids")]
 	public IEnumerable<long> SourceIds { get; set; }
 }

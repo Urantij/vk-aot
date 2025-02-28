@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -13,12 +13,13 @@ public class StoryStatsObject
 	/// <summary>
 	/// Доступность значения.
 	/// </summary>
-	[JsonProperty("state")]
+	[JsonPropertyName("state")]
 	public StoryObjectState? State { get; set; }
 
 	/// <summary>
 	/// Значение счётчика.
 	/// </summary>
-	[JsonProperty("count", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("count")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public int? Count { get; set; }
 }

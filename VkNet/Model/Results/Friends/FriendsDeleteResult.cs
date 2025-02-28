@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,30 +12,30 @@ public class FriendsDeleteResult
 	/// <summary>
 	/// Удалось успешно удалить друга
 	/// </summary>
-	[JsonProperty(propertyName: "success")]
+	[JsonPropertyName("success")]
 	public bool? Success { get; set; }
 
 	/// <summary>
 	/// Был удален друг
 	/// </summary>
-	[JsonProperty(propertyName: "friend_deleted")]
+	[JsonPropertyName("friend_deleted")]
 	public bool? FriendDeleted { get; set; }
 
 	/// <summary>
 	/// Отменена исходящая заявка
 	/// </summary>
-	[JsonProperty(propertyName: "out_request_deleted")]
+	[JsonPropertyName("out_request_deleted")]
 	public bool? OutRequestDeleted { get; set; }
 
 	/// <summary>
 	/// Отклонена входящая заявка
 	/// </summary>
-	[JsonProperty(propertyName: "in_request_deleted")]
+	[JsonPropertyName("in_request_deleted")]
 	public bool? InRequestDeleted { get; set; }
 
 	/// <summary>
 	/// Отклонена рекомендация друга
 	/// </summary>
-	[JsonProperty(propertyName: "suggestion_deleted")]
+	[JsonPropertyName("suggestion_deleted")]
 	public bool? SuggestionDeleted { get; set; }
 }

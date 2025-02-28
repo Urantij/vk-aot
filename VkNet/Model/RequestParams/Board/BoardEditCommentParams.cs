@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -14,28 +14,28 @@ public class BoardEditCommentParams
 	/// Идентификатор сообщества, в котором находится обсуждение.положительное число,
 	/// обязательный параметр
 	/// </summary>
-	[JsonProperty(propertyName: "group_id")]
+	[JsonPropertyName("group_id")]
 	public long? GroupId { get; set; }
 
 	/// <summary>
 	/// Идентификатор темы, в которой необходимо оставить комментарий.положительное
 	/// число, обязательный параметр
 	/// </summary>
-	[JsonProperty(propertyName: "topic_id")]
+	[JsonPropertyName("topic_id")]
 	public long TopicId { get; set; }
 
 	/// <summary>
 	/// Идентификатор комментария в обсуждении.положительное число, обязательный
 	/// параметр.
 	/// </summary>
-	[JsonProperty(propertyName: "comment_id")]
+	[JsonPropertyName("comment_id")]
 	public long CommentId { get; set; }
 
 	/// <summary>
 	/// Текст комментария. Обязательный параметр, если не передано значение
 	/// attachments.
 	/// </summary>
-	[JsonProperty(propertyName: "message")]
+	[JsonPropertyName("message")]
 	public string Message { get; set; }
 
 	/// <summary>
@@ -55,7 +55,7 @@ public class BoardEditCommentParams
 	/// Параметр является обязательным, если не задан параметр text. список строк,
 	/// разделенных через запятую.
 	/// </summary>
-	[JsonProperty(propertyName: "attachments")]
+	[JsonPropertyName("attachments")]
 	public IEnumerable<MediaAttachment> Attachments { get; set; }
 
 }

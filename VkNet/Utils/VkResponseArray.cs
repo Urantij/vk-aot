@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json.Linq;
+using System.Text.Json.Nodes;
 
 namespace VkNet.Utils;
 
@@ -13,13 +13,13 @@ public sealed class VkResponseArray : IEnumerable<VkResponse>
 	/// <summary>
 	/// Массив
 	/// </summary>
-	private readonly JArray _array;
+	private readonly JsonArray _array;
 
 	/// <summary>
 	/// Инициализация нового массива.
 	/// </summary>
 	/// <param name="array"> Массив. </param>
-	public VkResponseArray(JArray array) => _array = array;
+	public VkResponseArray(JsonArray array) => _array = array;
 
 	/// <summary>
 	/// Взять VkResponse
@@ -32,7 +32,7 @@ public sealed class VkResponseArray : IEnumerable<VkResponse>
 	public VkResponse this[object key]
 	{
 		get {
-			var token = _array[key: key];
+			var token = _array[key.ToString()];
 
 			return new(token: token);
 		}

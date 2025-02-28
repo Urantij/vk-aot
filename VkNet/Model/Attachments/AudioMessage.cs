@@ -1,6 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -17,36 +17,36 @@ public class AudioMessage : MediaAttachment
 	/// <summary>
 	/// Продолжительность
 	/// </summary>
-	[JsonProperty("duration")]
+	[JsonPropertyName("duration")]
 	public ulong Duration { get; set; }
 
 	/// <summary>
 	/// Форма волны
 	/// </summary>
-	[JsonProperty("waveform")]
+	[JsonPropertyName("waveform")]
 	public ReadOnlyCollection<int> Waveform { get; set; }
 
 	/// <summary>
 	/// Ссылка на файл в ogg
 	/// </summary>
-	[JsonProperty("link_ogg")]
+	[JsonPropertyName("link_ogg")]
 	public Uri LinkOgg { get; set; }
 
 	/// <summary>
 	/// Ссылка на файл в mp3
 	/// </summary>
-	[JsonProperty("link_mp3")]
+	[JsonPropertyName("link_mp3")]
 	public Uri LinkMp3 { get; set; }
 
 	/// <summary>
 	/// Текст транскрипции
 	/// </summary>
-	[JsonProperty("transcript")]
+	[JsonPropertyName("transcript")]
 	public string Transcript { get; set; }
 
 	/// <summary>
 	/// Статус транскрипции
 	/// </summary>
-	[JsonProperty("transcript_state")]
+	[JsonPropertyName("transcript_state")]
 	public TranscriptStates? TranscriptState { get; set; }
 }

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,24 +13,24 @@ public class SubscriptionsInfo
 	/// <summary>
 	/// Массив объектов подписок.
 	/// </summary>
-	[JsonProperty("subscritions")]
+	[JsonPropertyName("subscritions")]
 	public IEnumerable<Subscription> Subscriptions { get; set; }
 
 	/// <summary>
 	/// Количество подписок.
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public long Count { get; set; }
 
 	/// <summary>
 	/// Массив объектов пользователей.
 	/// </summary>
-	[JsonProperty("profiles")]
+	[JsonPropertyName("profiles")]
 	public IEnumerable<User> Profiles { get; set; }
 
 	/// <summary>
 	/// Массив объектов сообществ.
 	/// </summary>
-	[JsonProperty("groups")]
+	[JsonPropertyName("groups")]
 	public IEnumerable<Group> Groups { get; set; }
 }

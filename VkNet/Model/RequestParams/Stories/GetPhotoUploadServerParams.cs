@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -14,7 +14,7 @@ public class GetPhotoUploadServerParams
 	/// <summary>
 	/// Идентификатор истории, в ответ на которую создается новая. строка
 	/// </summary>
-	[JsonProperty("reply_to_story")]
+	[JsonPropertyName("reply_to_story")]
 	public string ReplyToStory { get; set; }
 
 	/// <summary>
@@ -41,37 +41,37 @@ public class GetPhotoUploadServerParams
 	/// read — «Читать».
 	/// строка
 	/// </summary>
-	[JsonProperty("link_text")]
+	[JsonPropertyName("link_text")]
 	public StoryLinkText? LinkText { get; set; }
 
 	/// <summary>
 	/// Адрес ссылки для перехода из истории. Допустимы только внутренние ссылки https://vk.com. строка, максимальная длина 2048
 	/// </summary>
-	[JsonProperty("link_url")]
+	[JsonPropertyName("link_url")]
 	public string LinkUrl { get; set; }
 
 	/// <summary>
 	/// 1 — разместить историю в новостях. Обязательно, если не указан user_ids флаг, может принимать значения 1 или 0
 	/// </summary>
-	[JsonProperty("add_to_news")]
+	[JsonPropertyName("add_to_news")]
 	public bool AddToNews { get; set; }
 
 	/// <summary>
 	/// Идентификаторы пользователей, которые будут видеть историю (для отправки в личном сообщении). Обязательно, если add_to_news не передан. список положительных чисел, разделенных запятыми
 	/// </summary>
-	[JsonProperty("user_ids")]
+	[JsonPropertyName("user_ids")]
 	public IEnumerable<ulong> UserIds { get; set; }
 
 	/// <summary>
 	/// Идентификатор сообщества, в которое должна быть загружена история (при работе с ключом доступа пользователя).
 	/// Обратите внимание — загрузка историй доступна только для верифицированных сообществ и для сообществ, отмеченных «огоньком». положительное число
 	/// </summary>
-	[JsonProperty("group_id")]
+	[JsonPropertyName("group_id")]
 	public ulong GroupId { get; set; }
 
 	/// <summary>
 	/// Объект кликабельного стикера.
 	/// </summary>
-	[JsonProperty("clickable_stickers")]
+	[JsonPropertyName("clickable_stickers")]
 	public ClickableStickersObject ClickableStickers { get; set; }
 }

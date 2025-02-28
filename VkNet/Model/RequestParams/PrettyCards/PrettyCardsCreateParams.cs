@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,7 +12,7 @@ public class PrettyCardsCreateParams
 	/// <summary>
 	/// Идентификатор сообщества.
 	/// </summary>
-	[JsonProperty("owner_id")]
+	[JsonPropertyName("owner_id")]
 	public long? OwnerId { get; set; }
 
 	/// <summary>
@@ -21,20 +21,20 @@ public class PrettyCardsCreateParams
 	/// Также можно переиспользовать существующую фотографию из другой карточки.
 	/// Используйте значение поля photo, которое возвращает метод prettyCards.get или prettyCards.getById.
 	/// </summary>
-	[JsonProperty("photo")]
+	[JsonPropertyName("photo")]
 	public string Photo { get; set; }
 
 	/// <summary>
 	/// Заголовок.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Ссылка.
 	/// Кроме http(s)-ссылок также допускается указание телефонных номеров в виде tel:+79111234567
 	/// </summary>
-	[JsonProperty("link")]
+	[JsonPropertyName("link")]
 	public string Link { get; set; }
 
 	/// <summary>
@@ -42,7 +42,7 @@ public class PrettyCardsCreateParams
 	/// «0» будет отображён как «Бесплатно».
 	/// Не передавайте этот параметр, чтобы не указывать цену.
 	/// </summary>
-	[JsonProperty("price")]
+	[JsonPropertyName("price")]
 	public string Price { get; set; }
 
 	/// <summary>
@@ -50,13 +50,13 @@ public class PrettyCardsCreateParams
 	/// «0» будет отображён как «Бесплатно».
 	/// Не передавайте этот параметр, чтобы не указывать старую цену.
 	/// </summary>
-	[JsonProperty("price_old")]
+	[JsonPropertyName("price_old")]
 	public string PriceOld { get; set; }
 
 	/// <summary>
 	/// Кнопка.
 	/// Не передавайте этот параметр, чтобы не использовать кнопку.
 	/// </summary>
-	[JsonProperty("button")]
+	[JsonPropertyName("button")]
 	public Enums.StringEnums.Button? Button { get; set; }
 }

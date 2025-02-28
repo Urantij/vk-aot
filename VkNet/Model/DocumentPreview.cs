@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class DocumentPreview
 	/// <summary>
 	/// Изображения для предпросмотра.
 	/// </summary>
-	[JsonProperty("photo")]
+	[JsonPropertyName("photo")]
 	public Photo Photo { get; set; }
 
 	/// <summary>
 	/// Данные о граффити
 	/// </summary>
-	[JsonProperty("graffiti")]
+	[JsonPropertyName("graffiti")]
 	public Graffiti Graffiti { get; set; }
 
 	/// <summary>
 	/// Данные об аудиосообщении.
 	/// </summary>
-	[JsonProperty("audio_message")]
+	[JsonPropertyName("audio_message")]
 	public AudioMessage AudioMessage { get; set; }
 }

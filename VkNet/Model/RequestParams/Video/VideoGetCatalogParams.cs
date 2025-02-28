@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -14,13 +14,13 @@ public class VideoGetCatalogParams
 	/// Число блоков каталога, информацию о которых необходимо вернуть.
 	/// Обратите внимание, параметр распространяется только на блоки other.
 	/// </summary>
-	[JsonProperty(propertyName: "count")]
+	[JsonPropertyName("count")]
 	public long? Count { get; set; }
 
 	/// <summary>
 	/// Число видеозаписей в каждом блоке.
 	/// </summary>
-	[JsonProperty(propertyName: "items_count")]
+	[JsonPropertyName("items_count")]
 	public long? ItemsCount { get; set; }
 
 	/// <summary>
@@ -28,7 +28,7 @@ public class VideoGetCatalogParams
 	/// Значение, необходимое для передачи в этом параметре, возвращается в поле ответа
 	/// next.
 	/// </summary>
-	[JsonProperty(propertyName: "from")]
+	[JsonPropertyName("from")]
 	public string From { get; set; }
 
 	/// <summary>
@@ -36,12 +36,12 @@ public class VideoGetCatalogParams
 	/// содержащие информацию о пользователях и сообществах.
 	/// По умолчанию: 0.
 	/// </summary>
-	[JsonProperty(propertyName: "extended")]
+	[JsonPropertyName("extended")]
 	public bool? Extended { get; set; }
 
 	/// <summary>
 	/// id блоков, которые необходимо вернуть в ответе.
 	/// </summary>
-	[JsonProperty(propertyName: "filters")]
+	[JsonPropertyName("filters")]
 	public VideoCatalogFilters? Filters { get; set; }
 }

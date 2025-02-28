@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,30 +12,30 @@ public class WallReplyDelete : IGroupUpdate
 	/// <summary>
 	/// Идентификатор комментария
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public ulong? Id { get; set; }
 
 	/// <summary>
 	/// Идентификатор записи, к которой был оставлен комментарий
 	/// </summary>
-	[JsonProperty("post_id")]
+	[JsonPropertyName("post_id")]
 	public long? PostId { get; set; }
 
 	/// <summary>
 	/// Идентификатор владельца стены
 	/// </summary>
-	[JsonProperty("owner_id")]
+	[JsonPropertyName("owner_id")]
 	public long? OwnerId { get; set; }
 
 	/// <summary>
 	/// Идентификатор автора комментария
 	/// </summary>
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	public long? UserId { get; set; }
 
 	/// <summary>
 	/// Идентификатор пользователя, который удалил комментарий
 	/// </summary>
-	[JsonProperty("deleter_id")]
+	[JsonPropertyName("deleter_id")]
 	public long? DeleterId { get; set; }
 }

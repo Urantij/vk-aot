@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using JetBrains.Annotations;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using VkNet.Enums;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -19,149 +19,149 @@ public class GroupInfo
 	/// <summary>
 	/// Название сообщества.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Описание сообщества.
 	/// </summary>
-	[JsonProperty("description")]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 
 	/// <summary>
 	/// Gets or sets the address.
 	/// </summary>
-	[JsonProperty("address")]
+	[JsonPropertyName("address")]
 	public string Address { get; set; }
 
 	/// <summary>
 	/// Место, указанное в информации о сообществе.
 	/// </summary>
-	[JsonProperty("place")]
+	[JsonPropertyName("place")]
 	public Place Place { get; set; }
 
 	/// <summary>
 	/// Стена.
 	/// </summary>
-	[JsonProperty("wall")]
+	[JsonPropertyName("wall")]
 	public ContentAccess? Wall { get; set; }
 
 	/// <summary>
 	/// Фотографии.
 	/// </summary>
-	[JsonProperty("photos")]
+	[JsonPropertyName("photos")]
 	public ContentAccess? Photos { get; set; }
 
 	/// <summary>
 	/// Видеозаписи.
 	/// </summary>
-	[JsonProperty("video")]
+	[JsonPropertyName("video")]
 	public ContentAccess? Video { get; set; }
 
 	/// <summary>
 	/// Аудиозаписи.
 	/// </summary>
-	[JsonProperty("audio")]
+	[JsonPropertyName("audio")]
 	public ContentAccess? Audio { get; set; }
 
 	/// <summary>
 	/// Документы.
 	/// </summary>
-	[JsonProperty("docs")]
+	[JsonPropertyName("docs")]
 	public ContentAccess? Docs { get; set; }
 
 	/// <summary>
 	/// Обсуждения.
 	/// </summary>
-	[JsonProperty("topics")]
+	[JsonPropertyName("topics")]
 	public ContentAccess? Topics { get; set; }
 
 	/// <summary>
 	/// Материалы.
 	/// </summary>
-	[JsonProperty("wiki")]
+	[JsonPropertyName("wiki")]
 	public ContentAccess? Wiki { get; set; }
 
 	/// <summary>
 	/// Тип группы.
 	/// </summary>
-	[JsonProperty("access")]
+	[JsonPropertyName("access")]
 	public GroupPublicity? Access { get; set; }
 
 	/// <summary>
 	/// Тематика сообщества.
 	/// </summary>
-	[JsonProperty("subject")]
+	[JsonPropertyName("subject")]
 	public GroupSubjects? Subject { get; set; }
 
 	/// <summary>
 	/// Адрес сайта, который будет указан в информации о группе
 	/// </summary>
-	[JsonProperty("website")]
+	[JsonPropertyName("website")]
 	public string Website { get; set; }
 
 	/// <summary>
 	/// Контакты: (доступно только для публичных страниц).
 	/// </summary>
-	[JsonProperty("contacts")]
+	[JsonPropertyName("contacts")]
 	public bool? Contacts { get; set; }
 
 	/// <summary>
 	/// Места: (доступно только для публичных страниц)
 	/// </summary>
-	[JsonProperty("places")]
+	[JsonPropertyName("places")]
 	public bool? Places { get; set; }
 
 	/// <summary>
 	/// События: (доступно только для публичных страниц).
 	/// </summary>
-	[JsonProperty("events")]
+	[JsonPropertyName("events")]
 	public bool? Events { get; set; }
 
 	/// <summary>
 	/// Ссылки: (доступно только для публичных страниц).
 	/// </summary>
-	[JsonProperty("links")]
+	[JsonPropertyName("links")]
 	public bool? Links { get; set; }
 
 	/// <summary>
 	/// Дата основания компании, организации,
 	/// которой посвящена публичная страница в виде строки формата <c>"dd.mm.YYYY"</c>.
 	/// </summary>
-	[JsonProperty("public_date")]
+	[JsonPropertyName("public_date")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? PublicDate { get; set; }
 
 	/// <summary>
 	/// Подкатегория публичной станицы.
 	/// </summary>
-	[JsonProperty("public_subcategory")]
+	[JsonPropertyName("public_subcategory")]
 	public ulong? PublicSubcategory { get; set; }
 
 	/// <summary>
 	/// Категория публичной страницы.
 	/// </summary>
-	[JsonProperty("public_category")]
+	[JsonPropertyName("public_category")]
 	public ulong? PublicCategory { get; set; }
 
 	/// <summary>
 	/// Идентификатор группы, которая является организатором события (только для
 	/// событий).
 	/// </summary>
-	[JsonProperty("event_group_id")]
+	[JsonPropertyName("event_group_id")]
 	public ulong? EventGroupId { get; set; }
 
 	/// <summary>
 	/// Дата окончания события.
 	/// </summary>
-	[JsonProperty("event_finish_date")]
+	[JsonPropertyName("event_finish_date")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? EventFinishDate { get; set; }
 
 	/// <summary>
 	/// Дата начала события.
 	/// </summary>
-	[JsonProperty("event_start_date")]
+	[JsonPropertyName("event_start_date")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? EventStartDate { get; set; }
 
@@ -170,25 +170,25 @@ public class GroupInfo
 	/// (доступен только группам, получившим соответствуюшее разрешение,
 	/// обратитесь в http://vk.com/support для получения разрешения).
 	/// </summary>
-	[JsonProperty("rss")]
+	[JsonPropertyName("rss")]
 	public string Rss { get; set; }
 
 	/// <summary>
 	/// Номер телефона сообщества.
 	/// </summary>
-	[JsonProperty("phone")]
+	[JsonPropertyName("phone")]
 	public string Phone { get; set; }
 
 	/// <summary>
 	/// Электронный адрес сообщества.
 	/// </summary>
-	[JsonProperty("email")]
+	[JsonPropertyName("email")]
 	public string Email { get; set; }
 
 	/// <summary>
 	/// Короткое имя сообщества.
 	/// </summary>
-	[JsonProperty("screen_name")]
+	[JsonPropertyName("screen_name")]
 	public string ScreenName { get; set; }
 
 	#endregion

@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -10,22 +10,22 @@ namespace VkNet.Model;
 public class NotesEditCommentParams
 {
 	/// <summary>
-	/// Идентификатор комментария. 
+	/// Идентификатор комментария.
 	///положительное число, (обязательный параметр)
 	/// </summary>
-	[JsonProperty("comment_id")]
+	[JsonPropertyName("comment_id")]
 	public long? CommentId { get; set; }
 
 	/// <summary>
 	///Идентификатор владельца заметки.
 	///положительное число, по умолчанию идентификатор текущего пользователя
 	/// </summary>
-	[JsonProperty("owner_id")]
+	[JsonPropertyName("owner_id")]
 	public long? OwnerId { get; set; }
 
 	/// <summary>
-	/// Новый текст комментария. 
+	/// Новый текст комментария.
 	/// </summary>
-	[JsonProperty("message")]
+	[JsonPropertyName("message")]
 	public string Message { get; set; }
 }

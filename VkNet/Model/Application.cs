@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class Application
 	/// <summary>
 	/// Магазин.
 	/// </summary>
-	[JsonProperty("store")]
+	[JsonPropertyName("store")]
 	public Store Store { get; set; }
 
 	/// <summary>
 	/// Идентификатор приложения в магазине.
 	/// </summary>
-	[JsonProperty("app_id")]
+	[JsonPropertyName("app_id")]
 	public long? AppId { get; set; }
 }

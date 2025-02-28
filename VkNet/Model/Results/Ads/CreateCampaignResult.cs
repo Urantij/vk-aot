@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,18 +13,18 @@ public class CreateCampaignResult
 	/// Идентификатор созданного объявления.
 	/// </summary>
 	/// <remarks>Выполнение этого метода может вернуть id = null в случае ошибки</remarks>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long? Id { get; set; }
 
 	/// <summary>
 	/// Массив объектов UserSpecification
 	/// </summary>
-	[JsonProperty("error_code")]
+	[JsonPropertyName("error_code")]
 	public long ErrorCode { get; set; }
 
 	/// <summary>
 	/// Массив объектов UserSpecification
 	/// </summary>
-	[JsonProperty("error_desc")]
+	[JsonPropertyName("error_desc")]
 	public string ErrorDesc { get; set; }
 }

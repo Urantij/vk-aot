@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using JetBrains.Annotations;
-using Newtonsoft.Json;
 using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
@@ -15,28 +15,28 @@ public class MessagesSearchParams
 	/// <summary>
 	/// Подстрока, по которой будет производиться поиск.
 	/// </summary>
-	[JsonProperty("q")]
+	[JsonPropertyName("q")]
 	public string Query { get; set; }
 
 	/// <summary>
 	/// Список дополнительных полей для пользователей и сообществ. список слов, разделенных через запятую
 	/// </summary>
-	[JsonProperty("fields")]
+	[JsonPropertyName("fields")]
 	[CanBeNull]
 	public IEnumerable<string> Fields { get; set; }
 
 	/// <summary>
 	/// Фильтр по идентификатору назначения для поиска по отдельному диалогу
 	/// </summary>
-	[JsonProperty("peer_id")]
+	[JsonPropertyName("peer_id")]
 	public long? PeerId { get; set; }
 
 	/// <summary>
 	/// Дата в формате DDMMYYYY — если параметр задан, в ответе будут только сообщения,
 	/// отправленные до указанной даты.
 	/// </summary>
-	[JsonProperty("date")]
-	[JsonConverter(typeof(DateTimeToStringFormatConverter), "ddMMyyyy")]
+	[JsonPropertyName("date")]
+	[DateTimeToStringFormat("ddMMyyyy")]
 	public DateTime? Date { get; set; }
 
 	/// <summary>
@@ -44,14 +44,14 @@ public class MessagesSearchParams
 	/// Укажите 0, если Вы не хотите обрезать сообщение. (по умолчанию сообщения не
 	/// обрезаются).
 	/// </summary>
-	[JsonProperty("preview_length")]
+	[JsonPropertyName("preview_length")]
 	public uint? PreviewLength { get; set; }
 
 	/// <summary>
 	/// Смещение, необходимое для выборки определенного подмножества сообщений из
 	/// списка найденных.
 	/// </summary>
-	[JsonProperty("offset")]
+	[JsonPropertyName("offset")]
 	public uint? Offset { get; set; }
 
 	/// <summary>
@@ -60,18 +60,18 @@ public class MessagesSearchParams
 	/// <remarks>
 	/// По умолчанию 20.
 	/// </remarks>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public uint? Count { get; set; }
 
 	/// <summary>
 	/// 1 — возвращать дополнительные поля для пользователей и сообществ. В ответе будет содержаться массив объектов бесед. флаг, может принимать значения 1 или 0
 	/// </summary>
-	[JsonProperty("extended")]
+	[JsonPropertyName("extended")]
 	public bool? Extended { get; set; }
 
 	/// <summary>
 	/// Идентификатор сообщества (для сообщений сообщества с ключом доступа пользователя). положительное число
 	/// </summary>
-	[JsonProperty("group_id")]
+	[JsonPropertyName("group_id")]
 	public ulong? GroupId { get; set; }
 }

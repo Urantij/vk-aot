@@ -979,22 +979,22 @@ public interface IGroupsCategoryAsync
 													ulong serverId,
 													CancellationToken token = default);
 
-	/// <summary>
-	/// Позволяет задать настройки уведомлений о событиях в Callback API.
-	/// </summary>
-	/// <param name="params">
-	/// Параметры настройки уведомлений о событиях в Callback
-	/// API.
-	/// </param>
-	/// <param name="token">Токен отмены операции</param>
-	/// <returns>
-	/// После успешного выполнения возвращает <c> true </c>
-	/// </returns>
-	/// <remarks>
-	/// Страница документации ВКонтакте http://vk.com/dev/groups.setCallbackSettings
-	/// </remarks>
-	Task<bool> SetCallbackSettingsAsync(CallbackServerParams @params,
-										CancellationToken token = default);
+	// /// <summary>
+	// /// Позволяет задать настройки уведомлений о событиях в Callback API.
+	// /// </summary>
+	// /// <param name="params">
+	// /// Параметры настройки уведомлений о событиях в Callback
+	// /// API.
+	// /// </param>
+	// /// <param name="token">Токен отмены операции</param>
+	// /// <returns>
+	// /// После успешного выполнения возвращает <c> true </c>
+	// /// </returns>
+	// /// <remarks>
+	// /// Страница документации ВКонтакте http://vk.com/dev/groups.setCallbackSettings
+	// /// </remarks>
+	// Task<bool> SetCallbackSettingsAsync(CallbackServerParams @params,
+	// 									CancellationToken token = default);
 
 	/// <summary>
 	/// Возвращает данные для подключения к Bots Longpoll API.

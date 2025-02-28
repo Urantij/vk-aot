@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,33 +13,33 @@ public class MessageGetHistoryObject
 	/// <summary>
 	/// Общее число результатов
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public uint TotalCount { get; set; }
 
 	/// <summary>
 	/// Массив объектов <see cref="Message"/>
 	/// </summary>
-	[JsonProperty("items")]
+	[JsonPropertyName("items")]
 	public IEnumerable<Message> Messages { get; set; }
 
 	/// <summary>
 	/// Массив объектов <see cref="Conversation"/>
 	/// <remarks>Возвращается, если был передан параметр Extended=<c>true</c></remarks>
 	/// </summary>
-	[JsonProperty("conversations")]
+	[JsonPropertyName("conversations")]
 	public IEnumerable<Conversation> Conversations { get; set; }
 
 	/// <summary>
 	/// Массив объектов <see cref="User"/>
 	/// <remarks>Возвращается, если был передан параметр Extended=<c>true</c></remarks>
 	/// </summary>
-	[JsonProperty("profiles")]
+	[JsonPropertyName("profiles")]
 	public IEnumerable<User> Users { get; set; }
 
 	/// <summary>
 	/// Массив объектов <see cref="Group"/>
 	/// <remarks>Возвращается, если был передан параметр Extended=<c>true</c></remarks>
 	/// </summary>
-	[JsonProperty("groups")]
+	[JsonPropertyName("groups")]
 	public IEnumerable<Group> Groups { get; set; }
 }

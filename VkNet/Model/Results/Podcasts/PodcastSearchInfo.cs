@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model
 {
@@ -12,31 +12,31 @@ namespace VkNet.Model
 		/// <summary>
 		/// URL адрес подкаста
 		/// </summary>
-		[JsonProperty("url")]
+		[JsonPropertyName("url")]
 		public string Url { get; set; }
 
 		/// <summary>
 		/// URL владельца подкаста
 		/// </summary>
-		[JsonProperty("owner_url")]
+		[JsonPropertyName("owner_url")]
 		public string OwnerUrl { get; set; }
 
 		/// <summary>
 		/// Название подкаста
 		/// </summary>
-		[JsonProperty("title")]
+		[JsonPropertyName("title")]
 		public string Title { get; set; }
 
 		/// <summary>
 		/// Имя владельца подкаста
 		/// </summary>
-		[JsonProperty("owner_name")]
+		[JsonPropertyName("owner_name")]
 		public string OwnerName { get; set; }
 
 		/// <summary>
 		/// Коллекция логотипов подкаста
 		/// </summary>
-		[JsonProperty("cover")]
+		[JsonPropertyName("cover")]
 		public Cover Covers { get; set; }
 	}
 }

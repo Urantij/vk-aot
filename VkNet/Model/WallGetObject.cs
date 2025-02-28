@@ -1,6 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,24 +13,24 @@ public class WallGetObject
 	/// <summary>
 	/// Общее количество записей на стене.
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public ulong TotalCount { get; set; }
 
 		/// <summary>
 	/// Посты.
 	/// </summary>
-	[JsonProperty("items")]
+	[JsonPropertyName("items")]
 	public ReadOnlyCollection<Post> WallPosts { get; set; }
 
 	/// <summary>
 	/// Профили.
 	/// </summary>
-	[JsonProperty("profiles")]
+	[JsonPropertyName("profiles")]
 	public ReadOnlyCollection<User> Profiles { get; set; }
 
 	/// <summary>
 	/// Группы.
 	/// </summary>
-	[JsonProperty("groups")]
+	[JsonPropertyName("groups")]
 	public ReadOnlyCollection<Group> Groups { get; set; }
 }

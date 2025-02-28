@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
+		<TargetFramework>net8.0</TargetFramework>
 		<AssemblyName>VkNet</AssemblyName>
 		<VersionPrefix>1.79.0-alpha</VersionPrefix>
 		<VersionSufix>
@@ -59,10 +59,13 @@
 		<OutputPath>..\Build\$(Configuration)\</OutputPath>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<IsAotCompatible>true</IsAotCompatible>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<PackageReference Include="AsyncFixer" PrivateAssets="all"/>
 		<PackageReference Include="HtmlAgilityPack" />
-		<PackageReference Include="Newtonsoft.Json" />
 		<PackageReference Include="SonarAnalyzer.CSharp" PrivateAssets="all"/>
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />

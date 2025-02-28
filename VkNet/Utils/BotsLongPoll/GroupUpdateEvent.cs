@@ -1,5 +1,5 @@
 #nullable enable
-using Newtonsoft.Json.Linq;
+using System.Text.Json.Nodes;
 using VkNet.Model;
 
 namespace VkNet.Utils.BotsLongPoll;
@@ -22,5 +22,5 @@ public class GroupUpdateEvent
 	/// <summary>
 	/// Обновление группы в JObject
 	/// </summary>
-	public JObject RawUpdate;
+	public JsonObject RawUpdate;
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,6 +13,6 @@ public class MessagesChangeConversationMemberRestrictionsObject
 	/// <summary>
 	/// Список идентификаторов, к которым не удалось применить ограничения
 	/// </summary>
-	[JsonProperty("failed_member_ids")]
+	[JsonPropertyName("failed_member_ids")]
 	public ReadOnlyCollection<long> FailedMemberIds { get; set; }
 }

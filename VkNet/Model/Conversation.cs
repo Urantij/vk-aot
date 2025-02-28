@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,78 +12,78 @@ public class Conversation
 	/// <summary>
 	/// Информация о собеседнике.
 	/// </summary>
-	[JsonProperty("peer")]
+	[JsonPropertyName("peer")]
 	public Peer Peer { get; set; }
 
 	/// <summary>
 	/// Идентификатор последнего прочтенного входящего сообщения.
 	/// </summary>
-	[JsonProperty("in_read")]
+	[JsonPropertyName("in_read")]
 	public long InRead { get; set; }
 
 	/// <summary>
 	/// Идентификатор последнего прочтенного исходящего сообщения.
 	/// </summary>
-	[JsonProperty("out_read")]
+	[JsonPropertyName("out_read")]
 	public long OutRead { get; set; }
 
 	/// <summary>
 	/// Число непрочитанных сообщений.
 	/// </summary>
-	[JsonProperty("unread_count")]
+	[JsonPropertyName("unread_count")]
 	public long? UnreadCount { get; set; }
 
 	/// <summary>
 	/// true, если диалог помечен как важный (только для сообщений сообществ).
 	/// </summary>
-	[JsonProperty("important")]
+	[JsonPropertyName("important")]
 	public bool Important { get; set; }
 
 	/// <summary>
 	/// true, если диалог помечен как неотвеченный (только для сообщений сообществ).
 	/// </summary>
-	[JsonProperty("unanswered")]
+	[JsonPropertyName("unanswered")]
 	public bool Unanswered { get; set; }
 
 	/// <summary>
 	/// Настройки Push-уведомлений.
 	/// </summary>
-	[JsonProperty("push_settings")]
+	[JsonPropertyName("push_settings")]
 	public ConversationPushSettings PushSettings { get; set; }
 
 	/// <summary>
 	/// Информация о том, может ли пользователь писать в диалог.
 	/// </summary>
-	[JsonProperty("can_write")]
+	[JsonPropertyName("can_write")]
 	public ConversationCanWrite CanWrite { get; set; }
 
 	/// <summary>
 	/// Информация о том, может ли пользователь получать деньги.
 	/// </summary>
-	[JsonProperty("can_receive_money")]
+	[JsonPropertyName("can_receive_money")]
 	public bool? CanReceiveMoney { get; set; }
 
 	/// <summary>
 	/// Информация о том, может ли пользователь отправлять деньги.
 	/// </summary>
-	[JsonProperty("can_send_money")]
+	[JsonPropertyName("can_send_money")]
 	public bool? CanSendMoney { get; set; }
 
 	/// <summary>
 	/// Настройки чата.
 	/// </summary>
-	[JsonProperty("chat_settings")]
+	[JsonPropertyName("chat_settings")]
 	public ConversationChatSettings ChatSettings { get; set; }
 
 	/// <summary>
 	/// Идентификатор последнего сообщения.
 	/// </summary>
-	[JsonProperty("last_message_id")]
+	[JsonPropertyName("last_message_id")]
 	public long LastMessageId { get; set; }
 
 	/// <summary>
 	/// Клавиатура.
 	/// </summary>
-	[JsonProperty("current_keyboard")]
+	[JsonPropertyName("current_keyboard")]
 	public MessageKeyboard CurrentKeyboard { get; set; }
 }

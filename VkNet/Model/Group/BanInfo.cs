@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -19,32 +19,32 @@ public class BanInfo
 	/// <summary>
 	/// Идентификатор администратора, который добавил пользователя в черный список.
 	/// </summary>
-	[JsonProperty(propertyName: "admin_id")]
+	[JsonPropertyName("admin_id")]
 	public long? AdminId { get; set; }
 
 	/// <summary>
 	/// Дата добавления пользователя в черный список.
 	/// </summary>
-	[JsonProperty(propertyName: "date")]
+	[JsonPropertyName("date")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? Date { get; set; }
 
 	/// <summary>
 	/// Текст комментария к бану.
 	/// </summary>
-	[JsonProperty(propertyName: "comment")]
+	[JsonPropertyName("comment")]
 	public string Comment { get; set; }
 
 	/// <summary>
 	/// Дата, когда пользователь будет разбанен.
 	/// </summary>
-	[JsonProperty(propertyName: "end_date")]
+	[JsonPropertyName("end_date")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? EndDate { get; set; }
 
 	/// <summary>
 	/// Причина добавления пользователя в черный список.
 	/// </summary>
-	[JsonProperty(propertyName: "reason")]
+	[JsonPropertyName("reason")]
 	public BanReason Reason { get; set; }
 }

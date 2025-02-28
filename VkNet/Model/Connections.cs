@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -16,30 +16,30 @@ public class Connections
 	/// <summary>
 	/// Логин в Skype.
 	/// </summary>
-	[JsonProperty("skype")]
+	[JsonPropertyName("skype")]
 	public string Skype { get; set; }
 
 	/// <summary>
 	/// Идентификатор акаунта в Facebook.
 	/// </summary>
-	[JsonProperty("facebook")]
+	[JsonPropertyName("facebook")]
 	public string Facebook { get; set; }
 
 	/// <summary>
 	/// Имя и фамилия в facebook.
 	/// </summary>
-	[JsonProperty("facebook_name")]
+	[JsonPropertyName("facebook_name")]
 	public string FacebookName { get; set; }
 
 	/// <summary>
 	/// Акаунт в twitter.
 	/// </summary>
-	[JsonProperty("twitter")]
+	[JsonPropertyName("twitter")]
 	public string Twitter { get; set; }
 
 	/// <summary>
 	/// Акаунт в Instagram.
 	/// </summary>
-	[JsonProperty("instagram")]
+	[JsonPropertyName("instagram")]
 	public string Instagram { get; set; }
 }

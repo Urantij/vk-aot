@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums.SafetyEnums;
 using VkNet.Enums.StringEnums;
 using VkNet.Utils.JsonConverter;

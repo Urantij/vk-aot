@@ -8,8 +8,6 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using VkNet.Exception;
 using VkNet.Model;
 using VkNet.Utils.BotsLongPoll;
@@ -63,7 +61,7 @@ public class UsersLongPollUpdatesHandler : IUsersLongPollUpdatesHandler
 				VkErrors.ThrowIfUlongIsNull(() => _currentTs);
 			}
 
-			var response = await _params.Api.Messages.GetLongPollHistoryAsync<LongPollHistoryResponse<JObject>>(new()
+			var response = await _params.Api.Messages.GetLongPollHistoryAsync<LongPollHistoryJsonResponse>(new()
 			{
 				Pts = _currentPts,
 				Ts = _currentTs!.Value,
@@ -99,7 +97,7 @@ public class UsersLongPollUpdatesHandler : IUsersLongPollUpdatesHandler
 
 				return;
 
-			case JsonReaderException or JsonSerializationException:
+			case System.Text.Json.JsonException:
 				_params.OnException?.Invoke(exception);
 				IncPts();
 

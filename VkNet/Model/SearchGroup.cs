@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 using VkNet.Enums.StringEnums;
 
@@ -14,58 +14,58 @@ public class SearchGroup
 	/// <summary>
 	/// идентификатор сообщества
 	/// </summary>
-	[JsonProperty(propertyName: "id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// название сообщества
 	/// </summary>
-	[JsonProperty(propertyName: "name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// короткий адрес
 	/// </summary>
-	[JsonProperty(propertyName: "screen_name")]
+	[JsonPropertyName("screen_name")]
 	public string ScreenName { get; set; }
 
 	/// <summary>
 	/// информация о том, является ли группа/встреча закрытой (0 — открытая, 1 —
 	/// закрытая, 2 — частная)
 	/// </summary>
-	[JsonProperty(propertyName: "is_closed")]
+	[JsonPropertyName("is_closed")]
 	public GroupAccess IsClosed { get; set; }
 
 	/// <summary>
 	/// информация о том, является ли текущий пользователь администратором сообщества
 	/// (1 — является, 0 — не является);
 	/// </summary>
-	[JsonProperty(propertyName: "is_admin")]
+	[JsonPropertyName("is_admin")]
 	public bool? IsAdmin { get; set; }
 
 	/// <summary>
 	/// информация о том, является ли текущий пользователь участником сообщества (1 —
 	/// является, 0 — не является)
 	/// </summary>
-	[JsonProperty(propertyName: "is_member")]
+	[JsonPropertyName("is_member")]
 	public bool? IsMember { get; set; }
 
 	/// <summary>
 	/// тип сообщества
 	/// </summary>
-	[JsonProperty(propertyName: "type")]
+	[JsonPropertyName("type")]
 	public GroupType? Type { get; set; }
 
 	/// <summary>
 	/// URL квадратной фотографии сообщества с размером 50х50px
 	/// </summary>
-	[JsonProperty(propertyName: "photo")]
+	[JsonPropertyName("photo")]
 	public string Photo { get; set; }
 
 	/// <summary>
 	/// URL квадратной фотографии сообщества с размером 50х50px
 	/// </summary>
-	[JsonProperty(propertyName: "photo_50")]
+	[JsonPropertyName("photo_50")]
 	private string Photo50
 	{
 		get => Photo;
@@ -75,13 +75,13 @@ public class SearchGroup
 	/// <summary>
 	/// URL квадратной фотографии сообщества с размером 100х100px
 	/// </summary>
-	[JsonProperty(propertyName: "photo_medium")]
+	[JsonPropertyName("photo_medium")]
 	public string PhotoMedium { get; set; }
 
 	/// <summary>
 	/// URL квадратной фотографии сообщества с размером 100х100px
 	/// </summary>
-	[JsonProperty(propertyName: "photo_100")]
+	[JsonPropertyName("photo_100")]
 	private string Photo100
 	{
 		get => PhotoMedium;
@@ -91,13 +91,13 @@ public class SearchGroup
 	/// <summary>
 	/// URL фотографии сообщества в максимальном доступном размере.
 	/// </summary>
-	[JsonProperty(propertyName: "photo_big")]
+	[JsonPropertyName("photo_big")]
 	public string PhotoBig { get; set; }
 
 	/// <summary>
 	/// URL фотографии сообщества в максимальном доступном размере.
 	/// </summary>
-	[JsonProperty(propertyName: "photo_200")]
+	[JsonPropertyName("photo_200")]
 	public string Photo200
 	{
 		get => PhotoBig;

@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -13,12 +13,12 @@ public class OnlineStatus
 	/// <summary>
 	/// Статус
 	/// </summary>
-	[JsonProperty("status")]
+	[JsonPropertyName("status")]
 	public OnlineStatusType? Status { get; set; }
 
 	/// <summary>
 	/// Оценка времени ответа в минутах
 	/// </summary>
-	[JsonProperty("minutes")]
+	[JsonPropertyName("minutes")]
 	public uint? Minutes { get; set; }
 }

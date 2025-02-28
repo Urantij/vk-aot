@@ -1,7 +1,7 @@
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -14,52 +14,52 @@ public class SubscriptionItem
 	/// <summary>
 	/// Идентификатор подписки
 	/// </summary>
-	[JsonProperty(propertyName: "id")]
+	[JsonPropertyName("id")]
 	public ulong Id { get; set; }
 
 	/// <summary>
 	/// Идентификатор товара в приложении
 	/// </summary>
-	[JsonProperty(propertyName: "item_id")]
+	[JsonPropertyName("item_id")]
 	public string ItemId { get; set; }
 
 	/// <summary>
 	///  Статус подписки. Возможные значения:
 	///  active — подписка активна.
 	/// </summary>
-	[JsonProperty(propertyName: "status")]
+	[JsonPropertyName("status")]
 	public SubscriptionStatus Status { get; set; }
 
 	/// <summary>
 	/// Стоимость подписки
 	/// </summary>
-	[JsonProperty(propertyName: "price")]
+	[JsonPropertyName("price")]
 	public long Price { get; set; }
 
 	/// <summary>
 	/// Период подписки
 	/// </summary>
-	[JsonProperty(propertyName: "period")]
+	[JsonPropertyName("period")]
 	public int Period { get; set; }
 
 	/// <summary>
 	/// Дата создания в Unixtime
 	/// </summary>
-	[JsonProperty(propertyName: "create_time")]
+	[JsonPropertyName("create_time")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? CreateTime { get; set; }
 
 	/// <summary>
 	/// Дата обновления в Unixtime
 	/// </summary>
-	[JsonProperty(propertyName: "update_time")]
+	[JsonPropertyName("update_time")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? UpdateTime { get; set; }
 
 	/// <summary>
 	/// Дата начала периода в Unixtime
 	/// </summary>
-	[JsonProperty(propertyName: "period_start_time")]
+	[JsonPropertyName("period_start_time")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? PeriodStartTime { get; set; }
 
@@ -68,7 +68,7 @@ public class SubscriptionItem
 	/// <summary>
 	/// Дата следующего платежа в Unixtime (если status = active)
 	/// </summary>
-	[JsonProperty(propertyName: "next_bill_time")]
+	[JsonPropertyName("next_bill_time")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? NextBillTime
 	{
@@ -97,14 +97,14 @@ public class SubscriptionItem
 	/// <summary>
 	/// Дата истечения триал-периода (если есть)
 	/// </summary>
-	[JsonProperty(propertyName: "trial_expire_time")]
+	[JsonPropertyName("trial_expire_time")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? TrialExpireTime { get; set; }
 
 	/// <summary>
 	/// true, если подписка ожидает отмены.
 	/// </summary>
-	[JsonProperty(propertyName: "pending_cancel")]
+	[JsonPropertyName("pending_cancel")]
 	public bool PendingCancel { get; set; }
 
 	/// <summary>
@@ -114,12 +114,12 @@ public class SubscriptionItem
 	/// payment_fail — из-за проблемы с платежом;
 	/// unknown — причина неизвестна.
 	/// </summary>
-	[JsonProperty(propertyName: "cancel_reason")]
+	[JsonPropertyName("cancel_reason")]
 	public CancelSubscriptionReason CancelReason { get; set; }
 
 	/// <summary>
 	/// true, если используется тестовый режим.
 	/// </summary>
-	[JsonProperty(propertyName: "test_mode")]
+	[JsonPropertyName("test_mode")]
 	public bool TestMode { get; set; }
 }

@@ -1,6 +1,6 @@
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -16,25 +16,25 @@ public class MarketAlbum : MediaAttachment
 	/// <summary>
 	/// Название подборки
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Обложка подборки, объект, описывающий фотографию.
 	/// </summary>
-	[JsonProperty("photo")]
+	[JsonPropertyName("photo")]
 	public Photo Photo { get; set; }
 
 	/// <summary>
 	/// Число товаров в подборке.
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public int Count { get; set; }
 
 	/// <summary>
 	/// Дата обновления подборки в формате Unixtime.
 	/// </summary>
-	[JsonProperty("updated_time")]
+	[JsonPropertyName("updated_time")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? UpdatedTime { get; set; }
 }

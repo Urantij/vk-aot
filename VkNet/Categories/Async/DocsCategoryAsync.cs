@@ -40,13 +40,13 @@ public partial class DocsCategory
 		TypeHelper.TryInvokeMethodAsync(() =>
 			GetWallUploadServer(groupId), token);
 
-	/// <inheritdoc />
-	public Task<ReadOnlyCollection<Attachment>> SaveAsync(string file,
-														string title = null,
-														string tags = null,
-														CancellationToken token = default) =>
-		TypeHelper.TryInvokeMethodAsync(() =>
-			Save(file, title, tags), token);
+	// /// <inheritdoc />
+	// public Task<ReadOnlyCollection<Attachment>> SaveAsync(string file,
+	// 													string title = null,
+	// 													string tags = null,
+	// 													CancellationToken token = default) =>
+	// 	TypeHelper.TryInvokeMethodAsync(() =>
+	// 		Save(file, title, tags), token);
 
 
 	/// <inheritdoc />

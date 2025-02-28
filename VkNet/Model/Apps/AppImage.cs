@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.SafetyEnums;
 using VkNet.Utils.JsonConverter;
 
@@ -15,19 +15,19 @@ public class AppImage
 	/// <summary>
 	/// Идентификатор изображения
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public string Id { get; set; }
 
 	/// <summary>
 	/// Тип изображения.
 	/// </summary>
 	[JsonConverter(typeof(SafetyEnumJsonConverter))]
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public AppWidgetImageType Type { get; set; }
 
 	/// <summary>
 	/// Массив копий изображения
 	/// </summary>
-	[JsonProperty("images")]
+	[JsonPropertyName("images")]
 	public IEnumerable<Image> Images { get; set; }
 }

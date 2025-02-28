@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class SaveLookALikeRequestResultResult
 	/// <summary>
 	/// Идентификатор группы ретаргетинга, в которую будет сохранена запрошенная похожая аудитория.
 	/// </summary>
-	[JsonProperty("retargeting_group_id")]
+	[JsonPropertyName("retargeting_group_id")]
 	public long RetargetingGroupId { get; set; }
 
 	/// <summary>
 	/// Размер запрошенной похожей аудитории.
 	/// </summary>
-	[JsonProperty("audience_count")]
+	[JsonPropertyName("audience_count")]
 	public long AudienceCount { get; set; }
 }

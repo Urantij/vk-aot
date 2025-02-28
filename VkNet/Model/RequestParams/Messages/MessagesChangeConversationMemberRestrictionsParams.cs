@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -14,24 +14,25 @@ public class MessagesChangeConversationMemberRestrictionsParams
 	/// <summary>
 	/// Идентификатор назначения.
 	/// </summary>
-	[JsonProperty("peer_id")]
+	[JsonPropertyName("peer_id")]
 	public long PeerId { get; set; }
 
 	/// <summary>
 	/// Идентификаторы пользователей.
 	/// </summary>
-	[JsonProperty("member_ids")]
+	[JsonPropertyName("member_ids")]
 	public IEnumerable<long> MemberIds { get; set; }
 
 	/// <summary>
 	/// Время в секундах. Если нужно замутить навсегда, то указывать не нужно.
 	/// </summary>
-	[JsonProperty("for", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("for")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public long? For { get; set; }
 
 	/// <summary>
 	/// Разрешенные действия.
 	/// </summary>
-	[JsonProperty("action")]
+	[JsonPropertyName("action")]
 	public ConversationMemberRestrictionsActionType Action { get; set; }
 }

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,18 +13,18 @@ public class MutualFriend
 	/// <summary>
 	/// Идентификатор
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public ulong Id { get; set; }
 
 	/// <summary>
 	/// Идентификаторы общих друзей
 	/// </summary>
-	[JsonProperty("common_friends")]
+	[JsonPropertyName("common_friends")]
 	public ReadOnlyCollection<ulong> CommonFriends { get; set; }
 
 	/// <summary>
 	/// Количество общих друзей
 	/// </summary>
-	[JsonProperty("common_count")]
+	[JsonPropertyName("common_count")]
 	public ulong CommonCount { get; set; }
 }

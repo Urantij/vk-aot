@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 
 namespace VkNet.Model;
@@ -14,25 +14,25 @@ public class AccountSaveProfileInfoParams
 	/// <summary>
 	/// Имя пользователя. строка.
 	/// </summary>
-	[JsonProperty("first_name")]
+	[JsonPropertyName("first_name")]
 	public string FirstName { get; set; }
 
 	/// <summary>
 	/// Фамилия пользователя. строка.
 	/// </summary>
-	[JsonProperty("last_name")]
+	[JsonPropertyName("last_name")]
 	public string LastName { get; set; }
 
 	/// <summary>
 	/// Девичья фамилия пользователя (только для женского пола). строка.
 	/// </summary>
-	[JsonProperty("maiden_name")]
+	[JsonPropertyName("maiden_name")]
 	public string MaidenName { get; set; }
 
 	/// <summary>
 	/// Короткое имя страницы. строка.
 	/// </summary>
-	[JsonProperty("screen_name")]
+	[JsonPropertyName("screen_name")]
 	public string ScreenName { get; set; }
 
 	/// <summary>
@@ -41,7 +41,7 @@ public class AccountSaveProfileInfoParams
 	/// 2 — мужской.
 	/// положительное число.
 	/// </summary>
-	[JsonProperty("sex")]
+	[JsonPropertyName("sex")]
 	public Sex? Sex { get; set; }
 
 	/// <summary>
@@ -56,20 +56,20 @@ public class AccountSaveProfileInfoParams
 	/// 0 — не указано.
 	/// положительное число.
 	/// </summary>
-	[JsonProperty("relation")]
+	[JsonPropertyName("relation")]
 	public RelationType? Relation { get; set; }
 
 	/// <summary>
 	/// Идентификатор пользователя, с которым связано семейное положение. положительное
 	/// число.
 	/// </summary>
-	[JsonProperty("relation_partner")]
+	[JsonPropertyName("relation_partner")]
 	public User RelationPartner { get; set; }
 
 	/// <summary>
 	/// Дата рождения пользователя в формате DD.MM.YYYY, например "15.11.1984". строка.
 	/// </summary>
-	[JsonProperty("bdate")]
+	[JsonPropertyName("bdate")]
 	public string BirthDate { get; set; }
 
 	/// <summary>
@@ -79,32 +79,32 @@ public class AccountSaveProfileInfoParams
 	/// 0 — не показывать дату рождения.
 	/// положительное число.
 	/// </summary>
-	[JsonProperty("bdate_visibility")]
+	[JsonPropertyName("bdate_visibility")]
 	public BirthdayVisibility? BirthdayVisibility { get; set; }
 
 	/// <summary>
 	/// Родной город пользователя. строка.
 	/// </summary>
-	[JsonProperty("home_town")]
+	[JsonPropertyName("home_town")]
 	public string HomeTown { get; set; }
 
 	/// <summary>
 	/// Идентификатор страны пользователя. положительное число.
 	/// </summary>
-	[JsonProperty("country")]
+	[JsonPropertyName("country")]
 	public Country Country { get; set; }
 
 	/// <summary>
 	/// Идентификатор города пользователя. положительное число.
 	/// </summary>
-	[JsonProperty("city")]
+	[JsonPropertyName("city")]
 	public City City { get; set; }
 
 	/// <summary>
 	/// Статус пользователя, который также может быть изменен методом status.set
 	/// строка.
 	/// </summary>
-	[JsonProperty("status")]
+	[JsonPropertyName("status")]
 	public string Status { get; set; }
 
 	/// <summary>
@@ -113,31 +113,31 @@ public class AccountSaveProfileInfoParams
 	/// <remarks>
 	/// Обнаружено опытным путем.
 	/// </remarks>
-	[JsonProperty("phone")]
+	[JsonPropertyName("phone")]
 	public string Phone { get; set; }
 
 	/// <summary>
 	/// Передается 1, если пользователь, указанный в RelationPartner, не подтвердил отношения.
 	/// </summary>
-	[JsonProperty("relation_pending")]
+	[JsonPropertyName("relation_pending")]
 	public int RelationPending { get; set; }
 
 	/// <summary>
 	/// Список объектов пользователей, которые указали, что состоят в отношениях с данным пользователем (если есть).
 	/// </summary>
-	[JsonProperty("relation_requests")]
+	[JsonPropertyName("relation_requests")]
 	public List<User> RelationRequests { get; set; }
 
 	/// <summary>
 	/// Информация о заявке на смену имени, если она была подана
 	/// </summary>
-	[JsonProperty("name_request")]
+	[JsonPropertyName("name_request")]
 	public NameRequest NameRequest { get; set; }
 
 	/// <summary>
 	/// Идентификатор заявки на смену имени, которую необходимо отменить.
 	/// Если передан этот параметр, все остальные параметры игнорируются.
 	/// </summary>
-	[JsonProperty("cancel_request_id")]
+	[JsonPropertyName("cancel_request_id")]
 	public ulong CancelRequestId { get; set; }
 }

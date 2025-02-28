@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class Email
 	/// <summary>
 	/// Идентификатор e-mail
 	/// </summary>
-	[JsonProperty(propertyName: "id")]
+	[JsonPropertyName("id")]
 	public int Id { get; set; }
 
 	/// <summary>
 	/// Адрес e-mail
 	/// </summary>
-	[JsonProperty(propertyName: "address")]
+	[JsonPropertyName("address")]
 	public string Address { get; set; }
 }

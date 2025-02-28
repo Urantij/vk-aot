@@ -1,6 +1,6 @@
 ﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -19,38 +19,38 @@ public class Note : MediaAttachment
 	/// <summary>
 	/// Заголовок заметки.
 	/// </summary>
-	[JsonProperty("title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Текст заметки.
 	/// </summary>
-	[JsonProperty("text")]
+	[JsonPropertyName("text")]
 	public string Text { get; set; }
 
 	/// <summary>
 	/// Дата создания заметки.
 	/// </summary>
-	[JsonProperty("date")]
+	[JsonPropertyName("date")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime? Date { get; set; }
 
 	/// <summary>
 	/// Количество комментариев к заметке.
 	/// </summary>
-	[JsonProperty("comments")]
+	[JsonPropertyName("comments")]
 	public int? CommentsCount { get; set; }
 
 	/// <summary>
 	/// Количество прочитанных комментариев (только при запросе информации о заметке
 	/// текущего пользователя).
 	/// </summary>
-	[JsonProperty("read_comments")]
+	[JsonPropertyName("read_comments")]
 	public int? ReadCommentsCount { get; set; }
 
 	/// <summary>
 	/// Адрес страницы для отображения заметки.
 	/// </summary>
-	[JsonProperty("view_url")]
+	[JsonPropertyName("view_url")]
 	public Uri ViewUrl { get; set; }
 }

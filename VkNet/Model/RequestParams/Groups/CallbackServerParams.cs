@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Infrastructure;
 
 namespace VkNet.Model;
@@ -13,24 +13,24 @@ public class CallbackServerParams
 	/// <summary>
 	/// идентификатор сообщества.
 	/// </summary>
-	[JsonProperty(propertyName: "group_id")]
+	[JsonPropertyName("group_id")]
 	public ulong? GroupId { get; set; }
 
 	/// <summary>
 	/// идентификатор сервера.
 	/// </summary>
-	[JsonProperty(propertyName: "server_id")]
+	[JsonPropertyName("server_id")]
 	public long? ServerId { get; set; }
 
 	/// <summary>
 	/// Версия Callback API.
 	/// </summary>
-	[JsonProperty(propertyName: "api_version")]
+	[JsonPropertyName("api_version")]
 	public VkApiVersionManager ApiVersion { get; set; }
 
 	/// <summary>
 	/// Настройки уведомлений
 	/// </summary>
-	[JsonProperty(propertyName: "callback_settings")]
+	[JsonPropertyName("callback_settings")]
 	public CallbackSettings CallbackSettings { get; set; }
 }

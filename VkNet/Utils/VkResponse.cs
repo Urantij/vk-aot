@@ -1,8 +1,10 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Net;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using JetBrains.Annotations;
-using Newtonsoft.Json.Linq;
 using VkNet.Enums;
 
 namespace VkNet.Utils;
@@ -16,13 +18,13 @@ public sealed class VkResponse
 	/// <summary>
 	/// JSON токен
 	/// </summary>
-	private readonly JToken _token;
+	private readonly JsonNode _token;
 
 	/// <summary>
 	/// Ответ vk.com
 	/// </summary>
 	/// <param name="token"> JSON токен. </param>
-	public VkResponse(JToken token) => _token = token;
+	public VkResponse(JsonNode token) => _token = token;
 
 	/// <summary>
 	/// Сырой JSON.
@@ -37,14 +39,14 @@ public sealed class VkResponse
 	public VkResponse this[object key]
 	{
 		get {
-			if (_token is JArray && key is string)
+			if (_token is JsonArray && key is string)
 			{
 				return null;
 			}
 
-			var token = _token[key: key];
+			var token = _token[key.ToString()];
 
-			return token is not null && token.Type is not JTokenType.Null
+			return token is not null && token.GetValueKind() is not JsonValueKind.Null
 				? new VkResponse(token)
 				: null;
 		}
@@ -56,10 +58,13 @@ public sealed class VkResponse
 	/// <returns>
 	/// Признак наличия токена
 	/// </returns>
-	public bool HasToken() => _token is
+	public bool HasToken()
 	{
-		HasValues: true
-	};
+		if (_token.GetValueKind() != JsonValueKind.Object)
+			return false;
+
+		return _token.AsObject().Count != 0;
+	}
 
 	/// <summary>
 	/// Определяет, содержит ли JSON указанный ключ.
@@ -68,12 +73,12 @@ public sealed class VkResponse
 	/// <returns> Признак наличия ключа в JSON </returns>
 	public bool ContainsKey(string key)
 	{
-		if (_token is not JObject)
+		if (_token is not JsonObject)
 		{
 			return false;
 		}
 
-		var token = _token[key: key];
+		var token = _token[key];
 
 		return token is not null;
 	}
@@ -96,7 +101,7 @@ public sealed class VkResponse
 			? response[key: "items"]
 			: response;
 
-		return resp._token is not JArray array
+		return resp._token is not JsonArray array
 			? null
 			: new VkResponseArray(array: array);
 	}

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,12 +13,12 @@ public class GetCategoriesResult
 	/// <summary>
 	/// Массив объектов описывающих устаревшие тематики
 	/// </summary>
-	[JsonProperty("v1")]
+	[JsonPropertyName("v1")]
 	public ReadOnlyCollection<AdsCategories> V1 { get; set; }
 
 	/// <summary>
 	/// Массив объектов описывающих актуальные тематики
 	/// </summary>
-	[JsonProperty("v2")]
+	[JsonPropertyName("v2")]
 	public ReadOnlyCollection<AdsCategories> V2 { get; set; }
 }

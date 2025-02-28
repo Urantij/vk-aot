@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 using VkNet.Enums.StringEnums;
 
@@ -17,30 +17,30 @@ public class AdsAccount
 	/// <summary>
 	/// Идентификатор рекламного кабинета.
 	/// </summary>
-	[JsonProperty(propertyName: "account_id")]
+	[JsonPropertyName("account_id")]
 	public ulong AccountId { get; set; }
 
 	/// <summary>
 	/// Тип рекламного кабинета.
 	/// </summary>
-	[JsonProperty(propertyName: "account_type")]
+	[JsonPropertyName("account_type")]
 	public AccountType? AccountType { get; set; }
 
 	/// <summary>
 	/// Cтатус рекламного кабинета.
 	/// </summary>
-	[JsonProperty(propertyName: "account_status")]
+	[JsonPropertyName("account_status")]
 	public AccountStatus AccountStatus { get; set; }
 
 	/// <summary>
 	/// Название аккаунта
 	/// </summary>
-	[JsonProperty(propertyName: "account_name")]
+	[JsonPropertyName("account_name")]
 	public string AccountName { get; set; }
 
 	/// <summary>
 	/// Права пользователя в рекламном кабинете.
 	/// </summary>
-	[JsonProperty(propertyName: "access_role")]
+	[JsonPropertyName("access_role")]
 	public AccessRole? AccessRole { get; set; }
 }

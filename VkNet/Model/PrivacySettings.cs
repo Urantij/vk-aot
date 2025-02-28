@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class PrivacySettings
 	/// <summary>
 	/// Настройки
 	/// </summary>
-	[JsonProperty("settings")]
+	[JsonPropertyName("settings")]
 	public PrivacySettingSetting[] Settings { get; set; }
 
 	/// <summary>
 	/// Секции
 	/// </summary>
-	[JsonProperty("sections")]
+	[JsonPropertyName("sections")]
 	public PrivacySettingsSection[] Sections { get; set; }
 
 	/// <summary>
 	/// Поддерживаемые категории
 	/// </summary>
-	[JsonProperty("supported_categories")]
+	[JsonPropertyName("supported_categories")]
 	public SupportedCategories[] SupportedCategories { get; set; }
 }

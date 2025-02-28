@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,13 +13,13 @@ public class PrettyCardsGetByIdParams
 	/// <summary>
 	/// Идентификатор владельца карточки.
 	/// </summary>
-	[JsonProperty("owner_id")]
+	[JsonPropertyName("owner_id")]
 	public long? OwnerId { get; set; }
 
 	/// <summary>
 	/// Список идентификаторов карточек, которые необходимо вернуть.
 	/// Строка с числами, разделёнными запятой.
 	/// </summary>
-	[JsonProperty("card_ids")]
+	[JsonPropertyName("card_ids")]
 	public IEnumerable<string> CardIds { get; set; }
 }

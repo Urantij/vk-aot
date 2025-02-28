@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -13,42 +13,42 @@ public class GetBackgroundsResult
 	/// <summary>
 	/// Тип фона.
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public PollBackgroundType? Type { get; set; }
 
 	/// <summary>
 	/// Угол градиента по оси X.
 	/// </summary>
-	[JsonProperty("angle")]
+	[JsonPropertyName("angle")]
 	public string Angle { get; set; }
 
 	/// <summary>
 	/// HEX-код замещающего цвета (без #).
 	/// </summary>
-	[JsonProperty("color")]
+	[JsonPropertyName("color")]
 	public string Color { get; set; }
 
 	/// <summary>
 	/// Ширина плитки паттерна.
 	/// </summary>
-	[JsonProperty("width")]
+	[JsonPropertyName("width")]
 	public long Width { get; set; }
 
 	/// <summary>
 	/// Высота плитки паттерна.
 	/// </summary>
-	[JsonProperty("height")]
+	[JsonPropertyName("height")]
 	public long Height { get; set; }
 
 	/// <summary>
 	/// Точки градиента.
 	/// </summary>
-	[JsonProperty("points")]
+	[JsonPropertyName("points")]
 	public PollBackgroundPoint[] Points { get; set; }
 
 	/// <summary>
 	/// Идентификатор фона.
 	/// </summary>
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 }

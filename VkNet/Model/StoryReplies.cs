@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class StoryReplies
 	/// <summary>
 	/// Число ответов
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public int Count { get; set; }
 
 	/// <summary>
 	/// Число новых ответов.
 	/// </summary>
-	[JsonProperty("new")]
+	[JsonPropertyName("new")]
 	public int? New { get; set; }
 }

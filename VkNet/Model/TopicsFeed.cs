@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,24 +13,24 @@ public class TopicsFeed
 	/// <summary>
 	/// Количество.
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public int Count { get; set; }
 
 	/// <summary>
 	/// Массив комментариев.
 	/// </summary>
-	[JsonProperty("items")] //TODO:
+	[JsonPropertyName("items")] //TODO:
 	public ReadOnlyCollection<CommentBoard> Items { get; set; }
 
 	/// <summary>
 	/// Информация о пользователях, которые находятся в списке комментариев.
 	/// </summary>
-	[JsonProperty("profiles")]
+	[JsonPropertyName("profiles")]
 	public ReadOnlyCollection<User> Profiles { get; set; }
 
 	/// <summary>
 	/// Информация о группах, которые находятся в списке комментариев.
 	/// </summary>
-	[JsonProperty("groups")]
+	[JsonPropertyName("groups")]
 	public ReadOnlyCollection<Group> Groups { get; set; }
 }

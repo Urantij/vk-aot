@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,24 +13,24 @@ public class ImportTargetContactsParams
 	/// <summary>
 	/// Идентификатор рекламного кабинета. обязательный параметр, целое число
 	/// </summary>
-	[JsonProperty("account_id")]
+	[JsonPropertyName("account_id")]
 	public long AccountId { get; set; }
 
 	/// <summary>
 	/// Идентификатор рекламного кабинета. обязательный параметр, целое число
 	/// </summary>
-	[JsonProperty("target_group_id")]
+	[JsonPropertyName("target_group_id")]
 	public long TargetGroupId { get; set; }
 
 	/// <summary>
 	/// Идентификатор рекламного кабинета. обязательный параметр, целое число
 	/// </summary>
-	[JsonProperty("contacts")]
+	[JsonPropertyName("contacts")]
 	public List<string> Contacts { get; set; }
 
 	/// <summary>
 	/// Массив объектов UserSpecification
 	/// </summary>
-	[JsonProperty("client_id")]
+	[JsonPropertyName("client_id")]
 	public long? ClientId { get; set; }
 }

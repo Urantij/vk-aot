@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -15,24 +15,26 @@ public class TimetableItem
 	/// <summary>
 	/// Время начала работы
 	/// </summary>
-	[JsonProperty("open_time")]
+	[JsonPropertyName("open_time")]
 	public uint OpenTime { get; set; }
 
 	/// <summary>
 	/// Время окончания работы
 	/// </summary>
-	[JsonProperty("close_time")]
+	[JsonPropertyName("close_time")]
 	public uint CloseTime { get; set; }
 
 	/// <summary>
 	/// Время начала перерыва
 	/// </summary>
-	[JsonProperty("break_open_time", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("break_open_time")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public uint? BreakOpenTime { get; set; }
 
 	/// <summary>
 	/// Время окончания перерыва
 	/// </summary>
-	[JsonProperty("break_close_time", NullValueHandling = NullValueHandling.Ignore)]
+	[JsonPropertyName("break_close_time")]
+	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 	public uint? BreakCloseTime { get; set; }
 }

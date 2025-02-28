@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Utils;
 using VkNet.Utils.JsonConverter;
 
@@ -25,7 +25,7 @@ public class GroupUpdate
 	/// <summary>
 	/// ID группы
 	/// </summary>
-	[JsonProperty("group_id")]
+	[JsonPropertyName("group_id")]
 	public GroupId GroupId { get; set; }
 
 	/// <summary>

@@ -1,6 +1,5 @@
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 
 namespace VkNet.Model;
@@ -14,13 +13,13 @@ public class GroupJoin : IGroupUpdate
 	/// <summary>
 	/// Идентификатор пользователя
 	/// </summary>
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	public long? UserId { get; set; }
 
 	/// <summary>
 	/// Указывает, как именно был добавлен участник.
 	/// </summary>
-	[JsonProperty("join_type")]
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonPropertyName("join_type")]
+	[JsonConverter(typeof(JsonStringEnumConverter<GroupJoinType>))]
 	public GroupJoinType? JoinType { get; set; }
 }

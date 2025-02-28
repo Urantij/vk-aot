@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,6 +12,6 @@ public class GetPaidStatusResult
 	/// <summary>
 	/// Оплачено пользователем
 	/// </summary>
-	[JsonProperty("is_paid")]
+	[JsonPropertyName("is_paid")]
 	public bool IsPaid { get; set; }
 }

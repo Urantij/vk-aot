@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,18 +12,18 @@ public class ChatPushSettings
 	/// <summary>
 	/// Идентификатор собеседника.
 	/// </summary>
-	[JsonProperty("peer_id")]
+	[JsonPropertyName("peer_id")]
 	public long? PeerId { get; set; }
 
 	/// <summary>
 	/// Состояние звукового оповещения
 	/// </summary>
-	[JsonProperty("sound")]
+	[JsonPropertyName("sound")]
 	public bool? Sound { get; set; }
 
 	/// <summary>
 	/// Неизвестный параметр
 	/// </summary>
-	[JsonProperty("disabled_until")]
+	[JsonPropertyName("disabled_until")]
 	public int? DisabledUntil { get; set; }
 }

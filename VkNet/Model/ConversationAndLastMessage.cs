@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class ConversationAndLastMessage
 	/// <summary>
 	/// Объект беседы
 	/// </summary>
-	[JsonProperty("conversation")]
+	[JsonPropertyName("conversation")]
 	public Conversation Conversation { get; set; }
 
 	/// <summary>
 	/// Объект, описывающий последнее сообщение в беседе.
 	/// </summary>
-	[JsonProperty("last_message")]
+	[JsonPropertyName("last_message")]
 	public Message LastMessage { get; set; }
 }

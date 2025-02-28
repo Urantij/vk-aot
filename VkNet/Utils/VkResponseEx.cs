@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 
 namespace VkNet.Utils;
 
@@ -233,11 +233,11 @@ public static class VkResponseEx
 
 		try
 		{
-			var obj = JToken.Parse(input);
+			var obj = JsonNode.Parse(input);
 
 			return true;
 		}
-		catch (JsonReaderException jex)
+		catch (JsonException jex)
 		{
 			//Exception in parsing json
 			Console.WriteLine(jex.Message);

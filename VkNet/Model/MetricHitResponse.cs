@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class MetricHitResponse
 	/// <summary>
 	/// Redirect link
 	/// </summary>
-	[JsonProperty(propertyName: "redirect_link")]
+	[JsonPropertyName("redirect_link")]
 	public string RedirectLink { get; set; }
 
 	/// <summary>
 	/// Information whether request has been processed successfully
 	/// </summary>
-	[JsonProperty(propertyName: "result")]
+	[JsonPropertyName("result")]
 	public bool? Result { get; set; }
 }

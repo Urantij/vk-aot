@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -15,76 +15,76 @@ public class Tag
 	/// <summary>
 	/// ������������� �������.
 	/// </summary>
-	[JsonProperty("tag_id")]
+	[JsonPropertyName("tag_id")]
 	public long? Id { get; set; }
 
 	/// <summary>
 	/// �������� �������.
 	/// </summary>
-	[JsonProperty("tagged_name")]
+	[JsonPropertyName("tagged_name")]
 	public string TaggedName { get; set; }
 
 	/// <summary>
 	/// ������������� ������������, �������� ������������� �������.
 	/// </summary>
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	public long? UserId { get; set; }
 
 	/// <summary>
 	/// ������������� ������������, ���������� �������.
 	/// </summary>
-	[JsonProperty("placer_id")]
+	[JsonPropertyName("placer_id")]
 	public long? PlacerId { get; set; }
 
 	/// <summary>
 	/// ���� ���������� �������.
 	/// </summary>
-	[JsonProperty("date")]
+	[JsonPropertyName("date")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? Date { get; set; }
 
 	/// <summary>
 	/// ������ �������: true - ��������������, false - �� ��������������.
 	/// </summary>
-	[JsonProperty("viewed")]
+	[JsonPropertyName("viewed")]
 	public bool? IsViewed { get; set; }
 
 	/// <summary>
 	/// ���������� ������������� �������, �� ������� ������� ������� (������� �����
 	/// ���� � ������ ������ ����) � ���������.
 	/// </summary>
-	[JsonProperty("x")]
+	[JsonPropertyName("x")]
 	public decimal? X { get; set; }
 
 	/// <summary>
 	/// ���������� ������������� �������, �� ������� ������� ������� (������� �����
 	/// ���� � ������ ������ ����) � ���������.
 	/// </summary>
-	[JsonProperty("y")]
+	[JsonPropertyName("y")]
 	public decimal? Y { get; set; }
 
 	/// <summary>
 	/// ���������� ������������� �������, �� ������� ������� ������� (������� �����
 	/// ���� � ������ ������ ����) � ���������.
 	/// </summary>
-	[JsonProperty("x2")]
+	[JsonPropertyName("x2")]
 	public decimal? X2 { get; set; }
 
 	/// <summary>
 	/// ���������� ������������� �������, �� ������� ������� ������� (������� �����
 	/// ���� � ������ ������ ����) � ���������.
 	/// </summary>
-	[JsonProperty("v2")]
+	[JsonPropertyName("v2")]
 	public decimal? Y2 { get; set; }
 
-	[JsonProperty("uid")]
+	[JsonPropertyName("uid")]
 	private long? Uid
 	{
 		get => Id;
 		set => Id = value;
 	}
 
-	[JsonProperty("tag_created")]
+	[JsonPropertyName("tag_created")]
 	private DateTime? TagCreated
 	{
 		get => Date;

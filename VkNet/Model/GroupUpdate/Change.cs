@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
@@ -19,12 +19,12 @@ public class Change
 	/// <summary>
 	/// Новое значение
 	/// </summary>
-	[JsonProperty("new_value")]
+	[JsonPropertyName("new_value")]
 	public string NewValue { get; set; }
 
 	/// <summary>
 	/// Старое значение
 	/// </summary>
-	[JsonProperty("old_value")]
+	[JsonPropertyName("old_value")]
 	public string OldValue { get; set; }
 }

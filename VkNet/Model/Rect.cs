@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,24 +12,24 @@ public class Rect
 	/// <summary>
 	/// x
 	/// </summary>
-	[JsonProperty("x")]
+	[JsonPropertyName("x")]
 	public uint X { get; set; }
 
 	/// <summary>
 	/// x2
 	/// </summary>
-	[JsonProperty("x2")]
+	[JsonPropertyName("x2")]
 	public uint X2 { get; set; }
 
 	/// <summary>
 	/// y
 	/// </summary>
-	[JsonProperty("y")]
+	[JsonPropertyName("y")]
 	public uint Y { get; set; }
 
 	/// <summary>
 	/// y2
 	/// </summary>
-	[JsonProperty("y2")]
+	[JsonPropertyName("y2")]
 	public uint Y2 { get; set; }
 }

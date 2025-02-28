@@ -1,8 +1,8 @@
 ﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using VkNet.Enums;
 using VkNet.Enums.StringEnums;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -18,65 +18,65 @@ public class AdsCampaign
 	/// <summary>
 	/// Идентификатор рекламного кабинета.
 	/// </summary>
-	[JsonProperty(propertyName: "id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Тип кампании
 	/// </summary>
-	[JsonProperty(propertyName: "type")]
+	[JsonPropertyName("type")]
 	public CampaignType? Type { get; set; }
 
 	/// <summary>
 	/// Название кампании
 	/// </summary>
-	[JsonProperty(propertyName: "name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// Статус кампании
 	/// </summary>
-	[JsonProperty(propertyName: "status")]
-	[JsonConverter(converterType: typeof(StringEnumConverter))]
-	public CampaignStatus Status { get; set; }
+	[JsonPropertyName("status")]
+	[JsonConverter(converterType: typeof(JsonStringEnumConverter<CampaignStatus>))]
+    public CampaignStatus Status { get; set; }
 
 	/// <summary>
 	/// Дневной лимит кампании в рублях
 	/// </summary>
-	[JsonProperty(propertyName: "day_limit")]
+	[JsonPropertyName("day_limit")]
 	public int DayLimit { get; set; }
 
 	/// <summary>
 	/// Общий лимит кампании в рублях
 	/// </summary>
-	[JsonProperty(propertyName: "all_limit")]
+	[JsonPropertyName("all_limit")]
 	public int AllLimit { get; set; }
 
 	/// <summary>
 	/// Время запуска кампании в формате unixtime
 	/// </summary>
-	[JsonProperty(propertyName: "start_time")]
+	[JsonPropertyName("start_time")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? StartTime { get; set; }
 
 	/// <summary>
 	/// Время запуска кампании в формате unixtime
 	/// </summary>
-	[JsonProperty(propertyName: "stop_time")]
+	[JsonPropertyName("stop_time")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? StopTime { get; set; }
 
 	/// <summary>
 	/// Время создания кампании в формате unixtime
 	/// </summary>
-	[JsonProperty(propertyName: "create_time")]
+	[JsonPropertyName("create_time")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? CreateTime { get; set; }
 
 	/// <summary>
 	/// Время последнего изменения кампании в формате unixtime
 	/// </summary>
-	[JsonProperty(propertyName: "update_time")]
+	[JsonPropertyName("update_time")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? UpdateTime { get; set; }
 }

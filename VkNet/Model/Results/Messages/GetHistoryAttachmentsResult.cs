@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -13,18 +13,18 @@ public class GetHistoryAttachmentsResult
 	/// <summary>
 	/// Идентификатор следующей пачки результатов
 	/// </summary>
-	[JsonProperty("next_from")]
+	[JsonPropertyName("next_from")]
 	public string NextFrom { get; set; }
 
 	/// <summary>
 	/// Беседы
 	/// </summary>
-	[JsonProperty("items")]
+	[JsonPropertyName("items")]
 	public ReadOnlyCollection<HistoryAttachment> Items { get; set; }
 
 	/// <summary>
 	/// Массив объектов пользователей.
 	/// </summary>
-	[JsonProperty("profiles")]
+	[JsonPropertyName("profiles")]
 	public ReadOnlyCollection<User> Profiles { get; set; }
 }

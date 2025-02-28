@@ -2,15 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
+using JetBrains.Annotations;
 
 namespace VkNet.Utils.JsonConverter;
 
 /// <summary>
 /// Vk Collection Json Converter
 /// </summary>
-public class VkCollectionJsonConverter : Newtonsoft.Json.JsonConverter
+public class VkCollectionJsonConverter<T> : System.Text.Json.Serialization.JsonConverter<VkCollection<T>>
 {
 	private const string ResponsePropertyKey = "response";
 
@@ -38,85 +39,54 @@ public class VkCollectionJsonConverter : Newtonsoft.Json.JsonConverter
 	private string CollectionField { get; }
 
 	/// <inheritdoc />
-	public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+	public override void Write(Utf8JsonWriter writer, VkCollection<T> value, JsonSerializerOptions options)
 	{
-		var vkCollectionType = value.GetType();
+		List<T> items = value.ToList();
+		string serializedItems = JsonSerializer.Serialize(items, options);
 
-		var vkCollectionGenericArgument = vkCollectionType.GetGenericArguments()[0];
-		var toListMethod = typeof(Enumerable).GetMethod("ToList");
+		writer.WriteStartObject();
 
-		if (toListMethod is null)
-		{
-			return;
-		}
+		writer.WritePropertyName("TotalCount");
+		writer.WriteNumberValue(value.TotalCount);
 
-		var constructedToListGenericMethod = toListMethod.MakeGenericMethod(vkCollectionGenericArgument);
+		writer.WritePropertyName("Items");
 
-		var castToListObject = constructedToListGenericMethod.Invoke(null, new[]
-		{
-			value
-		});
+		writer.WriteRawValue(serializedItems);
 
-		var vkCollectionSurrogate = new
-		{
-			TotalCount = vkCollectionType.GetProperty("TotalCount")
-				?.GetValue(value, null),
-			Items = castToListObject
-		};
-
-		serializer.Serialize(writer, vkCollectionSurrogate);
+		writer.WriteEndObject();
 	}
 
 	/// <inheritdoc />
-	public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+	// public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+	[ItemCanBeNull]
+	[CanBeNull]
+	public override VkCollection<T> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 	{
-		if (!objectType.IsGenericType)
+		JsonObject? rootObj = JsonNode.Parse(ref reader, new JsonNodeOptions()
 		{
-			throw new TypeAccessException();
-		}
+			PropertyNameCaseInsensitive = options.PropertyNameCaseInsensitive
+		})?.AsObject();
 
-		if (reader.TokenType is JsonToken.Null)
-		{
+		if (rootObj == null)
 			return null;
-		}
 
-		var keyType = objectType.GetGenericArguments()[0];
+		JsonObject? responseObj = rootObj[ResponsePropertyKey]?.AsObject() ?? rootObj;
 
-		var constructedListType = typeof(List<>).MakeGenericType(keyType);
+		ulong totalCount = rootObj[CountPropertyKey]
+			.GetValue<ulong>();
 
-		var list = (IList) Activator.CreateInstance(constructedListType);
+		var list = responseObj[CollectionField]
+			.AsObject()
+			.Select(item => JsonSerializer.Deserialize<T>(item.Value, options))
+			.ToList();
 
-		var vkCollection = typeof(VkCollection<>).MakeGenericType(keyType);
-
-		var obj = JObject.Load(reader);
-		var response = obj[ResponsePropertyKey] ?? obj;
-
-		var totalCount = response[CountPropertyKey]
-			.Value<ulong>();
-
-		var converter =
-			serializer.Converters.FirstOrDefault(x => x.GetType() == typeof(VkCollectionJsonConverter)) as
-				VkCollectionJsonConverter;
-
-		var collectionField = CollectionField;
-
-		if (converter is not null)
-		{
-			collectionField = converter.CollectionField;
-		}
-
-		foreach (var item in response[collectionField])
-		{
-			list.Add(item.ToObject(keyType));
-		}
-
-		return Activator.CreateInstance(vkCollection, totalCount, list);
+		return new VkCollection<T>(totalCount, list);
 	}
 
-	/// <summary>
-	/// Может преобразовать
-	/// </summary>
-	/// <param name="objectType"> Тип объекта </param>
-	/// <returns> <c> true </c> если можно преобразовать </returns>
-	public override bool CanConvert(Type objectType) => typeof(VkCollection<>).IsAssignableFrom(objectType);
+	// /// <summary>
+	// /// Может преобразовать
+	// /// </summary>
+	// /// <param name="objectType"> Тип объекта </param>
+	// /// <returns> <c> true </c> если можно преобразовать </returns>
+	// public override bool CanConvert(Type objectType) => typeof(VkCollection<>).IsAssignableFrom(objectType);
 }

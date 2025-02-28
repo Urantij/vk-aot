@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using VkNet.Enums.StringEnums;
 
 namespace VkNet.Model;
@@ -13,36 +13,36 @@ public class CallbackServerItem
 	/// <summary>
 	/// Идентификатор сервера
 	/// </summary>
-	[JsonProperty(propertyName: "id")]
+	[JsonPropertyName("id")]
 	public long Id { get; set; }
 
 	/// <summary>
 	/// Название сервера
 	/// </summary>
-	[JsonProperty(propertyName: "title")]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>
 	/// Идентификатор пользователя, который добавил сервер (может содержать 0)
 	/// </summary>
-	[JsonProperty(propertyName: "creator_id")]
+	[JsonPropertyName("creator_id")]
 	public long CreatorId { get; set; }
 
 	/// <summary>
 	/// URL сервера
 	/// </summary>
-	[JsonProperty(propertyName: "url")]
+	[JsonPropertyName("url")]
 	public string Url { get; set; }
 
 	/// <summary>
 	/// Секретный ключ
 	/// </summary>
-	[JsonProperty(propertyName: "secret_key")]
+	[JsonPropertyName("secret_key")]
 	public string SecretKey { get; set; }
 
 	/// <summary>
 	/// Статус сервера
 	/// </summary>
-	[JsonProperty(propertyName: "status")]
+	[JsonPropertyName("status")]
 	public CallbackServerStatus? Status { get; set; }
 }

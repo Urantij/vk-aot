@@ -1,6 +1,6 @@
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -13,50 +13,50 @@ public class Entry
 	/// <summary>
 	/// Время действия в формате unixtime;
 	/// </summary>
-	[JsonProperty(propertyName: "date")]
+	[JsonPropertyName("date")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? Date { get; set; }
 
 	/// <summary>
 	/// 0 - начало действия, 1 - завершение действия, 2 - блокирование пользователя;
 	/// </summary>
-	[JsonProperty(propertyName: "status")]
+	[JsonPropertyName("status")]
 	public int? Status { get; set; }
 
 	/// <summary>
 	/// Идентификатор пользователя;
 	/// </summary>
-	[JsonProperty(propertyName: "uid")]
+	[JsonPropertyName("uid")]
 	public int? Uid { get; set; }
 
 	/// <summary>
 	/// Текст комментария.
 	/// </summary>
-	[JsonProperty(propertyName: "comment")]
+	[JsonPropertyName("comment")]
 	public string Comment { get; set; }
 
 	/// <summary>
 	/// Идентификатор приложения, из которого было выполнено действие;
 	/// </summary>
-	[JsonProperty(propertyName: "aid")]
+	[JsonPropertyName("aid")]
 	public int? Aid { get; set; }
 
 	/// <summary>
 	/// 0 - рабочий режим, 1 - тестовый режим;
 	/// </summary>
-	[JsonProperty(propertyName: "test_mode")]
+	[JsonPropertyName("test_mode")]
 	public int? TestMode { get; set; }
 
 	/// <summary>
 	/// Время начала действия в формате unixtime для status = 1;
 	/// </summary>
-	[JsonProperty(propertyName: "start_date")]
+	[JsonPropertyName("start_date")]
 	[JsonConverter(converterType: typeof(UnixDateTimeConverter))]
 	public DateTime? StartDate { get; set; }
 
 	/// <summary>
 	/// Идентификатор сессии;
 	/// </summary>
-	[JsonProperty(propertyName: "sid")]
+	[JsonPropertyName("sid")]
 	public string Sid { get; set; }
 }

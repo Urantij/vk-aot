@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace VkNet.Model;
 
@@ -12,12 +12,12 @@ public class TokenPermission
 	/// <summary>
 	/// Битовая маска права доступа
 	/// </summary>
-	[JsonProperty("setting")]
+	[JsonPropertyName("setting")]
 	public long Setting { get; set; }
 
 	/// <summary>
 	/// Название права доступа.
 	/// </summary>
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 }

@@ -1,6 +1,6 @@
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using VkNet.Utils.JsonConverter;
 
 namespace VkNet.Model;
 
@@ -13,26 +13,26 @@ public class CheckTokenResult
 	/// <summary>
 	/// Признак успешности проверки
 	/// </summary>
-	[JsonProperty("success")]
+	[JsonPropertyName("success")]
 	public bool Success { get; set; }
 
 	/// <summary>
 	/// Идентификатор пользователя.
 	/// </summary>
-	[JsonProperty("user_id")]
+	[JsonPropertyName("user_id")]
 	public ulong UserId { get; set; }
 
 	/// <summary>
 	/// Дата.
 	/// </summary>
-	[JsonProperty("date")]
+	[JsonPropertyName("date")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime Date { get; set; }
 
 	/// <summary>
 	/// Дата истечения токена.
 	/// </summary>
-	[JsonProperty("expire")]
+	[JsonPropertyName("expire")]
 	[JsonConverter(typeof(UnixDateTimeConverter))]
 	public DateTime Expire { get; set; }
 }
